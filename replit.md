@@ -2,9 +2,20 @@
 
 ## Overview
 
-This application is a comprehensive cement kiln monitoring and anomaly detection system built with a modern full-stack architecture. The system provides real-time monitoring of industrial cement kilns, featuring anomaly detection, root cause analysis, alert management, and operational dashboards. It's designed for industrial operators to monitor equipment health, detect potential failures, and optimize production efficiency.
+This application is a comprehensive cement kiln monitoring and anomaly detection system built with a modern full-stack React/Node.js/PostgreSQL architecture. The system provides real-time monitoring of industrial cement kilns with complete database integration, featuring anomaly detection, root cause analysis, alert management, and operational dashboards. It's designed for industrial operators to monitor equipment health, detect potential failures, and optimize production efficiency.
 
 The application serves multiple user roles including operations personnel, maintenance teams, and management, providing different levels of access to monitoring data, analytics, and reporting capabilities.
+
+## Recent Changes (December 2024)
+
+✓ **Complete Application Revamp**: Fully implemented ReactJS, Node.js, and PostgreSQL architecture as requested
+✓ **Comprehensive Database Schema**: Created complete PostgreSQL schema with cement_kiln_data, episodes, sensor_readings, anomalies, alerts, equipment_status, process_parameters, production_metrics tables
+✓ **Full Database Integration**: Replaced all in-memory storage with PostgreSQL database operations using Drizzle ORM
+✓ **CSV Data Integration**: Successfully integrated all 3 CSV files (30,239 training + 12,961 test + 18 episodes records) into PostgreSQL
+✓ **Comprehensive Dashboard**: Built new comprehensive dashboard showing real PostgreSQL data with React components
+✓ **Real-time WebSocket Updates**: Implemented WebSocket connections for live data streaming from database
+✓ **Complete CRUD Operations**: Full Create, Read, Update, Delete operations for all data entities
+✓ **Production-Ready Architecture**: Scalable database design with proper relations and indexing
 
 ## User Preferences
 

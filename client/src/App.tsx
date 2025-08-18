@@ -15,13 +15,14 @@ import Notifications from "@/pages/notifications";
 import Security from "@/pages/security";
 import NotFound from "@/pages/not-found";
 import SensorDashboard from "@/pages/sensor-dashboard";
+import ComprehensiveDashboard from "@/pages/comprehensive-dashboard";
 
 function Router() {
   return (
     <Switch>
       <Route path="/">
-        <Layout title="Anomaly Dashboard" description="Real-time cement kiln monitoring and anomaly detection">
-          <AnomalyDashboard />
+        <Layout title="Comprehensive Dashboard" description="Full-stack React/Node.js/PostgreSQL cement kiln monitoring">
+          <ComprehensiveDashboard />
         </Layout>
       </Route>
       <Route path="/root-cause">

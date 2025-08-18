@@ -1,0 +1,19 @@
+episode_id,label,start_time,end_time,duration_min,notes
+burner_trip_20752,burner_trip,2025-08-15 09:52:00,2025-08-15 10:28:00,36,Fuel trip leading to cool-down and production loss
+burner_trip_22656,burner_trip,2025-08-16 17:36:00,2025-08-16 19:02:00,86,Fuel trip leading to cool-down and production loss
+primary_fan_failure_25501,primary_fan_failure,2025-08-18 17:01:00,2025-08-18 17:31:00,30,"Draft loss: pressure spike, O2 drop, CO rise"
+primary_fan_failure_15580,primary_fan_failure,2025-08-11 19:40:00,2025-08-11 20:39:00,59,"Draft loss: pressure spike, O2 drop, CO rise"
+coating_collapse_39489,coating_collapse,2025-08-28 10:09:00,2025-08-28 10:26:00,17,Coating fall in burning zone
+coating_collapse_2242,coating_collapse,2025-08-02 13:22:00,2025-08-02 13:34:00,12,Coating fall in burning zone
+coating_collapse_2785,coating_collapse,2025-08-02 22:25:00,2025-08-02 22:42:00,17,Coating fall in burning zone
+raw_meal_interrupt_13014,raw_meal_interrupt,2025-08-10 00:54:00,2025-08-10 01:14:00,20,Raw meal feeder stopped
+raw_meal_interrupt_319,raw_meal_interrupt,2025-08-01 05:19:00,2025-08-01 06:04:00,45,Raw meal feeder stopped
+raw_meal_interrupt_11143,raw_meal_interrupt,2025-08-08 17:43:00,2025-08-08 18:14:00,31,Raw meal feeder stopped
+sensor_drift_O2_42288,sensor_drift_O2,2025-08-30 08:48:00,2025-08-30 20:14:00,686,O2 sensor gradual drift upward
+sensor_drift_O2_31800,sensor_drift_O2,2025-08-23 02:00:00,2025-08-23 12:04:00,604,O2 sensor gradual drift upward
+sensor_stuck_NOx_19686,sensor_stuck_NOx,2025-08-14 16:06:00,2025-08-14 21:08:00,302,NOx analyzer stuck at constant value
+sensor_stuck_NOx_9337,sensor_stuck_NOx,2025-08-07 11:37:00,2025-08-07 16:02:00,265,NOx analyzer stuck at constant value
+ESP_overheat_2476,ESP_overheat,2025-08-02 17:16:00,2025-08-02 17:36:00,20,ESP inlet temperature high
+ESP_overheat_40884,ESP_overheat,2025-08-29 09:24:00,2025-08-29 09:52:00,28,ESP inlet temperature high
+cyclone_blockage_3514,cyclone_blockage,2025-08-03 10:34:00,2025-08-03 10:58:00,24,Preheater cyclone partial blockage
+cyclone_blockage_29152,cyclone_blockage,2025-08-21 05:52:00,2025-08-21 06:17:00,25,Preheater cyclone partial blockage

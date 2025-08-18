@@ -11,7 +11,8 @@ import {
   FileText, 
   Database, 
   Mail, 
-  Shield 
+  Shield,
+  Activity
 } from "lucide-react";
 
 interface NavigationItem {
@@ -23,6 +24,7 @@ interface NavigationItem {
 
 const navigationItems: NavigationItem[] = [
   { path: "/", label: "Anomaly Dashboard", icon: AlertTriangle, badge: 3 },
+  { path: "/sensors", label: "Sensor Dashboard", icon: Activity },
   { path: "/root-cause", label: "Root Cause Analysis", icon: Search },
   { path: "/alerts", label: "Alerts Center", icon: Bell, badge: 12 },
   { path: "/operations", label: "Operations Dashboard", icon: Gauge },

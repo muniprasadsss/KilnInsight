@@ -22,9 +22,10 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
     normal: "bg-status-normal"
   };
 
-  const getTimeAgo = (date: Date) => {
+  const getTimeAgo = (date: Date | string) => {
     const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
+    const parsedDate = typeof date === 'string' ? new Date(date) : date;
+    const diffMs = now.getTime() - parsedDate.getTime();
     const diffMins = Math.floor(diffMs / (1000 * 60));
     
     if (diffMins < 60) {

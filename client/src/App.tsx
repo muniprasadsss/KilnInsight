@@ -14,6 +14,7 @@ import DataManagement from "@/pages/data-management";
 import Notifications from "@/pages/notifications";
 import Security from "@/pages/security";
 import NotFound from "@/pages/not-found";
+import SensorDashboard from "@/pages/sensor-dashboard";
 
 function Router() {
   return (
@@ -51,6 +52,11 @@ function Router() {
       <Route path="/data-management">
         <Layout title="Data Management" description="Manage data sources and quality monitoring">
           <DataManagement />
+        </Layout>
+      </Route>
+      <Route path="/sensors">
+        <Layout title="Sensor Dashboard" description="Comprehensive real-time sensor monitoring from CSV datasets">
+          <SensorDashboard />
         </Layout>
       </Route>
       <Route path="/notifications">

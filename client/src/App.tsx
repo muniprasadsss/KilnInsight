@@ -72,7 +72,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="light">
+        <div className="dark">
           <Toaster />
           <Router />
         </div>

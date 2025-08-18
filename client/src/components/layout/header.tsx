@@ -13,29 +13,29 @@ export function Header({ title, description, isConnected }: HeaderProps) {
   const currentTime = new Date().toLocaleString();
 
   return (
-    <header className="bg-industrial-card border-b border-gray-300 p-4">
+    <header className="bg-industrial-card border-b border-gray-700 p-4">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
-          <p className="text-gray-600">{description}</p>
+          <p className="text-gray-400">{description}</p>
         </div>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <div 
               className={cn(
                 "w-3 h-3 rounded-full",
-                isConnected ? "bg-status-normal animate-pulse" : "bg-gray-400"
+                isConnected ? "bg-status-normal animate-pulse" : "bg-gray-500"
               )}
             />
             <span className="text-sm">
               {isConnected ? "Live Data" : "Disconnected"}
             </span>
           </div>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-gray-400">
             Last Update: {currentTime}
           </div>
           <Button variant="ghost" size="icon">
-            <User className="h-4 w-4 text-gray-600" />
+            <User className="h-4 w-4 text-gray-400" />
           </Button>
         </div>
       </div>

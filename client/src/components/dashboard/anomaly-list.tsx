@@ -36,7 +36,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
   };
 
   return (
-    <Card className="bg-industrial-card border-gray-700">
+    <Card className="bg-industrial-card border-gray-300">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-semibold">Active Anomalies</CardTitle>
@@ -48,7 +48,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
       <CardContent>
         <div className="space-y-3">
           {anomalies.length === 0 ? (
-            <div className="text-center py-8 text-gray-400">
+            <div className="text-center py-8 text-gray-600">
               No active anomalies detected
             </div>
           ) : (
@@ -56,7 +56,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
               <div 
                 key={anomaly.id}
                 className={cn(
-                  "p-4 bg-gray-800 rounded-lg border-l-4",
+                  "p-4 bg-white rounded-lg border-l-4 border border-gray-200",
                   severityColors[anomaly.severity as keyof typeof severityColors]
                 )}
               >
@@ -70,15 +70,15 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                       word.charAt(0).toUpperCase() + word.slice(1)
                     ).join(' ')}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-600">
                     {getTimeAgo(anomaly.startTime)}
                   </span>
                 </div>
-                <p className="text-sm text-gray-300 mb-2">
+                <p className="text-sm text-gray-700 mb-2">
                   {anomaly.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-600">
                     Episode ID: {anomaly.episodeId}
                   </span>
                   <Button 

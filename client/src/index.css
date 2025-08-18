@@ -40,9 +40,9 @@
   --font-mono: Menlo, monospace;
   --radius: 1.3rem;
   
-  /* Industrial Theme Colors */
-  --industrial-dark: hsl(0, 0%, 10.2%);
-  --industrial-card: hsl(0, 0%, 17.6%);
+  /* Industrial Theme Colors - Light Mode */
+  --industrial-dark: hsl(0, 0%, 98%);
+  --industrial-card: hsl(0, 0%, 95%);
   --industrial-accent: hsl(187.8, 100%, 38.0%);
   --status-normal: hsl(122.4, 39.4%, 49.0%);
   --status-warning: hsl(35.3, 100%, 50.0%);
@@ -95,8 +95,8 @@
 
   body {
     @apply font-sans antialiased;
-    background-color: var(--industrial-dark);
-    color: white;
+    background-color: var(--background);
+    color: var(--foreground);
   }
   
   .industrial-dark {

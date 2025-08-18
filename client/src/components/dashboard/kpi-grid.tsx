@@ -43,21 +43,21 @@ export function KPIGrid({ kpis }: KPIGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {kpis.map((kpi) => (
-        <Card key={kpi.id} className="bg-industrial-card border-gray-700">
+        <Card key={kpi.id} className="bg-industrial-card border-gray-300">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">{kpi.title}</h3>
+              <h3 className="text-sm font-medium text-gray-600">{kpi.title}</h3>
               <div className={cn("w-3 h-3 rounded-full", 
                 kpi.status === "good" ? "bg-status-normal" :
                 kpi.status === "warning" ? "bg-status-warning" : "bg-status-critical"
               )} />
             </div>
             <div className="flex items-baseline space-x-2">
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold text-gray-900">
                 {kpi.value}
               </span>
               {kpi.unit && (
-                <span className="text-lg text-gray-300">{kpi.unit}</span>
+                <span className="text-lg text-gray-700">{kpi.unit}</span>
               )}
             </div>
             <div className="flex items-center justify-between mt-2">
@@ -68,7 +68,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
                 <span>{kpi.changeLabel}</span>
               </div>
               {kpi.target && (
-                <div className="text-xs text-gray-400">
+                <div className="text-xs text-gray-600">
                   Target: {kpi.target}
                 </div>
               )}

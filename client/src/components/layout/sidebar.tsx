@@ -37,7 +37,7 @@ export function Sidebar() {
   const [location] = useLocation();
 
   return (
-    <nav className="w-64 bg-industrial-card border-r border-gray-700 flex-shrink-0">
+    <nav className="w-64 bg-industrial-card border-r border-gray-300 flex-shrink-0">
       <div className="p-4">
         <div className="flex items-center space-x-3 mb-8">
           <Factory className="text-industrial-accent text-2xl" />
@@ -57,7 +57,7 @@ export function Sidebar() {
                       "flex items-center space-x-3 p-3 rounded-lg transition-colors",
                       isActive
                         ? "bg-industrial-accent text-white"
-                        : "text-gray-300 hover:text-white hover:bg-gray-700"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     )}
                   >
                     <Icon className="w-5 h-5" />

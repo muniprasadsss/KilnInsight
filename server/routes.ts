@@ -2,367 +2,273 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { WebSocketServer, WebSocket } from "ws";
 import { storage } from "./storage";
-import { CsvLoader } from "./csv-loader";
-import { 
-  insertSensorReadingSchema, 
-  insertAnomalySchema, 
-  insertAlertSchema,
-  insertEquipmentStatusSchema,
-  insertProcessParameterSchema,
-  insertProductionMetricsSchema
-} from "@shared/schema";
+import { insertSensorReadingSchema, insertAnomalySchema, insertAlertSchema } from "@shared/schema";
 
-const csvLoader = new CsvLoader();
+export async function registerRoutes(app: Express): Promise<Server> {
+  const httpServer = createServer(app);
 
-export function registerRoutes(app: Express): Server {
-  // CSV Data endpoints - Load cement kiln data from files
-  app.get("/api/cement-kiln-data", async (req, res) => {
-    try {
-      const { limit = 1000, offset = 0 } = req.query;
-      const data = await storage.getCementKilnData(Number(limit), Number(offset));
-      res.json(data);
-    } catch (error) {
-      console.error("Error fetching cement kiln data:", error);
-      res.status(500).json({ message: "Failed to fetch cement kiln data" });
-    }
-  });
-
-  app.get("/api/cement-kiln-data/anomalous", async (req, res) => {
-    try {
-      const data = await storage.getAnomalousData();
-      res.json(data);
-    } catch (error) {
-      console.error("Error fetching anomalous data:", error);
-      res.status(500).json({ message: "Failed to fetch anomalous data" });
-    }
-  });
-
-  app.get("/api/episodes", async (req, res) => {
-    try {
-      const episodes = await storage.getEpisodes();
-      res.json(episodes);
-    } catch (error) {
-      console.error("Error fetching episodes:", error);
-      res.status(500).json({ message: "Failed to fetch episodes" });
-    }
-  });
-
-  app.get("/api/episodes/:episodeId", async (req, res) => {
-    try {
-      const { episodeId } = req.params;
-      const episode = await storage.getEpisodeById(episodeId);
-      if (!episode) {
-        return res.status(404).json({ message: "Episode not found" });
+  // WebSocket server for real-time updates
+  const wss = new WebSocketServer({ server: httpServer, path: '/ws' });
+  
+  wss.on('connection', (ws) => {
+    console.log('Client connected to WebSocket');
+    
+    ws.on('message', (message) => {
+      try {
+        const data = JSON.parse(message.toString());
+        console.log('Received WebSocket message:', data);
+      } catch (error) {
+        console.error('Invalid WebSocket message:', error);
       }
-      res.json(episode);
-    } catch (error) {
-      console.error("Error fetching episode:", error);
-      res.status(500).json({ message: "Failed to fetch episode" });
-    }
+    });
+
+    ws.on('close', () => {
+      console.log('Client disconnected from WebSocket');
+    });
   });
 
-  // CSV Data loading endpoint
-  app.post("/api/load-csv-data", async (req, res) => {
-    try {
-      // Load data from CSV files and populate database
-      const trainData = csvLoader.getTrainData();
-      const testData = csvLoader.getTestData();
-      const episodeData = csvLoader.getEpisodes();
-      
-      // Transform and insert cement kiln data
-      const cementData = [...trainData, ...testData].map(record => ({
-        timestamp: record.timestamp,
-        preheater_outlet_temp: record.preheater_outlet_temp,
-        kiln_inlet_temp: record.kiln_inlet_temp,
-        kiln_shell_temp: record.kiln_shell_temp,
-        cooler_inlet_temp: record.cooler_inlet_temp,
-        clinker_temp: record.clinker_temp,
-        raw_meal_flow: record.raw_meal_flow,
-        fuel_flow: record.fuel_flow,
-        primary_air_flow: record.primary_air_flow,
-        secondary_air_flow: record.secondary_air_flow,
-        production_rate: record.production_rate,
-        kiln_speed: record.kiln_speed,
-        fan_speed: record.fan_speed,
-        main_drive_power: record.main_drive_power,
-        main_drive_torque: record.main_drive_torque,
-        preheater_pressure: record.preheater_pressure,
-        kiln_pressure: record.kiln_pressure,
-        nox_emissions: record.nox_emissions,
-        o2_percentage: record.o2_percentage,
-        co_emissions: record.co_emissions,
-        so2_emissions: record.so2_emissions,
-        specific_energy_consumption: record.specific_energy_consumption,
-        fuel_type: record.fuel_type,
-        is_anomaly: record.is_anomaly,
-        event: record.event,
-        episode_id: record.episode_id,
-        data_source: trainData.includes(record) ? "train" : "test"
-      }));
-
-      // Insert data in batches
-      const batchSize = 1000;
-      const batches = [];
-      for (let i = 0; i < cementData.length; i += batchSize) {
-        batches.push(cementData.slice(i, i + batchSize));
+  // Broadcast function for real-time updates
+  const broadcast = (data: any) => {
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(data));
       }
-
-      let insertedRecords = 0;
-      for (const batch of batches) {
-        const result = await storage.insertCementKilnData(batch);
-        insertedRecords += result.length;
-      }
-
-      // Insert episodes
-      const episodes = episodeData.map(episode => ({
-        episodeId: episode.episode_id,
-        startTime: episode.start_time,
-        endTime: episode.end_time,
-        durationMin: episode.duration_min,
-        failureMode: episode.failure_mode,
-        severity: episode.severity || "normal",
-        description: episode.description || `Episode ${episode.episode_id}: Duration ${episode.duration_min} minutes`
-      }));
-
-      const insertedEpisodes = await storage.insertEpisodes(episodes);
-
-      res.json({
-        message: "CSV data loaded successfully",
-        cementKilnRecords: insertedRecords,
-        episodes: insertedEpisodes.length
-      });
-    } catch (error) {
-      console.error("Error loading CSV data:", error);
-      res.status(500).json({ message: "Failed to load CSV data" });
-    }
-  });
+    });
+  };
 
   // Sensor readings endpoints
-  app.get("/api/sensor-readings", async (req, res) => {
+  app.get('/api/sensor-readings', async (req, res) => {
     try {
-      const readings = await storage.getSensorReadings();
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : undefined;
+      const readings = await storage.getSensorReadings(limit);
       res.json(readings);
     } catch (error) {
-      console.error("Error fetching sensor readings:", error);
-      res.status(500).json({ message: "Failed to fetch sensor readings" });
+      res.status(500).json({ message: 'Failed to fetch sensor readings' });
     }
   });
 
-  app.get("/api/sensor-readings/latest", async (req, res) => {
+  app.get('/api/sensor-readings/latest', async (req, res) => {
     try {
       const readings = await storage.getLatestSensorReadings();
       res.json(readings);
     } catch (error) {
-      console.error("Error fetching latest sensor readings:", error);
-      res.status(500).json({ message: "Failed to fetch latest sensor readings" });
+      res.status(500).json({ message: 'Failed to fetch latest sensor readings' });
     }
   });
 
-  app.post("/api/sensor-readings", async (req, res) => {
+  app.post('/api/sensor-readings', async (req, res) => {
     try {
-      const validatedData = insertSensorReadingSchema.parse(req.body);
-      const reading = await storage.insertSensorReading(validatedData);
+      const validation = insertSensorReadingSchema.safeParse(req.body);
+      if (!validation.success) {
+        return res.status(400).json({ message: 'Invalid sensor reading data', errors: validation.error.errors });
+      }
+      
+      const reading = await storage.createSensorReading(validation.data);
+      
+      // Broadcast new reading to connected clients
+      broadcast({ type: 'sensor_reading', data: reading });
+      
       res.status(201).json(reading);
     } catch (error) {
-      console.error("Error creating sensor reading:", error);
-      res.status(400).json({ message: "Invalid sensor reading data" });
+      res.status(500).json({ message: 'Failed to create sensor reading' });
     }
   });
 
   // Anomalies endpoints
-  app.get("/api/anomalies", async (req, res) => {
+  app.get('/api/anomalies', async (req, res) => {
     try {
-      const anomalies = await storage.getAnomalies();
+      const status = req.query.status as string;
+      const anomalies = await storage.getAnomalies(status);
       res.json(anomalies);
     } catch (error) {
-      console.error("Error fetching anomalies:", error);
-      res.status(500).json({ message: "Failed to fetch anomalies" });
+      res.status(500).json({ message: 'Failed to fetch anomalies' });
     }
   });
 
-  app.get("/api/anomalies/active", async (req, res) => {
+  app.get('/api/anomalies/active', async (req, res) => {
     try {
       const anomalies = await storage.getActiveAnomalies();
       res.json(anomalies);
     } catch (error) {
-      console.error("Error fetching active anomalies:", error);
-      res.status(500).json({ message: "Failed to fetch active anomalies" });
+      res.status(500).json({ message: 'Failed to fetch active anomalies' });
     }
   });
 
-  app.post("/api/anomalies", async (req, res) => {
+  app.get('/api/anomalies/:id', async (req, res) => {
     try {
-      const validatedData = insertAnomalySchema.parse(req.body);
-      const anomaly = await storage.insertAnomaly(validatedData);
-      res.status(201).json(anomaly);
-    } catch (error) {
-      console.error("Error creating anomaly:", error);
-      res.status(400).json({ message: "Invalid anomaly data" });
-    }
-  });
-
-  app.patch("/api/anomalies/:id/resolve", async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { rootCause } = req.body;
-      const anomaly = await storage.resolveAnomaly(id, rootCause);
+      const anomaly = await storage.getAnomalyById(req.params.id);
+      if (!anomaly) {
+        return res.status(404).json({ message: 'Anomaly not found' });
+      }
       res.json(anomaly);
     } catch (error) {
-      console.error("Error resolving anomaly:", error);
-      res.status(500).json({ message: "Failed to resolve anomaly" });
+      res.status(500).json({ message: 'Failed to fetch anomaly' });
+    }
+  });
+
+  app.post('/api/anomalies', async (req, res) => {
+    try {
+      const validation = insertAnomalySchema.safeParse(req.body);
+      if (!validation.success) {
+        return res.status(400).json({ message: 'Invalid anomaly data', errors: validation.error.errors });
+      }
+      
+      const anomaly = await storage.createAnomaly(validation.data);
+      
+      // Broadcast new anomaly to connected clients
+      broadcast({ type: 'anomaly', data: anomaly });
+      
+      res.status(201).json(anomaly);
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to create anomaly' });
+    }
+  });
+
+  app.patch('/api/anomalies/:id', async (req, res) => {
+    try {
+      const anomaly = await storage.updateAnomaly(req.params.id, req.body);
+      if (!anomaly) {
+        return res.status(404).json({ message: 'Anomaly not found' });
+      }
+      
+      // Broadcast anomaly update to connected clients
+      broadcast({ type: 'anomaly_update', data: anomaly });
+      
+      res.json(anomaly);
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to update anomaly' });
     }
   });
 
   // Alerts endpoints
-  app.get("/api/alerts", async (req, res) => {
+  app.get('/api/alerts', async (req, res) => {
     try {
-      const alerts = await storage.getAlerts();
+      const acknowledged = req.query.acknowledged === 'true' ? true : 
+                         req.query.acknowledged === 'false' ? false : undefined;
+      const alerts = await storage.getAlerts(acknowledged);
       res.json(alerts);
     } catch (error) {
-      console.error("Error fetching alerts:", error);
-      res.status(500).json({ message: "Failed to fetch alerts" });
+      res.status(500).json({ message: 'Failed to fetch alerts' });
     }
   });
 
-  app.get("/api/alerts/active", async (req, res) => {
+  app.post('/api/alerts', async (req, res) => {
     try {
-      const alerts = await storage.getActiveAlerts();
-      res.json(alerts);
-    } catch (error) {
-      console.error("Error fetching active alerts:", error);
-      res.status(500).json({ message: "Failed to fetch active alerts" });
-    }
-  });
-
-  app.post("/api/alerts", async (req, res) => {
-    try {
-      const validatedData = insertAlertSchema.parse(req.body);
-      const alert = await storage.insertAlert(validatedData);
+      const validation = insertAlertSchema.safeParse(req.body);
+      if (!validation.success) {
+        return res.status(400).json({ message: 'Invalid alert data', errors: validation.error.errors });
+      }
+      
+      const alert = await storage.createAlert(validation.data);
+      
+      // Broadcast new alert to connected clients
+      broadcast({ type: 'alert', data: alert });
+      
       res.status(201).json(alert);
     } catch (error) {
-      console.error("Error creating alert:", error);
-      res.status(400).json({ message: "Invalid alert data" });
+      res.status(500).json({ message: 'Failed to create alert' });
     }
   });
 
-  app.patch("/api/alerts/:id/acknowledge", async (req, res) => {
+  app.patch('/api/alerts/:id/acknowledge', async (req, res) => {
     try {
-      const { id } = req.params;
       const { acknowledgedBy } = req.body;
-      const alert = await storage.acknowledgeAlert(id, acknowledgedBy);
+      if (!acknowledgedBy) {
+        return res.status(400).json({ message: 'acknowledgedBy is required' });
+      }
+      
+      const alert = await storage.acknowledgeAlert(req.params.id, acknowledgedBy);
+      if (!alert) {
+        return res.status(404).json({ message: 'Alert not found' });
+      }
+      
+      // Broadcast alert acknowledgment to connected clients
+      broadcast({ type: 'alert_acknowledged', data: alert });
+      
       res.json(alert);
     } catch (error) {
-      console.error("Error acknowledging alert:", error);
-      res.status(500).json({ message: "Failed to acknowledge alert" });
-    }
-  });
-
-  // Equipment status endpoints
-  app.get("/api/equipment-status", async (req, res) => {
-    try {
-      const equipment = await storage.getEquipmentStatus();
-      res.json(equipment);
-    } catch (error) {
-      console.error("Error fetching equipment status:", error);
-      res.status(500).json({ message: "Failed to fetch equipment status" });
-    }
-  });
-
-  app.post("/api/equipment-status", async (req, res) => {
-    try {
-      const validatedData = insertEquipmentStatusSchema.parse(req.body);
-      const equipment = await storage.insertEquipmentStatus(validatedData);
-      res.status(201).json(equipment);
-    } catch (error) {
-      console.error("Error creating equipment status:", error);
-      res.status(400).json({ message: "Invalid equipment status data" });
+      res.status(500).json({ message: 'Failed to acknowledge alert' });
     }
   });
 
   // Process parameters endpoints
-  app.get("/api/process-parameters", async (req, res) => {
+  app.get('/api/process-parameters', async (req, res) => {
     try {
       const parameters = await storage.getProcessParameters();
       res.json(parameters);
     } catch (error) {
-      console.error("Error fetching process parameters:", error);
-      res.status(500).json({ message: "Failed to fetch process parameters" });
+      res.status(500).json({ message: 'Failed to fetch process parameters' });
     }
   });
 
-  app.post("/api/process-parameters", async (req, res) => {
+  // Failure modes endpoints
+  app.get('/api/failure-modes', async (req, res) => {
     try {
-      const validatedData = insertProcessParameterSchema.parse(req.body);
-      const parameter = await storage.insertProcessParameter(validatedData);
-      res.status(201).json(parameter);
+      const failureModes = await storage.getFailureModes();
+      res.json(failureModes);
     } catch (error) {
-      console.error("Error creating process parameter:", error);
-      res.status(400).json({ message: "Invalid process parameter data" });
+      res.status(500).json({ message: 'Failed to fetch failure modes' });
     }
   });
 
-  // Production metrics endpoints
-  app.get("/api/production-metrics", async (req, res) => {
+  // Equipment status endpoints
+  app.get('/api/equipment-status', async (req, res) => {
     try {
-      const { limit = 100 } = req.query;
-      const metrics = await storage.getProductionMetrics(Number(limit));
-      res.json(metrics);
+      const equipment = await storage.getEquipmentStatus();
+      res.json(equipment);
     } catch (error) {
-      console.error("Error fetching production metrics:", error);
-      res.status(500).json({ message: "Failed to fetch production metrics" });
+      res.status(500).json({ message: 'Failed to fetch equipment status' });
     }
   });
 
-  app.post("/api/production-metrics", async (req, res) => {
+  // Production data endpoints
+  app.get('/api/production-data', async (req, res) => {
     try {
-      const validatedData = insertProductionMetricsSchema.parse(req.body);
-      const metrics = await storage.insertProductionMetrics(validatedData);
-      res.status(201).json(metrics);
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : undefined;
+      const data = await storage.getProductionData(limit);
+      res.json(data);
     } catch (error) {
-      console.error("Error creating production metrics:", error);
-      res.status(400).json({ message: "Invalid production metrics data" });
+      res.status(500).json({ message: 'Failed to fetch production data' });
     }
   });
 
-  const httpServer = createServer(app);
-  
-  // WebSocket server for real-time updates
-  const wss = new WebSocketServer({ server: httpServer, path: '/ws' });
-
-  wss.on('connection', (ws: WebSocket) => {
-    console.log('Client connected to WebSocket');
-    
-    // Send initial data
-    ws.send(JSON.stringify({
-      type: 'connection',
-      message: 'Connected to Cement Kiln Monitor WebSocket'
-    }));
-
-    // Simulate real-time sensor updates
-    const interval = setInterval(async () => {
-      if (ws.readyState === WebSocket.OPEN) {
-        try {
-          const latestReadings = await storage.getLatestSensorReadings();
-          ws.send(JSON.stringify({
-            type: 'sensor_update',
-            data: latestReadings.slice(0, 5) // Send latest 5 readings
-          }));
-        } catch (error) {
-          console.error('Error sending sensor updates:', error);
-        }
+  // Simulate real-time data generation
+  setInterval(async () => {
+    try {
+      // Generate new sensor readings
+      const sensorIds = ["temp_preheater_1", "speed_kiln_1", "o2_percent_1", "nox_ppm_1", "fuel_flow_1", "feed_rate_1"];
+      const locations = ["preheater", "rotary_kiln", "rotary_kiln", "rotary_kiln", "rotary_kiln", "preheater"];
+      const units = ["°C", "rpm", "%", "ppm", "kg/h", "tph"];
+      const names = ["Preheater Temperature", "Kiln Speed", "O2 Percentage", "NOx Level", "Fuel Flow", "Feed Rate"];
+      
+      for (let i = 0; i < sensorIds.length; i++) {
+        const baseValues: Record<string, number> = {
+          "temp_preheater_1": 544.2,
+          "speed_kiln_1": 2.01,
+          "o2_percent_1": 3.98,
+          "nox_ppm_1": 332,
+          "fuel_flow_1": 6956,
+          "feed_rate_1": 117.8,
+        };
+        
+        const base = baseValues[sensorIds[i]] || 100;
+        const value = Number((base * (0.95 + Math.random() * 0.1)).toFixed(2));
+        
+        const reading = await storage.createSensorReading({
+          sensorId: sensorIds[i],
+          sensorName: names[i],
+          value,
+          unit: units[i],
+          location: locations[i],
+          quality: "good"
+        });
+        
+        broadcast({ type: 'sensor_reading', data: reading });
       }
-    }, 5000); // Update every 5 seconds
-
-    ws.on('close', () => {
-      console.log('Client disconnected from WebSocket');
-      clearInterval(interval);
-    });
-
-    ws.on('error', (error) => {
-      console.error('WebSocket error:', error);
-      clearInterval(interval);
-    });
-  });
+    } catch (error) {
+      console.error('Error generating simulated data:', error);
+    }
+  }, 5000); // Generate new data every 5 seconds
 
   return httpServer;
 }

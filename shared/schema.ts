@@ -1,210 +1,118 @@
-import { sql } from 'drizzle-orm';
-import { relations } from 'drizzle-orm';
-import {
-  index,
-  jsonb,
-  pgTable,
-  timestamp,
-  varchar,
-  integer,
-  text,
-  decimal,
-  boolean,
-  uuid,
-  serial,
-  real,
-} from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import { pgTable, text, varchar, integer, real, timestamp, boolean, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// Session storage table for authentication
-export const sessions = pgTable(
-  "sessions",
-  {
-    sid: varchar("sid").primaryKey(),
-    sess: jsonb("sess").notNull(),
-    expire: timestamp("expire").notNull(),
-  },
-  (table) => [index("IDX_session_expire").on(table.expire)],
-);
-
-// Cement kiln data table - stores all CSV data
-export const cementKilnData = pgTable("cement_kiln_data", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  timestamp: timestamp("timestamp").notNull(),
-  // Temperature sensors
-  preheater_outlet_temp: real("preheater_outlet_temp"),
-  kiln_inlet_temp: real("kiln_inlet_temp"), 
-  kiln_shell_temp: real("kiln_shell_temp"),
-  cooler_inlet_temp: real("cooler_inlet_temp"),
-  clinker_temp: real("clinker_temp"),
-  // Flow rates
-  raw_meal_flow: real("raw_meal_flow"),
-  fuel_flow: real("fuel_flow"),
-  primary_air_flow: real("primary_air_flow"),
-  secondary_air_flow: real("secondary_air_flow"),
-  production_rate: real("production_rate"),
-  // Speeds and power
-  kiln_speed: real("kiln_speed"),
-  fan_speed: real("fan_speed"),
-  main_drive_power: real("main_drive_power"),
-  main_drive_torque: real("main_drive_torque"),
-  // Pressures
-  preheater_pressure: real("preheater_pressure"),
-  kiln_pressure: real("kiln_pressure"),
-  // Emissions
-  nox_emissions: real("nox_emissions"),
-  o2_percentage: real("o2_percentage"),
-  co_emissions: real("co_emissions"),
-  so2_emissions: real("so2_emissions"),
-  // Energy and efficiency
-  specific_energy_consumption: real("specific_energy_consumption"),
-  // Fuel and process data
-  fuel_type: varchar("fuel_type", { length: 50 }),
-  // Anomaly detection
-  is_anomaly: integer("is_anomaly"),
-  event: varchar("event", { length: 200 }),
-  episode_id: varchar("episode_id", { length: 50 }),
-  // Metadata
-  data_source: varchar("data_source", { length: 20 }).notNull().default("train"), // train, test, episode
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-});
-
-// Episodes table for failure mode analysis
-export const episodes = pgTable("episodes", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  episodeId: varchar("episode_id", { length: 50 }).notNull().unique(),
-  startTime: timestamp("start_time").notNull(),
-  endTime: timestamp("end_time").notNull(),
-  durationMin: integer("duration_min").notNull(),
-  failureMode: varchar("failure_mode", { length: 200 }),
-  severity: varchar("severity", { length: 20 }),
-  description: text("description"),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-});
-
-// Sensor readings table for real-time monitoring
+// Sensor readings table
 export const sensorReadings = pgTable("sensor_readings", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  sensorId: varchar("sensor_id", { length: 100 }).notNull(),
-  sensorName: varchar("sensor_name", { length: 200 }).notNull(),
-  value: decimal("value", { precision: 10, scale: 2 }).notNull(),
-  unit: varchar("unit", { length: 50 }).notNull(),
-  location: varchar("location", { length: 100 }).notNull(),
-  quality: varchar("quality", { length: 20 }), // good, warning, bad
-  timestamp: timestamp("timestamp").notNull().defaultNow(),
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  sensorId: varchar("sensor_id").notNull(),
+  sensorName: varchar("sensor_name").notNull(),
+  value: real("value").notNull(),
+  unit: varchar("unit").notNull(),
+  location: varchar("location").notNull(),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
+  quality: varchar("quality").default("good"), // good, warning, bad
 });
 
-// Anomalies table  
+// Anomalies table
 export const anomalies = pgTable("anomalies", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  sensorId: varchar("sensor_id", { length: 100 }).notNull(),
-  severity: varchar("severity", { length: 20 }).notNull(), // critical, warning, normal
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  episodeId: varchar("episode_id").notNull().unique(),
+  type: varchar("type").notNull(), // burner_trip, cyclone_blockage, esp_overheat, etc.
+  severity: varchar("severity").notNull(), // critical, warning, normal
+  location: varchar("location").notNull(), // preheater, rotary_kiln, cooler
   description: text("description").notNull(),
-  detectedAt: timestamp("detected_at").notNull().defaultNow(),
-  resolvedAt: timestamp("resolved_at"),
-  isResolved: boolean("is_resolved").notNull().default(false),
-  impact: text("impact"),
+  startTime: timestamp("start_time").defaultNow().notNull(),
+  endTime: timestamp("end_time"),
+  status: varchar("status").default("active"), // active, acknowledged, resolved
+  impactedSensors: jsonb("impacted_sensors"), // array of sensor IDs
   rootCause: text("root_cause"),
-  confidenceScore: real("confidence_score"),
+  recommendation: text("recommendation"),
 });
 
 // Alerts table
 export const alerts = pgTable("alerts", {
-  id: uuid("id").primaryKey().defaultRandom(), 
-  anomalyId: uuid("anomaly_id").references(() => anomalies.id),
-  title: varchar("title", { length: 200 }).notNull(),
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  anomalyId: varchar("anomaly_id").references(() => anomalies.id),
+  title: varchar("title").notNull(),
   message: text("message").notNull(),
-  severity: varchar("severity", { length: 20 }).notNull(),
-  status: varchar("status", { length: 20 }).notNull().default("active"), // active, acknowledged, resolved
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+  severity: varchar("severity").notNull(),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
+  acknowledged: boolean("acknowledged").default(false),
+  acknowledgedBy: varchar("acknowledged_by"),
   acknowledgedAt: timestamp("acknowledged_at"),
-  acknowledgedBy: varchar("acknowledged_by", { length: 100 }),
-});
-
-// Equipment status table
-export const equipmentStatus = pgTable("equipment_status", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  equipmentId: varchar("equipment_id", { length: 100 }).notNull(),
-  equipmentName: varchar("equipment_name", { length: 200 }).notNull(),
-  status: varchar("status", { length: 50 }).notNull(), // operational, maintenance, fault
-  lastMaintenance: timestamp("last_maintenance"),
-  nextMaintenance: timestamp("next_maintenance"),
-  efficiency: decimal("efficiency", { precision: 5, scale: 2 }),
-  location: varchar("location", { length: 100 }),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
 
 // Process parameters table
 export const processParameters = pgTable("process_parameters", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  parameterId: varchar("parameter_id", { length: 100 }).notNull(),
-  parameterName: varchar("parameter_name", { length: 200 }).notNull(),
-  currentValue: decimal("current_value", { precision: 10, scale: 2 }).notNull(),
-  targetValue: decimal("target_value", { precision: 10, scale: 2 }),
-  minValue: decimal("min_value", { precision: 10, scale: 2 }),
-  maxValue: decimal("max_value", { precision: 10, scale: 2 }),
-  unit: varchar("unit", { length: 50 }).notNull(),
-  location: varchar("location", { length: 100 }).notNull(),
-  timestamp: timestamp("timestamp").notNull().defaultNow(),
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  parameterName: varchar("parameter_name").notNull(),
+  currentValue: real("current_value").notNull(),
+  targetValue: real("target_value"),
+  minLimit: real("min_limit"),
+  maxLimit: real("max_limit"),
+  unit: varchar("unit").notNull(),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
 });
 
-// Production metrics table
-export const productionMetrics = pgTable("production_metrics", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  timestamp: timestamp("timestamp").notNull().defaultNow(),
-  productionRate: real("production_rate").notNull(),
-  energyConsumption: real("energy_consumption").notNull(),
-  fuelConsumption: real("fuel_consumption").notNull(),
-  clinkerQuality: real("clinker_quality"),
+// Failure modes table
+export const failureModes = pgTable("failure_modes", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: varchar("name").notNull(),
+  location: varchar("location").notNull(),
+  description: text("description").notNull(),
+  symptoms: jsonb("symptoms"), // array of symptoms
+  causes: jsonb("causes"), // array of potential causes
+  impacts: jsonb("impacts"), // array of impacts
+  preventiveMeasures: jsonb("preventive_measures"), // array of preventive measures
+});
+
+// Equipment status table
+export const equipmentStatus = pgTable("equipment_status", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  equipmentId: varchar("equipment_id").notNull(),
+  equipmentName: varchar("equipment_name").notNull(),
+  location: varchar("location").notNull(),
+  status: varchar("status").notNull(), // running, stopped, maintenance, fault
+  lastMaintenance: timestamp("last_maintenance"),
+  nextMaintenance: timestamp("next_maintenance"),
   efficiency: real("efficiency"),
-  downtime: integer("downtime").default(0),
-  shiftId: varchar("shift_id", { length: 20 }),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
 });
 
-// Relations
-export const anomaliesRelations = relations(anomalies, ({ many }) => ({
-  alerts: many(alerts),
-}));
+// Production data table
+export const productionData = pgTable("production_data", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  productionRate: real("production_rate").notNull(), // TPH
+  energyConsumption: real("energy_consumption").notNull(), // kcal/kg
+  fuelConsumption: real("fuel_consumption").notNull(), // kg/h
+  rawMaterialFeed: real("raw_material_feed").notNull(), // tph
+  qualityIndex: real("quality_index"),
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
+});
 
-export const alertsRelations = relations(alerts, ({ one }) => ({
-  anomaly: one(anomalies, {
-    fields: [alerts.anomalyId],
-    references: [anomalies.id],
-  }),
-}));
+// Insert schemas
+export const insertSensorReadingSchema = createInsertSchema(sensorReadings).omit({ id: true, timestamp: true });
+export const insertAnomalySchema = createInsertSchema(anomalies).omit({ id: true, startTime: true });
+export const insertAlertSchema = createInsertSchema(alerts).omit({ id: true, timestamp: true });
+export const insertProcessParameterSchema = createInsertSchema(processParameters).omit({ id: true, timestamp: true });
+export const insertFailureModeSchema = createInsertSchema(failureModes).omit({ id: true });
+export const insertEquipmentStatusSchema = createInsertSchema(equipmentStatus).omit({ id: true, timestamp: true });
+export const insertProductionDataSchema = createInsertSchema(productionData).omit({ id: true, timestamp: true });
 
-// Export types
-export type CementKilnData = typeof cementKilnData.$inferSelect;
-export type NewCementKilnData = typeof cementKilnData.$inferInsert;
-
-export type Episode = typeof episodes.$inferSelect;
-export type NewEpisode = typeof episodes.$inferInsert;
-
+// Types
 export type SensorReading = typeof sensorReadings.$inferSelect;
-export type NewSensorReading = typeof sensorReadings.$inferInsert;
-
-export type Anomaly = typeof anomalies.$inferSelect;  
-export type NewAnomaly = typeof anomalies.$inferInsert;
-
+export type InsertSensorReading = z.infer<typeof insertSensorReadingSchema>;
+export type Anomaly = typeof anomalies.$inferSelect;
+export type InsertAnomaly = z.infer<typeof insertAnomalySchema>;
 export type Alert = typeof alerts.$inferSelect;
-export type NewAlert = typeof alerts.$inferInsert;
-
-export type EquipmentStatus = typeof equipmentStatus.$inferSelect;
-export type NewEquipmentStatus = typeof equipmentStatus.$inferInsert;
-
+export type InsertAlert = z.infer<typeof insertAlertSchema>;
 export type ProcessParameter = typeof processParameters.$inferSelect;
-export type NewProcessParameter = typeof processParameters.$inferInsert;
-
-export type ProductionMetrics = typeof productionMetrics.$inferSelect;
-export type NewProductionMetrics = typeof productionMetrics.$inferInsert;
-
-// Zod schemas for validation
-export const insertCementKilnDataSchema = createInsertSchema(cementKilnData);
-export const insertEpisodeSchema = createInsertSchema(episodes);
-export const insertSensorReadingSchema = createInsertSchema(sensorReadings);
-export const insertAnomalySchema = createInsertSchema(anomalies);
-export const insertAlertSchema = createInsertSchema(alerts);
-export const insertEquipmentStatusSchema = createInsertSchema(equipmentStatus);
-export const insertProcessParameterSchema = createInsertSchema(processParameters);
-export const insertProductionMetricsSchema = createInsertSchema(productionMetrics);
+export type InsertProcessParameter = z.infer<typeof insertProcessParameterSchema>;
+export type FailureMode = typeof failureModes.$inferSelect;
+export type InsertFailureMode = z.infer<typeof insertFailureModeSchema>;
+export type EquipmentStatus = typeof equipmentStatus.$inferSelect;
+export type InsertEquipmentStatus = z.infer<typeof insertEquipmentStatusSchema>;
+export type ProductionData = typeof productionData.$inferSelect;
+export type InsertProductionData = z.infer<typeof insertProductionDataSchema>;

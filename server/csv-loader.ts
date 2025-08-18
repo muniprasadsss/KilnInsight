@@ -159,5 +159,3 @@ class CSVDataLoader {
 }
 
 export const csvDataLoader = new CSVDataLoader();
-export default CSVDataLoader;
-export { CSVDataLoader as CsvLoader };

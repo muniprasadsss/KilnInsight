@@ -130,7 +130,7 @@
 .bg-industrial-card,
 .bg-white {
   background-color: white !important;
-  border: 1px solid rgb(8, 143, 209) !important;
+  border: 1px solid rgb(142 203 235) !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
   border-radius: 8px !important;
 }
@@ -139,7 +139,7 @@
 .border-gray-200,
 .border-gray-800,
 .border-gray-600 {
-  border-color: rgb(8, 143, 209) !important;
+  border-color: rgb(142 203 235) !important;
 }
 
 .bg-gray-800 {
@@ -178,7 +178,7 @@ button:hover,
 /* Tab styling with custom blue */
 [data-state="active"],
 .data-\[state\=active\]\:bg-background[data-state="active"] {
-  background-color: rgb(8, 143, 209) !important;
+  /* background-color: rgb(8, 143, 209) !important; */
   color: white !important;
   border-color: rgb(8, 143, 209) !important;
 }
@@ -192,7 +192,7 @@ button:hover,
 .bg-industrial-card.border.border-gray-700,
 [role="tablist"] {
   background-color: #f8fafc !important;
-  border-color: rgb(8, 143, 209) !important;
+  border-color: rgb(142 203 235) !important;
 }
 
 /* Button selections and hover states */
@@ -205,7 +205,7 @@ button:active,
 
 /* Enhanced card styling */
 .shadow-sm {
-  border: 1px solid rgb(8, 143, 209) !important;
+  border: 1px solid rgb(142 203 235) !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
 }
 
@@ -230,7 +230,7 @@ button:active,
 
 .table-enhanced th {
   background-color: #f8fafc !important;
-  border-bottom: 2px solid rgb(8, 143, 209) !important;
+  border-bottom: 2px solid rgb(142 203 235) !important;
   padding: 1rem !important;
   font-weight: 600 !important;
   color: rgb(8, 143, 209) !important;
@@ -249,7 +249,7 @@ button:active,
 [data-radix-collection-item][data-state="active"],
 [data-state="active"][role="tab"],
 .bg-background[data-state="active"] {
-  background-color: rgb(8, 143, 209) !important;
+  /* background-color: rgb(8, 143, 209) !important; */
   color: white !important;
 }
 
@@ -257,7 +257,7 @@ button:active,
 .bg-sidebar-accent,
 [data-active="true"],
 .sidebar [data-active="true"] {
-  background-color: rgb(8, 143, 209) !important;
+  /* background-color: rgb(8, 143, 209) !important; */
   color: white !important;
 }
 

@@ -178,13 +178,13 @@ export default function OperationsDashboard() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-white min-h-full">
       {/* KPI Grid */}
       <KPIGrid kpis={kpis} />
 
       {/* Main Content Tabs */}
       <Tabs defaultValue="equipment" className="space-y-6">
-        <TabsList className="bg-industrial-card border border-gray-700">
+        <TabsList className="bg-gray-100 border border-gray-200">
           <TabsTrigger value="equipment">Equipment Status</TabsTrigger>
           <TabsTrigger value="production">Production Flow</TabsTrigger>
           <TabsTrigger value="controls">Process Controls</TabsTrigger>

@@ -40,13 +40,14 @@
   --font-mono: Menlo, monospace;
   --radius: 1.3rem;
   
-  /* Industrial Theme Colors */
+  /* Blue Theme Colors */
   --industrial-dark: #fff;
   --industrial-card: #fff;
-  --industrial-accent: rgba(29, 116, 160, 1);
+  --industrial-accent: rgba(14, 165, 233, 1); /* blue-500 */
   --status-normal: hsl(122.4, 39.4%, 49.0%);
   --status-warning: hsl(35.3, 100%, 50.0%);
   --status-critical: hsl(4.3, 89.6%, 58.4%);
+  --black-200: #6b7280; /* gray-500 */
 }
 
 .dark {
@@ -122,4 +123,54 @@
   .status-critical {
     background-color: var(--status-critical);
   }
+}
+
+/* Global blue theme overrides - automatically convert dark theme to light blue theme */
+.bg-industrial-card {
+  @apply bg-white border-gray-200 shadow-sm !important;
+}
+
+.border-gray-700 {
+  @apply border-gray-200 !important;
+}
+
+.bg-gray-800 {
+  @apply bg-gray-50 !important;
+}
+
+.text-black-200 {
+  @apply text-gray-500 !important;
+}
+
+.text-white:not(.hover\:text-white):not(.focus\:text-white) {
+  @apply text-gray-900 !important;
+}
+
+.text-gray-300 {
+  @apply text-gray-700 !important;
+}
+
+.border-gray-800 {
+  @apply border-gray-200 !important;
+}
+
+.bg-gray-700 {
+  @apply bg-white !important;
+}
+
+.border-gray-600 {
+  @apply border-gray-300 !important;
+}
+
+.hover\:bg-gray-800:hover {
+  @apply hover:bg-gray-100 !important;
+}
+
+.bg-industrial-accent {
+  @apply bg-blue-500 hover:bg-blue-600 text-white !important;
+}
+
+/* Tab styling overrides */
+.bg-industrial-card.border.border-gray-700 {
+  @apply bg-gray-100 border-gray-200 !important;
 }

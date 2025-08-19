@@ -124,7 +124,7 @@ export default function SensorDashboard() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-white min-h-full">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Comprehensive Sensor Dashboard</h1>
@@ -158,36 +158,36 @@ export default function SensorDashboard() {
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-industrial-card border-gray-700">
+        <Card className="bg-white border-gray-200 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-black-200">Total Sensors</p>
-                <p className="text-2xl font-bold">{sensorReadings.length}</p>
+                <p className="text-sm text-gray-600">Total Sensors</p>
+                <p className="text-2xl font-bold text-gray-900">{sensorReadings.length}</p>
               </div>
               <Activity className="w-8 h-8 text-blue-500" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-industrial-card border-gray-700">
+        <Card className="bg-white border-gray-200 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-black-200">Active Locations</p>
-                <p className="text-2xl font-bold">3</p>
+                <p className="text-sm text-gray-600">Active Locations</p>
+                <p className="text-2xl font-bold text-gray-900">3</p>
               </div>
               <TrendingUp className="w-8 h-8 text-green-500" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-industrial-card border-gray-700">
+        <Card className="bg-white border-gray-200 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-black-200">Good Quality</p>
-                <p className="text-2xl font-bold">
+                <p className="text-sm text-gray-600">Good Quality</p>
+                <p className="text-2xl font-bold text-gray-900">
                   {sensorReadings.filter(s => s.quality === 'good').length}
                 </p>
               </div>
@@ -196,11 +196,11 @@ export default function SensorDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="bg-industrial-card border-gray-700">
+        <Card className="bg-white border-gray-200 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-black-200">Warnings</p>
+                <p className="text-sm text-gray-600">Warnings</p>
                 <p className="text-2xl font-bold text-yellow-500">
                   {sensorReadings.filter(s => s.quality === 'warning').length}
                 </p>
@@ -212,7 +212,7 @@ export default function SensorDashboard() {
       </div>
 
       <Tabs defaultValue="by-type" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-4 bg-gray-100">
           <TabsTrigger value="by-type">By Sensor Type</TabsTrigger>
           <TabsTrigger value="by-location">By Location</TabsTrigger>
           <TabsTrigger value="charts">Visual Analytics</TabsTrigger>
@@ -222,9 +222,9 @@ export default function SensorDashboard() {
         <TabsContent value="by-type" className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Temperature Sensors */}
-            <Card className="bg-industrial-card border-gray-700">
+            <Card className="bg-white border-gray-200 shadow-sm">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center space-x-2 text-gray-900">
                   <ThermometerIcon className="w-5 h-5 text-red-400" />
                   <span>Temperature Sensors ({sensorGroups.temperature.length})</span>
                 </CardTitle>
@@ -232,7 +232,7 @@ export default function SensorDashboard() {
               <CardContent>
                 <div className="space-y-3 max-h-80 overflow-y-auto">
                   {sensorGroups.temperature.map((sensor) => (
-                    <div key={sensor.id} className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                    <div key={sensor.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <div className="flex items-center space-x-3">
                         {getStatusIcon(sensor.quality)}
                         <div>

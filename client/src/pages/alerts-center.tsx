@@ -71,7 +71,7 @@ export default function AlertsCenter() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-white min-h-full">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -137,7 +137,7 @@ export default function AlertsCenter() {
 
       {/* Alerts Management */}
       <Tabs defaultValue="active" className="space-y-6">
-        <TabsList className="bg-industrial-card border border-gray-700">
+        <TabsList className="bg-gray-100 border border-gray-200">
           <TabsTrigger value="active">Active Alerts ({activeAlerts.length})</TabsTrigger>
           <TabsTrigger value="acknowledged">Acknowledged ({acknowledgedAlerts.length})</TabsTrigger>
           <TabsTrigger value="configuration">Configuration</TabsTrigger>

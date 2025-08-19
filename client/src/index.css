@@ -9,19 +9,19 @@
   --card-foreground: hsl(210, 25%, 7.8431%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(210, 25%, 7.8431%);
-  --primary: hsl(203.8863, 88.2845%, 53.1373%);
+  --primary: 203.8863 88.2845% 34.3137%; /* Custom blue converted to HSL */
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(210, 25%, 7.8431%);
   --secondary-foreground: hsl(0, 0%, 100%);
   --muted: hsl(240, 1.9608%, 90%);
   --muted-foreground: hsl(210, 25%, 7.8431%);
   --accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --accent-foreground: hsl(203.8863, 88.2845%, 53.1373%);
+  --accent-foreground: 203.8863 88.2845% 34.3137%; /* Custom blue */
   --destructive: hsl(356.3033, 90.5579%, 54.3137%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(201.4286, 30.4348%, 90.9804%);
+  --border: 203.8863 88.2845% 34.3137%; /* Custom blue */
   --input: hsl(200, 23.0769%, 97.4510%);
-  --ring: hsl(202.8169, 89.1213%, 53.1373%);
+  --ring: 203.8863 88.2845% 34.3137%; /* Custom blue */
   --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
   --chart-2: hsl(159.7826, 100%, 36.0784%);
   --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
@@ -29,12 +29,12 @@
   --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
   --sidebar: hsl(180, 6.6667%, 97.0588%);
   --sidebar-foreground: hsl(210, 25%, 7.8431%);
-  --sidebar-primary: hsl(203.8863, 88.2845%, 53.1373%);
+  --sidebar-primary: 203.8863 88.2845% 34.3137%; /* Custom blue */
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
   --sidebar-accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --sidebar-accent-foreground: hsl(203.8863, 88.2845%, 53.1373%);
-  --sidebar-border: hsl(205.0000, 25.0000%, 90.5882%);
-  --sidebar-ring: hsl(202.8169, 89.1213%, 53.1373%);
+  --sidebar-accent-foreground: 203.8863 88.2845% 34.3137%; /* Custom blue */
+  --sidebar-border: 203.8863 88.2845% 34.3137%; /* Custom blue */
+  --sidebar-ring: 203.8863 88.2845% 34.3137%; /* Custom blue */
   --font-sans: "Roboto", sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -43,7 +43,8 @@
   /* Blue Theme Colors */
   --industrial-dark: #fff;
   --industrial-card: #fff;
-  --industrial-accent: rgba(14, 165, 233, 1); /* blue-500 */
+  --industrial-accent: rgb(8, 143, 209); /* Custom blue */
+  --custom-blue: rgb(8, 143, 209);
   --status-normal: hsl(122.4, 39.4%, 49.0%);
   --status-warning: hsl(35.3, 100%, 50.0%);
   --status-critical: hsl(4.3, 89.6%, 58.4%);
@@ -125,13 +126,19 @@
   }
 }
 
-/* Global blue theme overrides - automatically convert dark theme to light blue theme */
-.bg-industrial-card {
-  @apply bg-white border-gray-200 shadow-sm !important;
+/* Global blue theme overrides - using custom blue rgb(8, 143, 209) */
+.bg-industrial-card,
+.bg-white {
+  background-color: white !important;
+  border-color: rgb(8, 143, 209) !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
 }
 
-.border-gray-700 {
-  @apply border-gray-200 !important;
+.border-gray-700,
+.border-gray-200,
+.border-gray-800,
+.border-gray-600 {
+  border-color: rgb(8, 143, 209) !important;
 }
 
 .bg-gray-800 {
@@ -150,27 +157,87 @@
   @apply text-gray-700 !important;
 }
 
-.border-gray-800 {
-  @apply border-gray-200 !important;
-}
-
 .bg-gray-700 {
   @apply bg-white !important;
-}
-
-.border-gray-600 {
-  @apply border-gray-300 !important;
 }
 
 .hover\:bg-gray-800:hover {
   @apply hover:bg-gray-100 !important;
 }
 
-.bg-industrial-accent {
-  @apply bg-blue-500 hover:bg-blue-600 text-white !important;
+/* Button and interactive element styling */
+.bg-industrial-accent,
+button:hover,
+.hover\:bg-blue-500:hover,
+.hover\:bg-blue-600:hover {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
 }
 
-/* Tab styling overrides */
-.bg-industrial-card.border.border-gray-700 {
-  @apply bg-gray-100 border-gray-200 !important;
+/* Tab styling with custom blue */
+[data-state="active"],
+.data-\[state\=active\]\:bg-background[data-state="active"],
+.bg-gray-100 {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
+}
+
+/* Tab list styling */
+.bg-industrial-card.border.border-gray-700,
+[role="tablist"] {
+  background-color: #f8fafc !important;
+  border-color: rgb(8, 143, 209) !important;
+}
+
+/* Button selections and hover states */
+button:focus,
+button:active,
+.focus\:ring-2:focus {
+  outline: 2px solid rgb(8, 143, 209) !important;
+  outline-offset: 2px !important;
+}
+
+/* Card borders */
+.shadow-sm {
+  border: 1px solid rgb(8, 143, 209) !important;
+}
+
+/* Additional element targeting */
+[data-radix-collection-item][data-state="active"],
+[data-state="active"][role="tab"],
+.bg-background[data-state="active"] {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
+}
+
+/* Sidebar active states */
+.bg-sidebar-accent,
+[data-active="true"],
+.sidebar [data-active="true"] {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
+}
+
+/* Input and select focus states */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgb(8, 143, 209) !important;
+  outline: 2px solid rgb(8, 143, 209) !important;
+  outline-offset: 2px !important;
+}
+
+/* Hover states for all buttons and links */
+a:hover,
+button:hover,
+[role="button"]:hover {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
+}
+
+/* Special cases for primary buttons */
+.bg-primary,
+[data-variant="default"] {
+  background-color: rgb(8, 143, 209) !important;
+  color: white !important;
 }

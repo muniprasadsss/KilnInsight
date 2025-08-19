@@ -54,13 +54,13 @@ export function ProcessDiagram({ failures = [] }: ProcessDiagramProps) {
   };
 
   return (
-    <Card className="bg-industrial-card border-gray-700">
+    <Card className="bg-white border-gray-200 shadow-sm">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-semibold">
+          <CardTitle className="text-lg font-semibold text-gray-900">
             Process Flow & Failure Locations
           </CardTitle>
-          <Button variant="outline" size="sm" className="bg-industrial-accent">
+          <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
             <Expand className="w-4 h-4 mr-2" />
             Full View
           </Button>

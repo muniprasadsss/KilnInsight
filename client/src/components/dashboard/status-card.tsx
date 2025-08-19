@@ -27,12 +27,12 @@ export function StatusCard({
   };
 
   return (
-    <Card className={cn("bg-industrial-card border-gray-700", className)}>
+    <Card className={cn("bg-white border-gray-200 shadow-sm", className)}>
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-black-200 text-sm">{title}</p>
-            <p className="text-2xl font-bold text-white">
+            <p className="text-gray-600 text-sm">{title}</p>
+            <p className="text-2xl font-bold text-gray-900">
               {value}{unit && <span className="text-lg">{unit}</span>}
             </p>
             {change && (

@@ -37,10 +37,10 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
   };
 
   return (
-    <Card className="bg-industrial-card border-gray-700">
+    <Card className="bg-white border-gray-200 shadow-sm">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-semibold">Active Anomalies</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900">Active Anomalies</CardTitle>
           <Badge variant="destructive">
             {anomalies.length} Active
           </Badge>
@@ -49,7 +49,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
       <CardContent>
         <div className="space-y-3">
           {anomalies.length === 0 ? (
-            <div className="text-center py-8 text-black-200">
+            <div className="text-center py-8 text-gray-500">
               No active anomalies detected
             </div>
           ) : (
@@ -57,7 +57,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
               <div 
                 key={anomaly.id}
                 className={cn(
-                  "p-4 bg-gray-800 rounded-lg border-l-4",
+                  "p-4 bg-gray-50 rounded-lg border-l-4",
                   severityColors[anomaly.severity as keyof typeof severityColors]
                 )}
               >
@@ -71,20 +71,20 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                       word.charAt(0).toUpperCase() + word.slice(1)
                     ).join(' ')}
                   </span>
-                  <span className="text-xs text-black-200">
+                  <span className="text-xs text-gray-500">
                     {getTimeAgo(anomaly.startTime)}
                   </span>
                 </div>
-                <p className="text-sm text-gray-300 mb-2">
+                <p className="text-sm text-gray-700 mb-2">
                   {anomaly.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-black-200">
+                  <span className="text-xs text-gray-500">
                     Episode ID: {anomaly.episodeId}
                   </span>
                   <Button 
                     size="sm" 
-                    className="bg-industrial-accent hover:bg-industrial-accent/80"
+                    className="bg-blue-500 hover:bg-blue-600 text-white"
                     onClick={() => onAnalyze?.(anomaly)}
                   >
                     Analyze

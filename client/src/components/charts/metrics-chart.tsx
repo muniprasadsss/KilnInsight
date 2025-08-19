@@ -144,12 +144,12 @@ export function MetricsChart({ title = "Key Metrics Trends", data }: MetricsChar
   }, [chartData]);
 
   return (
-    <Card className="bg-industrial-card border-gray-700">
+    <Card className="bg-white border-gray-200 shadow-sm">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-semibold">{title}</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900">{title}</CardTitle>
           <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-40 bg-gray-700 border-gray-600">
+            <SelectTrigger className="w-40 bg-white border-gray-300">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

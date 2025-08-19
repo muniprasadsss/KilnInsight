@@ -120,7 +120,7 @@ export default function AnomalyDashboard() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-white min-h-full">
       {/* Status Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatusCard
@@ -171,11 +171,11 @@ export default function AnomalyDashboard() {
         <MetricsChart />
         
         {/* Live Sensor Readings */}
-        <Card className="bg-industrial-card border-gray-700">
+        <Card className="bg-white border-gray-200 shadow-sm">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg font-semibold">Live Sensor Readings</CardTitle>
-              <Button variant="outline" size="sm" className="bg-gray-700">
+              <CardTitle className="text-lg font-semibold text-gray-900">Live Sensor Readings</CardTitle>
+              <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -205,13 +205,13 @@ export default function AnomalyDashboard() {
       </div>
 
       {/* Recent Events Table */}
-      <Card className="bg-industrial-card border-gray-700">
+      <Card className="bg-white border-gray-200 shadow-sm">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-lg font-semibold">Recent Events & Alerts</CardTitle>
+            <CardTitle className="text-lg font-semibold text-gray-900">Recent Events & Alerts</CardTitle>
             <div className="flex space-x-2">
               <Select defaultValue="all">
-                <SelectTrigger className="w-40 bg-gray-700 border-gray-600">
+                <SelectTrigger className="w-40 bg-white border-gray-300">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -221,7 +221,7 @@ export default function AnomalyDashboard() {
                   <SelectItem value="normal">Normal</SelectItem>
                 </SelectContent>
               </Select>
-              <Button variant="outline" size="sm" className="bg-industrial-accent">
+              <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
                 Export
               </Button>
             </div>
@@ -230,21 +230,21 @@ export default function AnomalyDashboard() {
         <CardContent>
           <Table>
             <TableHeader>
-              <TableRow className="border-gray-700">
-                <TableHead className="text-gray-300">Timestamp</TableHead>
-                <TableHead className="text-gray-300">Event Type</TableHead>
-                <TableHead className="text-gray-300">Severity</TableHead>
-                <TableHead className="text-gray-300">Location</TableHead>
-                <TableHead className="text-gray-300">Duration</TableHead>
-                <TableHead className="text-gray-300">Status</TableHead>
-                <TableHead className="text-gray-300">Actions</TableHead>
+              <TableRow className="border-gray-200">
+                <TableHead className="text-gray-700 font-semibold">Timestamp</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Event Type</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Severity</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Location</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Duration</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Status</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {recentEvents.map((event) => (
-                <TableRow key={event.id} className="border-gray-800 hover:bg-gray-800">
-                  <TableCell className="text-white">{event.timestamp}</TableCell>
-                  <TableCell className="text-white">{event.type}</TableCell>
+                <TableRow key={event.id} className="border-gray-100 hover:bg-blue-50">
+                  <TableCell className="text-gray-900">{event.timestamp}</TableCell>
+                  <TableCell className="text-gray-900">{event.type}</TableCell>
                   <TableCell>
                     <Badge variant={
                       event.severity === 'Critical' ? 'destructive' : 
@@ -253,8 +253,8 @@ export default function AnomalyDashboard() {
                       {event.severity}
                     </Badge>
                   </TableCell>
-                  <TableCell className="text-white">{event.location}</TableCell>
-                  <TableCell className="text-white">{event.duration}</TableCell>
+                  <TableCell className="text-gray-900">{event.location}</TableCell>
+                  <TableCell className="text-gray-900">{event.duration}</TableCell>
                   <TableCell>
                     <Badge variant={
                       event.status === 'Active' ? 'secondary' : 'outline'
@@ -264,10 +264,10 @@ export default function AnomalyDashboard() {
                   </TableCell>
                   <TableCell>
                     <div className="flex space-x-2">
-                      <Button variant="ghost" size="icon" className="text-industrial-accent">
+                      <Button variant="ghost" size="icon" className="text-blue-500 hover:text-blue-600 hover:bg-blue-50">
                         <Eye className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="text-green-400">
+                      <Button variant="ghost" size="icon" className="text-green-500 hover:text-green-600 hover:bg-green-50">
                         <Check className="w-4 h-4" />
                       </Button>
                     </div>
@@ -290,7 +290,7 @@ export default function AnomalyDashboard() {
         </Button>
         <Button
           size="icon"
-          className="w-12 h-12 bg-industrial-accent hover:bg-cyan-600 rounded-full shadow-lg"
+          className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg text-white"
           title="Quick Report"
         >
           <Plus className="w-6 h-6" />

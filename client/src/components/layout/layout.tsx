@@ -18,7 +18,7 @@ export function Layout({ children, title, description }: LayoutProps) {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-industrial-dark">
+    <div className="flex h-screen overflow-hidden bg-gray-50">
       <Sidebar isCollapsed={isSidebarCollapsed} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header 

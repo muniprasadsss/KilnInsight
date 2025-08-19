@@ -44,12 +44,13 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
 
   return (
     <nav 
-      className={`${isCollapsed ? 'w-16' : 'w-64'} border-r flex-shrink-0 transition-all duration-300 bg-industrial-card border-gray-700`}
+      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full`}
+      style={{ backgroundColor: '#0EA5E9' }}
       data-testid="nav-sidebar"
     >
       <div className="p-4">
-        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8`}>
-          <Factory className="text-industrial-accent text-2xl" />
+        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b border-blue-600 pb-4`}>
+          <Factory className="text-white text-2xl" />
           {!isCollapsed && <h1 className="text-xl font-bold text-white">Kiln Monitor</h1>}
         </div>
         
@@ -61,13 +62,13 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
             return (
               <li key={item.path}>
                 <Link href={item.path}>
-                  <a
+                  <div
                     className={cn(
-                      "flex items-center p-3 rounded-lg transition-colors relative group",
+                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-industrial-accent text-white"
-                        : "text-gray-300 hover:text-white hover:bg-gray-700"
+                        ? "bg-blue-700 text-white"
+                        : "text-white hover:text-white hover:bg-blue-600"
                     )}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >
@@ -97,7 +98,7 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                         )}
                       </div>
                     )}
-                  </a>
+                  </div>
                 </Link>
               </li>
             );

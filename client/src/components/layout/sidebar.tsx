@@ -44,17 +44,21 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
 
   return (
     <nav 
-      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full`}
-      style={{ backgroundColor: '#0EA5E9' }}
+      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full shadow-lg`}
+      style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
       <div className="p-4">
-        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b border-blue-600 pb-4`}>
-         
-          {!isCollapsed && 
-           <img src="/logo-shot.png" alt="KilnInsight Logo" className="h-8 w-auto" />}
-          {isCollapsed && 
-           <img src="/logo.png" alt="KilnInsight Logo" className="h-8 w-auto" />}
+        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b border-blue-300 pb-4`}>
+          <div className="flex items-center space-x-2">
+            <Factory className="h-8 w-8 text-white" />
+            {!isCollapsed && (
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-lg leading-tight">KilnInsight</span>
+                <span className="text-blue-100 text-xs">Industrial Monitor</span>
+              </div>
+            )}
+          </div>
         </div>
         
         <ul className="space-y-2">
@@ -70,8 +74,8 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                       "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-blue-700 text-white"
-                        : "text-white hover:text-white hover:bg-blue-600"
+                        ? "bg-white text-blue-600 shadow-sm"
+                        : "text-white hover:text-blue-600 hover:bg-white hover:shadow-sm"
                     )}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >

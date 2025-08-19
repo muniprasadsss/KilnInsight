@@ -130,8 +130,9 @@
 .bg-industrial-card,
 .bg-white {
   background-color: white !important;
-  border-color: rgb(8, 143, 209) !important;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+  border: 1px solid rgb(8, 143, 209) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  border-radius: 8px !important;
 }
 
 .border-gray-700,
@@ -176,10 +177,15 @@ button:hover,
 
 /* Tab styling with custom blue */
 [data-state="active"],
-.data-\[state\=active\]\:bg-background[data-state="active"],
-.bg-gray-100 {
+.data-\[state\=active\]\:bg-background[data-state="active"] {
   background-color: rgb(8, 143, 209) !important;
   color: white !important;
+  border-color: rgb(8, 143, 209) !important;
+}
+
+.bg-gray-100 {
+  background-color: #f8fafc !important;
+  border: 1px solid rgb(8, 143, 209) !important;
 }
 
 /* Tab list styling */
@@ -197,9 +203,46 @@ button:active,
   outline-offset: 2px !important;
 }
 
-/* Card borders */
+/* Enhanced card styling */
 .shadow-sm {
   border: 1px solid rgb(8, 143, 209) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Card content padding and spacing */
+.card-content-improved {
+  padding: 1.5rem !important;
+}
+
+/* Enhanced button styling */
+.btn-enhanced {
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Table styling improvements */
+.table-enhanced {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+.table-enhanced th {
+  background-color: #f8fafc !important;
+  border-bottom: 2px solid rgb(8, 143, 209) !important;
+  padding: 1rem !important;
+  font-weight: 600 !important;
+  color: rgb(8, 143, 209) !important;
+}
+
+.table-enhanced td {
+  padding: 1rem !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.table-enhanced tr:hover {
+  background-color: #f8fafc !important;
 }
 
 /* Additional element targeting */
@@ -240,4 +283,121 @@ button:hover,
 [data-variant="default"] {
   background-color: rgb(8, 143, 209) !important;
   color: white !important;
+  box-shadow: 0 4px 12px rgb(8 143 209 / 0.3) !important;
+}
+
+/* Enhanced gradients and spacing */
+.gradient-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  border: 1px solid rgb(8, 143, 209) !important;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Typography improvements */
+h1, h2, h3 {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+
+h4, h5, h6 {
+  color: #374151 !important;
+  font-weight: 600 !important;
+}
+
+/* Badge enhancements */
+.badge-enhanced {
+  padding: 0.5rem 1rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.025em !important;
+}
+
+/* Global UI improvements */
+.page-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+  min-height: 100vh !important;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease !important;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 24px rgb(8 143 209 / 0.15) !important;
+}
+
+/* Button improvements */
+.btn-primary {
+  background: linear-gradient(135deg, rgb(8, 143, 209) 0%, rgb(6, 120, 180) 100%) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgb(8 143 209 / 0.3) !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgb(6, 120, 180) 0%, rgb(5, 100, 150) 100%) !important;
+  box-shadow: 0 6px 16px rgb(8 143 209 / 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Input field improvements */
+input, select, textarea {
+  border: 2px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgb(8, 143, 209) !important;
+  box-shadow: 0 0 0 3px rgb(8 143 209 / 0.1) !important;
+  outline: none !important;
+}
+
+/* Sidebar badge fixes */
+.sidebar-badge {
+  position: absolute !important;
+  top: -4px !important;
+  right: -4px !important;
+  background-color: #ef4444 !important;
+  color: white !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  min-width: 1.25rem !important;
+  height: 1.25rem !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid white !important;
+}
+
+/* Status indicators */
+.status-indicator {
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  border: 2px solid transparent !important;
+}
+
+.status-critical {
+  background-color: #fef2f2 !important;
+  color: #dc2626 !important;
+  border-color: #fecaca !important;
+}
+
+.status-warning {
+  background-color: #fffbeb !important;
+  color: #d97706 !important;
+  border-color: #fed7aa !important;
+}
+
+.status-normal {
+  background-color: #f0fdf4 !important;
+  color: #16a34a !important;
+  border-color: #bbf7d0 !important;
 }

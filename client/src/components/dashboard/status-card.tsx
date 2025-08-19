@@ -27,22 +27,24 @@ export function StatusCard({
   };
 
   return (
-    <Card className={cn("bg-white border-gray-200 shadow-sm", className)}>
+    <Card className={cn("bg-white shadow-sm hover:shadow-lg transition-all duration-200", className)}>
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-600 text-sm">{title}</p>
-            <p className="text-2xl font-bold text-gray-900">
-              {value}{unit && <span className="text-lg">{unit}</span>}
+          <div className="flex-1">
+            <p className="text-gray-600 text-sm font-medium mb-1">{title}</p>
+            <p className="text-3xl font-bold text-gray-900">
+              {value}{unit && <span className="text-lg font-medium text-gray-600">{unit}</span>}
             </p>
             {change && (
-              <p className={cn("text-xs mt-1", changeColors[changeType])}>
+              <p className={cn("text-sm mt-2 font-medium", changeColors[changeType])}>
                 {change}
               </p>
             )}
           </div>
-          <div className="text-3xl">
-            {icon}
+          <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg">
+            <div className="text-2xl">
+              {icon}
+            </div>
           </div>
         </div>
       </CardContent>

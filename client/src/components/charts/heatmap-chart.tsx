@@ -115,7 +115,7 @@ export function HeatmapChart({ title, data, width = 600, height = 400 }: Heatmap
         <div className="flex justify-center">
           <canvas ref={canvasRef} className="border border-gray-600 rounded" />
         </div>
-        <div className="mt-4 flex justify-center space-x-4 text-xs text-gray-400">
+        <div className="mt-4 flex justify-center space-x-4 text-xs text-black-200">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-status-normal rounded"></div>
             <span>Low</span>

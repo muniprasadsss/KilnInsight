@@ -302,8 +302,8 @@ export default function Security() {
     switch (status) {
       case "active": return <UserCheck className="w-4 h-4 text-status-normal" />;
       case "suspended": return <UserX className="w-4 h-4 text-status-critical" />;
-      case "inactive": return <User className="w-4 h-4 text-gray-400" />;
-      default: return <User className="w-4 h-4 text-gray-400" />;
+      case "inactive": return <User className="w-4 h-4 text-black-200" />;
+      default: return <User className="w-4 h-4 text-black-200" />;
     }
   };
 
@@ -312,7 +312,7 @@ export default function Security() {
       case "active": case "success": return "text-status-normal";
       case "suspended": case "failure": return "text-status-critical";
       case "inactive": case "warning": return "text-status-warning";
-      default: return "text-gray-400";
+      default: return "text-black-200";
     }
   };
 
@@ -348,7 +348,7 @@ export default function Security() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Total Users</p>
+                <p className="text-black-200 text-sm">Total Users</p>
                 <p className="text-2xl font-bold text-white">{systemUsers.length}</p>
                 <p className="text-xs text-status-normal">
                   {systemUsers.filter(u => u.status === 'active').length} Active
@@ -363,11 +363,11 @@ export default function Security() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">MFA Enabled</p>
+                <p className="text-black-200 text-sm">MFA Enabled</p>
                 <p className="text-2xl font-bold text-white">
                   {systemUsers.filter(u => u.mfaEnabled).length}
                 </p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-black-200">
                   {Math.round((systemUsers.filter(u => u.mfaEnabled).length / systemUsers.length) * 100)}% Coverage
                 </p>
               </div>
@@ -380,7 +380,7 @@ export default function Security() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Failed Logins</p>
+                <p className="text-black-200 text-sm">Failed Logins</p>
                 <p className="text-2xl font-bold text-white">23</p>
                 <p className="text-xs text-status-warning">Last 24 hours</p>
               </div>
@@ -393,10 +393,10 @@ export default function Security() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Active Sessions</p>
+                <p className="text-black-200 text-sm">Active Sessions</p>
                 <p className="text-2xl font-bold text-white">12</p>
               </div>
-              <Key className="text-3xl text-gray-400" />
+              <Key className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -513,7 +513,7 @@ export default function Security() {
                           {getStatusIcon(user.status)}
                           <div>
                             <div className="font-medium">{user.firstName} {user.lastName}</div>
-                            <div className="text-sm text-gray-400">{user.email}</div>
+                            <div className="text-sm text-black-200">{user.email}</div>
                           </div>
                         </div>
                       </TableCell>
@@ -533,7 +533,7 @@ export default function Security() {
                         {user.mfaEnabled ? (
                           <Shield className="w-4 h-4 text-status-normal" />
                         ) : (
-                          <Shield className="w-4 h-4 text-gray-400" />
+                          <Shield className="w-4 h-4 text-black-200" />
                         )}
                       </TableCell>
                       <TableCell className="text-gray-300 font-mono text-sm">
@@ -592,10 +592,10 @@ export default function Security() {
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-sm text-gray-400 mt-1">{role.description}</p>
+                            <p className="text-sm text-black-200 mt-1">{role.description}</p>
                           </div>
                           <div className="flex items-center space-x-4">
-                            <div className="text-sm text-gray-400">
+                            <div className="text-sm text-black-200">
                               {role.userCount} users
                             </div>
                             {!role.system && (
@@ -668,7 +668,7 @@ export default function Security() {
                                   <AlertTriangle className="w-4 h-4 text-status-critical" />
                                 )}
                               </div>
-                              <p className="text-xs text-gray-400">{permission.description}</p>
+                              <p className="text-xs text-black-200">{permission.description}</p>
                             </div>
                           </div>
                         ))}
@@ -773,11 +773,11 @@ export default function Security() {
                           />
                           <div>
                             <h3 className="font-semibold text-white">{policy.name}</h3>
-                            <p className="text-sm text-gray-400">{policy.description}</p>
+                            <p className="text-sm text-black-200">{policy.description}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-black-200">
                             Modified: {policy.lastModified.toLocaleDateString()}
                           </span>
                           <Button variant="outline" size="sm">
@@ -789,7 +789,7 @@ export default function Security() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                         {Object.entries(policy.settings).map(([key, value]) => (
                           <div key={key} className="flex justify-between">
-                            <span className="text-gray-400">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}:</span>
+                            <span className="text-black-200">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}:</span>
                             <span className="font-mono text-white">
                               {Array.isArray(value) ? value.join(', ') : String(value)}
                             </span>

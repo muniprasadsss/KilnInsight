@@ -23,7 +23,7 @@ export function StatusCard({
   const changeColors = {
     positive: "text-status-normal",
     negative: "text-status-critical",
-    neutral: "text-gray-400"
+    neutral: "text-black-200"
   };
 
   return (
@@ -31,7 +31,7 @@ export function StatusCard({
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-gray-400 text-sm">{title}</p>
+            <p className="text-black-200 text-sm">{title}</p>
             <p className="text-2xl font-bold text-white">
               {value}{unit && <span className="text-lg">{unit}</span>}
             </p>

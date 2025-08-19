@@ -117,7 +117,7 @@ export default function SensorDashboard() {
       <div className="flex items-center justify-center h-96">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
-          <p className="mt-4 text-gray-400">Loading sensor data...</p>
+          <p className="mt-4 text-black-200">Loading sensor data...</p>
         </div>
       </div>
     );
@@ -128,7 +128,7 @@ export default function SensorDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Comprehensive Sensor Dashboard</h1>
-          <p className="text-gray-400">Real-time monitoring of all cement kiln sensors</p>
+          <p className="text-black-200">Real-time monitoring of all cement kiln sensors</p>
         </div>
         <div className="flex space-x-4">
           <Select value={selectedLocation} onValueChange={setSelectedLocation}>
@@ -162,7 +162,7 @@ export default function SensorDashboard() {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400">Total Sensors</p>
+                <p className="text-sm text-black-200">Total Sensors</p>
                 <p className="text-2xl font-bold">{sensorReadings.length}</p>
               </div>
               <Activity className="w-8 h-8 text-blue-500" />
@@ -174,7 +174,7 @@ export default function SensorDashboard() {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400">Active Locations</p>
+                <p className="text-sm text-black-200">Active Locations</p>
                 <p className="text-2xl font-bold">3</p>
               </div>
               <TrendingUp className="w-8 h-8 text-green-500" />
@@ -186,7 +186,7 @@ export default function SensorDashboard() {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400">Good Quality</p>
+                <p className="text-sm text-black-200">Good Quality</p>
                 <p className="text-2xl font-bold">
                   {sensorReadings.filter(s => s.quality === 'good').length}
                 </p>
@@ -200,7 +200,7 @@ export default function SensorDashboard() {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400">Warnings</p>
+                <p className="text-sm text-black-200">Warnings</p>
                 <p className="text-2xl font-bold text-yellow-500">
                   {sensorReadings.filter(s => s.quality === 'warning').length}
                 </p>
@@ -237,7 +237,7 @@ export default function SensorDashboard() {
                         {getStatusIcon(sensor.quality)}
                         <div>
                           <p className="font-medium text-sm">{sensor.sensorName}</p>
-                          <p className="text-xs text-gray-400">{sensor.location}</p>
+                          <p className="text-xs text-black-200">{sensor.location}</p>
                         </div>
                       </div>
                       <div className="text-right">
@@ -268,7 +268,7 @@ export default function SensorDashboard() {
                         {getStatusIcon(sensor.quality)}
                         <div>
                           <p className="font-medium text-sm">{sensor.sensorName}</p>
-                          <p className="text-xs text-gray-400">{sensor.location}</p>
+                          <p className="text-xs text-black-200">{sensor.location}</p>
                         </div>
                       </div>
                       <div className="text-right">
@@ -299,7 +299,7 @@ export default function SensorDashboard() {
                         {getStatusIcon(sensor.quality)}
                         <div>
                           <p className="font-medium text-sm">{sensor.sensorName}</p>
-                          <p className="text-xs text-gray-400">{sensor.location}</p>
+                          <p className="text-xs text-black-200">{sensor.location}</p>
                         </div>
                       </div>
                       <div className="text-right">
@@ -330,7 +330,7 @@ export default function SensorDashboard() {
                         {getStatusIcon(sensor.quality)}
                         <div>
                           <p className="font-medium text-sm">{sensor.sensorName}</p>
-                          <p className="text-xs text-gray-400">{sensor.location}</p>
+                          <p className="text-xs text-black-200">{sensor.location}</p>
                         </div>
                       </div>
                       <div className="text-right">
@@ -364,7 +364,7 @@ export default function SensorDashboard() {
                             <p className="font-medium text-xs">{sensor.sensorName}</p>
                             <div className="flex items-center space-x-1">
                               <div className={`w-2 h-2 rounded-full ${getStatusColor(sensor.quality)}`}></div>
-                              <span className="text-xs text-gray-400">{sensor.quality}</span>
+                              <span className="text-xs text-black-200">{sensor.quality}</span>
                             </div>
                           </div>
                         </div>
@@ -450,7 +450,7 @@ export default function SensorDashboard() {
                             <span className="capitalize">{sensor.quality || 'unknown'}</span>
                           </div>
                         </td>
-                        <td className="p-2 text-gray-400">
+                        <td className="p-2 text-black-200">
                           {new Date(sensor.timestamp).toLocaleString()}
                         </td>
                       </tr>

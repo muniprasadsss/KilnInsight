@@ -23,7 +23,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
       case "good": return "text-status-normal";
       case "warning": return "text-status-warning";
       case "critical": return "text-status-critical";
-      default: return "text-gray-400";
+      default: return "text-black-200";
     }
   };
 
@@ -37,7 +37,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
     if (status === "critical") return "text-status-critical";
     if (change > 0) return "text-status-normal";
     if (change < 0) return "text-status-critical";
-    return "text-gray-400";
+    return "text-black-200";
   };
 
   return (
@@ -46,7 +46,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
         <Card key={kpi.id} className="bg-industrial-card border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">{kpi.title}</h3>
+              <h3 className="text-sm font-medium text-black-200">{kpi.title}</h3>
               <div className={cn("w-3 h-3 rounded-full", 
                 kpi.status === "good" ? "bg-status-normal" :
                 kpi.status === "warning" ? "bg-status-warning" : "bg-status-critical"
@@ -68,7 +68,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
                 <span>{kpi.changeLabel}</span>
               </div>
               {kpi.target && (
-                <div className="text-xs text-gray-400">
+                <div className="text-xs text-black-200">
                   Target: {kpi.target}
                 </div>
               )}

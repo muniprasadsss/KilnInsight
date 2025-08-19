@@ -51,7 +51,7 @@ export default function RootCauseAnalysis() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Root Cause Analysis</h1>
-          <p className="text-gray-400">Deep dive analysis of anomalies and their causal relationships</p>
+          <p className="text-black-200">Deep dive analysis of anomalies and their causal relationships</p>
         </div>
         <Button className="bg-industrial-accent">
           Generate Report
@@ -103,13 +103,13 @@ export default function RootCauseAnalysis() {
               <p className="text-gray-300 mb-4">{selectedAnomalyData.description}</p>
               <div className="grid grid-cols-3 gap-4 text-sm">
                 <div>
-                  <span className="text-gray-400">Location:</span> {selectedAnomalyData.location}
+                  <span className="text-black-200">Location:</span> {selectedAnomalyData.location}
                 </div>
                 <div>
-                  <span className="text-gray-400">Start Time:</span> {selectedAnomalyData.startTime.toLocaleString()}
+                  <span className="text-black-200">Start Time:</span> {selectedAnomalyData.startTime.toLocaleString()}
                 </div>
                 <div>
-                  <span className="text-gray-400">Status:</span> {selectedAnomalyData.status}
+                  <span className="text-black-200">Status:</span> {selectedAnomalyData.status}
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function RootCauseAnalysis() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Sensor Correlation Analysis</CardTitle>
-                <p className="text-gray-400">Correlation between sensors during the anomaly episode</p>
+                <p className="text-black-200">Correlation between sensors during the anomaly episode</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -157,7 +157,7 @@ export default function RootCauseAnalysis() {
                         <div className="font-mono text-lg">
                           {item.correlation > 0 ? '+' : ''}{item.correlation.toFixed(2)}
                         </div>
-                        <div className="text-sm text-gray-400">Correlation</div>
+                        <div className="text-sm text-black-200">Correlation</div>
                       </div>
                     </div>
                   ))}
@@ -170,13 +170,13 @@ export default function RootCauseAnalysis() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Event Timeline</CardTitle>
-                <p className="text-gray-400">Chronological sequence of events leading to the anomaly</p>
+                <p className="text-black-200">Chronological sequence of events leading to the anomaly</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {timelineEvents.map((event, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-16 text-sm text-gray-400 font-mono">
+                      <div className="flex-shrink-0 w-16 text-sm text-black-200 font-mono">
                         {event.time}
                       </div>
                       <div className="flex-shrink-0">
@@ -206,7 +206,7 @@ export default function RootCauseAnalysis() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Related Failure Modes</CardTitle>
-                <p className="text-gray-400">Known failure modes that could cause this type of anomaly</p>
+                <p className="text-black-200">Known failure modes that could cause this type of anomaly</p>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4">
@@ -222,7 +222,7 @@ export default function RootCauseAnalysis() {
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                         <div>
-                          <h4 className="font-medium text-gray-400 mb-1">Symptoms</h4>
+                          <h4 className="font-medium text-black-200 mb-1">Symptoms</h4>
                           <ul className="space-y-1">
                             {(failureMode.symptoms as string[])?.map((symptom, index) => (
                               <li key={index} className="text-gray-300">• {symptom}</li>
@@ -230,7 +230,7 @@ export default function RootCauseAnalysis() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-400 mb-1">Possible Causes</h4>
+                          <h4 className="font-medium text-black-200 mb-1">Possible Causes</h4>
                           <ul className="space-y-1">
                             {(failureMode.causes as string[])?.map((cause, index) => (
                               <li key={index} className="text-gray-300">• {cause}</li>
@@ -238,7 +238,7 @@ export default function RootCauseAnalysis() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-400 mb-1">Impacts</h4>
+                          <h4 className="font-medium text-black-200 mb-1">Impacts</h4>
                           <ul className="space-y-1">
                             {(failureMode.impacts as string[])?.map((impact, index) => (
                               <li key={index} className="text-gray-300">• {impact}</li>
@@ -257,7 +257,7 @@ export default function RootCauseAnalysis() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Recommendations</CardTitle>
-                <p className="text-gray-400">Suggested actions based on root cause analysis</p>
+                <p className="text-black-200">Suggested actions based on root cause analysis</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">

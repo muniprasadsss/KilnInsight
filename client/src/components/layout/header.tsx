@@ -17,7 +17,7 @@ export function Header({ title, description, isConnected }: HeaderProps) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
-          <p className="text-gray-400">{description}</p>
+          <p className="text-black-200">{description}</p>
         </div>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
@@ -31,11 +31,11 @@ export function Header({ title, description, isConnected }: HeaderProps) {
               {isConnected ? "Live Data" : "Disconnected"}
             </span>
           </div>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-black-200">
             Last Update: {currentTime}
           </div>
           <Button variant="ghost" size="icon">
-            <User className="h-4 w-4 text-gray-400" />
+            <User className="h-4 w-4 text-black-200" />
           </Button>
         </div>
       </div>

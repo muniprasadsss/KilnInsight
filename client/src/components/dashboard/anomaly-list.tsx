@@ -49,7 +49,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
       <CardContent>
         <div className="space-y-3">
           {anomalies.length === 0 ? (
-            <div className="text-center py-8 text-gray-400">
+            <div className="text-center py-8 text-black-200">
               No active anomalies detected
             </div>
           ) : (
@@ -71,7 +71,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                       word.charAt(0).toUpperCase() + word.slice(1)
                     ).join(' ')}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-black-200">
                     {getTimeAgo(anomaly.startTime)}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                   {anomaly.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-black-200">
                     Episode ID: {anomaly.episodeId}
                   </span>
                   <Button 

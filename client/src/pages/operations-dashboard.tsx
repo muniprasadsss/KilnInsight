@@ -162,8 +162,8 @@ export default function OperationsDashboard() {
       case "running": return <CheckCircle className="w-5 h-5 text-status-normal" />;
       case "fault": return <AlertTriangle className="w-5 h-5 text-status-critical" />;
       case "maintenance": return <Clock className="w-5 h-5 text-status-warning" />;
-      case "stopped": return <Pause className="w-5 h-5 text-gray-400" />;
-      default: return <AlertTriangle className="w-5 h-5 text-gray-400" />;
+      case "stopped": return <Pause className="w-5 h-5 text-black-200" />;
+      default: return <AlertTriangle className="w-5 h-5 text-black-200" />;
     }
   };
 
@@ -172,8 +172,8 @@ export default function OperationsDashboard() {
       case "running": return "text-status-normal";
       case "fault": return "text-status-critical";
       case "maintenance": return "text-status-warning";
-      case "stopped": return "text-gray-400";
-      default: return "text-gray-400";
+      case "stopped": return "text-black-200";
+      default: return "text-black-200";
     }
   };
 
@@ -201,7 +201,7 @@ export default function OperationsDashboard() {
                       {getStatusIcon(equipment.status)}
                       <div>
                         <CardTitle className="text-lg">{equipment.equipmentName}</CardTitle>
-                        <p className="text-sm text-gray-400">{equipment.equipmentId}</p>
+                        <p className="text-sm text-black-200">{equipment.equipmentId}</p>
                       </div>
                     </div>
                     <Badge 
@@ -232,13 +232,13 @@ export default function OperationsDashboard() {
                     
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="text-gray-400">Last Maintenance</span>
+                        <span className="text-black-200">Last Maintenance</span>
                         <div className="font-mono">
                           {equipment.lastMaintenance?.toLocaleDateString()}
                         </div>
                       </div>
                       <div>
-                        <span className="text-gray-400">Next Maintenance</span>
+                        <span className="text-black-200">Next Maintenance</span>
                         <div className="font-mono">
                           {equipment.nextMaintenance?.toLocaleDateString()}
                         </div>
@@ -278,7 +278,7 @@ export default function OperationsDashboard() {
                       <div className="w-4 h-4 bg-status-normal rounded-full animate-pulse"></div>
                       <div>
                         <div className="font-medium">Raw Material Feed</div>
-                        <div className="text-sm text-gray-400">Conveyor Belt 1</div>
+                        <div className="text-sm text-black-200">Conveyor Belt 1</div>
                       </div>
                     </div>
                     <div className="text-right">
@@ -292,7 +292,7 @@ export default function OperationsDashboard() {
                       <div className="w-4 h-4 bg-status-warning rounded-full animate-pulse"></div>
                       <div>
                         <div className="font-medium">Kiln Feed</div>
-                        <div className="text-sm text-gray-400">Pre-homogenization</div>
+                        <div className="text-sm text-black-200">Pre-homogenization</div>
                       </div>
                     </div>
                     <div className="text-right">
@@ -306,7 +306,7 @@ export default function OperationsDashboard() {
                       <div className="w-4 h-4 bg-status-normal rounded-full animate-pulse"></div>
                       <div>
                         <div className="font-medium">Cement Production</div>
-                        <div className="text-sm text-gray-400">Final Output</div>
+                        <div className="text-sm text-black-200">Final Output</div>
                       </div>
                     </div>
                     <div className="text-right">
@@ -330,7 +330,7 @@ export default function OperationsDashboard() {
                       <span className="font-mono">342 m²/kg</span>
                     </div>
                     <Progress value={85} className="h-2" />
-                    <div className="text-xs text-gray-400 mt-1">Target: 350 m²/kg</div>
+                    <div className="text-xs text-black-200 mt-1">Target: 350 m²/kg</div>
                   </div>
                   
                   <div>
@@ -339,7 +339,7 @@ export default function OperationsDashboard() {
                       <span className="font-mono">52.3 MPa</span>
                     </div>
                     <Progress value={92} className="h-2" />
-                    <div className="text-xs text-gray-400 mt-1">Target: 50 MPa</div>
+                    <div className="text-xs text-black-200 mt-1">Target: 50 MPa</div>
                   </div>
                   
                   <div>
@@ -348,7 +348,7 @@ export default function OperationsDashboard() {
                       <span className="font-mono">98.2%</span>
                     </div>
                     <Progress value={98} className="h-2" />
-                    <div className="text-xs text-gray-400 mt-1">LSF: 0.94, SM: 2.1</div>
+                    <div className="text-xs text-black-200 mt-1">LSF: 0.94, SM: 2.1</div>
                   </div>
                 </div>
               </CardContent>
@@ -449,7 +449,7 @@ export default function OperationsDashboard() {
                   <CardTitle>Energy Consumption Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 flex items-center justify-center text-gray-400">
+                  <div className="h-64 flex items-center justify-center text-black-200">
                     Energy consumption chart would be displayed here
                   </div>
                 </CardContent>
@@ -460,7 +460,7 @@ export default function OperationsDashboard() {
                   <CardTitle>Quality Index Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 flex items-center justify-center text-gray-400">
+                  <div className="h-64 flex items-center justify-center text-black-200">
                     Quality metrics trend chart would be displayed here
                   </div>
                 </CardContent>

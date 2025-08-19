@@ -140,8 +140,8 @@ export default function DataManagement() {
     switch (status) {
       case "connected": return <CheckCircle className="w-4 h-4 text-status-normal" />;
       case "error": return <AlertTriangle className="w-4 h-4 text-status-critical" />;
-      case "disconnected": return <Wifi className="w-4 h-4 text-gray-400" />;
-      default: return <Database className="w-4 h-4 text-gray-400" />;
+      case "disconnected": return <Wifi className="w-4 h-4 text-black-200" />;
+      default: return <Database className="w-4 h-4 text-black-200" />;
     }
   };
 
@@ -149,8 +149,8 @@ export default function DataManagement() {
     switch (status) {
       case "connected": return "text-status-normal";
       case "error": return "text-status-critical"; 
-      case "disconnected": return "text-gray-400";
-      default: return "text-gray-400";
+      case "disconnected": return "text-black-200";
+      default: return "text-black-200";
     }
   };
 
@@ -159,7 +159,7 @@ export default function DataManagement() {
       case "good": return "text-status-normal";
       case "warning": return "text-status-warning";
       case "bad": return "text-status-critical";
-      default: return "text-gray-400";
+      default: return "text-black-200";
     }
   };
 
@@ -171,7 +171,7 @@ export default function DataManagement() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Data Sources</p>
+                <p className="text-black-200 text-sm">Data Sources</p>
                 <p className="text-2xl font-bold text-white">{dataSources.length}</p>
                 <p className="text-xs text-status-normal">
                   {dataSources.filter(d => d.status === 'connected').length} Active
@@ -186,7 +186,7 @@ export default function DataManagement() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Data Quality</p>
+                <p className="text-black-200 text-sm">Data Quality</p>
                 <p className="text-2xl font-bold text-white">94.3%</p>
                 <p className="text-xs text-status-normal">↑ 2.1% improvement</p>
               </div>
@@ -199,11 +199,11 @@ export default function DataManagement() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Total Records</p>
+                <p className="text-black-200 text-sm">Total Records</p>
                 <p className="text-2xl font-bold text-white">29.8K</p>
-                <p className="text-xs text-gray-400">Last 24 hours</p>
+                <p className="text-xs text-black-200">Last 24 hours</p>
               </div>
-              <Database className="text-3xl text-gray-400" />
+              <Database className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -212,11 +212,11 @@ export default function DataManagement() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Storage Used</p>
+                <p className="text-black-200 text-sm">Storage Used</p>
                 <p className="text-2xl font-bold text-white">2.4GB</p>
-                <p className="text-xs text-gray-400">of 10GB allocated</p>
+                <p className="text-xs text-black-200">of 10GB allocated</p>
               </div>
-              <Database className="text-3xl text-gray-400" />
+              <Database className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -384,7 +384,7 @@ export default function DataManagement() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Data Quality Monitoring</CardTitle>
-                <p className="text-gray-400">Real-time data quality metrics and validation</p>
+                <p className="text-black-200">Real-time data quality metrics and validation</p>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -395,7 +395,7 @@ export default function DataManagement() {
                         <span className="font-mono">97.8%</span>
                       </div>
                       <Progress value={97.8} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Missing data points: 156</div>
+                      <div className="text-xs text-black-200 mt-1">Missing data points: 156</div>
                     </div>
                     
                     <div>
@@ -404,7 +404,7 @@ export default function DataManagement() {
                         <span className="font-mono">94.2%</span>
                       </div>
                       <Progress value={94.2} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Out-of-range values: 412</div>
+                      <div className="text-xs text-black-200 mt-1">Out-of-range values: 412</div>
                     </div>
                     
                     <div>
@@ -413,7 +413,7 @@ export default function DataManagement() {
                         <span className="font-mono">99.1%</span>
                       </div>
                       <Progress value={99.1} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Delayed updates: 23</div>
+                      <div className="text-xs text-black-200 mt-1">Delayed updates: 23</div>
                     </div>
                   </div>
                   
@@ -424,7 +424,7 @@ export default function DataManagement() {
                         <span className="font-mono">91.5%</span>
                       </div>
                       <Progress value={91.5} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Inconsistent values: 67</div>
+                      <div className="text-xs text-black-200 mt-1">Inconsistent values: 67</div>
                     </div>
                     
                     <div>
@@ -433,7 +433,7 @@ export default function DataManagement() {
                         <span className="font-mono">96.7%</span>
                       </div>
                       <Progress value={96.7} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Invalid formats: 89</div>
+                      <div className="text-xs text-black-200 mt-1">Invalid formats: 89</div>
                     </div>
                     
                     <div>
@@ -442,7 +442,7 @@ export default function DataManagement() {
                         <span className="font-mono">98.9%</span>
                       </div>
                       <Progress value={98.9} className="h-2" />
-                      <div className="text-xs text-gray-400 mt-1">Duplicate records: 34</div>
+                      <div className="text-xs text-black-200 mt-1">Duplicate records: 34</div>
                     </div>
                   </div>
                 </div>
@@ -489,7 +489,7 @@ export default function DataManagement() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Real-time Data Connectors</CardTitle>
-                <p className="text-gray-400">Configure connections to external systems</p>
+                <p className="text-black-200">Configure connections to external systems</p>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

@@ -76,7 +76,7 @@ export default function AlertsCenter() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Alerts Center</h1>
-          <p className="text-gray-400">Manage and configure system alerts and notifications</p>
+          <p className="text-black-200">Manage and configure system alerts and notifications</p>
         </div>
         <Button className="bg-industrial-accent">
           <Settings className="w-4 h-4 mr-2" />
@@ -90,7 +90,7 @@ export default function AlertsCenter() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Total Active</p>
+                <p className="text-black-200 text-sm">Total Active</p>
                 <p className="text-2xl font-bold text-white">{activeAlerts.length}</p>
               </div>
               <Bell className="text-3xl text-industrial-accent" />
@@ -102,7 +102,7 @@ export default function AlertsCenter() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Critical</p>
+                <p className="text-black-200 text-sm">Critical</p>
                 <p className="text-2xl font-bold text-status-critical">{severityStats.critical}</p>
               </div>
               <Bell className="text-3xl text-status-critical" />
@@ -114,7 +114,7 @@ export default function AlertsCenter() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Warning</p>
+                <p className="text-black-200 text-sm">Warning</p>
                 <p className="text-2xl font-bold text-status-warning">{severityStats.warning}</p>
               </div>
               <Bell className="text-3xl text-status-warning" />
@@ -126,7 +126,7 @@ export default function AlertsCenter() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Normal</p>
+                <p className="text-black-200 text-sm">Normal</p>
                 <p className="text-2xl font-bold text-status-normal">{severityStats.normal}</p>
               </div>
               <Bell className="text-3xl text-status-normal" />
@@ -150,7 +150,7 @@ export default function AlertsCenter() {
                 <CardTitle>Active Alerts</CardTitle>
                 <div className="flex space-x-2">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-200 w-4 h-4" />
                     <Input
                       placeholder="Search alerts..."
                       value={searchTerm}
@@ -231,7 +231,7 @@ export default function AlertsCenter() {
               </Table>
               
               {filteredAlerts.filter(alert => !alert.acknowledged).length === 0 && (
-                <div className="text-center py-8 text-gray-400">
+                <div className="text-center py-8 text-black-200">
                   No active alerts found
                 </div>
               )}
@@ -284,7 +284,7 @@ export default function AlertsCenter() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Alert Thresholds</CardTitle>
-                <p className="text-gray-400">Configure alert thresholds for different sensors</p>
+                <p className="text-black-200">Configure alert thresholds for different sensors</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -296,22 +296,22 @@ export default function AlertsCenter() {
                   ].map((config, index) => (
                     <div key={index} className="grid grid-cols-4 gap-4 p-4 bg-gray-800 rounded-lg">
                       <div>
-                        <label className="text-sm text-gray-400">Sensor</label>
+                        <label className="text-sm text-black-200">Sensor</label>
                         <div className="font-medium">{config.sensor}</div>
                       </div>
                       <div>
-                        <label className="text-sm text-gray-400">Current Value</label>
+                        <label className="text-sm text-black-200">Current Value</label>
                         <div className="font-mono">{config.current}</div>
                       </div>
                       <div>
-                        <label className="text-sm text-gray-400">Warning Threshold</label>
+                        <label className="text-sm text-black-200">Warning Threshold</label>
                         <Input 
                           defaultValue={config.warning}
                           className="bg-gray-700 border-gray-600 mt-1"
                         />
                       </div>
                       <div>
-                        <label className="text-sm text-gray-400">Critical Threshold</label>
+                        <label className="text-sm text-black-200">Critical Threshold</label>
                         <Input 
                           defaultValue={config.critical}
                           className="bg-gray-700 border-gray-600 mt-1"
@@ -326,7 +326,7 @@ export default function AlertsCenter() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Notification Settings</CardTitle>
-                <p className="text-gray-400">Configure how and when to receive notifications</p>
+                <p className="text-black-200">Configure how and when to receive notifications</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">

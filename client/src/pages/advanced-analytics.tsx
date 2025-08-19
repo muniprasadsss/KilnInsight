@@ -121,9 +121,9 @@ export default function AdvancedAnalytics() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Pattern Analysis</p>
+                <p className="text-black-200 text-sm">Pattern Analysis</p>
                 <p className="text-2xl font-bold text-white">156</p>
-                <p className="text-xs text-gray-400">Patterns Identified</p>
+                <p className="text-xs text-black-200">Patterns Identified</p>
               </div>
               <BarChart3 className="text-3xl text-industrial-accent" />
             </div>
@@ -134,7 +134,7 @@ export default function AdvancedAnalytics() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Prediction Accuracy</p>
+                <p className="text-black-200 text-sm">Prediction Accuracy</p>
                 <p className="text-2xl font-bold text-white">84.2%</p>
                 <p className="text-xs text-status-normal">↑ 2.1% improvement</p>
               </div>
@@ -147,9 +147,9 @@ export default function AdvancedAnalytics() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Risk Score</p>
+                <p className="text-black-200 text-sm">Risk Score</p>
                 <p className="text-2xl font-bold text-status-warning">6.7</p>
-                <p className="text-xs text-gray-400">Medium Risk Level</p>
+                <p className="text-xs text-black-200">Medium Risk Level</p>
               </div>
               <AlertTriangle className="text-3xl text-status-warning" />
             </div>
@@ -190,14 +190,14 @@ export default function AdvancedAnalytics() {
                           </div>
                           <div>
                             <div className="font-medium">{mode.name}</div>
-                            <div className="text-sm text-gray-400">{mode.location}</div>
+                            <div className="text-sm text-black-200">{mode.location}</div>
                           </div>
                         </div>
                         <div className="text-right">
                           <div className="font-mono">
                             {Math.floor(Math.random() * 30 + 10)} occurrences
                           </div>
-                          <div className="text-sm text-gray-400">Last 30 days</div>
+                          <div className="text-sm text-black-200">Last 30 days</div>
                         </div>
                       </div>
                     ))}
@@ -216,7 +216,7 @@ export default function AdvancedAnalytics() {
                         <span>Winter Pattern (Dec-Feb)</span>
                         <span className="text-status-critical">High Risk</span>
                       </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-xs text-black-200">
                         Increased fuel consumption anomalies due to cold weather
                       </div>
                     </div>
@@ -226,7 +226,7 @@ export default function AdvancedAnalytics() {
                         <span>Summer Pattern (Jun-Aug)</span>
                         <span className="text-status-warning">Medium Risk</span>
                       </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-xs text-black-200">
                         ESP overheating issues during hot weather
                       </div>
                     </div>
@@ -236,7 +236,7 @@ export default function AdvancedAnalytics() {
                         <span>Maintenance Season (Apr-May)</span>
                         <span className="text-status-normal">Low Risk</span>
                       </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-xs text-black-200">
                         Scheduled maintenance reduces unexpected failures
                       </div>
                     </div>
@@ -301,7 +301,7 @@ export default function AdvancedAnalytics() {
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
                 <CardTitle>Predictive Maintenance Insights</CardTitle>
-                <p className="text-gray-400">AI-powered predictions based on historical patterns</p>
+                <p className="text-black-200">AI-powered predictions based on historical patterns</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -318,7 +318,7 @@ export default function AdvancedAnalytics() {
                       </div>
                       <p className="text-gray-300 mb-2">{insight.prediction}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-400">
+                        <span className="text-sm text-black-200">
                           Recommended Action: {insight.action}
                         </span>
                         <Badge variant={
@@ -342,15 +342,15 @@ export default function AdvancedAnalytics() {
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div className="p-4 bg-status-normal/20 border border-status-normal rounded-lg">
                     <div className="text-2xl font-bold text-status-normal">23%</div>
-                    <div className="text-sm text-gray-400">Low Risk</div>
+                    <div className="text-sm text-black-200">Low Risk</div>
                   </div>
                   <div className="p-4 bg-status-warning/20 border border-status-warning rounded-lg">
                     <div className="text-2xl font-bold text-status-warning">54%</div>
-                    <div className="text-sm text-gray-400">Medium Risk</div>
+                    <div className="text-sm text-black-200">Medium Risk</div>
                   </div>
                   <div className="p-4 bg-status-critical/20 border border-status-critical rounded-lg">
                     <div className="text-2xl font-bold text-status-critical">23%</div>
-                    <div className="text-sm text-gray-400">High Risk</div>
+                    <div className="text-sm text-black-200">High Risk</div>
                   </div>
                 </div>
               </CardContent>
@@ -362,7 +362,7 @@ export default function AdvancedAnalytics() {
           <Card className="bg-industrial-card border-gray-700">
             <CardHeader>
               <CardTitle>Custom Analytics Query Builder</CardTitle>
-              <p className="text-gray-400">Build custom queries to analyze your data</p>
+              <p className="text-black-200">Build custom queries to analyze your data</p>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -436,7 +436,7 @@ export default function AdvancedAnalytics() {
                     <CardTitle className="text-sm">Query Results</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-center text-gray-400 py-8">
+                    <div className="text-center text-black-200 py-8">
                       Execute a query to see results here
                     </div>
                   </CardContent>

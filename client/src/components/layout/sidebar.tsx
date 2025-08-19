@@ -39,7 +39,7 @@ export function Sidebar() {
   const [location] = useLocation();
 
   return (
-    <nav className="w-64 bg-industrial-card border-r border-gray-700 flex-shrink-0">
+    <nav className="w-64 border-r  flex-shrink-0" style={{backgroundColor: 'rgb(8, 143, 209)'}}>
       <div className="p-4">
         <div className="flex items-center space-x-3 mb-8">
           <Factory className="text-industrial-accent text-2xl" />
@@ -59,8 +59,8 @@ export function Sidebar() {
                       "flex items-center space-x-3 p-3 rounded-lg transition-colors",
                       isActive
                         ? "bg-industrial-accent text-white"
-                        : "text-gray-300 hover:text-white hover:bg-gray-700"
-                    )}
+                        : "text--300 hover:text-black hover:bg-gray-700"
+                    )} style={{color: "#fff"}}
                   >
                     <Icon className="w-5 h-5" />
                     <span>{item.label}</span>

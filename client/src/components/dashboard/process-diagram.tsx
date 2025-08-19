@@ -120,7 +120,7 @@ export function ProcessDiagram({ failures = [] }: ProcessDiagramProps) {
               )}>
                 • {failure.name}
               </div>
-              <div className="text-gray-400">{failure.description}</div>
+              <div className="text-black-200">{failure.description}</div>
             </div>
           ))}
         </div>

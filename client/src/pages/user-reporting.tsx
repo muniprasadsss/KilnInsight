@@ -155,7 +155,7 @@ export default function UserReporting() {
       case "ready": return "text-status-normal";
       case "generating": return "text-status-warning";
       case "failed": return "text-status-critical";
-      default: return "text-gray-400";
+      default: return "text-black-200";
     }
   };
 
@@ -164,7 +164,7 @@ export default function UserReporting() {
       case "ready": return <FileText className="w-4 h-4 text-status-normal" />;
       case "generating": return <Clock className="w-4 h-4 text-status-warning" />;
       case "failed": return <FileText className="w-4 h-4 text-status-critical" />;
-      default: return <FileText className="w-4 h-4 text-gray-400" />;
+      default: return <FileText className="w-4 h-4 text-black-200" />;
     }
   };
 
@@ -176,7 +176,7 @@ export default function UserReporting() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Total Reports</p>
+                <p className="text-black-200 text-sm">Total Reports</p>
                 <p className="text-2xl font-bold text-white">247</p>
               </div>
               <FileText className="text-3xl text-industrial-accent" />
@@ -188,7 +188,7 @@ export default function UserReporting() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">This Month</p>
+                <p className="text-black-200 text-sm">This Month</p>
                 <p className="text-2xl font-bold text-white">23</p>
                 <p className="text-xs text-status-normal">↑ 12% from last month</p>
               </div>
@@ -201,10 +201,10 @@ export default function UserReporting() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Templates</p>
+                <p className="text-black-200 text-sm">Templates</p>
                 <p className="text-2xl font-bold text-white">12</p>
               </div>
-              <FileText className="text-3xl text-gray-400" />
+              <FileText className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -213,10 +213,10 @@ export default function UserReporting() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Dashboards</p>
+                <p className="text-black-200 text-sm">Dashboards</p>
                 <p className="text-2xl font-bold text-white">6</p>
               </div>
-              <Eye className="text-3xl text-gray-400" />
+              <Eye className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -329,7 +329,7 @@ export default function UserReporting() {
                     <CardTitle className="text-lg">{template.name}</CardTitle>
                     <Badge variant="outline">{template.type}</Badge>
                   </div>
-                  <p className="text-gray-400 text-sm">{template.description}</p>
+                  <p className="text-black-200 text-sm">{template.description}</p>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -346,12 +346,12 @@ export default function UserReporting() {
                     
                     <div className="flex items-center justify-between text-sm">
                       <div>
-                        <span className="text-gray-400">Frequency: </span>
+                        <span className="text-black-200">Frequency: </span>
                         <span className="text-white">{template.frequency}</span>
                       </div>
                       {template.lastUsed && (
                         <div>
-                          <span className="text-gray-400">Last used: </span>
+                          <span className="text-black-200">Last used: </span>
                           <span className="text-white font-mono">
                             {template.lastUsed.toLocaleDateString()}
                           </span>
@@ -401,11 +401,11 @@ export default function UserReporting() {
                           <CardTitle className="text-lg">{dashboard.name}</CardTitle>
                           <Badge variant="outline">{dashboard.widgets} widgets</Badge>
                         </div>
-                        <p className="text-gray-400 text-sm">{dashboard.description}</p>
+                        <p className="text-black-200 text-sm">{dashboard.description}</p>
                       </CardHeader>
                       <CardContent>
                         <div className="flex items-center justify-between">
-                          <div className="text-sm text-gray-400">
+                          <div className="text-sm text-black-200">
                             Modified: {dashboard.lastModified.toLocaleDateString()}
                           </div>
                           <div className="space-x-2">

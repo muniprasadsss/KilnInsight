@@ -41,9 +41,9 @@
   --radius: 1.3rem;
   
   /* Industrial Theme Colors */
-  --industrial-dark: hsl(0, 0%, 10.2%);
-  --industrial-card: hsl(0, 0%, 17.6%);
-  --industrial-accent: hsl(187.8, 100%, 38.0%);
+  --industrial-dark: #fff;
+  --industrial-card: #fff;
+  --industrial-accent: rgba(29, 116, 160, 1);
   --status-normal: hsl(122.4, 39.4%, 49.0%);
   --status-warning: hsl(35.3, 100%, 50.0%);
   --status-critical: hsl(4.3, 89.6%, 58.4%);
@@ -66,7 +66,7 @@
   --accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
   --destructive: hsl(356.3033, 90.5579%, 54.3137%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(210, 5.2632%, 14.9020%);
+  --border: hsl(210, 44%, 45%);
   --input: hsl(207.6923, 27.6596%, 18.4314%);
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
@@ -96,7 +96,7 @@
   body {
     @apply font-sans antialiased;
     background-color: var(--industrial-dark);
-    color: white;
+    color: rgb(7, 7, 7);
   }
   
   .industrial-dark {

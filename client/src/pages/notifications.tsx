@@ -240,8 +240,8 @@ export default function Notifications() {
     switch (status) {
       case "active": case "sent": return "text-status-normal";
       case "error": case "failed": return "text-status-critical";
-      case "disabled": case "pending": return "text-gray-400";
-      default: return "text-gray-400";
+      case "disabled": case "pending": return "text-black-200";
+      default: return "text-black-200";
     }
   };
 
@@ -269,7 +269,7 @@ export default function Notifications() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Active Rules</p>
+                <p className="text-black-200 text-sm">Active Rules</p>
                 <p className="text-2xl font-bold text-white">
                   {notificationRules.filter(r => r.enabled).length}
                 </p>
@@ -283,7 +283,7 @@ export default function Notifications() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Channels</p>
+                <p className="text-black-200 text-sm">Channels</p>
                 <p className="text-2xl font-bold text-white">
                   {notificationChannels.filter(c => c.enabled).length}
                 </p>
@@ -300,13 +300,13 @@ export default function Notifications() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Today's Notifications</p>
+                <p className="text-black-200 text-sm">Today's Notifications</p>
                 <p className="text-2xl font-bold text-white">47</p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-black-200">
                   {notificationLogs.filter(l => l.status === 'failed').length} Failed
                 </p>
               </div>
-              <Mail className="text-3xl text-gray-400" />
+              <Mail className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -315,12 +315,12 @@ export default function Notifications() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Recipients</p>
+                <p className="text-black-200 text-sm">Recipients</p>
                 <p className="text-2xl font-bold text-white">
                   {recipientGroups.reduce((sum, group) => sum + group.members.length, 0)}
                 </p>
               </div>
-              <Users className="text-3xl text-gray-400" />
+              <Users className="text-3xl text-black-200" />
             </div>
           </CardContent>
         </Card>
@@ -359,7 +359,7 @@ export default function Notifications() {
                           />
                           <div>
                             <h3 className="font-semibold text-white">{rule.name}</h3>
-                            <p className="text-sm text-gray-400">{rule.description}</p>
+                            <p className="text-sm text-black-200">{rule.description}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
@@ -375,7 +375,7 @@ export default function Notifications() {
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                         <div>
-                          <span className="text-gray-400">Channels:</span>
+                          <span className="text-black-200">Channels:</span>
                           <div className="flex space-x-2 mt-1">
                             {rule.channels.map((channel, index) => (
                               <Badge key={index} variant="outline" className="text-xs">
@@ -385,7 +385,7 @@ export default function Notifications() {
                           </div>
                         </div>
                         <div>
-                          <span className="text-gray-400">Recipients:</span>
+                          <span className="text-black-200">Recipients:</span>
                           <div className="flex space-x-2 mt-1">
                             {rule.recipients.map((recipient, index) => (
                               <Badge key={index} variant="outline" className="text-xs">
@@ -395,7 +395,7 @@ export default function Notifications() {
                           </div>
                         </div>
                         <div>
-                          <span className="text-gray-400">Last Triggered:</span>
+                          <span className="text-black-200">Last Triggered:</span>
                           <div className="font-mono text-white mt-1">
                             {rule.lastTriggered?.toLocaleString() || 'Never'}
                           </div>
@@ -452,7 +452,7 @@ export default function Notifications() {
                     <div className="text-sm space-y-2">
                       {Object.entries(channel.configuration).map(([key, value]) => (
                         <div key={key} className="flex justify-between">
-                          <span className="text-gray-400">{key}:</span>
+                          <span className="text-black-200">{key}:</span>
                           <span className="font-mono text-white">
                             {key.toLowerCase().includes('password') || key.toLowerCase().includes('token') || key.toLowerCase().includes('key')
                               ? '***********'
@@ -465,7 +465,7 @@ export default function Notifications() {
                     
                     {channel.lastUsed && (
                       <div className="text-sm">
-                        <span className="text-gray-400">Last used:</span>
+                        <span className="text-black-200">Last used:</span>
                         <span className="font-mono text-white ml-2">
                           {channel.lastUsed.toLocaleString()}
                         </span>
@@ -512,7 +512,7 @@ export default function Notifications() {
                           <Switch checked={group.enabled} />
                           <div>
                             <h3 className="font-semibold text-white">{group.name}</h3>
-                            <p className="text-sm text-gray-400">{group.description}</p>
+                            <p className="text-sm text-black-200">{group.description}</p>
                           </div>
                         </div>
                         <Badge variant="outline">
@@ -522,7 +522,7 @@ export default function Notifications() {
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                         <div>
-                          <span className="text-gray-400">Members:</span>
+                          <span className="text-black-200">Members:</span>
                           <div className="mt-2 space-y-1">
                             {group.members.map((member, index) => (
                               <div key={index} className="flex items-center space-x-2">
@@ -533,7 +533,7 @@ export default function Notifications() {
                           </div>
                         </div>
                         <div>
-                          <span className="text-gray-400">Roles:</span>
+                          <span className="text-black-200">Roles:</span>
                           <div className="flex flex-wrap gap-1 mt-2">
                             {group.roles.map((role, index) => (
                               <Badge key={index} variant="outline" className="text-xs">

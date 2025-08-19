@@ -19,7 +19,7 @@ export function Layout({ children, title, description }: LayoutProps) {
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
-      <Sidebar isCollapsed={isSidebarCollapsed} />
+      
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header 
           title={title} 
@@ -28,6 +28,7 @@ export function Layout({ children, title, description }: LayoutProps) {
           onToggleSidebar={handleToggleSidebar}
           isSidebarCollapsed={isSidebarCollapsed}
         />
+        <Sidebar isCollapsed={isSidebarCollapsed} />
         <main className="flex-1 overflow-y-auto">
           {children}
         </main>

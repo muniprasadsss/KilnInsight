@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { User, Settings, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import logo from "../../../../public/logo.svg";
 interface HeaderProps {
   title: string;
   description: string;
@@ -17,6 +17,16 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
   return (
     <header className="w-full border-b p-4 sticky top-0 z-50" style={{ backgroundColor: '#f8fafc', borderBottomColor: '#e2e8f0' }}>
       <div className="flex items-center justify-between">
+         <div className="flex items-center space-x-2 bg-white">
+                      
+                       
+                         <img 
+                           src= {logo}
+                           alt="KilnInsight Logo" 
+                           className="h-15 w-50 "
+                           data-testid="logo-kilninsight"
+                         />
+                     </div>
         <div className="flex items-center space-x-4">
           {/* Sidebar Toggle Button */}
           <Button 
@@ -31,12 +41,8 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
           
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
-            <img 
-              src="/logo.svg" 
-              alt="Kiln Monitor Logo" 
-              className="h-10 w-10"
-              data-testid="img-logo"
-            />
+           
+
             <div>
               <h2 className="text-2xl font-bold text-gray-900" data-testid="text-title">{title}</h2>
               <p className="text-gray-600 text-sm" data-testid="text-description">{description}</p>

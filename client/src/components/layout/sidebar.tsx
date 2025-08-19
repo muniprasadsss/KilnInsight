@@ -14,7 +14,8 @@ import {
   Shield,
   Activity
 } from "lucide-react";
-
+import logo_shot from "../../../../public/logo-shot.png";
+import logo from "../../../../public/logo.svg";
 interface NavigationItem {
   path: string;
   label: string;
@@ -48,17 +49,9 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
       style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
-      <div className="p-4">
-        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b border-blue-300 pb-4`}>
-          <div className="flex items-center space-x-2">
-            <Factory className="h-8 w-8 text-white" />
-            {!isCollapsed && (
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-lg leading-tight">KilnInsight</span>
-                <span className="text-blue-100 text-xs">Industrial Monitor</span>
-              </div>
-            )}
-          </div>
+      <div className="p-4 ">
+        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b bg-white border-blue-300 pb-4`} >
+          
         </div>
         
         <ul className="space-y-2">

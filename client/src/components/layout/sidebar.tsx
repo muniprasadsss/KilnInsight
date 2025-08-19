@@ -51,7 +51,10 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
       <div className="p-4">
         <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b border-blue-600 pb-4`}>
           <Factory className="text-white text-2xl" />
-          {!isCollapsed && <h1 className="text-xl font-bold text-white">Kiln Monitor</h1>}
+          {!isCollapsed && 
+           <img src="/logo-shot.png" alt="KilnInsight Logo" className="h-8 w-auto" />}
+          {isCollapsed && 
+           <img src="/logo.png" alt="KilnInsight Logo" className="h-8 w-auto" />}
         </div>
         
         <ul className="space-y-2">

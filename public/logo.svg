@@ -1,0 +1,46 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cement Kiln Logo -->
+  <defs>
+    <linearGradient id="kilnGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="flameGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#DC2626;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#EA580C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main kiln cylinder -->
+  <rect x="8" y="18" width="32" height="12" rx="6" fill="url(#kilnGradient)" stroke="#1E3A8A" stroke-width="1"/>
+  
+  <!-- Kiln support structure -->
+  <rect x="10" y="30" width="2" height="8" fill="#4B5563"/>
+  <rect x="20" y="30" width="2" height="8" fill="#4B5563"/>
+  <rect x="30" y="30" width="2" height="8" fill="#4B5563"/>
+  <rect x="36" y="30" width="2" height="8" fill="#4B5563"/>
+  
+  <!-- Preheater tower -->
+  <rect x="6" y="6" width="8" height="12" rx="2" fill="#374151" stroke="#1F2937" stroke-width="1"/>
+  
+  <!-- Cooler section -->
+  <rect x="36" y="12" width="8" height="18" rx="2" fill="#374151" stroke="#1F2937" stroke-width="1"/>
+  
+  <!-- Flame inside kiln -->
+  <ellipse cx="24" cy="24" rx="6" ry="3" fill="url(#flameGradient)" opacity="0.8"/>
+  
+  <!-- Heat waves -->
+  <path d="M16 16 Q18 14 20 16 Q22 18 24 16" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M20 14 Q22 12 24 14 Q26 16 28 14" stroke="#EA580C" stroke-width="1.5" fill="none" opacity="0.6"/>
+  
+  <!-- Temperature indicator dots -->
+  <circle cx="12" cy="20" r="1" fill="#10B981"/>
+  <circle cx="28" cy="20" r="1" fill="#F59E0B"/>
+  <circle cx="36" cy="20" r="1" fill="#EF4444"/>
+  
+  <!-- Company text element -->
+  <rect x="6" y="40" width="36" height="6" rx="3" fill="#1E3A8A" opacity="0.8"/>
+  <text x="24" y="44" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="white">KILN MONITOR</text>
+</svg>

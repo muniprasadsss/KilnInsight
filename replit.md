@@ -10,6 +10,16 @@ The application serves multiple user roles including operations personnel, maint
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+### December 19, 2024
+- ✅ **CSV Data Integration Completed**: Successfully integrated real cement kiln datasets with 30,239 training records, 12,961 test records, and 18 episodes
+- ✅ **Comprehensive Sensor Dashboard**: Created detailed sensor monitoring page displaying all 21+ sensors grouped by type and location
+- ✅ **Real Data Processing**: Replaced synthetic data with authentic cement kiln operational data from CSV files
+- ✅ **Navigation Integration**: Added sensor dashboard to sidebar navigation with Activity icon
+- ✅ **Type Safety**: Resolved all TypeScript compilation errors in CSV loader and storage systems
+- ✅ **Local Setup Documentation**: Created comprehensive README.md with complete local development setup instructions
+
 ## System Architecture
 
 ### Frontend Architecture

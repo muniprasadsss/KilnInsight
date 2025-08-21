@@ -19,17 +19,19 @@ export function Layout({ children, title, description }: LayoutProps) {
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
-      
+      {/* Sidebar */}
+      <Sidebar isCollapsed={isSidebarCollapsed} />
+
+      {/* Main content area */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header 
-          title={title} 
-          description={description} 
+        <Header
+          title={title}
+          description={description}
           isConnected={isConnected}
           onToggleSidebar={handleToggleSidebar}
           isSidebarCollapsed={isSidebarCollapsed}
         />
-        <Sidebar isCollapsed={isSidebarCollapsed} />
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto p-6">
           {children}
         </main>
       </div>

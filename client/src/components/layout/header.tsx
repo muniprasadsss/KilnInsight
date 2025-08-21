@@ -17,20 +17,10 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
   return (
     <header className="w-full border-b p-4 sticky top-0 z-50" style={{ backgroundColor: '#f8fafc', borderBottomColor: '#e2e8f0' }}>
       <div className="flex items-center justify-between">
-         <div className="flex items-center space-x-2 bg-white">
-                      
-                       
-                         <img 
-                           src= {logo}
-                           alt="KilnInsight Logo" 
-                           className="h-15 w-50 "
-                           data-testid="logo-kilninsight"
-                         />
-                     </div>
+        {/* Left side - Sidebar toggle and Logo with Title */}
         <div className="flex items-center space-x-4">
-          {/* Sidebar Toggle Button */}
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             size="icon"
             onClick={onToggleSidebar}
             className="hover:bg-gray-100"
@@ -38,11 +28,14 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
           >
             <Menu className="h-5 w-5 text-gray-700" />
           </Button>
-          
-          {/* Logo and Title */}
-          <div className="flex items-center space-x-3">
-           
 
+          <div className="flex items-center space-x-3">
+            <img
+              src={logo}
+              alt="KilnInsight Logo"
+              className="h-10 w-auto"
+              data-testid="logo-kilninsight"
+            />
             <div>
               <h2 className="text-2xl font-bold text-gray-900" data-testid="text-title">{title}</h2>
               <p className="text-gray-600 text-sm" data-testid="text-description">{description}</p>

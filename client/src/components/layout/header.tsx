@@ -8,8 +8,6 @@ interface HeaderProps {
   title: string;
   description: string;
   isConnected: boolean;
-  onToggleSidebar?: () => void;
-  isSidebarCollapsed?: boolean;
 }
 
 export function Header({ title, description, isConnected, onToggleSidebar, isSidebarCollapsed }: HeaderProps) {

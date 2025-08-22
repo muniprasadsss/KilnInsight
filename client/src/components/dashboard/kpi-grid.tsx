@@ -23,7 +23,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
       case "good": return "text-status-normal";
       case "warning": return "text-status-warning";
       case "critical": return "text-status-critical";
-      default: return "text-black-200";
+      default: return "text-industrial-muted";
     }
   };
 

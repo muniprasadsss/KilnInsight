@@ -460,24 +460,54 @@ textarea:focus {
   box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
 }
 
-input:focus, select:focus, textarea:focus {
-  border-color: rgb(8, 143, 209) !important;
-  box-shadow: 0 0 0 3px rgb(8 143 209 / 0.1) !important;
-  outline: none !important;
+/* Enhanced status indicators */
+.status-indicator {
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-/* Sidebar badge fixes */
-.sidebar-badge {
-  position: absolute !important;
-  top: -4px !important;
-  right: -4px !important;
-  background-color: #ef4444 !important;
-  color: white !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  min-width: 1.25rem !important;
-  height: 1.25rem !important;
-  border-radius: 9999px !important;
+.status-indicator.critical {
+  background: hsl(var(--status-critical) / 0.1);
+  color: hsl(var(--status-critical));
+  border-color: hsl(var(--status-critical) / 0.2);
+}
+
+.status-indicator.warning {
+  background: hsl(var(--status-warning) / 0.1);
+  color: hsl(var(--status-warning));
+  border-color: hsl(var(--status-warning) / 0.2);
+}
+
+.status-indicator.normal {
+  background: hsl(var(--status-normal) / 0.1);
+  color: hsl(var(--status-normal));
+  border-color: hsl(var(--status-normal) / 0.2);
+}
+
+.status-indicator.info {
+  background: hsl(var(--status-info) / 0.1);
+  color: hsl(var(--status-info));
+  border-color: hsl(var(--status-info) / 0.2);
+}
+
+/* Notification badge */
+.notification-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

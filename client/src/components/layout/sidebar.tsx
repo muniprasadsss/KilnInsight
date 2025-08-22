@@ -79,11 +79,11 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                 <Link href={item.path}>
                   <div
                     className={cn(
-                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
+                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-[rgba(241, 245, 247, 1)] text-white "
-                        : "text-white hover:text-[rgba(242, 247, 250, 1)] hover:bg-[rgba(247, 248, 248, 1)] hover:shadow-sm"
+                        ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-md"
+                        : "text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
                     )}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >

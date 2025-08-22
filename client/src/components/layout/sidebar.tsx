@@ -41,7 +41,7 @@ interface SidebarProps {
   onToggleSidebar?: () => void;
 }
 
-export function Sidebar({ isCollapsed = false }: SidebarProps) {
+export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) {
   const [location] = useLocation();
 
   return (

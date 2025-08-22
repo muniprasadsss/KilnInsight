@@ -38,6 +38,7 @@ const navigationItems: NavigationItem[] = [
 
 interface SidebarProps {
   isCollapsed?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 export function Sidebar({ isCollapsed = false }: SidebarProps) {

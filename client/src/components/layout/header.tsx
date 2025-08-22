@@ -30,12 +30,7 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
           </Button>
 
           <div className="flex items-center space-x-3">
-            <img
-              src={logo}
-              alt="KilnInsight Logo"
-              className="h-10 w-auto"
-              data-testid="logo-kilninsight"
-            />
+           
             <div>
               <h2 className="text-2xl font-bold text-gray-900" data-testid="text-title">{title}</h2>
               <p className="text-gray-600 text-sm" data-testid="text-description">{description}</p>

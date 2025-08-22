@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { User, Settings, Menu, X } from "lucide-react";
+import { User, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logo from "../../../../public/logo.svg";
 import logo_shot from "../../../../public/logo-shot.png";

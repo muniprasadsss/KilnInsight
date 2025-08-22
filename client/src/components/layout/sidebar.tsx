@@ -48,23 +48,6 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
       data-testid="nav-sidebar"
     >
 
-      <div className="logo">
-        <div
-    className={`flex items-center ${isCollapsed ? "justify-center" : "space-x-3"} mb-8 ` } style={{ 
-    height: "5rem",
-    border: "none",         // ✅ no !important
-    boxShadow: "0px 0px 0px #fff", // ✅ valid shadow
-    borderRadius: "0px"     // ✅ plain value
-  }}
-  >
-    {isCollapsed ? (
-      <img src={logo_shot} alt="KilnInsight" className="h-8 w-auto" />
-    ) : (
-      <img src={logo} alt="KilnInsight Logo" className="h-20 w-auto rounded-xl shadow-md bg-white"  />
-    )}
-  </div>
-
-      </div>
 
         <div>
         <div className="list p-2">

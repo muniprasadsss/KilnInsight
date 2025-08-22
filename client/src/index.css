@@ -41,14 +41,14 @@
   --chart-5: hsl(260, 50%, 45%); /* Industrial purple */
 
   /* Sidebar Colors */
-  --sidebar: hsl(215, 25%, 15%); /* Dark navy sidebar */
-  --sidebar-foreground: hsl(210, 20%, 85%);
-  --sidebar-primary: hsl(185, 60%, 25%); /* Teal accent */
+  --sidebar: 8 143 209; /* rgb(8, 143, 209) - requested blue background */
+  --sidebar-foreground: hsl(0, 0%, 100%); /* White text */
+  --sidebar-primary: 29 116 160; /* rgb(29, 116, 160) - requested selected/hover color */
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(215, 20%, 25%); /* Slightly lighter navy */
-  --sidebar-accent-foreground: hsl(185, 50%, 70%);
-  --sidebar-border: hsl(215, 20%, 25%);
-  --sidebar-ring: hsl(185, 60%, 25%);
+  --sidebar-accent: 29 116 160; /* rgb(29, 116, 160) - requested selected/hover color */
+  --sidebar-accent-foreground: hsl(0, 0%, 100%);
+  --sidebar-border: 8 143 209; /* Same as background */
+  --sidebar-ring: 29 116 160;
 
   /* Typography */
   --font-sans: "Inter", "Roboto", sans-serif;

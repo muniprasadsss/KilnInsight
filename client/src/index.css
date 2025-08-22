@@ -300,52 +300,62 @@ button:active,
   transition: all 0.2s ease-in-out !important;
 }
 
-/* Table styling improvements */
-.table-enhanced {
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
+/* Professional table styling */
+.table-industrial {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
 }
 
-.table-enhanced th {
-  background-color: #f8fafc !important;
-  border-bottom: 2px solid rgb(142 203 235) !important;
-  padding: 1rem !important;
-  font-weight: 600 !important;
-  color: rgb(8, 143, 209) !important;
+.table-industrial th {
+  background: hsl(var(--muted));
+  color: hsl(var(--text-primary));
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
-.table-enhanced td {
-  padding: 1rem !important;
-  border-bottom: 1px solid #e2e8f0 !important;
+.table-industrial td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+  color: hsl(var(--text-secondary));
 }
 
-.table-enhanced tr:hover {
-  background-color: #f8fafc !important;
+.table-industrial tr:hover {
+  background: hsl(var(--muted) / 0.5);
 }
 
-/* Additional element targeting */
-[data-radix-collection-item][data-state="active"],
-[data-state="active"][role="tab"],
-.bg-background[data-state="active"] {
-  /* background-color: rgb(8, 143, 209) !important; */
-  color: white !important;
+.table-industrial tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tab and interactive element styling */
+[data-state="active"] {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
 }
 
 /* Sidebar active states */
-.bg-sidebar-accent,
-[data-active="true"],
-.sidebar [data-active="true"] {
-  background-color: rgb(8, 143, 209) !important;
-  /* color: white !important; */
+.sidebar-item-active {
+  background: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+  border-radius: calc(var(--radius) - 2px);
 }
 
-/* Input and select focus states */
+/* Focus and interaction states */
+button:focus,
+.focus\\:ring-2:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: rgb(8, 143, 209) !important;
-  outline: 2px solid rgb(8, 143, 209) !important;
-  outline-offset: 2px !important;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-color: hsl(var(--ring));
 }
 
 /* Hover states for all buttons and links */

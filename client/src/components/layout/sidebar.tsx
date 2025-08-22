@@ -45,7 +45,8 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
 
   return (
     <nav
-      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full shadow-lg bg-sidebar border-r border-sidebar-border`}
+      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full shadow-lg border-r`}
+      style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
 

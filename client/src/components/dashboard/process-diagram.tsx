@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Expand, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
- import failure from "../../../../public/kiln_failure_modes.png"
+ import failure from "../../../../public/kiln_failure.png"
 interface FailureLocation {
   id: string;
   name: string;
@@ -46,9 +46,9 @@ export function ProcessDiagram({ failures = [] }: ProcessDiagramProps) {
   ];
 
    const markers = [
-    { id: 1, x: 34, y: 25, label: "Point A", value:35, color: "bg-red-500" },
-    { id: 2, x: 67, y: 68, label: "Point B", value:39, color: "bg-blue-500" },
-    { id: 3, x: 13, y: 58, label: "Point B", value:50, color: "bg-yellow-500" },
+    { id: 1, x: 34, y: 25, label: "Raw meal feed stop: ", value:35, code: "Feed= {m.value}, Prod ↓ , O<sub>2</sub>↑", color: "bg-red-600" },
+    { id: 2, x: 67, y: 68, label: "Primary fan failure:", value:39, color: "bg-blue-600" },
+    { id: 3, x: 13, y: 58, label: "ESP overheat:", value:50, color: "bg-yellow-600" },
   ];
 
   const activeFailures = failures.length > 0 ? failures : defaultFailures;
@@ -83,9 +83,9 @@ export function ProcessDiagram({ failures = [] }: ProcessDiagramProps) {
 
       {/* Dynamic markers */}
       {markers.map((m) => (
-        <div key={m.id} className={`absolute ${m.color} absolute  top-[-5px]  text-s rounded px-1 flex item-center flex-col  animate-flicker `} style={{ left: `${m.x}%`, top: `${m.y}%`, }}>
-          <div className="lable" >{m.label}</div>
-          <div className="value">{m.value}</div> 
+        <div key={m.id} className={`absolute ${m.color} absolute  top-[-5px] text-s  rounded px-1 flex item-center flex-col   `} style={{ left: `${m.x}%`, top: `${m.y}%`, }}>
+          <div className="lable " >{m.label}</div>
+          <div className="value animate-flickerSlow text-white">Feed= {m.value}, Prod ↓ , O<sub>2</sub>↑ </div> 
         </div>
       ))}
     </div>

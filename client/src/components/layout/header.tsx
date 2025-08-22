@@ -15,7 +15,7 @@ export function Header({ title, description, isConnected, onToggleSidebar, isSid
   const currentTime = new Date().toLocaleString();
 
   return (
-    <header className="w-full border-b p-4 sticky top-0 z-50" style={{ backgroundColor: '#f8fafc', borderBottomColor: '#e2e8f0' }}>
+    <header className="w-full border-b p-4 sticky top-0 z-50" style={{ backgroundColor: '#fff', borderBottomColor: '#e2e8f0' }}>
       <div className="flex items-center justify-between">
         {/* Left side - Sidebar toggle and Logo with Title */}
         <div className="flex items-center space-x-4">

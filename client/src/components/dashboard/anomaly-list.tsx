@@ -37,7 +37,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
   };
 
   return (
-    <Card className="bg-white border-gray-200 shadow-sm">
+    <Card className="bg-white border-gray-200 shadow-sm max-h-[520px] overflow-y-auto">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-semibold text-gray-900">Active Anomalies</CardTitle>

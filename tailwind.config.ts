@@ -103,7 +103,7 @@ export default {
       },
       animation: {
        
-        flickerSlow: 'flicker 2s infinite',   // slower blink
+  flickerSlow: 'flicker 4s infinite',   // slower blink
   flickerMedium: 'flicker 1.5s infinite',
   flicker: 'flicker 1s infinite',  
       },

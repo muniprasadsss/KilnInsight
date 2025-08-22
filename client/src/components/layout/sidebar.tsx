@@ -49,29 +49,28 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
       style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
-      <div className="p-4 ">
-        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} mb-8 border-b bg-white border-blue-300 pb-4`}>
-          {isCollapsed ? (
-            <img
-              src={logo}
-              alt="KilnInsight"
-              className="h-8 w-auto"
-            />
-          ) : (
-            <>
-              <img
-                src={logo}
-                alt="KilnInsight Logo"
-                className="h-10 w-auto"
-              />
-              <div className="text-blue-600 font-bold text-lg">
-                KilnInsight
-              </div>
-            </>
-          )}
-        </div>
-        
-        <ul className="space-y-2">
+
+      <div className="logo">
+        <div
+    className={`flex items-center ${isCollapsed ? "justify-center" : "space-x-3"} mb-8 ` } style={{ 
+    height: "5rem",
+    border: "none",         // ✅ no !important
+    boxShadow: "0px 0px 0px #fff", // ✅ valid shadow
+    borderRadius: "0px"     // ✅ plain value
+  }}
+  >
+    {isCollapsed ? (
+      <img src={logo_shot} alt="KilnInsight" className="h-8 w-auto" />
+    ) : (
+      <img src={logo} alt="KilnInsight Logo" className="h-20 w-auto rounded-xl shadow-md bg-white"  />
+    )}
+  </div>
+
+      </div>
+
+        <div>
+        <div className="list p-2">
+           <ul className="space-y-2">
           {navigationItems.map((item) => {
             const isActive = location === item.path;
             const Icon = item.icon;
@@ -81,11 +80,11 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                 <Link href={item.path}>
                   <div
                     className={cn(
-                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer",
+                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-white text-blue-600 shadow-sm"
-                        : "text-white hover:text-blue-600 hover:bg-white hover:shadow-sm"
+                        ? "bg-[rgba(241, 245, 247, 1)] text-white "
+                        : "text-white hover:text-[rgba(242, 247, 250, 1)] hover:bg-[rgba(247, 248, 248, 1)] hover:shadow-sm"
                     )}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >
@@ -121,6 +120,8 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
             );
           })}
         </ul>
+        </div>
+       
       </div>
     </nav>
   );

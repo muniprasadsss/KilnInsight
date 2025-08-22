@@ -120,14 +120,11 @@ export default function AnomalyDashboard() {
   };
 
   return (
-    <div className="p-6 space-y-8 bg-gradient-to-br from-gray-50 to-white min-h-full">
+    <div className="p-0 space-y-4 bg-gradient   min-h-full">
       {/* Page Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Anomaly Dashboard</h1>
-          <p className="text-gray-600 mt-1">Real-time monitoring and anomaly detection system</p>
-        </div>
-        <div className={`px-4 py-2 rounded-lg font-medium ${systemStatusColor} border`}>
+      <div className="flex items-center justify-end">
+       
+        <div className={`px-3 py-1 rounded-lg font-medium ${systemStatusColor} border`}>
           System: {systemStatus}
         </div>
       </div>

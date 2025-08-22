@@ -24,14 +24,15 @@ export function Layout({ children, title, description }: LayoutProps) {
         title={title}
         description={description}
         isConnected={isConnected}
-        onToggleSidebar={handleToggleSidebar}
-        isSidebarCollapsed={isSidebarCollapsed}
       />
 
       {/* Below header: sidebar and main content side by side */}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
-        <Sidebar isCollapsed={isSidebarCollapsed} />
+        <Sidebar
+          isCollapsed={isSidebarCollapsed}
+          onToggleSidebar={handleToggleSidebar}
+        />
 
         {/* Main content area */}
         <main className="flex-1 overflow-y-auto p-6">

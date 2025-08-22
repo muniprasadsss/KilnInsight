@@ -51,7 +51,7 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
       data-testid="nav-sidebar"
     >
       {/* Toggle button at the top */}
-      <div className={`p-4 border-b border-white/20 ${isCollapsed ? 'flex justify-center' : 'flex justify-start'}`}>
+      <div className={`p-3 border-b border-white/20 ${isCollapsed ? 'flex justify-center' : 'flex justify-start'} flex items-center justify-center`}>
         <Button
           variant="ghost"
           size="icon"
@@ -59,7 +59,7 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
           className="text-white hover:bg-white/20 hover:text-white"
           data-testid="button-toggle-sidebar"
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-8 w-8"/>
         </Button>
       </div>
 
@@ -82,12 +82,13 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
                         : "hover:text-white"
                     )}
                     style={isActive
-                      ? { backgroundColor: 'rgb(29, 116, 160)' }
+                      ? { backgroundColor: 'rgba(26, 79, 104, 1)', color: '#fff !important' }
                       : {}
                     }
                     onMouseEnter={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.backgroundColor = 'rgb(29, 116, 160)';
+                        e.currentTarget.style.backgroundColor = 'rgba(26, 79, 104, 1)';
+                        e.currentTarget.style.color = 'white !important';
                       }
                     }}
                     onMouseLeave={(e) => {

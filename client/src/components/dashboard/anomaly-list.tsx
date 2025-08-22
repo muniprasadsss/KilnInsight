@@ -37,7 +37,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
   };
 
   return (
-    <Card className="bg-white border-gray-200 shadow-sm max-h-[520px] overflow-y-auto">
+    <Card className="bg-white border-[rgb(29,116,160)] shadow-sm max-h-[520px] overflow-y-auto">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-semibold text-gray-900">Active Anomalies</CardTitle>
@@ -57,7 +57,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
               <div 
                 key={anomaly.id}
                 className={cn(
-                  "p-4 bg-gray-50 rounded-lg border-l-4",
+                  "p-4 bg-gray-50 border-[rgb(29,116,160)] shadow-sm rounded-lg",
                   severityColors[anomaly.severity as keyof typeof severityColors]
                 )}
               >
@@ -75,7 +75,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                     {getTimeAgo(anomaly.startTime)}
                   </span>
                 </div>
-                <p className="text-sm text-gray-700 mb-2">
+                <p className="text-m text-gray-700 mb-2">
                   {anomaly.description}
                 </p>
                 <div className="flex items-center justify-between">
@@ -84,7 +84,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                   </span>
                   <Button 
                     size="sm" 
-                    className="bg-blue-500 hover:bg-blue-600 text-white"
+                    className="bg-[rgb(8,143,209)] hover:bg-blue-600 text-white"
                     onClick={() => onAnalyze?.(anomaly)}
                   >
                     Analyze

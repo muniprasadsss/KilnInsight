@@ -32,7 +32,7 @@ export function StatusCard({
         <div className="flex items-center justify-between">
           <div className="flex-1">
             <p className="text-industrial-secondary text-sm font-medium mb-1">{title}</p>
-            <p className="text-3xl font-bold text-industrial-primary">
+            <p className="text-3xl font-bold text-industrial-secondary">
               {value}{unit && <span className="text-lg font-medium text-industrial-secondary">{unit}</span>}
             </p>
             {change && (
@@ -41,7 +41,7 @@ export function StatusCard({
               </p>
             )}
           </div>
-          <div className="p-3 rounded-xl bg-industrial-accent text-white shadow-lg">
+          <div className="p-3 rounded-xl bg-industrial-accent text-balck shadow-lg">
             <div className="text-2xl">
               {icon}
             </div>

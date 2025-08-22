@@ -14,16 +14,16 @@ export function Header({ title, description, isConnected }: HeaderProps) {
   const currentTime = new Date().toLocaleString();
 
   return (
-    <header className="w-full border-b p-4 z-50" style={{ backgroundColor: '#fff', borderBottomColor: '#e2e8f0' }}>
+    <header className="w-full border-b p-3 z-50" style={{ backgroundColor: '#fff', borderBottomColor: '#e2e8f0' }}>
       <div className="w-full flex items-center justify-between">
         {/* Left side - Logo with Title */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-3">
             {/* Logo */}
-            <img src={logo} alt="KilnInsight Logo" className="h-12 w-auto" />
-
+            <img src={logo} alt="KilnInsight Logo" className="h-8 w-auto" />
+            <div className="h-8 bg-gray-500 mx-0" style={{width: '1px'}} />
             <div>
-              <h2 className="text-2xl font-bold text-gray-900" data-testid="text-title">{title}</h2>
+              <h2 className="text-2xl font-bold text-[rgb(8,143,209)]" style={{fontSize: '24px', fontWeight: '500', color: '#088fd1'}} data-testid="text-title">{title}</h2>
               <p className="text-gray-600 text-sm" data-testid="text-description">{description}</p>
             </div>
           </div>

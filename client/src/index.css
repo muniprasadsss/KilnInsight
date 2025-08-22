@@ -59,7 +59,7 @@
   /* Industrial Theme Colors */
   --industrial-dark: hsl(215, 25%, 15%); /* Dark navy */
   --industrial-card: hsl(0, 0%, 100%); /* White cards */
-  --industrial-accent: hsl(185, 60%, 25%); /* Teal accent */
+  --industrial-accent: hsl(200, 99%, 50%, 1); /* Teal accent */
   --industrial-secondary: hsl(210, 15%, 40%); /* Medium gray */
 
   /* Enhanced Status Colors for Industrial Context */
@@ -76,7 +76,7 @@
 
 .dark {
   /* Dark Industrial Theme */
-  --background: hsl(215, 25%, 8%); /* Very dark navy */
+  --background: hsl(200, 99%, 50%, 1); /* Very dark navy */
   --foreground: hsl(210, 20%, 92%);
   --card: hsl(215, 20%, 12%); /* Dark navy cards */
   --card-foreground: hsl(210, 20%, 88%);
@@ -122,7 +122,7 @@
   /* Dark industrial colors */
   --industrial-dark: hsl(215, 25%, 10%);
   --industrial-card: hsl(215, 20%, 12%);
-  --industrial-accent: hsl(185, 60%, 40%);
+  --industrial-accent: hsl(200,93%,43%);
   --industrial-secondary: hsl(215, 15%, 35%);
 
   --status-normal: hsl(145, 60%, 45%);

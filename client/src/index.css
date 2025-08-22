@@ -109,15 +109,15 @@
   --chart-4: hsl(120, 50%, 45%);
   --chart-5: hsl(260, 60%, 55%);
 
-  /* Dark sidebar */
-  --sidebar: hsl(215, 30%, 10%);
-  --sidebar-foreground: hsl(210, 20%, 85%);
-  --sidebar-primary: hsl(185, 60%, 45%);
-  --sidebar-primary-foreground: hsl(215, 25%, 8%);
-  --sidebar-accent: hsl(215, 25%, 15%);
-  --sidebar-accent-foreground: hsl(185, 50%, 70%);
-  --sidebar-border: hsl(215, 25%, 20%);
-  --sidebar-ring: hsl(185, 60%, 45%);
+  /* Dark sidebar - same colors as light mode for consistency */
+  --sidebar: 8 143 209; /* rgb(8, 143, 209) - requested blue background */
+  --sidebar-foreground: hsl(0, 0%, 100%); /* White text */
+  --sidebar-primary: 29 116 160; /* rgb(29, 116, 160) - requested selected/hover color */
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: 29 116 160; /* rgb(29, 116, 160) - requested selected/hover color */
+  --sidebar-accent-foreground: hsl(0, 0%, 100%);
+  --sidebar-border: 8 143 209; /* Same as background */
+  --sidebar-ring: 29 116 160;
 
   /* Dark industrial colors */
   --industrial-dark: hsl(215, 25%, 10%);

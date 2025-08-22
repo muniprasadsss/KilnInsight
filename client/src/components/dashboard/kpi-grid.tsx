@@ -23,7 +23,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
       case "good": return "text-status-normal";
       case "warning": return "text-status-warning";
       case "critical": return "text-status-critical";
-      default: return "text-black-200";
+      default: return "text-industrial-muted";
     }
   };
 
@@ -37,38 +37,38 @@ export function KPIGrid({ kpis }: KPIGridProps) {
     if (status === "critical") return "text-status-critical";
     if (change > 0) return "text-status-normal";
     if (change < 0) return "text-status-critical";
-    return "text-black-200";
+    return "text-industrial-muted";
   };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {kpis.map((kpi) => (
-        <Card key={kpi.id} className="bg-industrial-card border-gray-700">
+        <Card key={kpi.id} className="metric-card">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-black-200">{kpi.title}</h3>
-              <div className={cn("w-3 h-3 rounded-full", 
+              <h3 className="text-sm font-medium text-industrial-secondary">{kpi.title}</h3>
+              <div className={cn("w-3 h-3 rounded-full",
                 kpi.status === "good" ? "bg-status-normal" :
                 kpi.status === "warning" ? "bg-status-warning" : "bg-status-critical"
               )} />
             </div>
             <div className="flex items-baseline space-x-2">
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold text-industrial-primary">
                 {kpi.value}
               </span>
               {kpi.unit && (
-                <span className="text-lg text-gray-300">{kpi.unit}</span>
+                <span className="text-lg text-industrial-secondary">{kpi.unit}</span>
               )}
             </div>
             <div className="flex items-center justify-between mt-2">
-              <div className={cn("flex items-center space-x-1 text-xs", 
+              <div className={cn("flex items-center space-x-1 text-xs",
                 getChangeColor(kpi.change, kpi.status)
               )}>
                 {getChangeIcon(kpi.change)}
                 <span>{kpi.changeLabel}</span>
               </div>
               {kpi.target && (
-                <div className="text-xs text-black-200">
+                <div className="text-xs text-industrial-muted">
                   Target: {kpi.target}
                 </div>
               )}

@@ -1,21 +1,21 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Factory, 
-  AlertTriangle, 
-  Search, 
-  Bell, 
-  Gauge, 
-  BarChart3, 
-  FileText, 
-  Database, 
-  Mail, 
+import { Button } from "@/components/ui/button";
+import {
+  Factory,
+  AlertTriangle,
+  Search,
+  Bell,
+  Gauge,
+  BarChart3,
+  FileText,
+  Database,
+  Mail,
   Shield,
-  Activity
+  Activity,
+  Menu
 } from "lucide-react";
-import logo_shot from "../../../../public/logo-shot.png";
-import logo from "../../../../public/logo.svg";
 interface NavigationItem {
   path: string;
   label: string;
@@ -38,37 +38,32 @@ const navigationItems: NavigationItem[] = [
 
 interface SidebarProps {
   isCollapsed?: boolean;
+  onToggleSidebar?: () => void;
 }
 
-export function Sidebar({ isCollapsed = false }: SidebarProps) {
+export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) {
   const [location] = useLocation();
 
   return (
-    <nav 
-      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 h-full shadow-lg`}
+    <nav
+      className={`${isCollapsed ? 'w-16' : 'w-64'} flex-shrink-0 transition-all duration-300 shadow-lg border-r`}
       style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
-
-      <div className="logo">
-        <div
-    className={`flex items-center ${isCollapsed ? "justify-center" : "space-x-3"} mb-8 ` } style={{ 
-    height: "5rem",
-    border: "none",         // ✅ no !important
-    boxShadow: "0px 0px 0px #fff", // ✅ valid shadow
-    borderRadius: "0px"     // ✅ plain value
-  }}
-  >
-    {isCollapsed ? (
-      <img src={logo_shot} alt="KilnInsight" className="h-8 w-auto" />
-    ) : (
-      <img src={logo} alt="KilnInsight Logo" className="h-20 w-auto rounded-xl shadow-md bg-white"  />
-    )}
-  </div>
-
+      {/* Toggle button at the top */}
+      <div className={`p-4 border-b border-white/20 ${isCollapsed ? 'flex justify-center' : 'flex justify-start'}`}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleSidebar}
+          className="text-white hover:bg-white/20 hover:text-white"
+          data-testid="button-toggle-sidebar"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
       </div>
 
-        <div>
+      <div className="pt-4">
         <div className="list p-2">
            <ul className="space-y-2">
           {navigationItems.map((item) => {
@@ -83,9 +78,23 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                       "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-[rgba(241, 245, 247, 1)] text-white "
-                        : "text-white hover:text-[rgba(242, 247, 250, 1)] hover:bg-[rgba(247, 248, 248, 1)] hover:shadow-sm"
+                        ? "shadow-md"
+                        : "hover:text-white"
                     )}
+                    style={isActive
+                      ? { backgroundColor: 'rgb(29, 116, 160)' }
+                      : {}
+                    }
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = 'rgb(29, 116, 160)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = '';
+                      }
+                    }}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >
                     <Icon className="w-5 h-5 flex-shrink-0" />
@@ -105,10 +114,10 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                     
                     {/* Tooltip for collapsed state */}
                     {isCollapsed && (
-                      <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                      <div className="absolute left-full ml-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                         {item.label}
                         {item.badge && (
-                          <span className="ml-2 bg-red-500 text-white rounded-full px-1 text-xs">
+                          <span className="ml-2 notification-badge">
                             {item.badge}
                           </span>
                         )}

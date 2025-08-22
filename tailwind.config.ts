@@ -61,19 +61,25 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
-        // Industrial theme colors
+        // Professional Industrial theme colors
         "industrial-dark": "var(--industrial-dark)",
         "industrial-card": "var(--industrial-card)",
         "industrial-accent": "var(--industrial-accent)",
+        "industrial-secondary": "var(--industrial-secondary)",
         "status-normal": "var(--status-normal)",
         "status-warning": "var(--status-warning)",
         "status-critical": "var(--status-critical)",
+        "status-info": "var(--status-info)",
+        // Text color utilities
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "text-muted": "var(--text-muted)",
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
-        industrial: ["Roboto", "sans-serif"],
+        industrial: ["Inter", "Roboto", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

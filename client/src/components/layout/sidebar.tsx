@@ -14,8 +14,6 @@ import {
   Shield,
   Activity
 } from "lucide-react";
-import logo_shot from "../../../../public/logo-shot.png";
-import logo from "../../../../public/logo.svg";
 interface NavigationItem {
   path: string;
   label: string;

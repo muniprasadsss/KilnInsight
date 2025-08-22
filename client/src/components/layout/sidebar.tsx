@@ -1,18 +1,20 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Factory, 
-  AlertTriangle, 
-  Search, 
-  Bell, 
-  Gauge, 
-  BarChart3, 
-  FileText, 
-  Database, 
-  Mail, 
+import { Button } from "@/components/ui/button";
+import {
+  Factory,
+  AlertTriangle,
+  Search,
+  Bell,
+  Gauge,
+  BarChart3,
+  FileText,
+  Database,
+  Mail,
   Shield,
-  Activity
+  Activity,
+  Menu
 } from "lucide-react";
 interface NavigationItem {
   path: string;

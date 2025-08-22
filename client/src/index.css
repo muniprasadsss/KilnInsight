@@ -3,93 +3,136 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 22%, 96%);
-  --foreground: hsl(210, 25%, 7.8431%);
-  --card: hsl(180, 6.6667%, 97.0588%);
-  --card-foreground: hsl(210, 25%, 7.8431%);
+  /* Professional Industrial Color Palette */
+  --background: hsl(210, 20%, 98%); /* Light gray-blue background */
+  --foreground: hsl(215, 25%, 15%); /* Dark navy text */
+  --card: hsl(0, 0%, 100%); /* Pure white cards */
+  --card-foreground: hsl(215, 25%, 15%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(210, 25%, 7.8431%);
-  --primary: 203.8863 88.2845% 34.3137%; /* Custom blue converted to HSL */
+  --popover-foreground: hsl(215, 25%, 15%);
+
+  /* Industrial Primary - Steel Blue */
+  --primary: hsl(210, 50%, 25%); /* Deep steel blue */
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 25%, 7.8431%);
+
+  /* Industrial Secondary - Charcoal */
+  --secondary: hsl(215, 15%, 25%); /* Charcoal gray */
   --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(240, 1.9608%, 90%);
-  --muted-foreground: hsl(210, 25%, 7.8431%);
-  --accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --accent-foreground: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+
+  --muted: hsl(210, 15%, 92%); /* Light gray */
+  --muted-foreground: hsl(215, 15%, 45%);
+
+  /* Industrial Accent - Teal */
+  --accent: hsl(185, 50%, 88%); /* Light teal */
+  --accent-foreground: hsl(185, 60%, 25%); /* Dark teal */
+
+  --destructive: hsl(0, 85%, 55%); /* Industrial red */
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --input: hsl(200, 23.0769%, 97.4510%);
-  --ring: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
-  --chart-2: hsl(159.7826, 100%, 36.0784%);
-  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
-  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
-  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
-  --sidebar: hsl(180, 6.6667%, 97.0588%);
-  --sidebar-foreground: hsl(210, 25%, 7.8431%);
-  --sidebar-primary: 203.8863 88.2845% 34.3137%; /* Custom blue */
+
+  --border: hsl(210, 20%, 85%); /* Subtle gray border */
+  --input: hsl(210, 15%, 97%);
+  --ring: hsl(210, 50%, 25%); /* Steel blue focus ring */
+
+  /* Industrial Chart Colors */
+  --chart-1: hsl(210, 70%, 45%); /* Steel blue */
+  --chart-2: hsl(185, 60%, 40%); /* Teal */
+  --chart-3: hsl(35, 85%, 50%); /* Industrial orange */
+  --chart-4: hsl(120, 50%, 40%); /* Industrial green */
+  --chart-5: hsl(260, 50%, 45%); /* Industrial purple */
+
+  /* Sidebar Colors */
+  --sidebar: hsl(215, 25%, 15%); /* Dark navy sidebar */
+  --sidebar-foreground: hsl(210, 20%, 85%);
+  --sidebar-primary: hsl(185, 60%, 25%); /* Teal accent */
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --sidebar-accent-foreground: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --sidebar-border: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --sidebar-ring: 203.8863 88.2845% 34.3137%; /* Custom blue */
-  --font-sans: "Roboto", sans-serif;
+  --sidebar-accent: hsl(215, 20%, 25%); /* Slightly lighter navy */
+  --sidebar-accent-foreground: hsl(185, 50%, 70%);
+  --sidebar-border: hsl(215, 20%, 25%);
+  --sidebar-ring: hsl(185, 60%, 25%);
+
+  /* Typography */
+  --font-sans: "Inter", "Roboto", sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: 1.3rem;
-  
-  /* Blue Theme Colors */
-  --industrial-dark: #fff;
-  --industrial-card: #fff;
-  --industrial-accent: rgba(13, 64, 90, 1); /* Custom blue */
-  --custom-blue: rgb(8, 143, 209);
-  --status-normal: hsl(122.4, 39.4%, 49.0%);
-  --status-warning: hsl(35.3, 100%, 50.0%);
-  --status-critical: hsl(4.3, 89.6%, 58.4%);
-  --black-200: #6b7280; /* gray-500 */
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius: 0.5rem;
+
+  /* Industrial Theme Colors */
+  --industrial-dark: hsl(215, 25%, 15%); /* Dark navy */
+  --industrial-card: hsl(0, 0%, 100%); /* White cards */
+  --industrial-accent: hsl(185, 60%, 25%); /* Teal accent */
+  --industrial-secondary: hsl(210, 15%, 40%); /* Medium gray */
+
+  /* Enhanced Status Colors for Industrial Context */
+  --status-normal: hsl(145, 70%, 35%); /* Professional green */
+  --status-warning: hsl(35, 90%, 50%); /* Industrial amber */
+  --status-critical: hsl(0, 85%, 55%); /* Industrial red */
+  --status-info: hsl(210, 70%, 45%); /* Steel blue for info */
+
+  /* Additional Industrial Colors */
+  --text-primary: hsl(215, 25%, 15%);
+  --text-secondary: hsl(215, 15%, 45%);
+  --text-muted: hsl(215, 10%, 65%);
 }
 
 .dark {
-  --background: hsl(0, 0%, 10.2%);
-  --foreground: hsl(210, 17%, 98%);
-  --card: hsl(0, 0%, 17.6%);
-  --card-foreground: hsl(0, 0%, 85.0980%);
-  --popover: hsl(0, 0%, 10.2%);
-  --popover-foreground: hsl(200, 6.6667%, 91.1765%);
-  --primary: hsl(203.7736, 87.6033%, 52.5490%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(195.0000, 15.3846%, 94.9020%);
-  --secondary-foreground: hsl(210, 25%, 7.8431%);
-  --muted: hsl(0, 0%, 9.4118%);
-  --muted-foreground: hsl(210, 3.3898%, 46.2745%);
-  --accent: hsl(205.7143, 70%, 7.8431%);
-  --accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
-  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(210, 44%, 45%);
-  --input: hsl(207.6923, 27.6596%, 18.4314%);
-  --ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
-  --chart-2: hsl(159.7826, 100%, 36.0784%);
-  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
-  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
-  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
-  --sidebar: hsl(0, 0%, 17.6%);
-  --sidebar-foreground: hsl(0, 0%, 85.0980%);
-  --sidebar-primary: hsl(202.8169, 89.1213%, 53.1373%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(205.7143, 70%, 7.8431%);
-  --sidebar-accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
-  --sidebar-border: hsl(205.7143, 15.7895%, 26.0784%);
-  --sidebar-ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --font-sans: "Roboto", sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: 1.3rem;
+  /* Dark Industrial Theme */
+  --background: hsl(215, 25%, 8%); /* Very dark navy */
+  --foreground: hsl(210, 20%, 92%);
+  --card: hsl(215, 20%, 12%); /* Dark navy cards */
+  --card-foreground: hsl(210, 20%, 88%);
+  --popover: hsl(215, 25%, 10%);
+  --popover-foreground: hsl(210, 20%, 90%);
 
-  
+  --primary: hsl(185, 60%, 40%); /* Bright teal for dark mode */
+  --primary-foreground: hsl(215, 25%, 8%);
+
+  --secondary: hsl(215, 15%, 20%); /* Dark charcoal */
+  --secondary-foreground: hsl(210, 20%, 85%);
+
+  --muted: hsl(215, 20%, 15%);
+  --muted-foreground: hsl(215, 15%, 60%);
+
+  --accent: hsl(185, 50%, 20%); /* Dark teal */
+  --accent-foreground: hsl(185, 60%, 70%);
+
+  --destructive: hsl(0, 85%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+
+  --border: hsl(215, 20%, 25%);
+  --input: hsl(215, 20%, 18%);
+  --ring: hsl(185, 60%, 40%);
+
+  /* Dark mode chart colors */
+  --chart-1: hsl(185, 70%, 50%);
+  --chart-2: hsl(145, 60%, 45%);
+  --chart-3: hsl(35, 85%, 55%);
+  --chart-4: hsl(120, 50%, 45%);
+  --chart-5: hsl(260, 60%, 55%);
+
+  /* Dark sidebar */
+  --sidebar: hsl(215, 30%, 10%);
+  --sidebar-foreground: hsl(210, 20%, 85%);
+  --sidebar-primary: hsl(185, 60%, 45%);
+  --sidebar-primary-foreground: hsl(215, 25%, 8%);
+  --sidebar-accent: hsl(215, 25%, 15%);
+  --sidebar-accent-foreground: hsl(185, 50%, 70%);
+  --sidebar-border: hsl(215, 25%, 20%);
+  --sidebar-ring: hsl(185, 60%, 45%);
+
+  /* Dark industrial colors */
+  --industrial-dark: hsl(215, 25%, 10%);
+  --industrial-card: hsl(215, 20%, 12%);
+  --industrial-accent: hsl(185, 60%, 40%);
+  --industrial-secondary: hsl(215, 15%, 35%);
+
+  --status-normal: hsl(145, 60%, 45%);
+  --status-warning: hsl(35, 90%, 60%);
+  --status-critical: hsl(0, 85%, 60%);
+  --status-info: hsl(185, 70%, 50%);
+
+  --text-primary: hsl(210, 20%, 92%);
+  --text-secondary: hsl(215, 15%, 70%);
+  --text-muted: hsl(215, 10%, 50%);
 }
 
 @layer base {
@@ -99,32 +142,65 @@
 
   body {
     @apply font-sans antialiased;
-    background-color: #fff;
-    color: rgb(7, 7, 7);
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
+  /* Industrial theme utilities */
   .industrial-dark {
-    background-color: #fff;
+    background-color: hsl(var(--industrial-dark));
   }
-  
+
   .industrial-card {
-    background-color: var(--industrial-card);
+    background-color: hsl(var(--industrial-card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
-  
+
   .industrial-accent {
-    background-color: var(--industrial-accent);
+    background-color: hsl(var(--industrial-accent));
+    color: white;
   }
-  
+
+  /* Enhanced status colors */
   .status-normal {
-    background-color: var(--status-normal);
+    background-color: hsl(var(--status-normal));
+    color: white;
   }
-  
+
   .status-warning {
-    background-color: var(--status-warning);
+    background-color: hsl(var(--status-warning));
+    color: white;
   }
-  
+
   .status-critical {
-    background-color: var(--status-critical);
+    background-color: hsl(var(--status-critical));
+    color: white;
+  }
+
+  .status-info {
+    background-color: hsl(var(--status-info));
+    color: white;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--text-primary));
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .text-primary {
+    color: hsl(var(--text-primary));
+  }
+
+  .text-secondary {
+    color: hsl(var(--text-secondary));
+  }
+
+  .text-muted {
+    color: hsl(var(--text-muted));
   }
 }
 

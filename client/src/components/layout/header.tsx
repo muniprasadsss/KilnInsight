@@ -10,7 +10,7 @@ interface HeaderProps {
   isConnected: boolean;
 }
 
-export function Header({ title, description, isConnected, onToggleSidebar, isSidebarCollapsed }: HeaderProps) {
+export function Header({ title, description, isConnected }: HeaderProps) {
   const currentTime = new Date().toLocaleString();
 
   return (

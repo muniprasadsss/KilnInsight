@@ -50,9 +50,20 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
       style={{ backgroundColor: 'rgb(8, 143, 209)' }}
       data-testid="nav-sidebar"
     >
+      {/* Toggle button at the top */}
+      <div className={`p-4 border-b border-white/20 ${isCollapsed ? 'flex justify-center' : 'flex justify-start'}`}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleSidebar}
+          className="text-white hover:bg-white/20 hover:text-white"
+          data-testid="button-toggle-sidebar"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+      </div>
 
-
-        <div className="pt-4">
+      <div className="pt-4">
         <div className="list p-2">
            <ul className="space-y-2">
           {navigationItems.map((item) => {

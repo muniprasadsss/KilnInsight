@@ -79,7 +79,7 @@ export default {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
-        industrial: ["Roboto", "sans-serif"],
+        industrial: ["Inter", "Roboto", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

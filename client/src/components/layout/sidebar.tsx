@@ -49,7 +49,7 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
     >
 
 
-        <div>
+        <div className="pt-4">
         <div className="list p-2">
            <ul className="space-y-2">
           {navigationItems.map((item) => {

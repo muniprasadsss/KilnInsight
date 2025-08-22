@@ -104,10 +104,10 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                     
                     {/* Tooltip for collapsed state */}
                     {isCollapsed && (
-                      <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                      <div className="absolute left-full ml-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                         {item.label}
                         {item.badge && (
-                          <span className="ml-2 bg-red-500 text-white rounded-full px-1 text-xs">
+                          <span className="ml-2 notification-badge">
                             {item.badge}
                           </span>
                         )}

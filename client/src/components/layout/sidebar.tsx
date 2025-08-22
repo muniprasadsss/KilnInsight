@@ -80,12 +80,26 @@ export function Sidebar({ isCollapsed = false }: SidebarProps) {
                 <Link href={item.path}>
                   <div
                     className={cn(
-                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer",
+                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
                       isCollapsed ? "justify-center" : "space-x-3",
                       isActive
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-md"
-                        : "text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
+                        ? "shadow-md"
+                        : "hover:text-white"
                     )}
+                    style={isActive
+                      ? { backgroundColor: 'rgb(29, 116, 160)' }
+                      : {}
+                    }
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = 'rgb(29, 116, 160)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = '';
+                      }
+                    }}
                     data-testid={`link-${item.path.replace('/', '') || 'home'}`}
                   >
                     <Icon className="w-5 h-5 flex-shrink-0" />

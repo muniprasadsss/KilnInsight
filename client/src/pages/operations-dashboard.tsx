@@ -249,9 +249,9 @@ export default function OperationsDashboard() {
                       {equipment.commands?.map((command, index) => (
                         <Button
                           key={index}
-                          variant="outline"
+                          variant="default"
                           size="sm"
-                          className="text-xs"
+                          className="text-xs bg-industrial-accent"
                           disabled={equipment.status === 'maintenance'}
                         >
                           {command}
@@ -367,36 +367,36 @@ export default function OperationsDashboard() {
                   <div>
                     <label className="text-sm font-medium">Kiln Speed</label>
                     <div className="flex items-center space-x-4 mt-2">
-                      <Button variant="outline" size="sm">-</Button>
-                      <div className="flex-1">
+                      <Button variant="default" size="sm">-</Button>
+                      <div className="flex-1 bg-industrial-accent">
                         <Progress value={67} className="h-3" />
                       </div>
-                      <Button variant="outline" size="sm">+</Button>
-                      <span className="font-mono text-sm">2.01 rpm</span>
+                      <Button variant="default" size="sm">+</Button>
+                      <span className="font-mono bg-industrial-accent text-sm">2.01 rpm</span>
                     </div>
                   </div>
                   
                   <div>
                     <label className="text-sm font-medium">Fuel Flow Rate</label>
                     <div className="flex items-center space-x-4 mt-2">
-                      <Button variant="outline" size="sm">-</Button>
-                      <div className="flex-1">
+                      <Button variant="default" size="sm">-</Button>
+                      <div className="flex-1 bg-industrial-accent">
                         <Progress value={78} className="h-3" />
                       </div>
-                      <Button variant="outline" size="sm">+</Button>
-                      <span className="font-mono text-sm">6,956 kg/h</span>
+                      <Button variant="default" size="sm">+</Button>
+                      <span className="font-mono bg-industrial-accent text-sm">6,956 kg/h</span>
                     </div>
                   </div>
                   
                   <div>
                     <label className="text-sm font-medium">Primary Air Flow</label>
                     <div className="flex items-center space-x-4 mt-2">
-                      <Button variant="outline" size="sm">-</Button>
-                      <div className="flex-1">
+                      <Button variant="default" size="sm">-</Button>
+                      <div className="flex-1 bg-industrial-accent">
                         <Progress value={82} className="h-3" />
                       </div>
-                      <Button variant="outline" size="sm">+</Button>
-                      <span className="font-mono text-sm">24,500 m³/h</span>
+                      <Button variant="default" size="sm">+</Button>
+                      <span className="font-mono bg-industrial-accent text-sm">24,500 m³/h</span>
                     </div>
                   </div>
                 </div>
@@ -412,24 +412,24 @@ export default function OperationsDashboard() {
                   <Button 
                     variant="destructive" 
                     size="lg" 
-                    className="w-full h-16 text-lg font-bold"
+                    className="w-full h-16 text-lg font-bold bg-industrial-accent"
                   >
                     <Power className="w-6 h-6 mr-2" />
                     EMERGENCY STOP
                   </Button>
                   
                   <div className="grid grid-cols-2 gap-4">
-                    <Button variant="outline" className="h-12">
+                    <Button variant="default" className=" h-12 bg-industrial-accent">
                       <Pause className="w-4 h-4 mr-2" />
                       Pause Production
                     </Button>
-                    <Button variant="outline" className="h-12">
+                    <Button variant="default" className=" h-12 bg-industrial-accent">
                       <Play className="w-4 h-4 mr-2" />
                       Resume Production
                     </Button>
                   </div>
                   
-                  <Button variant="outline" className="w-full h-12">
+                  <Button variant="default" className="w-full  h-12 bg-industrial-accent">
                     <Settings className="w-4 h-4 mr-2" />
                     Maintenance Mode
                   </Button>

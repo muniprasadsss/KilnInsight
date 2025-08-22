@@ -23,7 +23,7 @@ export function StatusCard({
   const changeColors = {
     positive: "text-status-normal",
     negative: "text-status-critical",
-    neutral: "text-industrial-muted"
+    neutral: "text-industrial-secondary"
   };
 
   return (

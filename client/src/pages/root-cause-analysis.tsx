@@ -85,7 +85,7 @@ export default function RootCauseAnalysis() {
                 ))}
               </SelectContent>
             </Select>
-            <Button variant="outline" size="icon">
+            <Button variant="default" className="bg-industrial-accent" size="icon">
               <Filter className="w-4 h-4" />
             </Button>
           </div>

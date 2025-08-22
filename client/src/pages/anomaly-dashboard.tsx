@@ -183,7 +183,7 @@ export default function AnomalyDashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg font-semibold text-gray-900">Live Sensor Readings</CardTitle>
-              <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
+              <Button variant="default" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -229,7 +229,7 @@ export default function AnomalyDashboard() {
                   <SelectItem value="normal">Normal</SelectItem>
                 </SelectContent>
               </Select>
-              <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
+              <Button variant="default" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
                 Export
               </Button>
             </div>

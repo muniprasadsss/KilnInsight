@@ -125,11 +125,8 @@ export default function SensorDashboard() {
 
   return (
     <div className="p-6 space-y-6 bg-white min-h-full">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Comprehensive Sensor Dashboard</h1>
-          <p className="text-black-200">Real-time monitoring of all cement kiln sensors</p>
-        </div>
+      <div className="flex items-center justify-end">
+       
         <div className="flex space-x-4">
           <Select value={selectedLocation} onValueChange={setSelectedLocation}>
             <SelectTrigger className="w-48">
@@ -236,12 +233,12 @@ export default function SensorDashboard() {
                       <div className="flex items-center space-x-3">
                         {getStatusIcon(sensor.quality)}
                         <div>
-                          <p className="font-medium text-sm">{sensor.sensorName}</p>
+                          <p className="font-medium text-black text-sm">{sensor.sensorName}</p>
                           <p className="text-xs text-black-200">{sensor.location}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-mono text-lg">{formatValue(sensor.value, sensor.unit)}</p>
+                        <p className="font-mono text-black text-lg">{formatValue(sensor.value, sensor.unit)}</p>
                         <Badge variant={sensor.quality === 'good' ? 'default' : 'destructive'} className="text-xs">
                           {sensor.quality || 'unknown'}
                         </Badge>
@@ -255,7 +252,7 @@ export default function SensorDashboard() {
             {/* Flow Sensors */}
             <Card className="bg-industrial-card border-gray-700">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center space-x-2 text-black">
                   <Wind className="w-5 h-5 text-blue-400" />
                   <span>Flow Sensors ({sensorGroups.flow.length})</span>
                 </CardTitle>
@@ -352,7 +349,7 @@ export default function SensorDashboard() {
             {Object.entries(locationGroups).map(([location, sensors]) => (
               <Card key={location} className="bg-industrial-card border-gray-700">
                 <CardHeader>
-                  <CardTitle className="capitalize">{location.replace('_', ' ')} ({sensors.length} sensors)</CardTitle>
+                  <CardTitle className=" text-black">{location.replace('_', ' ')} ({sensors.length} sensors)</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3 max-h-96 overflow-y-auto">

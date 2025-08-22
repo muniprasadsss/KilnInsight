@@ -66,7 +66,7 @@ export function ProcessDiagram({ failures = [] }: ProcessDiagramProps) {
           <CardTitle className="text-lg font-semibold text-gray-900">
             Process Flow & Failure Locations
           </CardTitle>
-          <Button variant="outline" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
+          <Button variant="default" size="sm" className="bg-blue-500 text-white hover:bg-blue-600 border-blue-500">
             <Expand className="w-4 h-4 mr-2" />
             Full View
           </Button>

@@ -23,7 +23,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
       case "good": return "text-status-normal";
       case "warning": return "text-status-warning";
       case "critical": return "text-status-critical";
-      default: return "text-industrial-muted";
+      default: return "text-industrial-secondary";
     }
   };
 
@@ -37,7 +37,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
     if (status === "critical") return "text-status-critical";
     if (change > 0) return "text-status-normal";
     if (change < 0) return "text-status-critical";
-    return "text-industrial-muted";
+    return "text-industrial-secondary";
   };
 
   return (
@@ -53,7 +53,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
               )} />
             </div>
             <div className="flex items-baseline space-x-2">
-              <span className="text-2xl font-bold text-industrial-primary">
+              <span className="text-2xl font-bold text-industrial-secondary">
                 {kpi.value}
               </span>
               {kpi.unit && (
@@ -68,7 +68,7 @@ export function KPIGrid({ kpis }: KPIGridProps) {
                 <span>{kpi.changeLabel}</span>
               </div>
               {kpi.target && (
-                <div className="text-xs text-industrial-muted">
+                <div className="text-xs text-industrial-secondary">
                   Target: {kpi.target}
                 </div>
               )}

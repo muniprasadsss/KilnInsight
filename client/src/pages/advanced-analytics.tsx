@@ -252,7 +252,7 @@ export default function AdvancedAnalytics() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>Failure Impact Analysis</CardTitle>
-                <Button variant="outline" size="sm">
+                <Button variant="default" size="sm">
                   <Download className="w-4 h-4 mr-2" />
                   Export Data
                 </Button>
@@ -309,7 +309,7 @@ export default function AdvancedAnalytics() {
                     <div key={index} className="p-4 bg-gray-800 rounded-lg border-l-4 border-industrial-accent">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-3">
-                          <Badge variant="outline">{insight.type}</Badge>
+                          <Badge variant="default">{insight.type}</Badge>
                           <span className="font-medium">{insight.equipment}</span>
                         </div>
                         <div className="text-sm">
@@ -417,11 +417,11 @@ export default function AdvancedAnalytics() {
 
                 <div className="flex justify-between">
                   <div className="space-x-2">
-                    <Button variant="outline">
+                    <Button variant="default">
                       <Save className="w-4 h-4 mr-2" />
                       Save Query
                     </Button>
-                    <Button variant="outline">
+                    <Button variant="default">
                       Load Template
                     </Button>
                   </div>

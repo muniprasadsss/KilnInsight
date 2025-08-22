@@ -312,8 +312,8 @@ export default function DataManagement() {
                 <div className="flex items-center justify-between">
                   <CardTitle>Tag Mapping Configuration</CardTitle>
                   <div className="space-x-2">
-                    <Button variant="outline">
-                      <Upload className="w-4 h-4 mr-2" />
+                    <Button className="bg-industrial-accent">
+                      <Upload  />
                       Import Mappings
                     </Button>
                     <Button className="bg-industrial-accent">

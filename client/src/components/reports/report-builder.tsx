@@ -114,7 +114,7 @@ export function ReportBuilder({ onGenerate, onSave, onPreview }: ReportBuilderPr
             <Popover>
               <PopoverTrigger asChild>
                 <Button
-                  variant="outline"
+                  variant="default"
                   className="bg-gray-800 border-gray-600 justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
@@ -135,7 +135,7 @@ export function ReportBuilder({ onGenerate, onSave, onPreview }: ReportBuilderPr
             <Popover>
               <PopoverTrigger asChild>
                 <Button
-                  variant="outline"
+                  variant="default"
                   className="bg-gray-800 border-gray-600 justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
@@ -217,7 +217,7 @@ export function ReportBuilder({ onGenerate, onSave, onPreview }: ReportBuilderPr
         <div className="flex justify-between pt-4">
           <div className="space-x-2">
             <Button
-              variant="outline"
+              variant="default"
               onClick={() => onPreview(config)}
               disabled={!isConfigValid}
             >
@@ -225,7 +225,7 @@ export function ReportBuilder({ onGenerate, onSave, onPreview }: ReportBuilderPr
               Preview
             </Button>
             <Button
-              variant="outline"
+              variant="default"
               onClick={() => onSave(config)}
               disabled={!config.name}
             >

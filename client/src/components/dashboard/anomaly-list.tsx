@@ -84,6 +84,7 @@ export function AnomalyList({ anomalies, onAnalyze }: AnomalyListProps) {
                   </span>
                   <Button 
                     size="sm" 
+                    variant="default"
                     className="bg-[rgb(8,143,209)] hover:bg-blue-600 text-white"
                     onClick={() => onAnalyze?.(anomaly)}
                   >

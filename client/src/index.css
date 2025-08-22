@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   /* Professional Industrial Color Palette */
   --background: hsl(210, 20%, 98%); /* Light gray-blue background */
@@ -130,8 +132,8 @@
   --status-critical: hsl(0, 85%, 60%);
   --status-info: hsl(185, 70%, 50%);
 
-  --text-primary: hsl(210, 20%, 92%);
-  --text-secondary: hsl(215, 15%, 70%);
+  --text-primary: hsl(0, 0%, 5%);
+  --text-secondary: hsl(0, 0%, 5%);
   --text-muted: hsl(215, 10%, 50%);
 }
 
@@ -142,9 +144,10 @@
 
   body {
     @apply font-sans antialiased;
-    background: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background: white;
+    color:  hsl(var(--text-primary));
     font-feature-settings: "rlig" 1, "calt" 1;
+    
   }
 
   /* Industrial theme utilities */
@@ -211,6 +214,7 @@
   border: 1px solid rgb(142 203 235) !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
   border-radius: 8px !important;
+  color: black;
 }
 
 .border-gray-700,
@@ -222,22 +226,18 @@
 
 .bg-gray-800 {
   @apply bg-gray-50 !important;
+  @apply text-black;
 }
 
-.text-black-200 {
-  @apply text-gray-500 !important;
-}
-
-.text-white:not(.hover\:text-white):not(.focus\:text-white) {
-  @apply text-gray-900 !important;
-}
 
 .text-gray-300 {
   @apply text-gray-700 !important;
+   @apply text-black;
 }
 
 .bg-gray-700 {
   @apply bg-white !important;
+   @apply text-black;
 }
 
 .hover\:bg-gray-800:hover {
@@ -284,7 +284,7 @@ button:active,
 /* Enhanced card styling */
 .shadow-sm {
   border: 1px solid rgb(142 203 235) !important;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(247, 245, 245, 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
 }
 
 /* Card content padding and spacing */
@@ -590,8 +590,5 @@ textarea:focus {
     display: none !important;
   }
 
-  body {
-    background: white !important;
-    color: black !important;
-  }
+
 }

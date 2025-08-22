@@ -270,7 +270,7 @@ export default function Notifications() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Active Rules</p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-black-200">
                   {notificationRules.filter(r => r.enabled).length}
                 </p>
               </div>
@@ -284,7 +284,7 @@ export default function Notifications() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Channels</p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-black-200">
                   {notificationChannels.filter(c => c.enabled).length}
                 </p>
                 <p className="text-xs text-status-normal">
@@ -301,7 +301,7 @@ export default function Notifications() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Today's Notifications</p>
-                <p className="text-2xl font-bold text-white">47</p>
+                <p className="text-2xl font-bold text-black-200">47</p>
                 <p className="text-xs text-black-200">
                   {notificationLogs.filter(l => l.status === 'failed').length} Failed
                 </p>
@@ -316,7 +316,7 @@ export default function Notifications() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Recipients</p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-black-200">
                   {recipientGroups.reduce((sum, group) => sum + group.members.length, 0)}
                 </p>
               </div>
@@ -358,7 +358,7 @@ export default function Notifications() {
                             onCheckedChange={(checked) => handleToggleRule(rule.id, checked)}
                           />
                           <div>
-                            <h3 className="font-semibold text-white">{rule.name}</h3>
+                            <h3 className="font-semibold text-black-200">{rule.name}</h3>
                             <p className="text-sm text-black-200">{rule.description}</p>
                           </div>
                         </div>
@@ -369,7 +369,7 @@ export default function Notifications() {
                           }>
                             {rule.severity}
                           </Badge>
-                          <Badge variant="outline">{rule.triggerType}</Badge>
+                          <Badge variant="default">{rule.triggerType}</Badge>
                         </div>
                       </div>
                       
@@ -378,7 +378,7 @@ export default function Notifications() {
                           <span className="text-black-200">Channels:</span>
                           <div className="flex space-x-2 mt-1">
                             {rule.channels.map((channel, index) => (
-                              <Badge key={index} variant="outline" className="text-xs">
+                              <Badge key={index} variant="default" className="text-xs">
                                 {channel}
                               </Badge>
                             ))}
@@ -388,7 +388,7 @@ export default function Notifications() {
                           <span className="text-black-200">Recipients:</span>
                           <div className="flex space-x-2 mt-1">
                             {rule.recipients.map((recipient, index) => (
-                              <Badge key={index} variant="outline" className="text-xs">
+                              <Badge key={index} variant="default" className="text-xs">
                                 {recipient}
                               </Badge>
                             ))}
@@ -396,20 +396,20 @@ export default function Notifications() {
                         </div>
                         <div>
                           <span className="text-black-200">Last Triggered:</span>
-                          <div className="font-mono text-white mt-1">
+                          <div className="font-mono text-black-200 mt-1">
                             {rule.lastTriggered?.toLocaleString() || 'Never'}
                           </div>
                         </div>
                       </div>
                       
                       <div className="flex justify-end space-x-2 mt-4">
-                        <Button variant="outline" size="sm">
+                        <Button className="bg-industrial-accent" size="sm">
                           Edit
                         </Button>
-                        <Button variant="outline" size="sm">
+                        <Button className="bg-industrial-accent" size="sm">
                           Test
                         </Button>
-                        <Button variant="outline" size="sm" className="text-red-400">
+                        <Button className="bg-industrial-accent" size="sm" >
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
@@ -453,7 +453,7 @@ export default function Notifications() {
                       {Object.entries(channel.configuration).map(([key, value]) => (
                         <div key={key} className="flex justify-between">
                           <span className="text-black-200">{key}:</span>
-                          <span className="font-mono text-white">
+                          <span className="font-mono text-black-200">
                             {key.toLowerCase().includes('password') || key.toLowerCase().includes('token') || key.toLowerCase().includes('key')
                               ? '***********'
                               : String(value)
@@ -466,7 +466,7 @@ export default function Notifications() {
                     {channel.lastUsed && (
                       <div className="text-sm">
                         <span className="text-black-200">Last used:</span>
-                        <span className="font-mono text-white ml-2">
+                        <span className="font-mono text-black-200 ml-2">
                           {channel.lastUsed.toLocaleString()}
                         </span>
                       </div>
@@ -511,7 +511,7 @@ export default function Notifications() {
                         <div className="flex items-center space-x-4">
                           <Switch checked={group.enabled} />
                           <div>
-                            <h3 className="font-semibold text-white">{group.name}</h3>
+                            <h3 className="font-semibold text-black-200">{group.name}</h3>
                             <p className="text-sm text-black-200">{group.description}</p>
                           </div>
                         </div>
@@ -527,7 +527,7 @@ export default function Notifications() {
                             {group.members.map((member, index) => (
                               <div key={index} className="flex items-center space-x-2">
                                 {member.includes('@') ? <Mail className="w-3 h-3" /> : <Phone className="w-3 h-3" />}
-                                <span className="font-mono text-white text-xs">{member}</span>
+                                <span className="font-mono text-black-200 text-xs">{member}</span>
                               </div>
                             ))}
                           </div>
@@ -599,10 +599,10 @@ export default function Notifications() {
                 <TableBody>
                   {notificationLogs.map((log) => (
                     <TableRow key={log.id} className="border-gray-800 hover:bg-gray-800">
-                      <TableCell className="text-white font-mono text-sm">
+                      <TableCell className="text-black-200 font-mono text-sm">
                         {log.timestamp.toLocaleString()}
                       </TableCell>
-                      <TableCell className="text-white">
+                      <TableCell className="text-black-200">
                         {log.ruleName}
                       </TableCell>
                       <TableCell className="text-gray-300">

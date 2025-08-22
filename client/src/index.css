@@ -358,85 +358,106 @@ textarea:focus {
   border-color: hsl(var(--ring));
 }
 
-/* Hover states for all buttons and links */
-a:hover,
-button:hover,
-[role="button"]:hover {
-  background-color: rgb(8, 143, 209) !important;
-  color: white !important;
+/* Professional link and button styling */
+.link-industrial {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-/* Special cases for primary buttons */
-.bg-primary,
-[data-variant="default"] {
-  background-color: rgb(8, 143, 209) !important;
-  color: white !important;
-  box-shadow: 0 4px 12px rgb(8 143 209 / 0.3) !important;
+.link-industrial:hover {
+  color: hsl(var(--primary) / 0.8);
+  text-decoration: underline;
 }
 
-/* Enhanced gradients and spacing */
+/* Professional button styling */
+.btn-industrial {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid hsl(var(--primary));
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  padding: 0.5rem 1rem;
+}
+
+.btn-industrial:hover {
+  background: hsl(var(--primary) / 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+.btn-industrial-secondary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border: 1px solid hsl(var(--secondary));
+}
+
+.btn-industrial-accent {
+  background: hsl(var(--industrial-accent));
+  color: white;
+  border: 1px solid hsl(var(--industrial-accent));
+}
+
+/* Professional gradient cards */
 .gradient-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
-  border: 1px solid rgb(8, 143, 209) !important;
-  box-shadow: 0 10px 25px rgb(0 0 0 / 0.1) !important;
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-/* Typography improvements */
-h1, h2, h3 {
-  color: #1f2937 !important;
-  font-weight: 700 !important;
-}
-
-h4, h5, h6 {
-  color: #374151 !important;
-  font-weight: 600 !important;
-}
-
-/* Badge enhancements */
-.badge-enhanced {
-  padding: 0.5rem 1rem !important;
-  border-radius: 9999px !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.025em !important;
-}
-
-/* Global UI improvements */
+/* Page container with professional background */
 .page-container {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
-  min-height: 100vh !important;
+  background: hsl(var(--background));
+  min-height: 100vh;
 }
 
-/* Card hover effects */
-.card-hover {
-  transition: all 0.3s ease !important;
+/* Enhanced card styling */
+.card-enhanced {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.2s ease-in-out;
 }
 
-.card-hover:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 12px 24px rgb(8 143 209 / 0.15) !important;
+.card-enhanced:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translateY(-1px);
 }
 
-/* Button improvements */
-.btn-primary {
-  background: linear-gradient(135deg, rgb(8, 143, 209) 0%, rgb(6, 120, 180) 100%) !important;
-  border: none !important;
-  color: white !important;
-  box-shadow: 0 4px 12px rgb(8 143 209 / 0.3) !important;
-  font-weight: 600 !important;
+/* Badge styling */
+.badge-industrial {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, rgb(6, 120, 180) 0%, rgb(5, 100, 150) 100%) !important;
-  box-shadow: 0 6px 16px rgb(8 143 209 / 0.4) !important;
-  transform: translateY(-1px) !important;
+.badge-industrial-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid hsl(var(--primary));
 }
 
-/* Input field improvements */
-input, select, textarea {
-  border: 2px solid #e5e7eb !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
+/* Form input styling */
+.input-industrial {
+  background: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  color: hsl(var(--foreground));
+  transition: all 0.2s ease-in-out;
+}
+
+.input-industrial:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
 }
 
 input:focus, select:focus, textarea:focus {

@@ -15,13 +15,20 @@ import Notifications from "@/pages/notifications";
 import Security from "@/pages/security";
 import NotFound from "@/pages/not-found";
 import SensorDashboard from "@/pages/sensor-dashboard";
+import Dashboard from "./components/Newcomponents/Dashboard";
+import Anomalydetection from "./components/Newcomponents/Anomalydetection";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/">
+      {/* <Route path="/">
         <Layout title="Anomaly Dashboard" description="Real-time cement kiln monitoring and anomaly detection">
           <AnomalyDashboard />
+        </Layout>
+      </Route> */}
+       <Route path="/">
+        <Layout title="Dashboard" description="Real-time cement kiln monitoring and anomaly detection">
+          <Dashboard />
         </Layout>
       </Route>
       <Route path="/root-cause">
@@ -67,6 +74,17 @@ function Router() {
       <Route path="/security">
         <Layout title="Security Management" description="User access control and audit logging">
           <Security />
+        </Layout>
+      </Route>
+
+       <Route path="/dashboard">
+        <Layout title="Dashboard" description="Real-time cement kiln monitoring">
+          <Dashboard />
+        </Layout>
+      </Route>
+        <Route path="/anomaly">
+        <Layout title="Anomaly Detection" description="Real-time cement kiln monitoring and anomaly detection">
+          <Anomalydetection />
         </Layout>
       </Route>
       <Route component={NotFound} />

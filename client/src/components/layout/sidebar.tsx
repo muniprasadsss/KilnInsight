@@ -14,7 +14,8 @@ import {
   Mail,
   Shield,
   Activity,
-  Menu
+  Menu,
+  Home
 } from "lucide-react";
 interface NavigationItem {
   path: string;
@@ -23,13 +24,22 @@ interface NavigationItem {
   badge?: number;
 }
 
+// const navigationItems: NavigationItem[] = [
+//   { path: "/", label: "Anomaly Dashboard", icon: AlertTriangle, badge: 3 },
+//   { path: "/sensors", label: "Sensor Dashboard", icon: Activity },
+//   { path: "/root-cause", label: "Root Cause Analysis", icon: Search },
+//   { path: "/alerts", label: "Alerts Center", icon: Bell, badge: 12 },
+//   { path: "/operations", label: "Operations Dashboard", icon: Gauge },
+//   { path: "/analytics", label: "Advanced Analytics", icon: BarChart3 },
+//   { path: "/reporting", label: "User Reporting", icon: FileText },
+//   { path: "/data-management", label: "Data Management", icon: Database },
+//   { path: "/notifications", label: "Notifications", icon: Mail },
+//   { path: "/security", label: "Security", icon: Shield },
+// ];
+
 const navigationItems: NavigationItem[] = [
-  { path: "/", label: "Anomaly Dashboard", icon: AlertTriangle, badge: 3 },
-  { path: "/sensors", label: "Sensor Dashboard", icon: Activity },
-  { path: "/root-cause", label: "Root Cause Analysis", icon: Search },
-  { path: "/alerts", label: "Alerts Center", icon: Bell, badge: 12 },
-  { path: "/operations", label: "Operations Dashboard", icon: Gauge },
-  { path: "/analytics", label: "Advanced Analytics", icon: BarChart3 },
+  { path: "/dashboard", label: "Dashboard", icon: Home },
+  { path: "/anomaly", label: "Anomaly Detection", icon: AlertTriangle },
   { path: "/reporting", label: "User Reporting", icon: FileText },
   { path: "/data-management", label: "Data Management", icon: Database },
   { path: "/notifications", label: "Notifications", icon: Mail },
@@ -59,79 +69,79 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
           className="text-white hover:bg-white/20 hover:text-white"
           data-testid="button-toggle-sidebar"
         >
-          <Menu className="h-8 w-8"/>
+          <Menu className="h-8 w-8" />
         </Button>
       </div>
 
       <div className="pt-4">
         <div className="list p-2">
-           <ul className="space-y-2">
-          {navigationItems.map((item) => {
-            const isActive = location === item.path;
-            const Icon = item.icon;
-            
-            return (
-              <li key={item.path}>
-                <Link href={item.path}>
-                  <div
-                    className={cn(
-                      "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
-                      isCollapsed ? "justify-center" : "space-x-3",
-                      isActive
-                        ? "shadow-md"
-                        : "hover:text-white"
-                    )}
-                    style={isActive
-                      ? { backgroundColor: 'rgba(26, 79, 104, 1)', color: '#fff !important' }
-                      : {}
-                    }
-                    onMouseEnter={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.backgroundColor = 'rgba(26, 79, 104, 1)';
-                        e.currentTarget.style.color = 'white !important';
+          <ul className="space-y-2">
+            {navigationItems.map((item) => {
+              const isActive = location === item.path;
+              const Icon = item.icon;
+
+              return (
+                <li key={item.path}>
+                  <Link href={item.path}>
+                    <div
+                      className={cn(
+                        "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
+                        isCollapsed ? "justify-center" : "space-x-3",
+                        isActive
+                          ? "shadow-md"
+                          : "hover:text-white"
+                      )}
+                      style={isActive
+                        ? { backgroundColor: 'rgba(26, 79, 104, 1)', color: '#fff !important' }
+                        : {}
                       }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.backgroundColor = '';
-                      }
-                    }}
-                    data-testid={`link-${item.path.replace('/', '') || 'home'}`}
-                  >
-                    <Icon className="w-5 h-5 flex-shrink-0" />
-                    {!isCollapsed && (
-                      <>
-                        <span className="truncate">{item.label}</span>
-                        {item.badge && (
-                          <Badge 
-                            variant={item.badge > 10 ? "destructive" : "secondary"}
-                            className="ml-auto"
-                          >
-                            {item.badge}
-                          </Badge>
-                        )}
-                      </>
-                    )}
-                    
-                    {/* Tooltip for collapsed state */}
-                    {isCollapsed && (
-                      <div className="absolute left-full ml-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                        {item.label}
-                        {item.badge && (
-                          <span className="ml-2 notification-badge">
-                            {item.badge}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = 'rgba(26, 79, 104, 1)';
+                          e.currentTarget.style.color = 'white !important';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = '';
+                        }
+                      }}
+                      data-testid={`link-${item.path.replace('/', '') || 'home'}`}
+                    >
+                      <Icon className="w-5 h-5 flex-shrink-0" />
+                      {!isCollapsed && (
+                        <>
+                          <span className="truncate">{item.label}</span>
+                          {item.badge && (
+                            <Badge
+                              variant={item.badge > 10 ? "destructive" : "secondary"}
+                              className="ml-auto"
+                            >
+                              {item.badge}
+                            </Badge>
+                          )}
+                        </>
+                      )}
+
+                      {/* Tooltip for collapsed state */}
+                      {isCollapsed && (
+                        <div className="absolute left-full ml-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                          {item.label}
+                          {item.badge && (
+                            <span className="ml-2 notification-badge">
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-       
+
       </div>
     </nav>
   );

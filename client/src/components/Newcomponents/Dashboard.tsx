@@ -3,21 +3,9 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertTriangle, CheckCircle, XCircle } from "lucide-react";
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-} from "recharts";
-
-import {
-    ChartContainer,
-    ChartTooltip,
-    ChartTooltipContent,
-    ChartLegend,
-    ChartLegendContent,
-} from "@/components/ui/chart";
+import {LineChart,Line,XAxis,YAxis,CartesianGrid} from "recharts";
+import {ChartContainer,ChartTooltip,ChartTooltipContent,ChartLegend,
+ChartLegendContent} from "@/components/ui/chart";
 
 // Dummy chart data
 const energyData = [
@@ -51,13 +39,6 @@ const chartDataWithTime = energyData.map((val, idx) => ({
     value: val,
 }));
 
-// const chartData = energyData.map((val, index) => ({
-//     index,
-//     value: val,
-// }));
-
-// Chart config
-
 const chartConfig = {
     value: {
         label: "Specific Energy (kcal/kg)",
@@ -65,7 +46,8 @@ const chartConfig = {
     },
 };
 
-// ✅ Dummy metrics for 17 cards
+//metrics for 17 cards
+
 const metrics = [
     { key: "timestamp", label: "Timestamp", value: "Sep-25 14:40" },
     { key: "preheater_temp_C", label: "Preheater Temp (°C)", value: 850 },
@@ -92,7 +74,7 @@ const metrics = [
     { key: "ESP_inlet_temp_C", label: "ESP Inlet Temp (°C)", value: 280 },
     { key: "draft_fan_vfd_speed_pct", label: "Draft Fan VFD Speed (%)", value: 62 },
     { key: "kiln_torque_kNm", label: "Kiln Torque (kNm)", value: 145 },
-    { key: "fuel_type", label: "Fuel Type", value: "Coal" },
+    // { key: "fuel_type", label: "Fuel Type", value: "Coal" },
 ];
 
 const Dashboard = () => {
@@ -108,7 +90,7 @@ const Dashboard = () => {
                         <CheckCircle className="h-5 w-5 text-green-600" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-3xl font-bold text-green-600">278.8</div>
+                        <div className="text-3xl font-bold text-green-600 mb-2">278.8</div>
                         <p className="text-xs text-gray-500">Operating normally</p>
                     </CardContent>
                 </Card>
@@ -121,7 +103,7 @@ const Dashboard = () => {
                         <AlertTriangle className="h-5 w-5 text-yellow-500" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-3xl font-bold text-yellow-600">898.5</div>
+                        <div className="text-3xl font-bold text-yellow-600 mb-2">898.5</div>
                         <p className="text-xs text-gray-500">Requires attention</p>
                     </CardContent>
                 </Card>
@@ -134,7 +116,7 @@ const Dashboard = () => {
                         <XCircle className="h-5 w-5 text-red-600" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-3xl font-bold text-red-600">987.4</div>
+                        <div className="text-3xl font-bold text-red-600 mb-2">987.4</div>
                         <p className="text-xs text-gray-500">Immediate action needed</p>
                     </CardContent>
                 </Card>
@@ -172,7 +154,7 @@ const Dashboard = () => {
             {/* --- 17 Metric Cards Section --- */}
             <div className="mb-6">
                 {/* Section Heading */}
-                <h2 className="text-lg font-bold text-gray-800 mb-4">
+                <h2 className="text-l font-bold text-gray-800 mb-4">
                     Live Parameter Trends
                 </h2>
 

@@ -15,7 +15,8 @@ import {
   Shield,
   Activity,
   Menu,
-  Home
+  Home,
+  SlidersHorizontal
 } from "lucide-react";
 interface NavigationItem {
   path: string;
@@ -40,6 +41,7 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
   { path: "/dashboard", label: "Dashboard", icon: Home },
   { path: "/anomaly", label: "Anomaly Detection", icon: AlertTriangle },
+  { path: "/optimization", label: "Optimization", icon: SlidersHorizontal },
   { path: "/reporting", label: "User Reporting", icon: FileText },
   { path: "/data-management", label: "Data Management", icon: Database },
   { path: "/notifications", label: "Notifications", icon: Mail },

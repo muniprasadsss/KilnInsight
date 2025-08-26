@@ -17,6 +17,7 @@ import NotFound from "@/pages/not-found";
 import SensorDashboard from "@/pages/sensor-dashboard";
 import Dashboard from "./components/Newcomponents/Dashboard";
 import Anomalydetection from "./components/Newcomponents/Anomalydetection";
+import Optimisation from "./components/Newcomponents/Optimisation";
 
 function Router() {
   return (
@@ -85,6 +86,11 @@ function Router() {
         <Route path="/anomaly">
         <Layout title="Anomaly Detection" description="Real-time cement kiln monitoring and anomaly detection">
           <Anomalydetection />
+        </Layout>
+      </Route>
+       <Route path="/optimization">
+        <Layout title="Optimization" description="Optimization screen">
+          <Optimisation />
         </Layout>
       </Route>
       <Route component={NotFound} />

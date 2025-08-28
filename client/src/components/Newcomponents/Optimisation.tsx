@@ -161,10 +161,11 @@ const Optimisation: React.FC = () => {
                             style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
                         }} />
                         <YAxis domain={['dataMin - 5', 'dataMax + 5']}
+                        tickFormatter={(value: number) => value.toFixed(1)}
                             label={{
                                 value: "Specific Energy (kcal/kg)",
                                 angle: -90,
-                                offset: -2,   // tweak offset
+                                offset: 0,   // tweak offset
                                 position: "insideLeft",
                                 style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
                             }} /> {/* adjust for better view */}

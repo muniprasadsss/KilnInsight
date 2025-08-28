@@ -142,7 +142,13 @@ const Dashboard = () => {
                                     offset: -15,
                                     style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
                                 }} />
-                                <YAxis />
+                                <YAxis label={{
+                                    value: "Specific Energy (kcal/kg)",
+                                    angle: -90,
+                                    offset: 0,   // tweak offset
+                                    position: "insideLeft",
+                                    style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
+                                }} />
                                 <ChartTooltip content={<ChartTooltipContent />} />
                                 <Line
                                     type="monotone"
@@ -151,7 +157,7 @@ const Dashboard = () => {
                                     strokeWidth={2}
                                     dot={false}
                                 />
-                                <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }}/>
+                                <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }} />
                             </LineChart>
                         </ChartContainer>
                     </div>

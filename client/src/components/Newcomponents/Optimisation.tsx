@@ -3,6 +3,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from '../ui/chart';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import { DatePicker } from '../ui/DatePicker';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { AlertTriangle, CheckCircle } from 'lucide-react';
+import { Button } from '../ui/button';
 
 interface KPIData {
     KPI: string;
@@ -21,19 +24,19 @@ interface ManipulatedData {
 const Optimisation: React.FC = () => {
 
     const kpiData: KPIData = {
-        KPI: "specific energy kcal per kg",
+        KPI: "specific energy (kcal/kg)",
         before: 705,
         after: 690,
         percentage: 2.127659574,
     };
 
     const manipulatedData: ManipulatedData[] = [
-        { variable: "fuel flow kgph", actual: 6950, optimized: 6800, percentage: 2.16 },
-        { variable: "primary fan speed rpm", actual: 1460, optimized: 1440, percentage: 1.37 },
-        { variable: "secondary fan speed rpm", actual: 978, optimized: 965, percentage: 1.33 },
-        { variable: "draft fan vfd speed pct", actual: 71.5, optimized: 70, percentage: 2.1 },
-        { variable: "feed rate tph", actual: 116, optimized: 118, percentage: -1.72 },
-        { variable: "kiln speed rpm", actual: 2.01, optimized: 2.05, percentage: -1.99 },
+        { variable: "fuel flow (kgph)", actual: 6950, optimized: 6800, percentage: 2.16 },
+        { variable: "primary fan speed (rpm)", actual: 1460, optimized: 1440, percentage: 1.37 },
+        { variable: "secondary fan speed (rpm)", actual: 978, optimized: 965, percentage: 1.33 },
+        { variable: "draft fan vfd speed (pct)", actual: 71.5, optimized: 70, percentage: 2.1 },
+        { variable: "feed rate (tph)", actual: 116, optimized: 118, percentage: -1.72 },
+        { variable: "kiln speed (rpm)", actual: 2.01, optimized: 2.05, percentage: -1.99 },
     ];
 
     const formatPercentage = (val: number) => (
@@ -174,12 +177,14 @@ const Optimisation: React.FC = () => {
                 </ChartContainer>
             </div>
 
-            {/* KPI Section */}
+            <div className='flex gap-2 mb-8'>
+             <div className="tables flex-1">
+                 {/* KPI Section */}
 
             <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto mb-8">
                 {/* KPI Section */}
                 <h2 className="text-l font-bold text-gray-800 mb-4">
-                    Optimize All Recommendation
+                    Optimized Recommendation 
                 </h2>
 
                 {/* KPI Table */}
@@ -211,7 +216,7 @@ const Optimisation: React.FC = () => {
 
             <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto">
                 <h2 className="text-l font-bold text-gray-800 mb-4">
-                    Manipulated parameters Optimization
+                     Recommendation Table
                 </h2>
 
                 <Table>
@@ -245,6 +250,42 @@ const Optimisation: React.FC = () => {
                     </TableBody>
                 </Table>
             </div>
+            </div>
+            <div className="btn flex gap-2 mb-8 flex-col">
+                <div>
+                     <Button className="w-full mt-3  hover:rgb(8, 143, 209)" style={{backgroundColor: "rgb(8, 143, 209)"}}>
+                        RERUN OPTIMIZER
+                        </Button>
+                </div>
+                <div className=''>
+                    <Card className="p-0">
+      <CardHeader className="bg-red-50 p-2">
+        <CardTitle className="text-lg flex items-center gap-2">
+          <AlertTriangle className="h-5 w-5 text-red-500" />
+          ALERTS
+        </CardTitle>
+      </CardHeader>
+      <CardContent className=" bg-white space-y-2 text-sm">
+        <div className="flex items-center gap-2">
+          <CheckCircle className="h-4 w-4 text-green-500" />
+          <span>Next scheduled run:</span>
+        </div>
+        <div className="text-muted-foreground">August 6, 2025 at 7 PM</div>
+        <div className="flex items-center gap-2 text-red-600">
+          <AlertTriangle className="h-4 w-4" />
+          <span>Last scheduled run:</span>
+        </div>
+        <div className="text-muted-foreground">August 6, 2025 at 6 PM</div>
+      </CardContent>
+                     </Card>
+                </div>
+                    
+            </div>
+
+            </div>
+
+           
+           
 
         </>
     )

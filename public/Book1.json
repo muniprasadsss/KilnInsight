@@ -1,0 +1,338 @@
+[
+ {
+  "timestamp": "08-08-2025 17:18",
+  "feed_rate_tph": 114.257,
+  "production_tph": 108.255,
+  "O2_pct": 3.797
+ },
+ {
+  "timestamp": "08-08-2025 17:19",
+  "feed_rate_tph": 116.129,
+  "production_tph": 108.224,
+  "O2_pct": 3.748
+ },
+ {
+  "timestamp": "08-08-2025 17:20",
+  "feed_rate_tph": 116.879,
+  "production_tph": 105.823,
+  "O2_pct": 3.744
+ },
+ {
+  "timestamp": "08-08-2025 17:21",
+  "feed_rate_tph": 117.265,
+  "production_tph": 108.055,
+  "O2_pct": 3.654
+ },
+ {
+  "timestamp": "08-08-2025 17:22",
+  "feed_rate_tph": 116.855,
+  "production_tph": 107.283,
+  "O2_pct": 3.773
+ },
+ {
+  "timestamp": "08-08-2025 17:23",
+  "feed_rate_tph": 117.427,
+  "production_tph": 107.498,
+  "O2_pct": 3.655
+ },
+ {
+  "timestamp": "08-08-2025 17:24",
+  "feed_rate_tph": 117.126,
+  "production_tph": 110.005,
+  "O2_pct": 3.766
+ },
+ {
+  "timestamp": "08-08-2025 17:25",
+  "feed_rate_tph": 115.801,
+  "production_tph": 107.571,
+  "O2_pct": 3.782
+ },
+ {
+  "timestamp": "08-08-2025 17:26",
+  "feed_rate_tph": 117.193,
+  "production_tph": 108.493,
+  "O2_pct": 3.772
+ },
+ {
+  "timestamp": "08-08-2025 17:27",
+  "feed_rate_tph": 115.839,
+  "production_tph": 107.207,
+  "O2_pct": 3.739
+ },
+ {
+  "timestamp": "08-08-2025 17:28",
+  "feed_rate_tph": 114.954,
+  "production_tph": 106.572,
+  "O2_pct": 3.797
+ },
+ {
+  "timestamp": "08-08-2025 17:29",
+  "feed_rate_tph": 117.275,
+  "production_tph": 108.044,
+  "O2_pct": 3.656
+ },
+ {
+  "timestamp": "08-08-2025 17:30",
+  "feed_rate_tph": 107.275,
+  "production_tph": 106.177,
+  "O2_pct": 3.79
+ },
+ {
+  "timestamp": "08-08-2025 17:31",
+  "feed_rate_tph": 96.234,
+  "production_tph": 107.347,
+  "O2_pct": 3.79
+ },
+ {
+  "timestamp": "08-08-2025 17:32",
+  "feed_rate_tph": 81.213,
+  "production_tph": 99.12,
+  "O2_pct": 3.721
+ },
+ {
+  "timestamp": "08-08-2025 17:33",
+  "feed_rate_tph": 78.231,
+  "production_tph": 95.12,
+  "O2_pct": 3.709
+ },
+ {
+  "timestamp": "08-08-2025 17:34",
+  "feed_rate_tph": 65.23,
+  "production_tph": 87.92,
+  "O2_pct": 3.914
+ },
+ {
+  "timestamp": "08-08-2025 17:35",
+  "feed_rate_tph": 51.123,
+  "production_tph": 70.89,
+  "O2_pct": 3.915
+ },
+ {
+  "timestamp": "08-08-2025 17:36",
+  "feed_rate_tph": 44.23,
+  "production_tph": 67.23,
+  "O2_pct": 3.919
+ },
+ {
+  "timestamp": "08-08-2025 17:37",
+  "feed_rate_tph": 33.231,
+  "production_tph": 67.12,
+  "O2_pct": 3.928
+ },
+ {
+  "timestamp": "08-08-2025 17:38",
+  "feed_rate_tph": 28.123,
+  "production_tph": 65.12,
+  "O2_pct": 3.929
+ },
+ {
+  "timestamp": "08-08-2025 17:39",
+  "feed_rate_tph": 21.231,
+  "production_tph": 64.12,
+  "O2_pct": 3.931
+ },
+ {
+  "timestamp": "08-08-2025 17:40",
+  "feed_rate_tph": 15.123,
+  "production_tph": 56.23,
+  "O2_pct": 3.932
+ },
+ {
+  "timestamp": "08-08-2025 17:41",
+  "feed_rate_tph": 15.12,
+  "production_tph": 51.12,
+  "O2_pct": 3.94
+ },
+ {
+  "timestamp": "08-08-2025 17:42",
+  "feed_rate_tph": 10.23,
+  "production_tph": 46.23,
+  "O2_pct": 3.99
+ },
+ {
+  "timestamp": "08-08-2025 17:43",
+  "feed_rate_tph": 5.843,
+  "production_tph": 40.4,
+  "O2_pct": 4.135
+ },
+ {
+  "timestamp": "08-08-2025 17:44",
+  "feed_rate_tph": 5.81,
+  "production_tph": 32.353,
+  "O2_pct": 4.293
+ },
+ {
+  "timestamp": "08-08-2025 17:45",
+  "feed_rate_tph": 5.761,
+  "production_tph": 32.93,
+  "O2_pct": 4.465
+ },
+ {
+  "timestamp": "08-08-2025 17:46",
+  "feed_rate_tph": 5.785,
+  "production_tph": 32.205,
+  "O2_pct": 4.488
+ },
+ {
+  "timestamp": "08-08-2025 17:47",
+  "feed_rate_tph": 5.862,
+  "production_tph": 32.765,
+  "O2_pct": 4.513
+ },
+ {
+  "timestamp": "08-08-2025 17:48",
+  "feed_rate_tph": 5.912,
+  "production_tph": 32.219,
+  "O2_pct": 4.732
+ },
+ {
+  "timestamp": "08-08-2025 17:49",
+  "feed_rate_tph": 5.804,
+  "production_tph": 32.034,
+  "O2_pct": 4.394
+ },
+ {
+  "timestamp": "08-08-2025 17:50",
+  "feed_rate_tph": 5.745,
+  "production_tph": 32.012,
+  "O2_pct": 4.524
+ },
+ {
+  "timestamp": "08-08-2025 17:51",
+  "feed_rate_tph": 5.744,
+  "production_tph": 31.816,
+  "O2_pct": 4.569
+ },
+ {
+  "timestamp": "08-08-2025 17:52",
+  "feed_rate_tph": 5.738,
+  "production_tph": 31.897,
+  "O2_pct": 4.623
+ },
+ {
+  "timestamp": "08-08-2025 17:53",
+  "feed_rate_tph": 5.835,
+  "production_tph": 32.037,
+  "O2_pct": 4.42
+ },
+ {
+  "timestamp": "08-08-2025 17:54",
+  "feed_rate_tph": 5.775,
+  "production_tph": 32.756,
+  "O2_pct": 4.478
+ },
+ {
+  "timestamp": "08-08-2025 17:55",
+  "feed_rate_tph": 5.812,
+  "production_tph": 32.243,
+  "O2_pct": 4.432
+ },
+ {
+  "timestamp": "08-08-2025 17:56",
+  "feed_rate_tph": 5.818,
+  "production_tph": 32.265,
+  "O2_pct": 4.5
+ },
+ {
+  "timestamp": "08-08-2025 17:57",
+  "feed_rate_tph": 5.787,
+  "production_tph": 32.656,
+  "O2_pct": 4.378
+ },
+ {
+  "timestamp": "08-08-2025 17:58",
+  "feed_rate_tph": 5.784,
+  "production_tph": 32.416,
+  "O2_pct": 4.539
+ },
+ {
+  "timestamp": "08-08-2025 17:59",
+  "feed_rate_tph": 5.848,
+  "production_tph": 32.327,
+  "O2_pct": 4.341
+ },
+ {
+  "timestamp": "08-08-2025 18:00",
+  "feed_rate_tph": 5.757,
+  "production_tph": 32.632,
+  "O2_pct": 4.51
+ },
+ {
+  "timestamp": "08-08-2025 18:01",
+  "feed_rate_tph": 5.975,
+  "production_tph": 32.049,
+  "O2_pct": 4.434
+ },
+ {
+  "timestamp": "08-08-2025 18:02",
+  "feed_rate_tph": 5.878,
+  "production_tph": 32.824,
+  "O2_pct": 4.633
+ },
+ {
+  "timestamp": "08-08-2025 18:03",
+  "feed_rate_tph": 5.846,
+  "production_tph": 31.951,
+  "O2_pct": 4.495
+ },
+ {
+  "timestamp": "08-08-2025 18:04",
+  "feed_rate_tph": 5.747,
+  "production_tph": 32.459,
+  "O2_pct": 4.482
+ },
+ {
+  "timestamp": "08-08-2025 18:05",
+  "feed_rate_tph": 5.955,
+  "production_tph": 32.293,
+  "O2_pct": 4.5
+ },
+ {
+  "timestamp": "08-08-2025 18:06",
+  "feed_rate_tph": 5.718,
+  "production_tph": 32.064,
+  "O2_pct": 4.536
+ },
+ {
+  "timestamp": "08-08-2025 18:07",
+  "feed_rate_tph": 5.744,
+  "production_tph": 32.292,
+  "O2_pct": 4.345
+ },
+ {
+  "timestamp": "08-08-2025 18:08",
+  "feed_rate_tph": 5.827,
+  "production_tph": 32.132,
+  "O2_pct": 4.551
+ },
+ {
+  "timestamp": "08-08-2025 18:09",
+  "feed_rate_tph": 5.88,
+  "production_tph": 32.125,
+  "O2_pct": 4.424
+ },
+ {
+  "timestamp": "08-08-2025 18:10",
+  "feed_rate_tph": 5.832,
+  "production_tph": 32.42,
+  "O2_pct": 4.548
+ },
+ {
+  "timestamp": "08-08-2025 18:11",
+  "feed_rate_tph": 5.827,
+  "production_tph": 31.826,
+  "O2_pct": 4.372
+ },
+ {
+  "timestamp": "08-08-2025 18:12",
+  "feed_rate_tph": 5.764,
+  "production_tph": 32.639,
+  "O2_pct": 4.452
+ },
+ {
+  "timestamp": "08-08-2025 18:13",
+  "feed_rate_tph": 5.834,
+  "production_tph": 32.2,
+  "O2_pct": 4.513
+ }
+]

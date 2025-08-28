@@ -12,83 +12,356 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import historical_image from '../../../../public/historical_tab_image.jpg'
 
 const metricOptions = [
-    { label: "Feed Rate Tph", key: "feed_rate_tph", color: "#17e217", timeToFailure: "18:06" },
-    { label: "Production Tph", key: "production_tph", color: "#088FD1", timeToFailure: "18:06" },
-    { label: "O2 Pct", key: "o2_pct", color: "#f59e0b", timeToFailure: "18:06" },
+    { label: "Feed Rate Tph", key: "feed_rate_tph", color: "#17e217", timeToFailure: "33 mins" },
+    { label: "Production Tph", key: "production_tph", color: "#088FD1", timeToFailure: "41 mins" },
+    { label: "O2 Pct", key: "O2_pct", color: "#f59e0b", timeToFailure: "91 mins" },
 ];
 
 // Your static dataset
 const staticData = [
-    { feed_rate_tph: 114.257, production_tph: 108.255, o2_pct: 3.797 },
-    { feed_rate_tph: 116.129, production_tph: 108.224, o2_pct: 3.748 },
-    { feed_rate_tph: 116.879, production_tph: 105.823, o2_pct: 3.744 },
-    { feed_rate_tph: 117.265, production_tph: 108.055, o2_pct: 3.654 },
-    { feed_rate_tph: 116.855, production_tph: 107.283, o2_pct: 3.773 },
-    { feed_rate_tph: 117.427, production_tph: 107.498, o2_pct: 3.655 },
-    { feed_rate_tph: 117.126, production_tph: 110.005, o2_pct: 3.766 },
-    { feed_rate_tph: 115.801, production_tph: 107.571, o2_pct: 3.782 },
-    { feed_rate_tph: 117.193, production_tph: 108.493, o2_pct: 3.772 },
-    { feed_rate_tph: 115.839, production_tph: 107.207, o2_pct: 3.739 },
-    { feed_rate_tph: 114.954, production_tph: 106.572, o2_pct: 3.797 },
-    { feed_rate_tph: 117.275, production_tph: 108.044, o2_pct: 3.656 },
-    { feed_rate_tph: 107.275, production_tph: 106.177, o2_pct: 3.79 },
-    { feed_rate_tph: 96.234, production_tph: 107.347, o2_pct: 3.79 },
-    { feed_rate_tph: 81.213, production_tph: 99.12, o2_pct: 3.721 },
-    { feed_rate_tph: 78.231, production_tph: 95.12, o2_pct: 3.709 },
-    { feed_rate_tph: 65.23, production_tph: 87.92, o2_pct: 3.914 },
-    { feed_rate_tph: 51.123, production_tph: 70.89, o2_pct: 3.915 },
-    { feed_rate_tph: 44.23, production_tph: 67.23, o2_pct: 3.919 },
-    { feed_rate_tph: 33.231, production_tph: 67.12, o2_pct: 3.928 },
-    { feed_rate_tph: 28.123, production_tph: 65.12, o2_pct: 3.929 },
-    { feed_rate_tph: 21.231, production_tph: 64.12, o2_pct: 3.931 },
-    { feed_rate_tph: 15.123, production_tph: 56.23, o2_pct: 3.932 },
-    { feed_rate_tph: 15.12, production_tph: 51.12, o2_pct: 3.94 },
-    { feed_rate_tph: 10.23, production_tph: 46.23, o2_pct: 3.99 },
-    { feed_rate_tph: 5.843, production_tph: 40.4, o2_pct: 4.135 },
-    { feed_rate_tph: 5.81, production_tph: 32.353, o2_pct: 4.293 },
-    { feed_rate_tph: 5.761, production_tph: 32.93, o2_pct: 4.465 },
-    { feed_rate_tph: 5.785, production_tph: 32.205, o2_pct: 4.488 },
-    { feed_rate_tph: 5.862, production_tph: 32.765, o2_pct: 4.513 },
-    { feed_rate_tph: 5.912, production_tph: 32.219, o2_pct: 4.732 },
-    { feed_rate_tph: 5.804, production_tph: 32.034, o2_pct: 4.394 },
-    { feed_rate_tph: 5.745, production_tph: 32.012, o2_pct: 4.524 },
-    { feed_rate_tph: 5.744, production_tph: 31.816, o2_pct: 4.569 },
-    { feed_rate_tph: 5.738, production_tph: 31.897, o2_pct: 4.623 },
-    { feed_rate_tph: 5.835, production_tph: 32.037, o2_pct: 4.42 },
-    { feed_rate_tph: 5.775, production_tph: 32.756, o2_pct: 4.478 },
-    { feed_rate_tph: 5.812, production_tph: 32.243, o2_pct: 4.432 },
-    { feed_rate_tph: 5.818, production_tph: 32.265, o2_pct: 4.5 },
-    { feed_rate_tph: 5.787, production_tph: 32.656, o2_pct: 4.378 },
-    { feed_rate_tph: 5.784, production_tph: 32.416, o2_pct: 4.539 },
-    { feed_rate_tph: 5.848, production_tph: 32.327, o2_pct: 4.341 },
-    { feed_rate_tph: 5.757, production_tph: 32.632, o2_pct: 4.51 },
-    { feed_rate_tph: 5.975, production_tph: 32.049, o2_pct: 4.434 },
-    { feed_rate_tph: 5.878, production_tph: 32.824, o2_pct: 4.633 },
-    { feed_rate_tph: 5.846, production_tph: 31.951, o2_pct: 4.495 },
-    { feed_rate_tph: 5.747, production_tph: 32.459, o2_pct: 4.482 },
-    { feed_rate_tph: 5.955, production_tph: 32.293, o2_pct: 4.5 },
-    { feed_rate_tph: 5.718, production_tph: 32.064, o2_pct: 4.536 },
-    { feed_rate_tph: 5.744, production_tph: 32.292, o2_pct: 4.345 },
-    { feed_rate_tph: 5.827, production_tph: 32.132, o2_pct: 4.551 },
-    { feed_rate_tph: 5.88, production_tph: 32.125, o2_pct: 4.424 },
-    { feed_rate_tph: 5.832, production_tph: 32.42, o2_pct: 4.548 },
-    { feed_rate_tph: 5.827, production_tph: 31.826, o2_pct: 4.372 },
-    { feed_rate_tph: 5.764, production_tph: 32.639, o2_pct: 4.452 },
-    { feed_rate_tph: 5.834, production_tph: 32.2, o2_pct: 4.513 },
+ {
+  timestamp: "08-08-2025 17:18",
+  feed_rate_tph: 114.257,
+  production_tph: 108.255,
+  O2_pct: 3.797
+ },
+ {
+  timestamp: "08-08-2025 17:19",
+  feed_rate_tph: 116.129,
+  production_tph: 108.224,
+  O2_pct: 3.748
+ },
+ {
+  timestamp: "08-08-2025 17:20",
+  feed_rate_tph: 116.879,
+  production_tph: 105.823,
+  O2_pct: 3.744
+ },
+ {
+  timestamp: "08-08-2025 17:21",
+  feed_rate_tph: 117.265,
+  production_tph: 108.055,
+  O2_pct: 3.654
+ },
+ {
+  timestamp: "08-08-2025 17:22",
+  feed_rate_tph: 116.855,
+  production_tph: 107.283,
+  O2_pct: 3.773
+ },
+ {
+  timestamp: "08-08-2025 17:23",
+  feed_rate_tph: 117.427,
+  production_tph: 107.498,
+  O2_pct: 3.655
+ },
+ {
+  timestamp: "08-08-2025 17:24",
+  feed_rate_tph: 117.126,
+  production_tph: 110.005,
+  O2_pct: 3.766
+ },
+ {
+  timestamp: "08-08-2025 17:25",
+  feed_rate_tph: 115.801,
+  production_tph: 107.571,
+  O2_pct: 3.782
+ },
+ {
+  timestamp: "08-08-2025 17:26",
+  feed_rate_tph: 117.193,
+  production_tph: 108.493,
+  O2_pct: 3.772
+ },
+ {
+  timestamp: "08-08-2025 17:27",
+  feed_rate_tph: 115.839,
+  production_tph: 107.207,
+  O2_pct: 3.739
+ },
+ {
+  timestamp: "08-08-2025 17:28",
+  feed_rate_tph: 114.954,
+  production_tph: 106.572,
+  O2_pct: 3.797
+ },
+ {
+  timestamp: "08-08-2025 17:29",
+  feed_rate_tph: 117.275,
+  production_tph: 108.044,
+  O2_pct: 3.656
+ },
+ {
+  timestamp: "08-08-2025 17:30",
+  feed_rate_tph: 107.275,
+  production_tph: 106.177,
+  O2_pct: 3.79
+ },
+ {
+  timestamp: "08-08-2025 17:31",
+  feed_rate_tph: 96.234,
+  production_tph: 107.347,
+  O2_pct: 3.79
+ },
+ {
+  timestamp: "08-08-2025 17:32",
+  feed_rate_tph: 81.213,
+  production_tph: 99.12,
+  O2_pct: 3.721
+ },
+ {
+  timestamp: "08-08-2025 17:33",
+  feed_rate_tph: 78.231,
+  production_tph: 95.12,
+  O2_pct: 3.709
+ },
+ {
+  timestamp: "08-08-2025 17:34",
+  feed_rate_tph: 65.23,
+  production_tph: 87.92,
+  O2_pct: 3.914
+ },
+ {
+  timestamp: "08-08-2025 17:35",
+  feed_rate_tph: 51.123,
+  production_tph: 70.89,
+  O2_pct: 3.915
+ },
+ {
+  timestamp: "08-08-2025 17:36",
+  feed_rate_tph: 44.23,
+  production_tph: 67.23,
+  O2_pct: 3.919
+ },
+ {
+  timestamp: "08-08-2025 17:37",
+  feed_rate_tph: 33.231,
+  production_tph: 67.12,
+  O2_pct: 3.928
+ },
+ {
+  timestamp: "08-08-2025 17:38",
+  feed_rate_tph: 28.123,
+  production_tph: 65.12,
+  O2_pct: 3.929
+ },
+ {
+  timestamp: "08-08-2025 17:39",
+  feed_rate_tph: 21.231,
+  production_tph: 64.12,
+  O2_pct: 3.931
+ },
+ {
+  timestamp: "08-08-2025 17:40",
+  feed_rate_tph: 15.123,
+  production_tph: 56.23,
+  O2_pct: 3.932
+ },
+ {
+  timestamp: "08-08-2025 17:41",
+  feed_rate_tph: 15.12,
+  production_tph: 51.12,
+  O2_pct: 3.94
+ },
+ {
+  timestamp: "08-08-2025 17:42",
+  feed_rate_tph: 10.23,
+  production_tph: 46.23,
+  O2_pct: 3.99
+ },
+ {
+  timestamp: "08-08-2025 17:43",
+  feed_rate_tph: 5.843,
+  production_tph: 40.4,
+  O2_pct: 4.135
+ },
+ {
+  timestamp: "08-08-2025 17:44",
+  feed_rate_tph: 5.81,
+  production_tph: 32.353,
+  O2_pct: 4.293
+ },
+ {
+  timestamp: "08-08-2025 17:45",
+  feed_rate_tph: 5.761,
+  production_tph: 32.93,
+  O2_pct: 4.465
+ },
+ {
+  timestamp: "08-08-2025 17:46",
+  feed_rate_tph: 5.785,
+  production_tph: 32.205,
+  O2_pct: 4.488
+ },
+ {
+  timestamp: "08-08-2025 17:47",
+  feed_rate_tph: 5.862,
+  production_tph: 32.765,
+  O2_pct: 4.513
+ },
+ {
+  timestamp: "08-08-2025 17:48",
+  feed_rate_tph: 5.912,
+  production_tph: 32.219,
+  O2_pct: 4.732
+ },
+ {
+  timestamp: "08-08-2025 17:49",
+  feed_rate_tph: 5.804,
+  production_tph: 32.034,
+  O2_pct: 4.394
+ },
+ {
+  timestamp: "08-08-2025 17:50",
+  feed_rate_tph: 5.745,
+  production_tph: 32.012,
+  O2_pct: 4.524
+ },
+ {
+  timestamp: "08-08-2025 17:51",
+  feed_rate_tph: 5.744,
+  production_tph: 31.816,
+  O2_pct: 4.569
+ },
+ {
+  timestamp: "08-08-2025 17:52",
+  feed_rate_tph: 5.738,
+  production_tph: 31.897,
+  O2_pct: 4.623
+ },
+ {
+  timestamp: "08-08-2025 17:53",
+  feed_rate_tph: 5.835,
+  production_tph: 32.037,
+  O2_pct: 4.42
+ },
+ {
+  timestamp: "08-08-2025 17:54",
+  feed_rate_tph: 5.775,
+  production_tph: 32.756,
+  O2_pct: 4.478
+ },
+ {
+  timestamp: "08-08-2025 17:55",
+  feed_rate_tph: 5.812,
+  production_tph: 32.243,
+  O2_pct: 4.432
+ },
+ {
+  timestamp: "08-08-2025 17:56",
+  feed_rate_tph: 5.818,
+  production_tph: 32.265,
+  O2_pct: 4.5
+ },
+ {
+  timestamp: "08-08-2025 17:57",
+  feed_rate_tph: 5.787,
+  production_tph: 32.656,
+  O2_pct: 4.378
+ },
+ {
+  timestamp: "08-08-2025 17:58",
+  feed_rate_tph: 5.784,
+  production_tph: 32.416,
+  O2_pct: 4.539
+ },
+ {
+  timestamp: "08-08-2025 17:59",
+  feed_rate_tph: 5.848,
+  production_tph: 32.327,
+  O2_pct: 4.341
+ },
+ {
+  timestamp: "08-08-2025 18:00",
+  feed_rate_tph: 5.757,
+  production_tph: 32.632,
+  O2_pct: 4.51
+ },
+ {
+  timestamp: "08-08-2025 18:01",
+  feed_rate_tph: 5.975,
+  production_tph: 32.049,
+  O2_pct: 4.434
+ },
+ {
+  timestamp: "08-08-2025 18:02",
+  feed_rate_tph: 5.878,
+  production_tph: 32.824,
+  O2_pct: 4.633
+ },
+ {
+  timestamp: "08-08-2025 18:03",
+  feed_rate_tph: 5.846,
+  production_tph: 31.951,
+  O2_pct: 4.495
+ },
+ {
+  timestamp: "08-08-2025 18:04",
+  feed_rate_tph: 5.747,
+  production_tph: 32.459,
+  O2_pct: 4.482
+ },
+ {
+  timestamp: "08-08-2025 18:05",
+  feed_rate_tph: 5.955,
+  production_tph: 32.293,
+  O2_pct: 4.5
+ },
+ {
+  timestamp: "08-08-2025 18:06",
+  feed_rate_tph: 5.718,
+  production_tph: 32.064,
+  O2_pct: 4.536
+ },
+ {
+  timestamp: "08-08-2025 18:07",
+  feed_rate_tph: 5.744,
+  production_tph: 32.292,
+  O2_pct: 4.345
+ },
+ {
+  timestamp: "08-08-2025 18:08",
+  feed_rate_tph: 5.827,
+  production_tph: 32.132,
+  O2_pct: 4.551
+ },
+ {
+  timestamp: "08-08-2025 18:09",
+  feed_rate_tph: 5.88,
+  production_tph: 32.125,
+  O2_pct: 4.424
+ },
+ {
+  timestamp: "08-08-2025 18:10",
+  feed_rate_tph: 5.832,
+  production_tph: 32.42,
+  O2_pct: 4.548
+ },
+ {
+  timestamp: "08-08-2025 18:11",
+  feed_rate_tph: 5.827,
+  production_tph: 31.826,
+  O2_pct: 4.372
+ },
+ {
+  timestamp: "08-08-2025 18:12",
+  feed_rate_tph: 5.764,
+  production_tph: 32.639,
+  O2_pct: 4.452
+ },
+ {
+  timestamp: "08-08-2025 18:13",
+  feed_rate_tph: 5.834,
+  production_tph: 32.2,
+  O2_pct: 4.513
+ }
 ]
 
-// Dummy data with three metrics
-const dummyData = Array.from({ length: 200 }).map((_, i) => ({
-    time: new Date().getTime() + i * 60000,
-    feed_rate_tph: 50 + Math.random() * 10,
-    production_tph: 70 + Math.random() * 10,
-    o2_pct: 680 + Math.random() * 20,
-    forecasted: i > 120 ? 50 + Math.random() * 10 + (i - 120) * 0.1 : null,
-}));
+
 
 // mark anomaly start
-const anomalyIndex = 120;
-const anomalyTs = dummyData[anomalyIndex]?.time;
+const anomalyIndex = 17;
+const anomalyTs = staticData[anomalyIndex]?.timestamp;
 
 const sensorData = [
     {
@@ -121,7 +394,7 @@ const sensorData = [
 ];
 
 const metrics = [
-    { key: "timestamp", label: "Timestamp", value: "Sep-25 14:40" },
+   
     { key: "preheater_temp_C", label: "Preheater Temp (°C)", value: 850 },
     { key: "kiln_zone_1_temp_C", label: "Kiln Zone 1 Temp (°C)", value: 1150 },
     { key: "kiln_zone_2_temp_C", label: "Kiln Zone 2 Temp (°C)", value: 1200 },
@@ -229,26 +502,15 @@ const Anomalydetection = () => {
 
     const [dataSlider] = useState(0);
 
-    const WINDOW = 150;
-    const visibleData = dummyData.slice(dataSlider, dataSlider + WINDOW);
-
-    const anomalyInView =
-        anomalyIndex >= dataSlider && anomalyIndex < dataSlider + WINDOW;
-
+    // Use staticData for the chart
     const chartConfig: ChartConfig = {
         [selectedMetric.key]: { label: selectedMetric.label, color: selectedMetric.color },
         forecasted: { label: "Forecasted", color: "#f59e0b" },
         anomaly: { label: "Anomaly", color: "#dc2626" },
     };
 
-    // for showing only forecasted line after anomaly 
-
-    const dataWithMaskedMetric = visibleData.map(d => {
-        if (new Date(d.time) > new Date(anomalyTs)) {
-            return { ...d, [selectedMetric.key]: null }; // remove metric after anomaly
-        }
-        return d;
-    });
+    // staticData does not have time/anomaly, so just use as-is
+    const dataWithMaskedMetric = staticData;
     return (
         <>
             <Tabs defaultValue="live" className="w-full">
@@ -297,10 +559,10 @@ const Anomalydetection = () => {
                         })}
                     </div>
 
-                    <div className="bg-white p-6 rounded-lg shadow-md max-w-5xl mx-auto mb-8">
+                    <div className="bg-white p-6 rounded-lg shadow-md  mx-auto mb-8">
                         {/* Header */}
                         <h2 className="text-l font-bold text-gray-800 mb-4">
-                            Table Failure Prediction
+                            Failure Prediction Table
                         </h2>
 
                         <Table>
@@ -388,7 +650,7 @@ const Anomalydetection = () => {
                                         setSelectedMetric(metricOptions.find((m) => m.key === value)!)
                                     }
                                 >
-                                    <SelectTrigger className="w-[180px]">
+                                    <SelectTrigger className="w-[180px]" style={{backgroundColor:"#fff"}}>
                                         <SelectValue placeholder="Select a metric" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -403,14 +665,13 @@ const Anomalydetection = () => {
 
                         </CardHeader>
                         <CardContent>
-                            <div className="w-full h-[450px]">
+                            <div className="mx-auto" style={{ maxWidth: 700, height: 300 }}>
                                 <ChartContainer config={chartConfig}>
-                                    <ResponsiveContainer width="100%" height="100%">
-
+                                    <ResponsiveContainer width="100%" height={300}>
                                         <LineChart data={dataWithMaskedMetric} margin={{ top: 20, right: 20, left: 10, bottom: 20 }}>
                                             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                                             <XAxis
-                                                dataKey="time"
+                                                dataKey="timestamp"
                                                 tickFormatter={(value) =>
                                                     new Date(value).toLocaleTimeString("en-GB", {
                                                         hour: "2-digit",
@@ -424,10 +685,7 @@ const Anomalydetection = () => {
                                                 tick={{ fontSize: 9, dy: 8, fill: "#374151" }}
                                             />
                                             <YAxis stroke="#6b7280" width={50} />
-
                                             <ChartTooltip content={<ChartTooltipContent />} />
-
-                                            {/* Selected metric (stops at anomaly) */}
                                             <Line
                                                 type="monotone"
                                                 dataKey={selectedMetric.key}
@@ -435,10 +693,8 @@ const Anomalydetection = () => {
                                                 strokeWidth={2}
                                                 dot={false}
                                                 isAnimationActive={false}
-                                                connectNulls={false} // important: don’t connect over null
+                                                connectNulls={false}
                                             />
-
-                                            {/* Forecast (keeps going) */}
                                             <Line
                                                 type="monotone"
                                                 dataKey="forecasted"
@@ -448,26 +704,16 @@ const Anomalydetection = () => {
                                                 dot={false}
                                                 isAnimationActive={false}
                                             />
-
-                                            {/* Anomaly marker */}
-                                            {anomalyInView && (
-                                                <>
-                                                    <ReferenceLine
-                                                        x={anomalyTs}
-                                                        stroke="#dc2626"
-                                                        strokeWidth={3}
-                                                        label={{ value: "Anomaly", position: "right", style: { fill: "#dc2626", fontWeight: "bold" } }}
-                                                    />
-                                                    <ReferenceArea
-                                                        x1={anomalyTs}
-                                                        x2={visibleData[anomalyIndex + 1]?.time}
-                                                        fill="#dc2626"
-                                                        fillOpacity={0.1}
-                                                    />
-                                                </>
-                                            )}
+                                             {/* Anomaly vertical line */}
+                                             {anomalyTs && (
+                                                 <ReferenceLine
+                                                     x={anomalyTs}
+                                                     stroke="#dc2626"
+                                                     strokeWidth={3}
+                                                     label={{ value: "Anomaly", position: "right", style: { fill: "#dc2626", fontWeight: "bold" } }}
+                                                 />
+                                             )}
                                         </LineChart>
-
                                     </ResponsiveContainer>
                                 </ChartContainer>
                             </div>
@@ -483,7 +729,7 @@ const Anomalydetection = () => {
                                 Failure type
                             </h4>
                             <p className="text-xs sm:text-sm text-[#842029]">
-                                <span className="font-medium">Timestamp:</span> Raw Meal Feed Stop
+                                <span className="font-medium"></span> Raw Meal Feed Stop
                             </p>
                         </div>
 

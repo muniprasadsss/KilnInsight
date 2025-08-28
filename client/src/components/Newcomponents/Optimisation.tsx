@@ -174,14 +174,16 @@ const Optimisation: React.FC = () => {
                             type="monotone"
                             dataKey="actual"
                             stroke={chartConfig.actual.color}
-                            dot={{ r: 4 }}
+                            // dot={{ r: 2 }}
+                            dot={{ r: 3, fill: chartConfig.actual.color }}
                             strokeWidth={2}
                         />
                         <Line
                             type="monotone"
                             dataKey="optimised"
                             stroke={chartConfig.optimised.color}
-                            dot={{ r: 4 }}
+                            // dot={{ r: 2 }}
+                            dot={{ r: 3, fill: chartConfig.optimised.color }}
                             strokeWidth={2}
                         />
                         <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }} />

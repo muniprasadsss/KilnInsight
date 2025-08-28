@@ -680,7 +680,7 @@ const Anomalydetection = () => {
 
                         </CardHeader>
                         <CardContent>
-                            <div className="mx-auto" style={{ maxWidth: 700, height: 350 }}>
+                            <div className="mx-auto" style={{ maxWidth: 830, height: 410 }}>
                                 <ChartContainer config={chartConfig}>
                                     <ResponsiveContainer width="100%" height={300}>
                                         <LineChart data={dataWithMaskedMetric} margin={{ top: 20, right: 20, left: 10, bottom: 20 }}>

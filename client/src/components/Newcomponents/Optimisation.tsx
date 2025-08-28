@@ -117,34 +117,36 @@ const Optimisation: React.FC = () => {
 
     return (
         <>
-            <div className="p-3 shadow-md mb-6 flex items-center">
+<div className="p-3 shadow-md mb-6 flex items-center justify-between">
+  {/* Left side: Last refreshed text */}
+  <div className="text-gray-600 text-[13px]">
+    Last Data Refreshed: August 6, 2025 at 6 PM
+  </div>
 
-                {/* Right side: Buttons + Date Picker */}
-                <div className="flex items-center gap-6">
-                    <div className="text-gray-600 text-[13px]">
-                        Last Data Refreshed: August 6, 2025 at 6 PM
-                    </div>
-                    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
-                        TODAY
-                    </button>
-                    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
-                        LAST 7 DAYS
-                    </button>
-                    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
-                        LAST 1 MONTH
-                    </button>
+  {/* Right side: Buttons + Date Picker */}
+  <div className="timefilter flex items-center gap-2">
+    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
+      TODAY
+    </button>
+    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
+      LAST 7 DAYS
+    </button>
+    <button className="px-3 py-1 border border-gray-300 text-sm hover:bg-gray-100">
+      LAST 1 MONTH
+    </button>
 
-                    {/* Date Picker */}
-                    <div className="flex items-center px-3 py-1 text-sm text-gray-600">
-                        <DatePicker />
-                    </div>
+    {/* Date Picker */}
+    <div className="flex items-center px-3 py-1 text-sm text-gray-600">
+      <DatePicker />
+    </div>
 
-                    {/* Apply button */}
-                    <button className="bg-[#088fd1] text-white px-4 py-1 text-sm hover:bg-[#0678a8] hover:shadow-lg">
-                        APPLY
-                    </button>
-                </div>
-            </div>
+    {/* Apply button */}
+    <button className="bg-[#088fd1] text-white px-4 py-1 text-sm hover:bg-[#0678a8] hover:shadow-lg">
+      APPLY
+    </button>
+  </div>
+</div>
+
 
             <div className="bg-white p-2 rounded-lg shadow-md mb-8">
                 <h2 className="text-l font-bold text-gray-800 mb-4">
@@ -195,9 +197,13 @@ const Optimisation: React.FC = () => {
 
                     <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto mb-8">
                         {/* KPI Section */}
-                        <h2 className="text-l font-bold text-gray-800 mb-4">
+                        <div className="header flex justify-between items-center mb-2">
+                            <h2 className="text-l font-bold text-gray-800 mb-4">
                             Optimized Recommendation
                         </h2>
+                        <h2>Optimizer last run: August 6 2025 at 6 PM</h2>
+                        </div>
+                        
 
                         {/* KPI Table */}
                         <Table>
@@ -269,30 +275,11 @@ const Optimisation: React.FC = () => {
                             RERUN OPTIMIZER
                         </Button> */}
                         <button className="w-full bg-[#088fd1] text-white px-6 py-2 text-sm hover:bg-[#0678a8] hover:shadow-lg">
-                            APPLY
+                            Rerun Optimizer 
                         </button>
                     </div>
                     <div className=''>
-                        {/* <Card className="p-0">
-                            <CardHeader className="bg-red-50 p-2">
-                                <CardTitle className="text-lg flex items-center gap-2 text-[#333]">
-                                    <AlertTriangle className="h-5 w-5 text-red-500" />
-                                    ALERTS
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className=" bg-white space-y-2 text-sm" style={{borderRadius:'0px !important'}}>
-                                <div className="flex items-center gap-2">
-                                    <CheckCircle className="h-4 w-4 text-green-500" />
-                                    <span>Next scheduled run:</span>
-                                </div>
-                                <div className="text-muted-foreground">August 6, 2025 at 7 PM</div>
-                                <div className="flex items-center gap-2 text-red-600">
-                                    <AlertTriangle className="h-4 w-4" />
-                                    <span>Last scheduled run:</span>
-                                </div>
-                                <div className="text-muted-foreground">August 6, 2025 at 6 PM</div>
-                            </CardContent>
-                        </Card> */}
+                     
                         <div className="shadow-md mt-4">
 
                             <div className="p-2" style={{ backgroundColor: "#fff5f5" }}>
@@ -307,7 +294,7 @@ const Optimisation: React.FC = () => {
                                     <CheckCircle className="h-4 w-4 text-green-500" />
                                     <span>Next scheduled run:</span>
                                 </div>
-                                <div style={{ color: "#6b7280" }}>August 6, 2025 at 7 PM</div>
+                                <div style={{ color: "#6b7280" }}>August 6, 2025 at 6:30PM</div>
 
                                 <div className="flex items-center gap-2" style={{ color: "#dc2626" }}>
                                     <AlertTriangle className="h-4 w-4" />

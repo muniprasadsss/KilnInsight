@@ -13,7 +13,6 @@ interface KPIData {
     after: number;
     percentage: number;
 }
-
 interface ManipulatedData {
     variable: string;
     actual: number;
@@ -108,11 +107,11 @@ const Optimisation: React.FC = () => {
     const chartConfig = {
         actual: {
             label: "Actual",
-            color: "#22c55e", // Tailwind orange-500
+            color: "#eb695b", // Tailwind orange-500
         },
         optimised: {
             label: "Optimised",
-            color: "#eb695b", // Tailwind green-500
+            color: "#22c55e", // Tailwind green-500
         },
     }
 
@@ -141,13 +140,13 @@ const Optimisation: React.FC = () => {
                     </div>
 
                     {/* Apply button */}
-                    <button className="bg-[#088fd1] text-white px-4 py-1 text-sm hover:bg-[#0678a8]">
+                    <button className="bg-[#088fd1] text-white px-4 py-1 text-sm hover:bg-[#0678a8] hover:shadow-lg">
                         APPLY
                     </button>
                 </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div className="bg-white p-2 rounded-lg shadow-md mb-8">
                 <h2 className="text-l font-bold text-gray-800 mb-4">
                     Actual vs Optimised Specific Energy
                 </h2>
@@ -155,8 +154,20 @@ const Optimisation: React.FC = () => {
                 <ChartContainer config={chartConfig} className="w-full h-[400px]">
                     <LineChart data={data}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="time" />
-                        <YAxis domain={['dataMin - 5', 'dataMax + 5']} /> {/* adjust for better view */}
+                        <XAxis dataKey="time" label={{
+                            value: "Time", // static X-axis label
+                            position: "insideBottom",
+                            offset: -15,
+                            style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
+                        }} />
+                        <YAxis domain={['dataMin - 5', 'dataMax + 5']}
+                            label={{
+                                value: "Specific Energy (kcal/kg)",
+                                angle: -90,
+                                offset: -2,   // tweak offset
+                                position: "insideLeft",
+                                style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
+                            }} /> {/* adjust for better view */}
                         <ChartTooltip content={<ChartTooltipContent />} />
                         <Line
                             type="monotone"
@@ -172,121 +183,144 @@ const Optimisation: React.FC = () => {
                             dot={{ r: 4 }}
                             strokeWidth={2}
                         />
-                        <ChartLegend content={<ChartLegendContent />} />
+                        <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }} />
                     </LineChart>
                 </ChartContainer>
             </div>
 
             <div className='flex gap-2 mb-8'>
-             <div className="tables flex-1">
-                 {/* KPI Section */}
+                <div className="tables flex-1">
+                    {/* KPI Section */}
 
-            <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto mb-8">
-                {/* KPI Section */}
-                <h2 className="text-l font-bold text-gray-800 mb-4">
-                    Optimized Recommendation 
-                </h2>
+                    <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto mb-8">
+                        {/* KPI Section */}
+                        <h2 className="text-l font-bold text-gray-800 mb-4">
+                            Optimized Recommendation
+                        </h2>
 
-                {/* KPI Table */}
-                <Table>
-                    <TableHeader>
-                        <TableRow className="bg-[#088fd1] text-white">
-                            <TableHead className="text-white">KPI</TableHead>
-                            <TableHead className="text-white">Before Optimization</TableHead>
-                            <TableHead className="text-white">After Optimization</TableHead>
-                            <TableHead className="text-white">Optimization %</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell className="font-medium text-gray-800">
-                                {kpiData.KPI}
-                            </TableCell>
-                            <TableCell className="text-gray-700">{kpiData.before}</TableCell>
-                            <TableCell className="text-gray-700">{kpiData.after}</TableCell>
-                            <TableCell className="text-green-600 font-semibold">
-                                {formatPercentage(kpiData.percentage)}
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </div>
+                        {/* KPI Table */}
+                        <Table>
+                            <TableHeader>
+                                <TableRow className="bg-[#088fd1] text-white">
+                                    <TableHead className="text-white">KPI</TableHead>
+                                    <TableHead className="text-white">Before Optimization</TableHead>
+                                    <TableHead className="text-white">After Optimization</TableHead>
+                                    <TableHead className="text-white">Optimization %</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell className="font-medium text-gray-800">
+                                        {kpiData.KPI}
+                                    </TableCell>
+                                    <TableCell className="text-gray-700">{kpiData.before}</TableCell>
+                                    <TableCell className="text-gray-700">{kpiData.after}</TableCell>
+                                    <TableCell className="text-green-600 font-semibold">
+                                        {formatPercentage(kpiData.percentage)}
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </div>
 
-            {/* Manipulated Variables Section */}
+                    {/* Manipulated Variables Section */}
 
-            <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto">
-                <h2 className="text-l font-bold text-gray-800 mb-4">
-                     Recommendation Table
-                </h2>
+                    <div className="bg-white p-6 rounded-lg shadow-md max-w-6xl mx-auto">
+                        <h2 className="text-l font-bold text-gray-800 mb-4">
+                            Recommendation Table
+                        </h2>
 
-                <Table>
-                    {/* Header */}
-                    <TableHeader>
-                        <TableRow className="bg-[#088fd1] text-white font-semibold text-sm">
-                            <TableHead className="text-white">Manipulated Variable</TableHead>
-                            <TableHead className="text-white">Actual Value</TableHead>
-                            <TableHead className="text-white">Optimized Value</TableHead>
-                            <TableHead className="text-white">Optimized %</TableHead>
-                        </TableRow>
-                    </TableHeader>
+                        <Table>
+                            {/* Header */}
+                            <TableHeader>
+                                <TableRow className="bg-[#088fd1] text-white font-semibold text-sm">
+                                    <TableHead className="text-white">Manipulated Variable</TableHead>
+                                    <TableHead className="text-white">Actual Value</TableHead>
+                                    <TableHead className="text-white">Optimized Value</TableHead>
+                                    <TableHead className="text-white">Optimized %</TableHead>
+                                </TableRow>
+                            </TableHeader>
 
-                    {/* Body */}
-                    <TableBody>
-                        {manipulatedData.map((row, index) => (
-                            <TableRow key={index} className="text-sm">
-                                <TableCell className="font-medium text-gray-800">
-                                    {row.variable}
-                                </TableCell>
-                                <TableCell className="text-gray-700">{row.actual}</TableCell>
-                                <TableCell className="text-gray-700">{row.optimized}</TableCell>
-                                <TableCell
-                                    className={`font-semibold ${row.percentage > 0 ? "text-green-600" : "text-red-600"
-                                        }`}
-                                >
-                                    {formatPercentage(row.percentage)}
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </div>
-            </div>
-            <div className="btn flex gap-2 mb-8 flex-col">
-                <div>
-                     <Button className="w-full mt-3  hover:rgb(8, 143, 209)" style={{backgroundColor: "rgb(8, 143, 209)"}}>
-                        RERUN OPTIMIZER
-                        </Button>
+                            {/* Body */}
+                            <TableBody>
+                                {manipulatedData.map((row, index) => (
+                                    <TableRow key={index} className="text-sm">
+                                        <TableCell className="font-medium text-gray-800">
+                                            {row.variable}
+                                        </TableCell>
+                                        <TableCell className="text-gray-700">{row.actual}</TableCell>
+                                        <TableCell className="text-gray-700">{row.optimized}</TableCell>
+                                        <TableCell
+                                            className={`font-semibold ${row.percentage > 0 ? "text-green-600" : "text-red-600"
+                                                }`}
+                                        >
+                                            {formatPercentage(row.percentage)}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
                 </div>
-                <div className=''>
-                    <Card className="p-0">
-      <CardHeader className="bg-red-50 p-2">
-        <CardTitle className="text-lg flex items-center gap-2">
-          <AlertTriangle className="h-5 w-5 text-red-500" />
-          ALERTS
-        </CardTitle>
-      </CardHeader>
-      <CardContent className=" bg-white space-y-2 text-sm">
-        <div className="flex items-center gap-2">
-          <CheckCircle className="h-4 w-4 text-green-500" />
-          <span>Next scheduled run:</span>
-        </div>
-        <div className="text-muted-foreground">August 6, 2025 at 7 PM</div>
-        <div className="flex items-center gap-2 text-red-600">
-          <AlertTriangle className="h-4 w-4" />
-          <span>Last scheduled run:</span>
-        </div>
-        <div className="text-muted-foreground">August 6, 2025 at 6 PM</div>
-      </CardContent>
-                     </Card>
+                <div className="btn flex gap-2 mb-8 flex-col">
+                    <div>
+                        {/* <Button className="w-full mt-3  hover:rgb(8, 143, 209)" style={{ backgroundColor: "rgb(8, 143, 209)" }}>
+                            RERUN OPTIMIZER
+                        </Button> */}
+                        <button className="w-full bg-[#088fd1] text-white px-6 py-2 text-sm hover:bg-[#0678a8] hover:shadow-lg">
+                            APPLY
+                        </button>
+                    </div>
+                    <div className=''>
+                        {/* <Card className="p-0">
+                            <CardHeader className="bg-red-50 p-2">
+                                <CardTitle className="text-lg flex items-center gap-2 text-[#333]">
+                                    <AlertTriangle className="h-5 w-5 text-red-500" />
+                                    ALERTS
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className=" bg-white space-y-2 text-sm" style={{borderRadius:'0px !important'}}>
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500" />
+                                    <span>Next scheduled run:</span>
+                                </div>
+                                <div className="text-muted-foreground">August 6, 2025 at 7 PM</div>
+                                <div className="flex items-center gap-2 text-red-600">
+                                    <AlertTriangle className="h-4 w-4" />
+                                    <span>Last scheduled run:</span>
+                                </div>
+                                <div className="text-muted-foreground">August 6, 2025 at 6 PM</div>
+                            </CardContent>
+                        </Card> */}
+                        <div className="shadow-md mt-4">
+
+                            <div className="p-2" style={{ backgroundColor: "#fff5f5" }}>
+                                <h2 className="text-lg flex items-center gap-2 font-semibold" style={{ color: "#333" }}>
+                                    <AlertTriangle className="h-5 w-5 text-red-500" />
+                                    ALERTS
+                                </h2>
+                            </div>
+
+                            <div className="p-3 text-sm space-y-2" style={{ backgroundColor: "#fff" }}>
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500" />
+                                    <span>Next scheduled run:</span>
+                                </div>
+                                <div style={{ color: "#6b7280" }}>August 6, 2025 at 7 PM</div>
+
+                                <div className="flex items-center gap-2" style={{ color: "#dc2626" }}>
+                                    <AlertTriangle className="h-4 w-4" />
+                                    <span>Last scheduled run:</span>
+                                </div>
+                                <div style={{ color: "#6b7280" }}>August 6, 2025 at 6 PM</div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-                    
-            </div>
 
             </div>
-
-           
-           
-
         </>
     )
 }

@@ -3,9 +3,11 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertTriangle, CheckCircle, XCircle } from "lucide-react";
-import {LineChart,Line,XAxis,YAxis,CartesianGrid} from "recharts";
-import {ChartContainer,ChartTooltip,ChartTooltipContent,ChartLegend,
-ChartLegendContent} from "@/components/ui/chart";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+import {
+    ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend,
+    ChartLegendContent
+} from "@/components/ui/chart";
 
 // Dummy chart data
 const energyData = [
@@ -134,7 +136,12 @@ const Dashboard = () => {
                         <ChartContainer config={chartConfig}>
                             <LineChart data={chartDataWithTime}>
                                 <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="time" />
+                                <XAxis dataKey="time" label={{
+                                    value: "Time", // static X-axis label
+                                    position: "insideBottom",
+                                    offset: -15,
+                                    style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
+                                }} />
                                 <YAxis />
                                 <ChartTooltip content={<ChartTooltipContent />} />
                                 <Line
@@ -144,7 +151,7 @@ const Dashboard = () => {
                                     strokeWidth={2}
                                     dot={false}
                                 />
-                                <ChartLegend content={<ChartLegendContent />} />
+                                <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }}/>
                             </LineChart>
                         </ChartContainer>
                     </div>

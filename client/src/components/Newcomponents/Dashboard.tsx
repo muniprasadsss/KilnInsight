@@ -285,69 +285,84 @@ export default function Dashboard() {
 
 
       {/* Row 4: Energy Consumed (Bar Chart) */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
-      <div className="bottom xl:col-span-3 flex p-0">
-         {/* Row 4: Energy Consumed (Bar Chart) */}
-          <Card className="shadow-md bg-white">
-        <CardHeader>
-          <CardTitle>Energy Consumed</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[250px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={barData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="#10b981" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-      </div>
-      <div className="bottom xl:col-span-6 flex ">
-  {/* Row 5: Contributing Factors */}
-  <Card className="shadow-md w-full bg-white">
-    <CardHeader>
-      <CardTitle>Top Contributing Factors</CardTitle>
-    </CardHeader>
-    <CardContent className="h-[300px]">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          layout="vertical"
-          data={factors}
-          margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
-        >
-          {/* Factor Names on Y axis */}
-          <YAxis
-            dataKey="name"
-            type="category"
-            tick={{ fontSize: 12 }}
-            width={100}
-          />
-          {/* Values on X axis */}
-          <XAxis type="number" hide />
-          <Tooltip />
-          <Bar dataKey="value" fill="#088fd1" radius={[0, 6, 6, 0]} barSize={20} />
-        </BarChart>
-      </ResponsiveContainer>
-    </CardContent>
-  </Card>
-    </div>
-      <div className="bottom xl:col-span-3 flex ">
- {/* Row 6: Optimization Status */}
-      <Card className="shadow-md col-span-1 xl:col-span-2 bg-white">
-        <CardHeader>
-          <CardTitle>Optimization Status</CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm space-y-2">
-          <p>Last Run: <span className="font-medium">Aug 28, 2025 10:00 AM</span></p>
-          <p>Next Run: <span className="font-medium">Aug 30, 2025 10:00 AM</span></p>
-          <p>Status: <span className="text-green-600 font-semibold">Running</span></p>
-        </CardContent>
-      </Card>
-      </div>
-      </div>
+     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-4">
+  {/* Energy Consumed */}
+  <div className="bottom col-span-1 md:col-span-1 xl:col-span-3 flex">
+    <Card className="shadow-md bg-white w-full">
+      <CardHeader>
+        <CardTitle>Energy Consumed</CardTitle>
+      </CardHeader>
+      <CardContent className="h-[250px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={barData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="value" fill="#10b981" radius={[4, 4, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+  </div>
+
+  {/* Top Contributing Factors */}
+  <div className="bottom col-span-1 md:col-span-2 xl:col-span-6 flex">
+    <Card className="shadow-md w-full bg-white">
+      <CardHeader>
+        <CardTitle>Top Contributing Factors</CardTitle>
+      </CardHeader>
+      <CardContent className="h-[300px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            layout="vertical"
+            data={factors}
+            margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
+          >
+            <YAxis
+              dataKey="name"
+              type="category"
+              tick={{ fontSize: 12 }}
+              width={100}
+            />
+            <XAxis type="number" hide />
+            <Tooltip />
+            <Bar
+              dataKey="value"
+              fill="#088fd1"
+              radius={[0, 6, 6, 0]}
+              barSize={20}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+  </div>
+
+  {/* Optimization Status */}
+  <div className="bottom col-span-1 md:col-span-1 xl:col-span-3 flex">
+    <Card className="shadow-md bg-white w-full">
+      <CardHeader>
+        <CardTitle>Optimization Status</CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm space-y-2">
+        <p>
+          Last Run:{" "}
+          <span className="font-medium">Aug 28, 2025 10:00 AM</span>
+        </p>
+        <p>
+          Next Run:{" "}
+          <span className="font-medium">Aug 30, 2025 10:00 AM</span>
+        </p>
+        <p>
+          Status:{" "}
+          <span className="text-green-600 font-semibold">Running</span>
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
       
      
 

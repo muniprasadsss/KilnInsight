@@ -13,8 +13,8 @@ import historical_image from '../../../../public/historical_tab_image.jpg'
 
 const metricOptions = [
     { label: "Feed Rate (Tph)", key: "feed_rate_tph", color: "#17e217", timeToFailure: "33 mins" },
-    { label: "Production (Tph)", key: "production_tph", color: "#088FD1", timeToFailure: "41 mins" },
-    { label: "O2 (Pct)", key: "O2_pct", color: "#f59e0b", timeToFailure: "91 mins" },
+    { label: "Production (Tph)", key: "production_tph", color: "#17e217", timeToFailure: "41 mins" },
+    { label: "O2 (Pct)", key: "O2_pct", color: "#17e217", timeToFailure: "91 mins" },
 ];
 
 // Your static dataset
@@ -726,7 +726,7 @@ const Anomalydetection = () => {
                                             <Line
                                                 type="monotone"
                                                 dataKey="forecasted"
-                                                stroke="#f59e0b"
+                                                stroke="#f5740bff"
                                                 strokeWidth={2}
                                                 strokeDasharray="5 5"
                                                 dot={false}

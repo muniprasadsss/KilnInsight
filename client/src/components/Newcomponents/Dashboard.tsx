@@ -1,197 +1,359 @@
-"use client";
-
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertTriangle, CheckCircle, XCircle } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import {
-    ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend,
-    ChartLegendContent
-} from "@/components/ui/chart";
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/card";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+} from "recharts";
 
-// Dummy chart data
-const energyData = [
-    696.611, 700.194, 698.95, 695.649, 699.674, 696.254, 694.912, 698.26,
-    697.755, 697.042, 698.818, 697.67, 700.404, 696, 697.494, 695.775, 699.42,
-    696.397, 693.75, 695.336, 696.898, 698.127, 698.727, 697.01, 699.523,
-    697.889, 696.249, 699.092, 697.853, 697.345, 696.105, 698.417, 693.939,
-    697.456, 702.627, 699.348, 700.296, 698.212, 696.22, 697.716, 699.112,
-    698.501, 699.663, 698.504, 695.408, 695.739, 699.203, 698.535, 701.743,
-    697.862, 694.991, 696.597, 696.967, 696.554, 696.4, 700.881,
+// Example mock data
+const lineData = [
+  { time: "10:00", value: 30 },
+  { time: "11:00", value: 45 },
+  { time: "12:00", value: 60 },
+  { time: "13:00", value: 50 },
+  { time: "14:00", value: 80 },
+];
+const data = [
+  { value: 40 },
+  { value: 45 },
+  { value: 30 },
+  { value: 50 },
+  { value: 42 },
+  { value: 60 },
+  { value: 48 },
 ];
 
-const startHour = 18;
-const startMinute = 15;
-const numberOfPoints = energyData.length;
-const interval = 5; // minutes
-
-const timeLabels: string[] = [];
-
-for (let i = 0; i < numberOfPoints; i++) {
-    let totalMinutes = startHour * 60 + startMinute + i * interval;
-    let hour = Math.floor(totalMinutes / 60);
-    let minute = totalMinutes % 60;
-    timeLabels.push(
-        `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`
-    );
-}
-
-const chartDataWithTime = energyData.map((val, idx) => ({
-    time: timeLabels[idx],
-    value: val,
-}));
-
-const chartConfig = {
-    value: {
-        label: "Specific Energy (kcal/kg)",
-        color: "#3b82f6",
-    },
-};
-
-//metrics for 17 cards
-
-const metrics = [
-    { key: "timestamp", label: "Timestamp", value: "Sep-25 14:40" },
-    { key: "preheater_temp_C", label: "Preheater Temp (°C)", value: 850 },
-    { key: "kiln_zone_1_temp_C", label: "Kiln Zone 1 Temp (°C)", value: 1150 },
-    { key: "kiln_zone_2_temp_C", label: "Kiln Zone 2 Temp (°C)", value: 1200 },
-    { key: "kiln_zone_3_temp_C", label: "Kiln Zone 3 Temp (°C)", value: 1250 },
-    { key: "kiln_zone_4_temp_C", label: "Kiln Zone 4 Temp (°C)", value: 1280 },
-    { key: "kiln_zone_5_temp_C", label: "Kiln Zone 5 Temp (°C)", value: 1300 },
-    { key: "clinker_temp_C", label: "Clinker Temp (°C)", value: 1450 },
-    { key: "kiln_speed_rpm", label: "Kiln Speed (rpm)", value: 4.2 },
-    { key: "feed_rate_tph", label: "Feed Rate (tph)", value: 250 },
-    { key: "production_tph", label: "Production (tph)", value: 245 },
-    { key: "fuel_flow_kgph", label: "Fuel Flow (kg/h)", value: 7800 },
-    { key: "specific_energy_kcal_per_kg", label: "Specific Energy (kcal/kg)", value: 698 },
-    { key: "O2_pct", label: "O₂ (%)", value: 3.2 },
-    { key: "CO_ppm", label: "CO (ppm)", value: 120 },
-    { key: "NOx_ppm", label: "NOx (ppm)", value: 450 },
-    { key: "kiln_pressure_mbar", label: "Kiln Pressure (mbar)", value: -2.5 },
-    { key: "primary_fan_speed_rpm", label: "Primary Fan Speed (rpm)", value: 1450 },
-    { key: "secondary_fan_speed_rpm", label: "Secondary Fan Speed (rpm)", value: 1380 },
-    { key: "clinker_CaO_pct", label: "Clinker CaO (%)", value: 65.5 },
-    { key: "clinker_SiO2_pct", label: "Clinker SiO₂ (%)", value: 21.8 },
-    { key: "burner_valve_position_pct", label: "Burner Valve Position (%)", value: 78 },
-    { key: "ESP_inlet_temp_C", label: "ESP Inlet Temp (°C)", value: 280 },
-    { key: "draft_fan_vfd_speed_pct", label: "Draft Fan VFD Speed (%)", value: 62 },
-    { key: "kiln_torque_kNm", label: "Kiln Torque (kNm)", value: 145 },
-    // { key: "fuel_type", label: "Fuel Type", value: "Coal" },
+const pieData1 = [
+  { name: "Critical", value: 3 },
+  { name: "Warning", value: 7 },
+  { name: "Normal", value: 15 },
 ];
 
-const Dashboard = () => {
-    return (
-        <>
-            {/* --- Summary Tiles Row --- */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <Card className="bg-white shadow-md rounded-2xl hover:shadow-lg transition-shadow border-0">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-700">
-                            No. of Green Sensors
-                        </CardTitle>
-                        <CheckCircle className="h-5 w-5 text-green-600" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-bold text-green-600 mb-2">278.8</div>
-                        <p className="text-xs text-gray-500">Operating normally</p>
-                    </CardContent>
-                </Card>
+const pieData2 = [
+  { name: "Maintenance", value: 5 },
+  { name: "Failure", value: 2 },
+  { name: "Idle", value: 8 },
+];
 
-                <Card className="bg-white shadow-md rounded-2xl hover:shadow-lg transition-shadow border-0">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-700">
-                            No. of Amber Sensors
-                        </CardTitle>
-                        <AlertTriangle className="h-5 w-5 text-yellow-500" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-bold text-yellow-600 mb-2">898.5</div>
-                        <p className="text-xs text-gray-500">Requires attention</p>
-                    </CardContent>
-                </Card>
+const COLORS = ["#dc2626", "#f59e0b", "#16a34a"];
 
-                <Card className="bg-white shadow-md rounded-2xl hover:shadow-lg transition-shadow border-0">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-700">
-                            No. of Red Sensors
-                        </CardTitle>
-                        <XCircle className="h-5 w-5 text-red-600" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-bold text-red-600 mb-2">987.4</div>
-                        <p className="text-xs text-gray-500">Immediate action needed</p>
-                    </CardContent>
-                </Card>
+const barData = [
+  { name: "Kiln A", value: 120 },
+  { name: "Kiln B", value: 180 },
+  { name: "Kiln C", value: 90 },
+  { name: "Kiln D", value: 140 },
+];
+
+const factors = [
+  { name: "Temperature", value: 80 },
+  { name: "Pressure", value: 65 },
+  { name: "Speed", value: 50 },
+  { name: "Load", value: 30 },
+];
+
+export default function Dashboard() {
+  return (
+    <div className="p-1  flex flex-col gap-6">
+      {/* Row 1: KPIs + Trend */}
+      <div className="top-trends flex gap-2">
+        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-2">
+                <h5 className="text-sm text-gray-600 font-medium">
+                Total Energy Usage Trend
+                </h5>
+                <span className="text-gray-400 text-xs">T1</span>
             </div>
 
-            {/* --- Line Chart Section --- */}
-            <Card className="bg-white shadow-md rounded-2xl p-0 border-0 mb-8">
-                <CardHeader>
-                    <CardTitle className="text-lg font-medium text-gray-700">
-                        LIVE KPI Trend
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div >
-                        <ChartContainer config={chartConfig}>
-                            <LineChart data={chartDataWithTime}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="time" label={{
-                                    value: "Time", // static X-axis label
-                                    position: "insideBottom",
-                                    offset: -15,
-                                    style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
-                                }} />
-                                <YAxis label={{
-                                    value: "Specific Energy (kcal/kg)",
-                                    angle: -90,
-                                    offset: 0,   // tweak offset
-                                    position: "insideLeft",
-                                    style: { textAnchor: "middle", fill: "#374151", fontWeight: 500 },
-                                }} />
-                                <ChartTooltip content={<ChartTooltipContent />} />
-                                <Line
-                                    type="monotone"
-                                    dataKey="value"
-                                    stroke="var(--color-value)"
-                                    strokeWidth={2}
-                                    dot={false}
-                                />
-                                <ChartLegend content={<ChartLegendContent />} wrapperStyle={{ paddingTop: 15 }} />
-                            </LineChart>
-                        </ChartContainer>
-                    </div>
-                </CardContent>
+            {/* Metric */}
+            <div className="text-4xl font-bold text-gray-900">41.8k</div>
+            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
+
+            {/* Mini Chart */}
+            <CardContent className="p-0 mt-2 h-20">
+                <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data}>
+                    <Tooltip content={() => null} />
+                    <Line
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#0ea5e9"
+                    strokeWidth={2}
+                    dot={false}
+                    fillOpacity={0.2}
+                    />
+                </LineChart>
+                </ResponsiveContainer>
+            </CardContent>
             </Card>
-
-            {/* --- 17 Metric Cards Section --- */}
-            <div className="mb-6">
-                {/* Section Heading */}
-                <h2 className="text-l font-bold text-gray-800 mb-4">
-                    Live Parameter Trends
-                </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                    {metrics.map((m) => (
-                        <Card
-                            key={m.key}
-                            className="bg-white shadow-sm rounded-xl border border-gray-200 hover:shadow-md transition-shadow"
-                        >
-                            <CardHeader className="pb-1">
-                                <CardTitle className="text-xs font-medium text-gray-600">
-                                    {m.label}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="pt-0">
-                                <div className="text-lg font-semibold text-[#2563eb]">{m.value}</div>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
+        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-2">
+                <h5 className="text-sm text-gray-600 font-medium">
+                Total Energy Usage Trend
+                </h5>
+                <span className="text-gray-400 text-xs">T1</span>
             </div>
 
-        </>
-    );
-};
+            {/* Metric */}
+            <div className="text-4xl font-bold text-gray-900">41.8k</div>
+            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
 
-export default Dashboard;
+            {/* Mini Chart */}
+            <CardContent className="p-0 mt-2 h-20">
+                <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data}>
+                    <Tooltip content={() => null} />
+                    <Line
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#0ea5e9"
+                    strokeWidth={2}
+                    dot={false}
+                    fillOpacity={0.2}
+                    />
+                </LineChart>
+                </ResponsiveContainer>
+            </CardContent>
+            </Card>
+        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-2">
+                <h5 className="text-sm text-gray-600 font-medium">
+                Total Energy Usage Trend
+                </h5>
+                <span className="text-gray-400 text-xs">T1</span>
+            </div>
+
+            {/* Metric */}
+            <div className="text-4xl font-bold text-gray-900">41.8k</div>
+            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
+
+            {/* Mini Chart */}
+            <CardContent className="p-0 mt-2 h-20">
+                <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data}>
+                    <Tooltip content={() => null} />
+                    <Line
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#0ea5e9"
+                    strokeWidth={2}
+                    dot={false}
+                    fillOpacity={0.2}
+                    />
+                </LineChart>
+                </ResponsiveContainer>
+            </CardContent>
+            </Card>
+        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-2">
+                <h5 className="text-sm text-gray-600 font-medium">
+                Total Energy Usage Trend
+                </h5>
+                <span className="text-gray-400 text-xs">T1</span>
+            </div>
+
+            {/* Metric */}
+            <div className="text-4xl font-bold text-gray-900">41.8k</div>
+            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
+
+            {/* Mini Chart */}
+            <CardContent className="p-0 mt-2 h-20">
+                <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data}>
+                    <Tooltip content={() => null} />
+                    <Line
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#0ea5e9"
+                    strokeWidth={2}
+                    dot={false}
+                    fillOpacity={0.2}
+                    />
+                </LineChart>
+                </ResponsiveContainer>
+            </CardContent>
+            </Card>
+      </div>
+     
+
+      {/* Row 2: Pie Charts */}
+<div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+  {/* Left Side (40%) */}
+  <div className="xl:col-span-5 flex gap-4">
+    <Card className="shadow-md w-1/2 bg-white">
+      <CardHeader>
+        <CardTitle>Anomalies</CardTitle>
+      </CardHeader>
+      <CardContent className="h-[250px] flex items-center justify-center">
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie data={pieData1} dataKey="value" outerRadius={80} label>
+              {pieData1.map((_, i) => (
+                <Cell key={i} fill={COLORS[i % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+
+    <Card className="shadow-md w-1/2 bg-white">
+      <CardHeader>
+        <CardTitle>Downtime</CardTitle>
+      </CardHeader>
+      <CardContent className="h-[250px] flex items-center justify-center">
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie data={pieData2} dataKey="value" outerRadius={80} label>
+              {pieData2.map((_, i) => (
+                <Cell key={i} fill={COLORS[i % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+  </div>
+
+  {/* Right Side (60%) */}
+  <div className="xl:col-span-7 flex flex-col gap-4">
+    <Card className="shadow-md bg-white">
+      <CardHeader>
+        <CardTitle>Alerts</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left text-gray-600 border-b">
+              <th className="py-2">Region</th>
+              <th>Sensor</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b">
+              <td className="py-2">Zone A</td>
+              <td>Temp Sensor</td>
+              <td className="text-red-600 font-semibold">Critical</td>
+              <td><button className="text-blue-600">View</button></td>
+            </tr>
+            <tr>
+              <td className="py-2">Zone B</td>
+              <td>Pressure Sensor</td>
+              <td className="text-yellow-600 font-semibold">Warning</td>
+              <td><button className="text-blue-600">View</button></td>
+            </tr>
+            <tr>
+              <td className="py-2">Zone B</td>
+              <td>Pressure Sensor</td>
+              <td className="text-yellow-600 font-semibold">Warning</td>
+              <td><button className="text-blue-600">View</button></td>
+            </tr>
+            <tr>
+              <td className="py-2">Zone B</td>
+              <td>Pressure Sensor</td>
+              <td className="text-yellow-600 font-semibold">Warning</td>
+              <td><button className="text-blue-600">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
+
+      {/* Row 4: Energy Consumed (Bar Chart) */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+      <div className="bottom xl:col-span-3 flex p-0">
+         {/* Row 4: Energy Consumed (Bar Chart) */}
+          <Card className="shadow-md bg-white">
+        <CardHeader>
+          <CardTitle>Energy Consumed</CardTitle>
+        </CardHeader>
+        <CardContent className="h-[250px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={barData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#10b981" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+      </div>
+      <div className="bottom xl:col-span-6 flex ">
+  {/* Row 5: Contributing Factors */}
+  <Card className="shadow-md w-full bg-white">
+    <CardHeader>
+      <CardTitle>Top Contributing Factors</CardTitle>
+    </CardHeader>
+    <CardContent className="h-[300px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          layout="vertical"
+          data={factors}
+          margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
+        >
+          {/* Factor Names on Y axis */}
+          <YAxis
+            dataKey="name"
+            type="category"
+            tick={{ fontSize: 12 }}
+            width={100}
+          />
+          {/* Values on X axis */}
+          <XAxis type="number" hide />
+          <Tooltip />
+          <Bar dataKey="value" fill="#088fd1" radius={[0, 6, 6, 0]} barSize={20} />
+        </BarChart>
+      </ResponsiveContainer>
+    </CardContent>
+  </Card>
+    </div>
+      <div className="bottom xl:col-span-3 flex ">
+ {/* Row 6: Optimization Status */}
+      <Card className="shadow-md col-span-1 xl:col-span-2 bg-white">
+        <CardHeader>
+          <CardTitle>Optimization Status</CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm space-y-2">
+          <p>Last Run: <span className="font-medium">Aug 28, 2025 10:00 AM</span></p>
+          <p>Next Run: <span className="font-medium">Aug 30, 2025 10:00 AM</span></p>
+          <p>Status: <span className="text-green-600 font-semibold">Running</span></p>
+        </CardContent>
+      </Card>
+      </div>
+      </div>
+      
+     
+
+      
+
+     
+    </div>
+  );
+}

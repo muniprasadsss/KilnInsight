@@ -17,6 +17,7 @@ import {
   Area,
 } from "recharts";
 import trendsData from "../../../../public/dashboardTrends.json"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 
 const pieData1 = [
@@ -216,10 +217,10 @@ export default function Dashboard() {
           <div className="flex gap-4">
             {/* Anomalies */}
             <Card className="shadow-md w-1/2 bg-white">
-              <CardHeader>
-                <CardTitle>Anomalies</CardTitle>
+              <CardHeader className="p-2">
+                <CardTitle className="text-sm md:text-sm xl:text-base">Anomalies</CardTitle>
               </CardHeader>
-              <CardContent className="h-[250px] flex items-center justify-center">
+              <CardContent className="h-[190px] flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie data={pieData1} dataKey="value" outerRadius={80} label>
@@ -235,10 +236,10 @@ export default function Dashboard() {
 
             {/* Downtime */}
             <Card className="shadow-md w-1/2 bg-white">
-              <CardHeader>
-                <CardTitle>Downtime</CardTitle>
+              <CardHeader className="p-2">
+                <CardTitle className="text-sm md:text-sm xl:text-base">Downtime</CardTitle>
               </CardHeader>
-              <CardContent className="h-[250px] flex items-center justify-center">
+              <CardContent className="h-[190px] flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie data={pieData2} dataKey="value" outerRadius={80} label>
@@ -256,8 +257,8 @@ export default function Dashboard() {
           {/* Effectiveness / Efficiency Gauge */}
           {/* Effectiveness / Efficiency Gauge */}
           <Card className="shadow-lg bg-white" style={{ boxShadow: "0 2px 12px 0 #10b981" }}>
-            <CardHeader>
-              <CardTitle className="text-xs md:text-sm xl:text-base">Efficiency</CardTitle>
+            <CardHeader className="p-2">
+              <CardTitle className="text-sm md:text-sm xl:text-base">Efficiency</CardTitle>
             </CardHeader>
             <CardContent className="h-[140px] flex items-center justify-between gap-2">
               {/* Left: Radial Chart */}
@@ -371,40 +372,45 @@ export default function Dashboard() {
               <CardTitle>Alerts</CardTitle>
             </CardHeader>
             <CardContent>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-gray-600 border-b">
-                    <th className="py-2">DateTime</th>
-                    <th>Region</th>
-                    <th>Sensor Name</th>
-                    <th>Sensor ID</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b">
-                    <td className="py-2">8/8/2025 17:35</td>
-                    <td>Rotary Klin</td>
-                    <td>feed rate tph</td>
-                    <td>FR-005</td>
-                    <td className="text-red-600 font-semibold">Critical</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2">8/8/2025 17:32</td>
-                    <td>Rotary Klin</td>
-                    <td>production tph</td>
-                    <td>PH-112</td>
-                    <td className="text-red-600 font-semibold">Critical</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2">8/8/2025 16:00</td>
-                    <td>Rotary Klin</td>
-                    <td>O2 pct</td>
-                    <td>OP-605</td>
-                    <td className="text-yellow-600 font-semibold">Warning</td>
-                  </tr>
-                </tbody>
-              </table>
+              <Table>
+                {/* Header */}
+                <TableHeader>
+                  <TableRow className="bg-[#088fd1] text-white font-semibold text-sm">
+                    <TableHead className="text-white">DateTime</TableHead>
+                    <TableHead className="text-white">Region</TableHead>
+                    <TableHead className="text-white">Sensor Name</TableHead>
+                    <TableHead className="text-white">Sensor ID</TableHead>
+                    <TableHead className="text-white">Status</TableHead>
+                  </TableRow>
+                </TableHeader>
+
+                {/* Body */}
+                <TableBody>
+                  <TableRow className="text-sm">
+                    <TableCell className="font-medium text-gray-800">8/8/2025 17:35</TableCell>
+                    <TableCell className="text-gray-700">Rotary Klin</TableCell>
+                    <TableCell className="text-gray-700">feed rate tph</TableCell>
+                    <TableCell className="text-gray-700">FR-005</TableCell>
+                    <TableCell className="font-semibold text-red-600">Critical</TableCell>
+                  </TableRow>
+
+                  <TableRow className="text-sm">
+                    <TableCell className="font-medium text-gray-800">8/8/2025 17:32</TableCell>
+                    <TableCell className="text-gray-700">Rotary Klin</TableCell>
+                    <TableCell className="text-gray-700">production tph</TableCell>
+                    <TableCell className="text-gray-700">PH-112</TableCell>
+                    <TableCell className="font-semibold text-red-600">Critical</TableCell>
+                  </TableRow>
+
+                  <TableRow className="text-sm">
+                    <TableCell className="font-medium text-gray-800">8/8/2025 16:00</TableCell>
+                    <TableCell className="text-gray-700">Rotary Klin</TableCell>
+                    <TableCell className="text-gray-700">O2 pct</TableCell>
+                    <TableCell className="text-gray-700">OP-605</TableCell>
+                    <TableCell className="font-semibold text-yellow-600">Warning</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </CardContent>
           </Card>
         </div>

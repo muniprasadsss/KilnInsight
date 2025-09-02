@@ -18,6 +18,8 @@ import SensorDashboard from "@/pages/sensor-dashboard";
 import Dashboard from "./components/Newcomponents/Dashboard";
 import Anomalydetection from "./components/Newcomponents/Anomalydetection";
 import Optimisation from "./components/Newcomponents/Optimisation";
+import Login from "./components/Newcomponents/Loginpage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function Router() {
   return (
@@ -27,71 +29,100 @@ function Router() {
           <AnomalyDashboard />
         </Layout>
       </Route> */}
-       <Route path="/">
+      <Route path="/">
+        <Login />
+      </Route>
+      <Route path="/dashboard">
+      <ProtectedRoute>
         <Layout title="Dashboard" description="Real-time cement kiln monitoring and anomaly detection">
           <Dashboard />
         </Layout>
+        </ProtectedRoute>
       </Route>
       <Route path="/root-cause">
+         <ProtectedRoute>
         <Layout title="Root Cause Analysis" description="Deep dive analysis of anomalies and their causal relationships">
           <RootCauseAnalysis />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/alerts">
+         <ProtectedRoute>
         <Layout title="Alerts Center" description="Manage and configure system alerts and notifications">
           <AlertsCenter />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/operations">
+         <ProtectedRoute>
         <Layout title="Operations Dashboard" description="Real-time operational KPIs and equipment monitoring">
           <OperationsDashboard />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/analytics">
+         <ProtectedRoute>
         <Layout title="Advanced Analytics" description="Pattern analysis and predictive insights">
           <AdvancedAnalytics />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/reporting">
+         <ProtectedRoute>
         <Layout title="User Reporting" description="Generate and manage custom reports">
           <UserReporting />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/data-management">
+         <ProtectedRoute>
         <Layout title="Data Management" description="Manage data sources and quality monitoring">
           <DataManagement />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/sensors">
+         <ProtectedRoute>
         <Layout title="Sensor Dashboard" description="Comprehensive real-time sensor monitoring from CSV datasets">
           <SensorDashboard />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/notifications">
+         <ProtectedRoute>
         <Layout title="Notifications" description="Configure notification settings and delivery">
           <Notifications />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route path="/security">
+         <ProtectedRoute>
         <Layout title="Security Management" description="User access control and audit logging">
           <Security />
         </Layout>
+         </ProtectedRoute>
       </Route>
 
-       <Route path="/dashboard">
+      <Route path="/dashboard">
+         <ProtectedRoute>
         <Layout title="Dashboard" description="Real-time cement kiln monitoring">
           <Dashboard />
         </Layout>
+         </ProtectedRoute>
       </Route>
-        <Route path="/anomaly">
+      <Route path="/anomaly">
+         <ProtectedRoute>
         <Layout title="Anomaly Detection" description="Real-time cement kiln monitoring and anomaly detection">
           <Anomalydetection />
         </Layout>
+         </ProtectedRoute>
       </Route>
-       <Route path="/optimization">
+      <Route path="/optimization">
+         <ProtectedRoute>
         <Layout title="Optimization" description="Optimization screen">
           <Optimisation />
         </Layout>
+         </ProtectedRoute>
       </Route>
       <Route component={NotFound} />
     </Switch>

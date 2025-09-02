@@ -37,7 +37,7 @@ const barData = [
   { name: "Daily", value: 701.23 },
   { name: "Weekly", value: 699.65 },
   { name: "Monthly", value: 697.12 },
-  
+
 ];
 
 const factors = [
@@ -92,15 +92,15 @@ export default function Dashboard() {
     <div className="p-1 flex flex-col gap-6">
       {/* Row 1: KPIs + Trend */}
       <div className="top-trends flex gap-2">
-  {/* Production Trend */}
-  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+        {/* Production Trend */}
+        <Card className="bg-white shadow-lg rounded-xl p-3 w-full">
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm text-gray-600 font-medium">Production (tph)</h5>
+            <h5 className="text-xs text-gray-600 font-medium">Production (tph)</h5>
             <span className="text-gray-400 text-xs">T1</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">108.19</div>
-        
-          <CardContent className="p-0 mt-2 h-20">
+          <div className="text-2xl font-bold text-gray-900">108.19</div>
+
+          <CardContent className="p-0 mt-2 h-14">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={productionTrend}>
                 <YAxis domain={productionDomain} hide />
@@ -117,19 +117,19 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+            <span className="text-gray-500 text-xs mr-1" >Average:</span>
             <h6> 108.09</h6>
           </div>
-         
+
         </Card>
         {/* Fuel Flow Trend */}
-  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+        <Card className="bg-white shadow-lg rounded-xl p-3 w-full">
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm text-gray-600 font-medium">Fuel Flow (kgph)</h5>
+            <h5 className="text-xs text-gray-600 font-medium">Fuel Flow (kgph)</h5>
             <span className="text-gray-400 text-xs">T2</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">{fuelFlowTrend[fuelFlowTrend.length-1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-20">
+          <div className="text-2xl font-bold text-gray-900">{fuelFlowTrend[fuelFlowTrend.length - 1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-14">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={fuelFlowTrend}>
                 <YAxis domain={fuelFlowDomain} hide />
@@ -145,19 +145,19 @@ export default function Dashboard() {
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
-           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+          <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span>
             <h6>7024.14</h6>
           </div>
         </Card>
         {/* Specific Energy Trend */}
-  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+        <Card className="bg-white shadow-lg rounded-xl p-3 w-full">
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm text-gray-600 font-medium">Specific Energy (kcal/kg)</h5>
+            <h5 className="text-xs text-gray-600 font-medium">Specific Energy (kcal/kg)</h5>
             <span className="text-gray-400 text-xs">T3</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">{energyTrend[energyTrend.length-1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-20">
+          <div className="text-2xl font-bold text-gray-900">{energyTrend[energyTrend.length - 1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-14">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={energyTrend}>
                 <YAxis domain={energyDomain} hide />
@@ -173,19 +173,19 @@ export default function Dashboard() {
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
-           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+          <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span>
             <h6> 698.69</h6>
           </div>
         </Card>
         {/* Availability Trend */}
-  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+        <Card className="bg-white shadow-lg rounded-xl p-3 w-full">
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm text-gray-600 font-medium">Availability (%)</h5>
+            <h5 className="text-xs text-gray-600 font-medium">Availability (%)</h5>
             <span className="text-gray-400 text-xs">T4</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">{availabilityTrend[availabilityTrend.length-1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-20">
+          <div className="text-2xl font-bold text-gray-900">{availabilityTrend[availabilityTrend.length - 1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-14">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={availabilityTrend}>
                 <YAxis domain={availabilityDomain} hide />
@@ -201,304 +201,301 @@ export default function Dashboard() {
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
-           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+          <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span>
             <h6>90.67</h6>
           </div>
         </Card>
       </div>
-     
 
       {/* Row 2: Pie Charts */}
-{/* Row 2: Pie Charts + Efficiency + Alerts */}
-<div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
-  {/* Left Side (40%) */}
-  <div className="xl:col-span-5 flex flex-col gap-4">
-    <div className="flex gap-4">
-      {/* Anomalies */}
-      <Card className="shadow-md w-1/2 bg-white">
-        <CardHeader>
-          <CardTitle>Anomalies</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[250px] flex items-center justify-center">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie data={pieData1} dataKey="value" outerRadius={80} label>
-                {pieData1.map((_, i) => (
-                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+      {/* Row 2: Pie Charts + Efficiency + Alerts */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+        {/* Left Side (40%) */}
+        <div className="xl:col-span-5 flex flex-col gap-4">
+          <div className="flex gap-4">
+            {/* Anomalies */}
+            <Card className="shadow-md w-1/2 bg-white">
+              <CardHeader>
+                <CardTitle>Anomalies</CardTitle>
+              </CardHeader>
+              <CardContent className="h-[250px] flex items-center justify-center">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie data={pieData1} dataKey="value" outerRadius={80} label>
+                      {pieData1.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
 
-      {/* Downtime */}
-      <Card className="shadow-md w-1/2 bg-white">
-        <CardHeader>
-          <CardTitle>Downtime</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[250px] flex items-center justify-center">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie data={pieData2} dataKey="value" outerRadius={80} label>
-                {pieData2.map((_, i) => (
-                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-    </div>
+            {/* Downtime */}
+            <Card className="shadow-md w-1/2 bg-white">
+              <CardHeader>
+                <CardTitle>Downtime</CardTitle>
+              </CardHeader>
+              <CardContent className="h-[250px] flex items-center justify-center">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie data={pieData2} dataKey="value" outerRadius={80} label>
+                      {pieData2.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </div>
 
-    {/* Effectiveness / Efficiency Gauge */}
-   {/* Effectiveness / Efficiency Gauge */}
-<Card className="shadow-lg bg-white" style={{ boxShadow: "0 2px 12px 0 #10b981" }}>
-  <CardHeader>
-    <CardTitle className="text-xs md:text-sm xl:text-base">Efficiency</CardTitle>
-  </CardHeader>
-  <CardContent className="h-[140px] flex items-center justify-between gap-2">
-    {/* Left: Radial Chart */}
-    <div className="flex-1 flex items-center justify-center min-h-[100px]">
-      <ResponsiveContainer width={100} height={100}>
-        <RadialBarChart
-          innerRadius={40}
-          outerRadius={50}
-          data={[{ name: "Efficiency", value: 76, fill: "#10b981" }]}
-          startAngle={180}
-          endAngle={0}
-        >
-          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
-          <RadialBar background dataKey="value" />
-          <text
-            x={50}
-            y={60}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            className="text-xs font-semibold fill-gray-700"
-          >
-            76%
-          </text>
-        </RadialBarChart>
-      </ResponsiveContainer>
-    </div>
+          {/* Effectiveness / Efficiency Gauge */}
+          {/* Effectiveness / Efficiency Gauge */}
+          <Card className="shadow-lg bg-white" style={{ boxShadow: "0 2px 12px 0 #10b981" }}>
+            <CardHeader>
+              <CardTitle className="text-xs md:text-sm xl:text-base">Efficiency</CardTitle>
+            </CardHeader>
+            <CardContent className="h-[140px] flex items-center justify-between gap-2">
+              {/* Left: Radial Chart */}
+              <div className="flex-1 flex items-center justify-center min-h-[100px]">
+                <ResponsiveContainer width={100} height={100}>
+                  <RadialBarChart
+                    innerRadius={40}
+                    outerRadius={50}
+                    data={[{ name: "Efficiency", value: 76, fill: "#10b981" }]}
+                    startAngle={180}
+                    endAngle={0}
+                  >
+                    <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+                    <RadialBar background dataKey="value" />
+                    <text
+                      x={50}
+                      y={60}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-xs font-semibold fill-gray-700"
+                    >
+                      76%
+                    </text>
+                  </RadialBarChart>
+                </ResponsiveContainer>
+              </div>
 
-    {/* Right: KPIs */}
-    <div className="flex flex-col gap-1 w-1/3">
-      {/* Availability */}
-      <div className="flex items-center gap-1">
-        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+              {/* Right: KPIs */}
+              <div className="flex flex-col gap-1 w-1/3">
+                {/* Availability */}
+                <div className="flex items-center gap-1">
+                  <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-500">Availability</p>
+                    <p className="text-xs font-semibold">92%</p>
+                  </div>
+                </div>
+
+                {/* Performance */}
+                <div className="flex items-center gap-1">
+                  <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 17v-6h13M9 11L4 6m0 0l5 5m-5-5v12"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-500">Performance</p>
+                    <p className="text-xs font-semibold">88%</p>
+                  </div>
+                </div>
+
+                {/* Quality */}
+                <div className="flex items-center gap-1">
+                  <div className="w-5 h-5 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8c.637 0 1.27.098 1.866.29l3.59 1.197a2 2 0 011.305 2.52l-1.164 3.49A6.978 6.978 0 0112 20a6.978 6.978 0 01-5.597-2.503l-1.164-3.49a2 2 0 011.305-2.52l3.59-1.197A6.978 6.978 0 0112 8z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-500">Quality</p>
+                    <p className="text-xs font-semibold">95%</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
         </div>
-        <div>
-          <p className="text-[10px] text-gray-500">Availability</p>
-          <p className="text-xs font-semibold">92%</p>
+
+        {/* Right Side (60%) Alerts Table */}
+        <div className="xl:col-span-7 flex flex-col gap-4">
+          <Card className="shadow-md bg-white">
+            <CardHeader>
+              <CardTitle>Alerts</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-gray-600 border-b">
+                    <th className="py-2">DateTime</th>
+                    <th>Region</th>
+                    <th>Sensor Name</th>
+                    <th>Sensor ID</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-2">8/8/2025 17:35</td>
+                    <td>Rotary Klin</td>
+                    <td>feed rate tph</td>
+                    <td>FR-005</td>
+                    <td className="text-red-600 font-semibold">Critical</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2">8/8/2025 17:32</td>
+                    <td>Rotary Klin</td>
+                    <td>production tph</td>
+                    <td>PH-112</td>
+                    <td className="text-red-600 font-semibold">Critical</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2">8/8/2025 16:00</td>
+                    <td>Rotary Klin</td>
+                    <td>O2 pct</td>
+                    <td>OP-605</td>
+                    <td className="text-yellow-600 font-semibold">Warning</td>
+                  </tr>
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
         </div>
       </div>
-
-      {/* Performance */}
-      <div className="flex items-center gap-1">
-        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 17v-6h13M9 11L4 6m0 0l5 5m-5-5v12"
-            />
-          </svg>
-        </div>
-        <div>
-          <p className="text-[10px] text-gray-500">Performance</p>
-          <p className="text-xs font-semibold">88%</p>
-        </div>
-      </div>
-
-      {/* Quality */}
-      <div className="flex items-center gap-1">
-        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 8c.637 0 1.27.098 1.866.29l3.59 1.197a2 2 0 011.305 2.52l-1.164 3.49A6.978 6.978 0 0112 20a6.978 6.978 0 01-5.597-2.503l-1.164-3.49a2 2 0 011.305-2.52l3.59-1.197A6.978 6.978 0 0112 8z"
-            />
-          </svg>
-        </div>
-        <div>
-          <p className="text-[10px] text-gray-500">Quality</p>
-          <p className="text-xs font-semibold">95%</p>
-        </div>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
-  </div>
-
-  {/* Right Side (60%) Alerts Table */}
-  <div className="xl:col-span-7 flex flex-col gap-4">
-    <Card className="shadow-md bg-white">
-      <CardHeader>
-        <CardTitle>Alerts</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-gray-600 border-b">
-              <th className="py-2">DateTime</th>
-              <th>Region</th>
-              <th>Sensor Name</th>
-              <th>Sensor ID</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="py-2">8/8/2025 17:35</td>
-              <td>Rotary Klin</td>
-              <td>feed rate tph</td>
-              <td>FR-005</td>
-              <td className="text-red-600 font-semibold">Critical</td>
-            </tr>
-            <tr className="border-b">
-              <td className="py-2">8/8/2025 17:32</td>
-              <td>Rotary Klin</td>
-              <td>production tph</td>
-              <td>PH-112</td>
-              <td className="text-red-600 font-semibold">Critical</td>
-            </tr>
-            <tr className="border-b">
-              <td className="py-2">8/8/2025 16:00</td>
-              <td>Rotary Klin</td>
-              <td>O2 pct</td>
-              <td>OP-605</td>
-              <td className="text-yellow-600 font-semibold">Warning</td>
-            </tr>
-          </tbody>
-        </table>
-      </CardContent>
-    </Card>
-  </div>
-</div>
-
-
 
       {/* Row 4: Energy Consumed (Bar Chart) */}
-     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-4">
-  {/* Energy Consumed */}
-  <div className="bottom col-span-1 md:col-span-1 xl:col-span-4 flex">
-    <Card className="shadow-md bg-white w-full">
-      <CardHeader>
-        <CardTitle>Energy Consumed</CardTitle>
-      </CardHeader>
-      <CardContent className="h-[250px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={barData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="value" fill="#10b981" radius={[3, 4, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-      </CardContent>
-    </Card>
-  </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-4">
+        {/* Energy Consumed */}
+        <div className="bottom col-span-1 md:col-span-1 xl:col-span-4 flex">
+          <Card className="shadow-md bg-white w-full">
+            <CardHeader>
+              <CardTitle>Energy Consumed</CardTitle>
+            </CardHeader>
+            <CardContent className="h-[250px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={barData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="value" fill="#10b981" radius={[3, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </div>
 
-  {/* Top Contributing Factors */}
-  <div className="bottom col-span-1 md:col-span-2 xl:col-span-6 flex">
-    <Card className="shadow-md w-full bg-white">
-      <CardHeader>
-        <CardTitle>Top Contributing Factors</CardTitle>
-      </CardHeader>
-      <CardContent className="h-[300px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            layout="vertical"
-            data={factors}
-            margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
-          >
-            <YAxis
-              dataKey="name"
-              type="category"
-              tick={{ fontSize: 12 }}
-              width={100}
-            />
-            <XAxis type="number" hide />
-            <Tooltip />
-            <Bar
-              dataKey="value"
-              fill="#088fd1"
-              radius={[0, 6, 6, 0]}
-              barSize={20}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </CardContent>
-    </Card>
-  </div>
+        {/* Top Contributing Factors */}
+        <div className="bottom col-span-1 md:col-span-2 xl:col-span-6 flex">
+          <Card className="shadow-md w-full bg-white">
+            <CardHeader>
+              <CardTitle>Top Contributing Factors</CardTitle>
+            </CardHeader>
+            <CardContent className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  layout="vertical"
+                  data={factors}
+                  margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
+                >
+                  <YAxis
+                    dataKey="name"
+                    type="category"
+                    tick={{ fontSize: 12 }}
+                    width={100}
+                  />
+                  <XAxis type="number" hide />
+                  <Tooltip />
+                  <Bar
+                    dataKey="value"
+                    fill="#088fd1"
+                    radius={[0, 6, 6, 0]}
+                    barSize={20}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </div>
 
-  {/* Optimization Status */}
-  <div className="bottom col-span-1 md:col-span-1 xl:col-span-2 flex flex-col gap-4 ">
-    <div className="optimization w-full flex flex-col gap-4">
-      <Card className="bg-white w-full shadow-md flex-1 flex items-center justify-center min-h-[64px] md:min-h-[80px] xl:min-h-[96px]">
-        <CardContent className="w-full text-center">
-          <h3 className="text-base md:text-lg xl:text-xl font-semibold">Optimization achieved till date</h3>
-        </CardContent>
-      </Card>
-      <Card className="shadow-md bg-white w-full flex-1">
-        <CardHeader className="px-4 pt-4 pb-2">
-          <CardTitle className="text-base md:text-lg xl:text-xl">Optimization Status</CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm md:text-base xl:text-lg space-y-2 px-4 pb-4">
-          <p>
-            Last Run:{" "}
-            <span className="font-medium">Aug 28, 2025 10:00 AM</span>
-          </p>
-          <p>
-            Next Run:{" "}
-            <span className="font-medium">Aug 30, 2025 10:00 AM</span>
-          </p>
-          <p>
-            Status:{" "}
-            <span className="text-green-600 font-semibold">Running</span>
-          </p>
-        </CardContent>
-      </Card>
-    </div>
-  </div>
-  </div>
-     
+        {/* Optimization Status */}
+        <div className="bottom col-span-1 md:col-span-1 xl:col-span-2 flex flex-col gap-4 ">
+          <div className="optimization w-full flex flex-col gap-4">
+            <Card className="bg-white w-full shadow-md flex-1 flex items-center justify-center min-h-[64px] md:min-h-[80px] xl:min-h-[96px]">
+              <CardContent className="w-full text-center">
+                <h3 className="text-base md:text-lg xl:text-xl font-semibold">Optimization achieved till date</h3>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md bg-white w-full flex-1">
+              <CardHeader className="px-4 pt-4 pb-2">
+                <CardTitle className="text-base md:text-lg xl:text-xl">Optimization Status</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm md:text-base xl:text-lg space-y-2 px-4 pb-4">
+                <p>
+                  Last Run:{" "}
+                  <span className="font-medium">Aug 28, 2025 10:00 AM</span>
+                </p>
+                <p>
+                  Next Run:{" "}
+                  <span className="font-medium">Aug 30, 2025 10:00 AM</span>
+                </p>
+                <p>
+                  Status:{" "}
+                  <span className="text-green-600 font-semibold">Running</span>
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

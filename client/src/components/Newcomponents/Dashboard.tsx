@@ -90,18 +90,18 @@ export default function Dashboard() {
   const availabilityDomain = getDomain(availabilityTrend);
 
   return (
-    <div className="p-1 flex flex-col gap-6">
+    <div className="p-1 flex flex-col gap-2">
       {/* Row 1: KPIs + Trend */}
-      <div className="top-trends flex gap-2">
+      <div className="top-trends flex gap-2 ">
         {/* Production Trend */}
-        <Card className="bg-white shadow-lg rounded-xl p-3 w-full">
+        <Card className="bg-white shadow-lg rounded-xl p-1 w-full">
           <div className="flex items-center justify-between mb-2">
             <h5 className="text-xs text-gray-600 font-medium">Production (tph)</h5>
             <span className="text-gray-400 text-xs">T1</span>
           </div>
-          <div className="text-2xl font-bold text-gray-900">108.19</div>
+          <div className="text-lg font-bold text-gray-900">108.19</div>
 
-          <CardContent className="p-0 mt-2 h-14">
+          <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={productionTrend}>
                 <YAxis domain={productionDomain} hide />
@@ -130,7 +130,7 @@ export default function Dashboard() {
             <span className="text-gray-400 text-xs">T2</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{fuelFlowTrend[fuelFlowTrend.length - 1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-14">
+          <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={fuelFlowTrend}>
                 <YAxis domain={fuelFlowDomain} hide />
@@ -158,7 +158,7 @@ export default function Dashboard() {
             <span className="text-gray-400 text-xs">T3</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{energyTrend[energyTrend.length - 1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-14">
+          <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={energyTrend}>
                 <YAxis domain={energyDomain} hide />
@@ -186,7 +186,7 @@ export default function Dashboard() {
             <span className="text-gray-400 text-xs">T4</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{availabilityTrend[availabilityTrend.length - 1]?.value}</div>
-          <CardContent className="p-0 mt-2 h-14">
+          <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={availabilityTrend}>
                 <YAxis domain={availabilityDomain} hide />
@@ -368,8 +368,9 @@ export default function Dashboard() {
         {/* Right Side (60%) Alerts Table */}
         <div className="xl:col-span-7 flex flex-col gap-4">
           <Card className="shadow-md bg-white">
-            <CardHeader>
-              <CardTitle>Alerts</CardTitle>
+            <CardHeader className="p-2 font-medium">
+              {/* <CardTitle>Alerts</CardTitle> */}
+              Alerts
             </CardHeader>
             <CardContent>
               <Table>
@@ -417,14 +418,16 @@ export default function Dashboard() {
       </div>
 
       {/* Row 4: Energy Consumed (Bar Chart) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-2">
         {/* Energy Consumed */}
         <div className="bottom col-span-1 md:col-span-1 xl:col-span-4 flex">
-          <Card className="shadow-md bg-white w-full">
-            <CardHeader>
-              <CardTitle>Energy Consumed</CardTitle>
+          <Card className="shadow-md bg-white w-full p-0">
+            <CardHeader className="p-2 font-medium">
+              {/* <CardTitle ></CardTitle>
+               */}
+               Energy Consumed
             </CardHeader>
-            <CardContent className="h-[250px]">
+            <CardContent className="h-[220px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={barData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -441,10 +444,11 @@ export default function Dashboard() {
         {/* Top Contributing Factors */}
         <div className="bottom col-span-1 md:col-span-2 xl:col-span-6 flex">
           <Card className="shadow-md w-full bg-white">
-            <CardHeader>
-              <CardTitle>Top Contributing Factors</CardTitle>
+            <CardHeader className="p-2 font-medium">
+              {/* <CardTitle></CardTitle> */}
+              Top Contributing Factors
             </CardHeader>
-            <CardContent className="h-[300px]">
+            <CardContent className="h-[220px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   layout="vertical"
@@ -472,34 +476,41 @@ export default function Dashboard() {
         </div>
 
         {/* Optimization Status */}
-        <div className="bottom col-span-1 md:col-span-1 xl:col-span-2 flex flex-col gap-4 ">
-          <div className="optimization w-full flex flex-col gap-4">
-            <Card className="bg-white w-full shadow-md flex-1 flex items-center justify-center min-h-[64px] md:min-h-[80px] xl:min-h-[96px]">
-              <CardContent className="w-full text-center">
-                <h3 className="text-base md:text-lg xl:text-xl font-semibold">Optimization achieved till date</h3>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md bg-white w-full flex-1">
-              <CardHeader className="px-4 pt-4 pb-2">
-                <CardTitle className="text-base md:text-lg xl:text-xl">Optimization Status</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm md:text-base xl:text-lg space-y-2 px-4 pb-4">
-                <p>
-                  Last Run:{" "}
-                  <span className="font-medium">Aug 28, 2025 10:00 AM</span>
-                </p>
-                <p>
-                  Next Run:{" "}
-                  <span className="font-medium">Aug 30, 2025 10:00 AM</span>
-                </p>
-                <p>
-                  Status:{" "}
-                  <span className="text-green-600 font-semibold">Running</span>
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+      <div className="bottom col-span-1 md:col-span-1 xl:col-span-2 flex flex-col gap-3">
+  <div className="optimization w-full flex flex-col gap-3">
+    <Card className="bg-white w-full shadow-md flex-1 flex items-center justify-center min-h-[56px] md:min-h-[64px] xl:min-h-[72px]">
+      <CardContent className="w-full text-center p-2">
+        <h3 className="text-sm md:text-base xl:text-base font-medium">
+          Optimization achieved till date
+        </h3>
+      </CardContent>
+    </Card>
+
+    <Card className="shadow-md bg-white w-full flex-1">
+      <CardHeader className="px-3 pt-3 pb-1">
+        <CardTitle className="text-sm md:text-base xl:text-base font-medium">
+          Optimization Status
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="text-xs md:text-sm xl:text-sm space-y-1 px-3 pb-3">
+        <p>
+          Last Run:{" "}
+          <span className="font-normal">Aug 28, 2025 10:00 AM</span>
+        </p>
+        <p>
+          Next Run:{" "}
+          <span className="font-normal">Aug 30, 2025 10:00 AM</span>
+        </p>
+        <p>
+          Status:{" "}
+          <span className="text-green-600 font-semibold">Running</span>
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
       </div>
 
     </div>

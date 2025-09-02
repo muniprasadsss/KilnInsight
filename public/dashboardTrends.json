@@ -1,0 +1,1017 @@
+[
+ {
+  "timestamp": "08-08-2025 00:00",
+  "production(tph)": 109.801,
+  "fuel_flow(kgph)": 7078.617,
+  "specific_energy(kcal-kg)": 700.475,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 00:10",
+  "production(tph)": 106.709,
+  "fuel_flow(kgph)": 7072.481,
+  "specific_energy(kcal-kg)": 695.203,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 00:20",
+  "production(tph)": 109.255,
+  "fuel_flow(kgph)": 7029.857,
+  "specific_energy(kcal-kg)": 696.004,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 00:30",
+  "production(tph)": 109.299,
+  "fuel_flow(kgph)": 7063.866,
+  "specific_energy(kcal-kg)": 701.976,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 00:40",
+  "production(tph)": 107.287,
+  "fuel_flow(kgph)": 7090.249,
+  "specific_energy(kcal-kg)": 699.831,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 00:50",
+  "production(tph)": 108.795,
+  "fuel_flow(kgph)": 7028.739,
+  "specific_energy(kcal-kg)": 703.577,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 01:00",
+  "production(tph)": 108.25,
+  "fuel_flow(kgph)": 7018.555,
+  "specific_energy(kcal-kg)": 701.577,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 01:10",
+  "production(tph)": 109.084,
+  "fuel_flow(kgph)": 7002.235,
+  "specific_energy(kcal-kg)": 696.485,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 01:20",
+  "production(tph)": 106.959,
+  "fuel_flow(kgph)": 7085.424,
+  "specific_energy(kcal-kg)": 703.004,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 01:30",
+  "production(tph)": 108.338,
+  "fuel_flow(kgph)": 6990.526,
+  "specific_energy(kcal-kg)": 701.457,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 01:40",
+  "production(tph)": 109.784,
+  "fuel_flow(kgph)": 7008.513,
+  "specific_energy(kcal-kg)": 701.189,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 01:50",
+  "production(tph)": 109.704,
+  "fuel_flow(kgph)": 7054.126,
+  "specific_energy(kcal-kg)": 698.399,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 02:00",
+  "production(tph)": 107.249,
+  "fuel_flow(kgph)": 7068.472,
+  "specific_energy(kcal-kg)": 703.011,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 02:10",
+  "production(tph)": 106.353,
+  "fuel_flow(kgph)": 7078.856,
+  "specific_energy(kcal-kg)": 700.173,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 02:20",
+  "production(tph)": 106.606,
+  "fuel_flow(kgph)": 7048.467,
+  "specific_energy(kcal-kg)": 698.047,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 02:30",
+  "production(tph)": 108.757,
+  "fuel_flow(kgph)": 6974.616,
+  "specific_energy(kcal-kg)": 697.474,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 02:40",
+  "production(tph)": 107.086,
+  "fuel_flow(kgph)": 7067.741,
+  "specific_energy(kcal-kg)": 698.25,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 02:50",
+  "production(tph)": 109.431,
+  "fuel_flow(kgph)": 7013.615,
+  "specific_energy(kcal-kg)": 693.088,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 03:00",
+  "production(tph)": 109.592,
+  "fuel_flow(kgph)": 6998.941,
+  "specific_energy(kcal-kg)": 701.716,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 03:10",
+  "production(tph)": 108.396,
+  "fuel_flow(kgph)": 7021.492,
+  "specific_energy(kcal-kg)": 698.298,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 03:20",
+  "production(tph)": 109.951,
+  "fuel_flow(kgph)": 7004.079,
+  "specific_energy(kcal-kg)": 698.016,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 03:30",
+  "production(tph)": 107.165,
+  "fuel_flow(kgph)": 7037.838,
+  "specific_energy(kcal-kg)": 701.265,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 03:40",
+  "production(tph)": 108.406,
+  "fuel_flow(kgph)": 7134.236,
+  "specific_energy(kcal-kg)": 703.026,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 03:50",
+  "production(tph)": 108.096,
+  "fuel_flow(kgph)": 7123.151,
+  "specific_energy(kcal-kg)": 698.085,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 04:00",
+  "production(tph)": 109.232,
+  "fuel_flow(kgph)": 6969.808,
+  "specific_energy(kcal-kg)": 698.064,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 04:10",
+  "production(tph)": 110.037,
+  "fuel_flow(kgph)": 6992.764,
+  "specific_energy(kcal-kg)": 701.363,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 04:20",
+  "production(tph)": 109.012,
+  "fuel_flow(kgph)": 7077.907,
+  "specific_energy(kcal-kg)": 699.159,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 04:30",
+  "production(tph)": 109.18,
+  "fuel_flow(kgph)": 7026.995,
+  "specific_energy(kcal-kg)": 698.695,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 04:40",
+  "production(tph)": 108.605,
+  "fuel_flow(kgph)": 7000.183,
+  "specific_energy(kcal-kg)": 700.855,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 04:50",
+  "production(tph)": 107.84,
+  "fuel_flow(kgph)": 7066.913,
+  "specific_energy(kcal-kg)": 698.787,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 05:00",
+  "production(tph)": 108.904,
+  "fuel_flow(kgph)": 7078.437,
+  "specific_energy(kcal-kg)": 700.726,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 05:10",
+  "production(tph)": 108.409,
+  "fuel_flow(kgph)": 7032.862,
+  "specific_energy(kcal-kg)": 697.624,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 05:20",
+  "production(tph)": 109.744,
+  "fuel_flow(kgph)": 7052.466,
+  "specific_energy(kcal-kg)": 696.515,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 05:30",
+  "production(tph)": 108.12,
+  "fuel_flow(kgph)": 7084.206,
+  "specific_energy(kcal-kg)": 700.622,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 05:40",
+  "production(tph)": 107.868,
+  "fuel_flow(kgph)": 7051.461,
+  "specific_energy(kcal-kg)": 697.489,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 05:50",
+  "production(tph)": 109.995,
+  "fuel_flow(kgph)": 7054.667,
+  "specific_energy(kcal-kg)": 702.187,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 06:00",
+  "production(tph)": 109.573,
+  "fuel_flow(kgph)": 7036.12,
+  "specific_energy(kcal-kg)": 698.907,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 06:10",
+  "production(tph)": 109.35,
+  "fuel_flow(kgph)": 7038.688,
+  "specific_energy(kcal-kg)": 698.903,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 06:20",
+  "production(tph)": 107.181,
+  "fuel_flow(kgph)": 6992.924,
+  "specific_energy(kcal-kg)": 702.299,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 06:30",
+  "production(tph)": 109.023,
+  "fuel_flow(kgph)": 7055.955,
+  "specific_energy(kcal-kg)": 697.997,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 06:40",
+  "production(tph)": 107.709,
+  "fuel_flow(kgph)": 6986.701,
+  "specific_energy(kcal-kg)": 694.376,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 06:50",
+  "production(tph)": 108.058,
+  "fuel_flow(kgph)": 6991.658,
+  "specific_energy(kcal-kg)": 697.954,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 07:00",
+  "production(tph)": 109.331,
+  "fuel_flow(kgph)": 7028.733,
+  "specific_energy(kcal-kg)": 700.433,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 07:10",
+  "production(tph)": 106.322,
+  "fuel_flow(kgph)": 7035.25,
+  "specific_energy(kcal-kg)": 699.582,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 07:20",
+  "production(tph)": 108.95,
+  "fuel_flow(kgph)": 6957.426,
+  "specific_energy(kcal-kg)": 697.241,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 07:30",
+  "production(tph)": 110.561,
+  "fuel_flow(kgph)": 7043.628,
+  "specific_energy(kcal-kg)": 699.763,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 07:40",
+  "production(tph)": 106.924,
+  "fuel_flow(kgph)": 7043.559,
+  "specific_energy(kcal-kg)": 698.064,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 07:50",
+  "production(tph)": 108.971,
+  "fuel_flow(kgph)": 6983.741,
+  "specific_energy(kcal-kg)": 698.62,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 08:00",
+  "production(tph)": 109.807,
+  "fuel_flow(kgph)": 7105.073,
+  "specific_energy(kcal-kg)": 700.405,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 08:10",
+  "production(tph)": 107.519,
+  "fuel_flow(kgph)": 7127.508,
+  "specific_energy(kcal-kg)": 700.061,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 08:20",
+  "production(tph)": 107.773,
+  "fuel_flow(kgph)": 7013.076,
+  "specific_energy(kcal-kg)": 699.431,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 08:30",
+  "production(tph)": 107.558,
+  "fuel_flow(kgph)": 7070.399,
+  "specific_energy(kcal-kg)": 702.543,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 08:40",
+  "production(tph)": 108.567,
+  "fuel_flow(kgph)": 7023.355,
+  "specific_energy(kcal-kg)": 699.995,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 08:50",
+  "production(tph)": 108.321,
+  "fuel_flow(kgph)": 7030.016,
+  "specific_energy(kcal-kg)": 701.063,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 09:00",
+  "production(tph)": 108.105,
+  "fuel_flow(kgph)": 7022.01,
+  "specific_energy(kcal-kg)": 701.469,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 09:10",
+  "production(tph)": 109.721,
+  "fuel_flow(kgph)": 7036.388,
+  "specific_energy(kcal-kg)": 698.803,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 09:20",
+  "production(tph)": 107.337,
+  "fuel_flow(kgph)": 6970.349,
+  "specific_energy(kcal-kg)": 702.149,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 09:30",
+  "production(tph)": 109.093,
+  "fuel_flow(kgph)": 7102.009,
+  "specific_energy(kcal-kg)": 699.625,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 09:40",
+  "production(tph)": 107.574,
+  "fuel_flow(kgph)": 7079.277,
+  "specific_energy(kcal-kg)": 703.254,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 09:50",
+  "production(tph)": 110.936,
+  "fuel_flow(kgph)": 6982.589,
+  "specific_energy(kcal-kg)": 699.702,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 10:00",
+  "production(tph)": 108.205,
+  "fuel_flow(kgph)": 7082.782,
+  "specific_energy(kcal-kg)": 697.481,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 10:10",
+  "production(tph)": 106.521,
+  "fuel_flow(kgph)": 7039.349,
+  "specific_energy(kcal-kg)": 695.627,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 10:20",
+  "production(tph)": 109.2,
+  "fuel_flow(kgph)": 7045.55,
+  "specific_energy(kcal-kg)": 700.381,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 10:30",
+  "production(tph)": 107.523,
+  "fuel_flow(kgph)": 6971.828,
+  "specific_energy(kcal-kg)": 699.511,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 10:40",
+  "production(tph)": 108.446,
+  "fuel_flow(kgph)": 6976.915,
+  "specific_energy(kcal-kg)": 695.699,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 10:50",
+  "production(tph)": 109.784,
+  "fuel_flow(kgph)": 7057.055,
+  "specific_energy(kcal-kg)": 695.22,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 11:00",
+  "production(tph)": 108.076,
+  "fuel_flow(kgph)": 7087.006,
+  "specific_energy(kcal-kg)": 697.71,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 11:10",
+  "production(tph)": 107.404,
+  "fuel_flow(kgph)": 7024.34,
+  "specific_energy(kcal-kg)": 699.088,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 11:20",
+  "production(tph)": 108.823,
+  "fuel_flow(kgph)": 7047.505,
+  "specific_energy(kcal-kg)": 697.098,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 11:30",
+  "production(tph)": 109.278,
+  "fuel_flow(kgph)": 7013.277,
+  "specific_energy(kcal-kg)": 696.271,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 11:40",
+  "production(tph)": 107.488,
+  "fuel_flow(kgph)": 7046.002,
+  "specific_energy(kcal-kg)": 697.282,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 11:50",
+  "production(tph)": 108.877,
+  "fuel_flow(kgph)": 7017.857,
+  "specific_energy(kcal-kg)": 695.603,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 12:00",
+  "production(tph)": 108.312,
+  "fuel_flow(kgph)": 7007.374,
+  "specific_energy(kcal-kg)": 701.91,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 12:10",
+  "production(tph)": 108.888,
+  "fuel_flow(kgph)": 7100.24,
+  "specific_energy(kcal-kg)": 700.336,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 12:20",
+  "production(tph)": 109.444,
+  "fuel_flow(kgph)": 7001.07,
+  "specific_energy(kcal-kg)": 695.847,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 12:30",
+  "production(tph)": 108.87,
+  "fuel_flow(kgph)": 6936.273,
+  "specific_energy(kcal-kg)": 696.712,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 12:40",
+  "production(tph)": 107.683,
+  "fuel_flow(kgph)": 7090.126,
+  "specific_energy(kcal-kg)": 695.462,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 12:50",
+  "production(tph)": 106.505,
+  "fuel_flow(kgph)": 7049.842,
+  "specific_energy(kcal-kg)": 696.639,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 13:00",
+  "production(tph)": 107.534,
+  "fuel_flow(kgph)": 6964.851,
+  "specific_energy(kcal-kg)": 700.578,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 13:10",
+  "production(tph)": 108.306,
+  "fuel_flow(kgph)": 7029.993,
+  "specific_energy(kcal-kg)": 698.271,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 13:20",
+  "production(tph)": 107.109,
+  "fuel_flow(kgph)": 6981.695,
+  "specific_energy(kcal-kg)": 698.828,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 13:30",
+  "production(tph)": 109.052,
+  "fuel_flow(kgph)": 7016.595,
+  "specific_energy(kcal-kg)": 697.888,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 13:40",
+  "production(tph)": 108.894,
+  "fuel_flow(kgph)": 7026.127,
+  "specific_energy(kcal-kg)": 700.57,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 13:50",
+  "production(tph)": 107.338,
+  "fuel_flow(kgph)": 6977.238,
+  "specific_energy(kcal-kg)": 695.844,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 14:00",
+  "production(tph)": 108.325,
+  "fuel_flow(kgph)": 7042.789,
+  "specific_energy(kcal-kg)": 702.157,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 14:10",
+  "production(tph)": 107.283,
+  "fuel_flow(kgph)": 7005.362,
+  "specific_energy(kcal-kg)": 696.265,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 14:20",
+  "production(tph)": 106.926,
+  "fuel_flow(kgph)": 6979.757,
+  "specific_energy(kcal-kg)": 699.068,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 14:30",
+  "production(tph)": 107.459,
+  "fuel_flow(kgph)": 6990.988,
+  "specific_energy(kcal-kg)": 700.051,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 14:40",
+  "production(tph)": 106.625,
+  "fuel_flow(kgph)": 6988.156,
+  "specific_energy(kcal-kg)": 695.08,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 14:50",
+  "production(tph)": 108.038,
+  "fuel_flow(kgph)": 7069.141,
+  "specific_energy(kcal-kg)": 700.376,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 15:00",
+  "production(tph)": 108.766,
+  "fuel_flow(kgph)": 7040.47,
+  "specific_energy(kcal-kg)": 700.329,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 15:10",
+  "production(tph)": 107.886,
+  "fuel_flow(kgph)": 7009.847,
+  "specific_energy(kcal-kg)": 700.532,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 15:20",
+  "production(tph)": 107.524,
+  "fuel_flow(kgph)": 7024.666,
+  "specific_energy(kcal-kg)": 698.964,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 15:30",
+  "production(tph)": 107.589,
+  "fuel_flow(kgph)": 7024.872,
+  "specific_energy(kcal-kg)": 698.679,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 15:40",
+  "production(tph)": 108.987,
+  "fuel_flow(kgph)": 7032.936,
+  "specific_energy(kcal-kg)": 695.944,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 15:50",
+  "production(tph)": 109.278,
+  "fuel_flow(kgph)": 7012.173,
+  "specific_energy(kcal-kg)": 698.802,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 16:00",
+  "production(tph)": 108.128,
+  "fuel_flow(kgph)": 7035.756,
+  "specific_energy(kcal-kg)": 699.584,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 16:10",
+  "production(tph)": 108.228,
+  "fuel_flow(kgph)": 7068.254,
+  "specific_energy(kcal-kg)": 697.981,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 16:20",
+  "production(tph)": 109.699,
+  "fuel_flow(kgph)": 7071.614,
+  "specific_energy(kcal-kg)": 700.624,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 16:30",
+  "production(tph)": 108.655,
+  "fuel_flow(kgph)": 7039.184,
+  "specific_energy(kcal-kg)": 697.533,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 16:40",
+  "production(tph)": 109.028,
+  "fuel_flow(kgph)": 7066.533,
+  "specific_energy(kcal-kg)": 698.214,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 16:50",
+  "production(tph)": 107.691,
+  "fuel_flow(kgph)": 7033.025,
+  "specific_energy(kcal-kg)": 700.423,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 17:00",
+  "production(tph)": 107.698,
+  "fuel_flow(kgph)": 7007.601,
+  "specific_energy(kcal-kg)": 700.358,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 17:10",
+  "production(tph)": 107.241,
+  "fuel_flow(kgph)": 7003.542,
+  "specific_energy(kcal-kg)": 697.353,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 17:20",
+  "production(tph)": 107.537,
+  "fuel_flow(kgph)": 6997.052,
+  "specific_energy(kcal-kg)": 697.913,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 17:30",
+  "production(tph)": 107.361,
+  "fuel_flow(kgph)": 7012.305,
+  "specific_energy(kcal-kg)": 699.188,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 17:40",
+  "production(tph)": 107.722,
+  "fuel_flow(kgph)": 6947.973,
+  "specific_energy(kcal-kg)": 697.999,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 17:50",
+  "production(tph)": 105.268,
+  "fuel_flow(kgph)": 6978.233,
+  "specific_energy(kcal-kg)": 698.627,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 18:00",
+  "production(tph)": 109.46,
+  "fuel_flow(kgph)": 7022.539,
+  "specific_energy(kcal-kg)": 697.758,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 18:10",
+  "production(tph)": 108.686,
+  "fuel_flow(kgph)": 6892.91,
+  "specific_energy(kcal-kg)": 699.057,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 18:20",
+  "production(tph)": 108.103,
+  "fuel_flow(kgph)": 6976.055,
+  "specific_energy(kcal-kg)": 699.613,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 18:30",
+  "production(tph)": 106.529,
+  "fuel_flow(kgph)": 7000.112,
+  "specific_energy(kcal-kg)": 695.172,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 18:40",
+  "production(tph)": 106.836,
+  "fuel_flow(kgph)": 7030.363,
+  "specific_energy(kcal-kg)": 697.769,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 18:50",
+  "production(tph)": 108.336,
+  "fuel_flow(kgph)": 6942.235,
+  "specific_energy(kcal-kg)": 699.894,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 19:00",
+  "production(tph)": 108.633,
+  "fuel_flow(kgph)": 7061.526,
+  "specific_energy(kcal-kg)": 700.941,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 19:10",
+  "production(tph)": 107.972,
+  "fuel_flow(kgph)": 6962.366,
+  "specific_energy(kcal-kg)": 696.542,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 19:20",
+  "production(tph)": 107.572,
+  "fuel_flow(kgph)": 7013.368,
+  "specific_energy(kcal-kg)": 698.971,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 19:30",
+  "production(tph)": 107.559,
+  "fuel_flow(kgph)": 7053.698,
+  "specific_energy(kcal-kg)": 699.21,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 19:40",
+  "production(tph)": 108.535,
+  "fuel_flow(kgph)": 6983.33,
+  "specific_energy(kcal-kg)": 697.228,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 19:50",
+  "production(tph)": 108.774,
+  "fuel_flow(kgph)": 6947.047,
+  "specific_energy(kcal-kg)": 695.503,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 20:00",
+  "production(tph)": 108.996,
+  "fuel_flow(kgph)": 6987.084,
+  "specific_energy(kcal-kg)": 698.551,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 20:10",
+  "production(tph)": 106.61,
+  "fuel_flow(kgph)": 7030.082,
+  "specific_energy(kcal-kg)": 699.323,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 20:20",
+  "production(tph)": 106.229,
+  "fuel_flow(kgph)": 7023.903,
+  "specific_energy(kcal-kg)": 698.045,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 20:30",
+  "production(tph)": 109.409,
+  "fuel_flow(kgph)": 6958.1,
+  "specific_energy(kcal-kg)": 697.533,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 20:40",
+  "production(tph)": 108.488,
+  "fuel_flow(kgph)": 7050.056,
+  "specific_energy(kcal-kg)": 696.66,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 20:50",
+  "production(tph)": 106.51,
+  "fuel_flow(kgph)": 7021.279,
+  "specific_energy(kcal-kg)": 698.128,
+  "availability(%)": 86
+ },
+ {
+  "timestamp": "08-08-2025 21:00",
+  "production(tph)": 108.013,
+  "fuel_flow(kgph)": 7044.32,
+  "specific_energy(kcal-kg)": 693.899,
+  "availability(%)": 95
+ },
+ {
+  "timestamp": "08-08-2025 21:10",
+  "production(tph)": 108.255,
+  "fuel_flow(kgph)": 7026.636,
+  "specific_energy(kcal-kg)": 696.611,
+  "availability(%)": 87
+ },
+ {
+  "timestamp": "08-08-2025 21:20",
+  "production(tph)": 108.224,
+  "fuel_flow(kgph)": 7055.149,
+  "specific_energy(kcal-kg)": 700.194,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 21:30",
+  "production(tph)": 105.823,
+  "fuel_flow(kgph)": 7055.296,
+  "specific_energy(kcal-kg)": 698.95,
+  "availability(%)": 88
+ },
+ {
+  "timestamp": "08-08-2025 21:40",
+  "production(tph)": 108.055,
+  "fuel_flow(kgph)": 7015.213,
+  "specific_energy(kcal-kg)": 695.649,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 21:50",
+  "production(tph)": 107.283,
+  "fuel_flow(kgph)": 6974.119,
+  "specific_energy(kcal-kg)": 699.674,
+  "availability(%)": 93
+ },
+ {
+  "timestamp": "08-08-2025 22:00",
+  "production(tph)": 107.498,
+  "fuel_flow(kgph)": 6989.007,
+  "specific_energy(kcal-kg)": 696.254,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 22:10",
+  "production(tph)": 110.005,
+  "fuel_flow(kgph)": 6971.282,
+  "specific_energy(kcal-kg)": 694.912,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-08-2025 22:20",
+  "production(tph)": 107.571,
+  "fuel_flow(kgph)": 7037.155,
+  "specific_energy(kcal-kg)": 698.26,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 22:30",
+  "production(tph)": 108.493,
+  "fuel_flow(kgph)": 6954.394,
+  "specific_energy(kcal-kg)": 697.755,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 22:40",
+  "production(tph)": 107.207,
+  "fuel_flow(kgph)": 6997.396,
+  "specific_energy(kcal-kg)": 697.042,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 22:50",
+  "production(tph)": 106.572,
+  "fuel_flow(kgph)": 7045.149,
+  "specific_energy(kcal-kg)": 698.818,
+  "availability(%)": 94
+ },
+ {
+  "timestamp": "08-08-2025 23:00",
+  "production(tph)": 108.044,
+  "fuel_flow(kgph)": 6850.677,
+  "specific_energy(kcal-kg)": 697.67,
+  "availability(%)": 91
+ },
+ {
+  "timestamp": "08-08-2025 23:10",
+  "production(tph)": 106.177,
+  "fuel_flow(kgph)": 7078.165,
+  "specific_energy(kcal-kg)": 700.404,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 23:20",
+  "production(tph)": 107.347,
+  "fuel_flow(kgph)": 6978.464,
+  "specific_energy(kcal-kg)": 696,
+  "availability(%)": 85
+ },
+ {
+  "timestamp": "08-08-2025 23:30",
+  "production(tph)": 106.802,
+  "fuel_flow(kgph)": 6987.581,
+  "specific_energy(kcal-kg)": 697.494,
+  "availability(%)": 90
+ },
+ {
+  "timestamp": "08-08-2025 23:40",
+  "production(tph)": 106.858,
+  "fuel_flow(kgph)": 7043.031,
+  "specific_energy(kcal-kg)": 695.775,
+  "availability(%)": 92
+ },
+ {
+  "timestamp": "08-08-2025 23:50",
+  "production(tph)": 108.981,
+  "fuel_flow(kgph)": 7041.812,
+  "specific_energy(kcal-kg)": 699.42,
+  "availability(%)": 89
+ },
+ {
+  "timestamp": "08-09-2025 00:00",
+  "production(tph)": 108.454,
+  "fuel_flow(kgph)": 6986.166,
+  "specific_energy(kcal-kg)": 696.397,
+  "availability(%)": 95
+ }
+]

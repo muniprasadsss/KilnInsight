@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { TooltipProps } from "recharts";
 import {
   LineChart,
   Line,
@@ -18,25 +14,10 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Area,
 } from "recharts";
+import trendsData from "../../../../public/dashboardTrends.json"
 
-// Example mock data
-const lineData = [
-  { time: "10:00", value: 30 },
-  { time: "11:00", value: 45 },
-  { time: "12:00", value: 60 },
-  { time: "13:00", value: 50 },
-  { time: "14:00", value: 80 },
-];
-const data = [
-  { value: 40 },
-  { value: 45 },
-  { value: 30 },
-  { value: 50 },
-  { value: 42 },
-  { value: 60 },
-  { value: 48 },
-];
 
 const pieData1 = [
   { name: "Critical", value: 3 },
@@ -53,144 +34,178 @@ const pieData2 = [
 const COLORS = ["#dc2626", "#f59e0b", "#16a34a"];
 
 const barData = [
-  { name: "Kiln A", value: 120 },
-  { name: "Kiln B", value: 180 },
-  { name: "Kiln C", value: 90 },
-  { name: "Kiln D", value: 140 },
+  { name: "Daily", value: 701.23 },
+  { name: "Weekly", value: 699.65 },
+  { name: "Monthly", value: 697.12 },
+  
 ];
 
 const factors = [
-  { name: "Temperature", value: 80 },
-  { name: "Pressure", value: 65 },
-  { name: "Speed", value: 50 },
-  { name: "Load", value: 30 },
+  { name: "fuel flow kgph", value: 45 },
+  { name: "feed rate tph", value: 35 },
+  { name: "primary fan speed rpm", value: 15 },
 ];
 
 export default function Dashboard() {
+  // Custom tooltip for trend charts
+  function makeTooltip(cardName: string) {
+    return function CustomTooltip({ active, payload }: TooltipProps<number, string>) {
+      if (active && payload && payload.length && payload[0].value !== undefined) {
+        return (
+          <div className="bg-white p-2 rounded shadow text-xs border border-gray-200">
+            <div><span className="font-semibold">{cardName}</span></div>
+            <div>Value: <span className="font-bold">{payload[0].value}</span></div>
+          </div>
+        );
+      }
+      return null;
+    };
+  }
+  // Prepare trend data for each card
+
+  // Helper to get min/max for y-axis domain
+  interface TrendDataPoint {
+    time: string;
+    value: number;
+  }
+
+  function getDomain(arr: TrendDataPoint[]): [number, number] {
+    const vals = arr.map((d) => d.value);
+    const min = Math.min(...vals);
+    const max = Math.max(...vals);
+    // Add padding for better visualization
+    const pad = (max - min) * 0.15;
+    return [min - pad, max + pad];
+  }
+
+  const productionTrend = trendsData.map((item) => ({ time: item["timestamp"], value: item["production(tph)"] }));
+  const fuelFlowTrend = trendsData.map((item) => ({ time: item["timestamp"], value: item["fuel_flow(kgph)"] }));
+  const energyTrend = trendsData.map((item) => ({ time: item["timestamp"], value: item["specific_energy(kcal-kg)"] }));
+  const availabilityTrend = trendsData.map((item) => ({ time: item["timestamp"], value: item["availability(%)"] }));
+
+  const productionDomain = getDomain(productionTrend);
+  const fuelFlowDomain = getDomain(fuelFlowTrend);
+  const energyDomain = getDomain(energyTrend);
+  const availabilityDomain = getDomain(availabilityTrend);
+
   return (
-    <div className="p-1  flex flex-col gap-6">
+    <div className="p-1 flex flex-col gap-6">
       {/* Row 1: KPIs + Trend */}
       <div className="top-trends flex gap-2">
-        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2">
-                <h5 className="text-sm text-gray-600 font-medium">
-                Total Energy Usage Trend
-                </h5>
-                <span className="text-gray-400 text-xs">T1</span>
-            </div>
-
-            {/* Metric */}
-            <div className="text-4xl font-bold text-gray-900">41.8k</div>
-            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
-
-            {/* Mini Chart */}
-            <CardContent className="p-0 mt-2 h-20">
-                <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data}>
-                    <Tooltip content={() => null} />
-                    <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#0ea5e9"
-                    strokeWidth={2}
-                    dot={false}
-                    fillOpacity={0.2}
-                    />
-                </LineChart>
-                </ResponsiveContainer>
-            </CardContent>
-            </Card>
-        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2">
-                <h5 className="text-sm text-gray-600 font-medium">
-                Total Energy Usage Trend
-                </h5>
-                <span className="text-gray-400 text-xs">T1</span>
-            </div>
-
-            {/* Metric */}
-            <div className="text-4xl font-bold text-gray-900">41.8k</div>
-            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
-
-            {/* Mini Chart */}
-            <CardContent className="p-0 mt-2 h-20">
-                <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data}>
-                    <Tooltip content={() => null} />
-                    <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#0ea5e9"
-                    strokeWidth={2}
-                    dot={false}
-                    fillOpacity={0.2}
-                    />
-                </LineChart>
-                </ResponsiveContainer>
-            </CardContent>
-            </Card>
-        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2">
-                <h5 className="text-sm text-gray-600 font-medium">
-                Total Energy Usage Trend
-                </h5>
-                <span className="text-gray-400 text-xs">T1</span>
-            </div>
-
-            {/* Metric */}
-            <div className="text-4xl font-bold text-gray-900">41.8k</div>
-            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
-
-            {/* Mini Chart */}
-            <CardContent className="p-0 mt-2 h-20">
-                <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data}>
-                    <Tooltip content={() => null} />
-                    <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#0ea5e9"
-                    strokeWidth={2}
-                    dot={false}
-                    fillOpacity={0.2}
-                    />
-                </LineChart>
-                </ResponsiveContainer>
-            </CardContent>
-            </Card>
-        <Card className="bg-white shadow-md rounded-2xl p-4 w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2">
-                <h5 className="text-sm text-gray-600 font-medium">
-                Total Energy Usage Trend
-                </h5>
-                <span className="text-gray-400 text-xs">T1</span>
-            </div>
-
-            {/* Metric */}
-            <div className="text-4xl font-bold text-gray-900">41.8k</div>
-            <div className="text-sm text-red-500">-19.1% Compared to Previous Day</div>
-
-            {/* Mini Chart */}
-            <CardContent className="p-0 mt-2 h-20">
-                <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data}>
-                    <Tooltip content={() => null} />
-                    <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#0ea5e9"
-                    strokeWidth={2}
-                    dot={false}
-                    fillOpacity={0.2}
-                    />
-                </LineChart>
-                </ResponsiveContainer>
-            </CardContent>
-            </Card>
+  {/* Production Trend */}
+  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+          <div className="flex items-center justify-between mb-2">
+            <h5 className="text-sm text-gray-600 font-medium">Production (tph)</h5>
+            <span className="text-gray-400 text-xs">T1</span>
+          </div>
+          <div className="text-4xl font-bold text-gray-900">108.19</div>
+        
+          <CardContent className="p-0 mt-2 h-20">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={productionTrend}>
+                <YAxis domain={productionDomain} hide />
+                <Tooltip content={makeTooltip("Production (tph)")} />
+                <defs>
+                  <linearGradient id="prodShadow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Line type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} dot={false} fillOpacity={0.2} />
+                <Area type="monotone" dataKey="value" stroke="none" fill="url(#prodShadow)" fillOpacity={1} />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+          <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+            <h6> 108.09</h6>
+          </div>
+         
+        </Card>
+        {/* Fuel Flow Trend */}
+  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+          <div className="flex items-center justify-between mb-2">
+            <h5 className="text-sm text-gray-600 font-medium">Fuel Flow (kgph)</h5>
+            <span className="text-gray-400 text-xs">T2</span>
+          </div>
+          <div className="text-4xl font-bold text-gray-900">{fuelFlowTrend[fuelFlowTrend.length-1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-20">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={fuelFlowTrend}>
+                <YAxis domain={fuelFlowDomain} hide />
+                <Tooltip content={makeTooltip("Fuel Flow (kgph)")} />
+                <defs>
+                  <linearGradient id="fuelShadow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Line type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} dot={false} fillOpacity={0.2} />
+                <Area type="monotone" dataKey="value" stroke="none" fill="url(#fuelShadow)" fillOpacity={1} />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+           <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+            <h6>7024.14</h6>
+          </div>
+        </Card>
+        {/* Specific Energy Trend */}
+  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+          <div className="flex items-center justify-between mb-2">
+            <h5 className="text-sm text-gray-600 font-medium">Specific Energy (kcal/kg)</h5>
+            <span className="text-gray-400 text-xs">T3</span>
+          </div>
+          <div className="text-4xl font-bold text-gray-900">{energyTrend[energyTrend.length-1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-20">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={energyTrend}>
+                <YAxis domain={energyDomain} hide />
+                <Tooltip content={makeTooltip("Specific Energy (kcal/kg)")} />
+                <defs>
+                  <linearGradient id="energyShadow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Line type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} dot={false} fillOpacity={0.2} />
+                <Area type="monotone" dataKey="value" stroke="none" fill="url(#energyShadow)" fillOpacity={1} />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+           <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+            <h6> 698.69</h6>
+          </div>
+        </Card>
+        {/* Availability Trend */}
+  <Card className="bg-white shadow-lg rounded-2xl p-4 w-full">
+          <div className="flex items-center justify-between mb-2">
+            <h5 className="text-sm text-gray-600 font-medium">Availability (%)</h5>
+            <span className="text-gray-400 text-xs">T4</span>
+          </div>
+          <div className="text-4xl font-bold text-gray-900">{availabilityTrend[availabilityTrend.length-1]?.value}</div>
+          <CardContent className="p-0 mt-2 h-20">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={availabilityTrend}>
+                <YAxis domain={availabilityDomain} hide />
+                <Tooltip content={makeTooltip("Availability (%)")} />
+                <defs>
+                  <linearGradient id="availShadow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Line type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} dot={false} fillOpacity={0.2} />
+                <Area type="monotone" dataKey="value" stroke="none" fill="url(#availShadow)" fillOpacity={1} />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+           <div className="average flex items-center" >
+            <span className="text-gray-500 text-xs mr-1" >Average:</span> 
+            <h6>90.67</h6>
+          </div>
+        </Card>
       </div>
      
 
@@ -245,37 +260,36 @@ export default function Dashboard() {
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-gray-600 border-b">
-              <th className="py-2">Region</th>
-              <th>Sensor</th>
+              <th className="py-2">DateTime</th>
+              <th>Region</th>
+              <th>Sensor Name</th>
+              <th>Sensor ID</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b">
-              <td className="py-2">Zone A</td>
-              <td>Temp Sensor</td>
-              <td className="text-red-600 font-semibold">Critical</td>
-              <td><button className="text-blue-600">View</button></td>
+              <td className="py-2">8/8/2025 17:35</td>
+              <td>Rotary Klin</td>
+              <td >feed rate tph</td>
+              <td>FR-005</td>
+              <td className="text-red-600 font-semibold" >Critical</td>
             </tr>
             <tr>
-              <td className="py-2">Zone B</td>
-              <td>Pressure Sensor</td>
-              <td className="text-yellow-600 font-semibold">Warning</td>
-              <td><button className="text-blue-600">View</button></td>
+              <td className="py-2">8/8/2025 17:32</td>
+              <td>Rotary Klin</td>
+              <td >production tph</td>
+              <td>PH-112</td>
+              <td className="text-red-600 font-semibold" >Critical</td>
             </tr>
             <tr>
-              <td className="py-2">Zone B</td>
-              <td>Pressure Sensor</td>
-              <td className="text-yellow-600 font-semibold">Warning</td>
-              <td><button className="text-blue-600">View</button></td>
+              <td className="py-2">8/8/2025 16:00</td>
+              <td>Rotary Klin</td>
+              <td >O2 pct</td>
+              <td>OP-605</td>
+              <td className="text-yellow-600 font-semibold" >Warning</td>
             </tr>
-            <tr>
-              <td className="py-2">Zone B</td>
-              <td>Pressure Sensor</td>
-              <td className="text-yellow-600 font-semibold">Warning</td>
-              <td><button className="text-blue-600">View</button></td>
-            </tr>
+           
           </tbody>
         </table>
       </CardContent>
@@ -287,7 +301,7 @@ export default function Dashboard() {
       {/* Row 4: Energy Consumed (Bar Chart) */}
      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-4">
   {/* Energy Consumed */}
-  <div className="bottom col-span-1 md:col-span-1 xl:col-span-3 flex">
+  <div className="bottom col-span-1 md:col-span-1 xl:col-span-4 flex">
     <Card className="shadow-md bg-white w-full">
       <CardHeader>
         <CardTitle>Energy Consumed</CardTitle>
@@ -299,7 +313,7 @@ export default function Dashboard() {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="value" fill="#10b981" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="value" fill="#10b981" radius={[3, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
@@ -340,34 +354,35 @@ export default function Dashboard() {
   </div>
 
   {/* Optimization Status */}
-  <div className="bottom col-span-1 md:col-span-1 xl:col-span-3 flex">
-    <Card className="shadow-md bg-white w-full">
-      <CardHeader>
-        <CardTitle>Optimization Status</CardTitle>
-      </CardHeader>
-      <CardContent className="text-sm space-y-2">
-        <p>
-          Last Run:{" "}
-          <span className="font-medium">Aug 28, 2025 10:00 AM</span>
-        </p>
-        <p>
-          Next Run:{" "}
-          <span className="font-medium">Aug 30, 2025 10:00 AM</span>
-        </p>
-        <p>
-          Status:{" "}
-          <span className="text-green-600 font-semibold">Running</span>
-        </p>
-      </CardContent>
-    </Card>
+  <div className="bottom col-span-1 md:col-span-1 xl:col-span-2 flex flex-col gap-4 ">
+    <div className="optimization w-full flex flex-col gap-4">
+      <Card className="bg-white w-full shadow-md flex-1 flex items-center justify-center min-h-[64px] md:min-h-[80px] xl:min-h-[96px]">
+        <CardContent className="w-full text-center">
+          <h3 className="text-base md:text-lg xl:text-xl font-semibold">Optimization achieved till date</h3>
+        </CardContent>
+      </Card>
+      <Card className="shadow-md bg-white w-full flex-1">
+        <CardHeader className="px-4 pt-4 pb-2">
+          <CardTitle className="text-base md:text-lg xl:text-xl">Optimization Status</CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm md:text-base xl:text-lg space-y-2 px-4 pb-4">
+          <p>
+            Last Run:{" "}
+            <span className="font-medium">Aug 28, 2025 10:00 AM</span>
+          </p>
+          <p>
+            Next Run:{" "}
+            <span className="font-medium">Aug 30, 2025 10:00 AM</span>
+          </p>
+          <p>
+            Status:{" "}
+            <span className="text-green-600 font-semibold">Running</span>
+          </p>
+        </CardContent>
+      </Card>
+    </div>
   </div>
-</div>
-
-      
-     
-
-      
-
+  </div>
      
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { TooltipProps } from "recharts";
+import { PolarAngleAxis, RadialBar, RadialBarChart, TooltipProps } from "recharts";
 import {
   LineChart,
   Line,
@@ -210,47 +210,162 @@ export default function Dashboard() {
      
 
       {/* Row 2: Pie Charts */}
+{/* Row 2: Pie Charts + Efficiency + Alerts */}
 <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
   {/* Left Side (40%) */}
-  <div className="xl:col-span-5 flex gap-4">
-    <Card className="shadow-md w-1/2 bg-white">
-      <CardHeader>
-        <CardTitle>Anomalies</CardTitle>
-      </CardHeader>
-      <CardContent className="h-[250px] flex items-center justify-center">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={pieData1} dataKey="value" outerRadius={80} label>
-              {pieData1.map((_, i) => (
-                <Cell key={i} fill={COLORS[i % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </CardContent>
-    </Card>
+  <div className="xl:col-span-5 flex flex-col gap-4">
+    <div className="flex gap-4">
+      {/* Anomalies */}
+      <Card className="shadow-md w-1/2 bg-white">
+        <CardHeader>
+          <CardTitle>Anomalies</CardTitle>
+        </CardHeader>
+        <CardContent className="h-[250px] flex items-center justify-center">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie data={pieData1} dataKey="value" outerRadius={80} label>
+                {pieData1.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
 
-    <Card className="shadow-md w-1/2 bg-white">
-      <CardHeader>
-        <CardTitle>Downtime</CardTitle>
-      </CardHeader>
-      <CardContent className="h-[250px] flex items-center justify-center">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={pieData2} dataKey="value" outerRadius={80} label>
-              {pieData2.map((_, i) => (
-                <Cell key={i} fill={COLORS[i % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </CardContent>
-    </Card>
+      {/* Downtime */}
+      <Card className="shadow-md w-1/2 bg-white">
+        <CardHeader>
+          <CardTitle>Downtime</CardTitle>
+        </CardHeader>
+        <CardContent className="h-[250px] flex items-center justify-center">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie data={pieData2} dataKey="value" outerRadius={80} label>
+                {pieData2.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+    </div>
+
+    {/* Effectiveness / Efficiency Gauge */}
+   {/* Effectiveness / Efficiency Gauge */}
+<Card className="shadow-lg bg-white" style={{ boxShadow: "0 2px 12px 0 #10b981" }}>
+  <CardHeader>
+    <CardTitle className="text-xs md:text-sm xl:text-base">Efficiency</CardTitle>
+  </CardHeader>
+  <CardContent className="h-[140px] flex items-center justify-between gap-2">
+    {/* Left: Radial Chart */}
+    <div className="flex-1 flex items-center justify-center min-h-[100px]">
+      <ResponsiveContainer width={100} height={100}>
+        <RadialBarChart
+          innerRadius={40}
+          outerRadius={50}
+          data={[{ name: "Efficiency", value: 76, fill: "#10b981" }]}
+          startAngle={180}
+          endAngle={0}
+        >
+          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+          <RadialBar background dataKey="value" />
+          <text
+            x={50}
+            y={60}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="text-xs font-semibold fill-gray-700"
+          >
+            76%
+          </text>
+        </RadialBarChart>
+      </ResponsiveContainer>
+    </div>
+
+    {/* Right: KPIs */}
+    <div className="flex flex-col gap-1 w-1/3">
+      {/* Availability */}
+      <div className="flex items-center gap-1">
+        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-3 w-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <div>
+          <p className="text-[10px] text-gray-500">Availability</p>
+          <p className="text-xs font-semibold">92%</p>
+        </div>
+      </div>
+
+      {/* Performance */}
+      <div className="flex items-center gap-1">
+        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-3 w-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 17v-6h13M9 11L4 6m0 0l5 5m-5-5v12"
+            />
+          </svg>
+        </div>
+        <div>
+          <p className="text-[10px] text-gray-500">Performance</p>
+          <p className="text-xs font-semibold">88%</p>
+        </div>
+      </div>
+
+      {/* Quality */}
+      <div className="flex items-center gap-1">
+        <div className="w-5 h-5 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-3 w-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8c.637 0 1.27.098 1.866.29l3.59 1.197a2 2 0 011.305 2.52l-1.164 3.49A6.978 6.978 0 0112 20a6.978 6.978 0 01-5.597-2.503l-1.164-3.49a2 2 0 011.305-2.52l3.59-1.197A6.978 6.978 0 0112 8z"
+            />
+          </svg>
+        </div>
+        <div>
+          <p className="text-[10px] text-gray-500">Quality</p>
+          <p className="text-xs font-semibold">95%</p>
+        </div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
   </div>
 
-  {/* Right Side (60%) */}
+  {/* Right Side (60%) Alerts Table */}
   <div className="xl:col-span-7 flex flex-col gap-4">
     <Card className="shadow-md bg-white">
       <CardHeader>
@@ -271,31 +386,31 @@ export default function Dashboard() {
             <tr className="border-b">
               <td className="py-2">8/8/2025 17:35</td>
               <td>Rotary Klin</td>
-              <td >feed rate tph</td>
+              <td>feed rate tph</td>
               <td>FR-005</td>
-              <td className="text-red-600 font-semibold" >Critical</td>
+              <td className="text-red-600 font-semibold">Critical</td>
             </tr>
-            <tr>
+            <tr className="border-b">
               <td className="py-2">8/8/2025 17:32</td>
               <td>Rotary Klin</td>
-              <td >production tph</td>
+              <td>production tph</td>
               <td>PH-112</td>
-              <td className="text-red-600 font-semibold" >Critical</td>
+              <td className="text-red-600 font-semibold">Critical</td>
             </tr>
-            <tr>
+            <tr className="border-b">
               <td className="py-2">8/8/2025 16:00</td>
               <td>Rotary Klin</td>
-              <td >O2 pct</td>
+              <td>O2 pct</td>
               <td>OP-605</td>
-              <td className="text-yellow-600 font-semibold" >Warning</td>
+              <td className="text-yellow-600 font-semibold">Warning</td>
             </tr>
-           
           </tbody>
         </table>
       </CardContent>
     </Card>
   </div>
 </div>
+
 
 
       {/* Row 4: Energy Consumed (Bar Chart) */}

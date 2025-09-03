@@ -263,6 +263,23 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">FR-005</TableCell>
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
 
+                     <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
+                      className="text-yellow-600 cursor-pointer rounded-md p-1
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-0 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
+                  </TableCell>
+
                   {/* BookText with tooltip */}
                   <TableCell className="p-2 relative group">
                     <BookText
@@ -282,22 +299,7 @@ export default function Dashboard() {
                   </TableCell>
 
                   {/* AlertTriangle with tooltip */}
-                  <TableCell className="p-2 relative group">
-                    <AlertTriangle
-                      onClick={() => setLocation("/anomaly")}
-                      className="text-yellow-600 cursor-pointer rounded-md p-1
-                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                     transition-colors duration-200"
-                    />
-                    <span
-                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-0 
-                     hidden group-hover:block
-                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
-                     whitespace-nowrap shadow-lg"
-                    >
-                      Anomaly
-                    </span>
-                  </TableCell>
+               
 
                   {/* Bell with tooltip */}
                   <TableCell className="p-2 relative group">
@@ -326,6 +328,23 @@ export default function Dashboard() {
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
 
                   <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
+                      className="text-yellow-600 cursor-pointer rounded-md p-1
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
+                  </TableCell>
+
+                  <TableCell className="p-2 relative group">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
                      hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
@@ -342,22 +361,7 @@ export default function Dashboard() {
                     </span>
                   </TableCell>
 
-                  <TableCell className="p-2 relative group">
-                    <AlertTriangle
-                      onClick={() => setLocation("/anomaly")}
-                      className="text-yellow-600 cursor-pointer rounded-md p-1
-                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                     transition-colors duration-200"
-                    />
-                    <span
-                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
-                     hidden group-hover:block
-                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
-                     whitespace-nowrap shadow-lg"
-                    >
-                      Anomaly
-                    </span>
-                  </TableCell>
+
 
                   <TableCell className="p-2 relative group">
                     <Bell
@@ -385,6 +389,23 @@ export default function Dashboard() {
                   <TableCell className="font-semibold text-yellow-600">Warning</TableCell>
 
                   <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
+                      className="text-yellow-600 cursor-pointer rounded-md p-1
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
+                  </TableCell>
+
+                  <TableCell className="p-2 relative group">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
                      hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
@@ -401,22 +422,6 @@ export default function Dashboard() {
                     </span>
                   </TableCell>
 
-                  <TableCell className="p-2 relative group">
-                    <AlertTriangle
-                      onClick={() => setLocation("/anomaly")}
-                      className="text-yellow-600 cursor-pointer rounded-md p-1
-                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                     transition-colors duration-200"
-                    />
-                    <span
-                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
-                     hidden group-hover:block
-                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
-                     whitespace-nowrap shadow-lg"
-                    >
-                      Anomaly
-                    </span>
-                  </TableCell>
 
                   <TableCell className="p-2 relative group">
                     <Bell

@@ -277,7 +277,7 @@ export default function Dashboard() {
                      bg-gray-900 text-white text-xs rounded-md px-2 py-1
                      whitespace-nowrap shadow-lg"
                     >
-                      Notes
+                      Trends
                     </span>
                   </TableCell>
 
@@ -338,7 +338,7 @@ export default function Dashboard() {
                      bg-gray-900 text-white text-xs rounded-md px-2 py-1
                      whitespace-nowrap shadow-lg"
                     >
-                      Notes
+                      Trends
                     </span>
                   </TableCell>
 
@@ -397,7 +397,7 @@ export default function Dashboard() {
                      bg-gray-900 text-white text-xs rounded-md px-2 py-1
                      whitespace-nowrap shadow-lg"
                     >
-                      Notes
+                      Trends
                     </span>
                   </TableCell>
 

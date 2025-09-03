@@ -109,9 +109,9 @@ export default function Dashboard() {
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
             <h5 className="text-sm text-gray-600 font-medium ">Clinker Production (t/hr)</h5>
-            <Circle className="h-4 w-4 text-blue-600" />
+            <Circle className="h-4 w-4 text-red-600" />
           </div>
-          <div className="text-xl font-bold text-blue-600">108.19</div>
+          <div className="text-xl font-bold text-red-600">70.89</div>
 
           <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
@@ -195,9 +195,9 @@ export default function Dashboard() {
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
             <h5 className="text-sm text-gray-600 font-medium">CO2 Emission (kg CO2/GJ)</h5>
-             <XCircle className="h-4 w-4 text-red-600" />
+             <XCircle className="h-4 w-4 text-blue-600" />
           </div>
-          <div className="text-xl font-bold text-orange-600">97</div>
+          <div className="text-xl font-bold text-blue-600">97</div>
           <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={availabilityTrend}>
@@ -428,9 +428,10 @@ export default function Dashboard() {
     <text
       x={x}
       y={y}
+      dy={-14}
       textAnchor="middle"
       dominantBaseline="middle"
-      className="text-lg font-bold fill-green-600"
+      className="text-4xl font-bold fill-green-600"
       transform={`rotate(${-(angle - 90)}, ${x}, ${y})`} // rotate around arrow position
     >
       ↑
@@ -449,7 +450,7 @@ export default function Dashboard() {
           <span className="text-[12px]">⏱</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Availability</p>
+          <p className="text-xs text-gray-500">Availability</p>
           <p className="text-xs font-semibold">92%</p>
         </div>
       </div>
@@ -459,7 +460,7 @@ export default function Dashboard() {
           <span className="text-[12px]">📈</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Performance</p>
+          <p className="text-xs text-gray-500">Performance</p>
           <p className="text-xs font-semibold">88%</p>
         </div>
       </div>
@@ -469,7 +470,7 @@ export default function Dashboard() {
           <span className="text-[12px]">⭐</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Quality</p>
+          <p className="text-xs text-gray-500">Quality</p>
           <p className="text-xs font-semibold">95%</p>
         </div>
       </div>

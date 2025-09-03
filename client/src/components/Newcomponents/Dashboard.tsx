@@ -380,14 +380,9 @@ export default function Dashboard() {
 
 {/* Efficiency */}
 {/* Efficiency */}
-<Card
-  className="shadow-md bg-white"
-  style={{ height: "fit-content" }}
->
+<Card className="shadow-md bg-white" style={{ height: "fit-content" }}>
   <CardHeader className="p-2">
-    <CardTitle className="text-sm md:text-base font-semibold">
-      OEE
-    </CardTitle>
+    <CardTitle className="text-sm md:text-base font-semibold">OEE</CardTitle>
   </CardHeader>
 
   <CardContent className="h-[120px] flex items-center justify-between px-3 pb-3">
@@ -401,33 +396,48 @@ export default function Dashboard() {
           startAngle={180}
           endAngle={0}
         >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 100]}
-            angleAxisId={0}
-            tick={false}
-          />
+          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
           <RadialBar background dataKey="value" cornerRadius={8} />
+
           {/* Center Label */}
           <text
             x="50%"
-            y="40%"
+            y="45%"
             textAnchor="middle"
             dominantBaseline="middle"
             className="text-sm font-bold fill-gray-700"
           >
             76%
           </text>
-            {/* Arrow Pointer */}
-          <text
-            x="50%"
-            y="28%"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            className="text-lg font-bold fill-green-600"
-          >
-            ↑
-          </text>
+
+         {/* Arrow Pointer at value position */}
+{(() => {
+  const value = 76; // efficiency %
+  const RADIAN = Math.PI / 180;
+
+  // Chart goes from 180° (left) → 0° (right)
+  const angle = 180 - (value / 100) * 180; 
+  const r = 30; // distance from center
+  const cx = 55; 
+  const cy = 70;
+
+  const x = cx + r * Math.cos(-angle * RADIAN);
+  const y = cy + r * Math.sin(-angle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      dominantBaseline="middle"
+      className="text-lg font-bold fill-green-600"
+      transform={`rotate(${-(angle - 90)}, ${x}, ${y})`} // rotate around arrow position
+    >
+      ↑
+    </text>
+  );
+})()}
+
         </RadialBarChart>
       </ResponsiveContainer>
     </div>
@@ -439,7 +449,7 @@ export default function Dashboard() {
           <span className="text-[12px]">⏱</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Availablity</p>
+          <p className="text-[10px] text-gray-500">Availability</p>
           <p className="text-xs font-semibold">92%</p>
         </div>
       </div>
@@ -466,6 +476,7 @@ export default function Dashboard() {
     </div>
   </CardContent>
 </Card>
+
 
 
 

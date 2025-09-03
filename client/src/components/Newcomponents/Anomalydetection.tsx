@@ -394,31 +394,31 @@ const sensorData = [
 ];
 
 const metrics = [
-    { key: "preheater_temp_C", label: "Preheater Temp (°C)", value: 850 },
-    { key: "kiln_zone_1_temp_C", label: "Kiln Zone 1 Temp (°C)", value: 1150 },
-    { key: "kiln_zone_2_temp_C", label: "Kiln Zone 2 Temp (°C)", value: 1200 },
-    { key: "kiln_zone_3_temp_C", label: "Kiln Zone 3 Temp (°C)", value: 1250 },
-    { key: "kiln_zone_4_temp_C", label: "Kiln Zone 4 Temp (°C)", value: 1280 },
-    { key: "kiln_zone_5_temp_C", label: "Kiln Zone 5 Temp (°C)", value: 1300 },
-    { key: "clinker_temp_C", label: "Clinker Temp (°C)", value: 1450 },
-    { key: "kiln_speed_rpm", label: "Kiln Speed (rpm)", value: 4.2 },
-    { key: "feed_rate_tph", label: "Feed Rate (tph)", value: 250 },
-    { key: "production_tph", label: "Production (tph)", value: 245 },
-    { key: "fuel_flow_kgph", label: "Fuel Flow (kg/h)", value: 7800 },
-    { key: "specific_energy_kcal_per_kg", label: "Specific Energy (kcal/kg)", value: 698 },
-    { key: "O2_pct", label: "O₂ (%)", value: 3.2 },
-    { key: "CO_ppm", label: "CO (ppm)", value: 120 },
-    { key: "NOx_ppm", label: "NOx (ppm)", value: 450 },
-    { key: "kiln_pressure_mbar", label: "Kiln Pressure (mbar)", value: -2.5 },
-    { key: "primary_fan_speed_rpm", label: "Primary Fan Speed (rpm)", value: 1450 },
-    { key: "secondary_fan_speed_rpm", label: "Secondary Fan Speed (rpm)", value: 1380 },
-    { key: "clinker_CaO_pct", label: "Clinker CaO (%)", value: 65.5 },
-    { key: "clinker_SiO2_pct", label: "Clinker SiO₂ (%)", value: 21.8 },
-    { key: "burner_valve_position_pct", label: "Burner Valve Position (%)", value: 78 },
-    { key: "ESP_inlet_temp_C", label: "ESP Inlet Temp (°C)", value: 280 },
-    { key: "draft_fan_vfd_speed_pct", label: "Draft Fan VFD Speed (%)", value: 62 },
-    { key: "kiln_torque_kNm", label: "Kiln Torque (kNm)", value: 145 },
-    // { key: "fuel_type", label: "Fuel Type", value: "Coal" },
+    { key: "preheater_temp_C", label: "Preheater Temp (°C)", value: 546.14 },
+    { key: "kiln_zone_1_temp_C", label: "Kiln Zone 1 Temp (°C)", value: 897.049 },
+    { key: "kiln_zone_2_temp_C", label: "Kiln Zone 2 Temp (°C)", value: 1093.054 },
+    { key: "kiln_zone_3_temp_C", label: "Kiln Zone 3 Temp (°C)", value: 1334.686 },
+    { key: "kiln_zone_4_temp_C", label: "Kiln Zone 4 Temp (°C)", value: 1442.435 },
+    { key: "kiln_zone_5_temp_C", label: "Kiln Zone 5 Temp (°C)", value: 1433.019 },
+    { key: "clinker_temp_C", label: "Clinker Temp (°C)", value: 1178.859 },
+    { key: "kiln_speed_rpm", label: "Kiln Speed (rpm)", value: 2.004 },
+    { key: "feed_rate_tph", label: "Feed Rate (tph)", value: 51.123 },
+    { key: "production_tph", label: "Production (tph)", value: 70.89 },
+    { key: "fuel_flow_kgph", label: "Fuel Flow (kg/h)", value: 6986.166 },
+    { key: "specific_energy_kcal_per_kg", label: "Specific Energy (kcal/kg)", value: 696.397 },
+    { key: "O2_pct", label: "O₂ (%)", value: 3.915 },
+    { key: "CO_ppm", label: "CO (ppm)", value: 48.2 },
+    { key: "NOx_ppm", label: "NOx (ppm)", value: 317.445 },
+    { key: "kiln_pressure_mbar", label: "Kiln Pressure (mbar)", value: -5.864 },
+    { key: "primary_fan_speed_rpm", label: "Primary Fan Speed (rpm)", value: 1432.049 },
+    { key: "secondary_fan_speed_rpm", label: "Secondary Fan Speed (rpm)", value: 964.738 },
+    { key: "clinker_CaO_pct", label: "Clinker CaO (%)", value: 61.942 },
+    { key: "clinker_SiO2_pct", label: "Clinker SiO₂ (%)", value: 20.991 },
+    { key: "burner_valve_position_pct", label: "Burner Valve Position (%)", value: 63.615 },
+    { key: "ESP_inlet_temp_C", label: "ESP Inlet Temp (°C)", value: 244.394 },
+    { key: "draft_fan_vfd_speed_pct", label: "Draft Fan VFD Speed (%)", value: 69.002 },
+    { key: "kiln_torque_kNm", label: "Kiln Torque (kNm)", value: 447.615 },
+    // { key: "fuel_type", label: "Fuel Type", value: "Alternative Fuel" },
 ];
 
 const failureData = [
@@ -544,7 +544,7 @@ const Anomalydetection = () => {
 
                     <h5 className="text-l font-bold text-gray-800 mb-4">Live Parameter</h5>
 
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-6 gap-2 mb-8">
                         {metrics.map((metric, idx) => {
                             let textColor = "text-green-600"; // default green
 

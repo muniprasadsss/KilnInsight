@@ -248,9 +248,9 @@ export default function Dashboard() {
                   <TableHead className="text-white">Sensor Name</TableHead>
                   <TableHead className="text-white">Sensor ID</TableHead>
                   <TableHead className="text-white">Status</TableHead>
-                  <TableHead className="text-white">Trends</TableHead>
-                  <TableHead className="text-white">Anomaly</TableHead>
-                  <TableHead className="text-white">Alerts</TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
                 </TableRow>
               </TableHeader>
 
@@ -262,7 +262,7 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">Feed Rate (t/hr)</TableCell>
                   <TableCell className="text-gray-700">FR-005</TableCell>
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
@@ -270,13 +270,13 @@ export default function Dashboard() {
                       onClick={() => setIsNoteOpen(true)}
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <AlertTriangle onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
                     transition-colors duration-200" />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-red-600 hover:bg-red-600/10
@@ -291,7 +291,7 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">Production (t/hr)</TableCell>
                   <TableCell className="text-gray-700">PH-112</TableCell>
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
@@ -299,13 +299,13 @@ export default function Dashboard() {
                       onClick={() => setIsNoteOpen(true)}
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <AlertTriangle onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
                     transition-colors duration-200" />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-red-600 hover:bg-red-600/10
@@ -320,7 +320,7 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">O2 (%)</TableCell>
                   <TableCell className="text-gray-700">OP-605</TableCell>
                   <TableCell className="font-semibold text-yellow-600">Warning</TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
@@ -328,13 +328,13 @@ export default function Dashboard() {
                       onClick={() => setIsNoteOpen(true)}
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <AlertTriangle onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
                     transition-colors duration-200" />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="p-2">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
                     hover:border hover:border-red-600 hover:bg-red-600/10
@@ -642,11 +642,11 @@ export default function Dashboard() {
               <CardContent className="text-xs md:text-sm xl:text-sm space-y-1 px-3 pb-3">
                 <p>
                   Last Run:{" "}
-                  <span className="font-normal">Aug 28, 2025 10:00 AM</span>
+                  <span className="font-normal">August 6 2025 at 6 PM</span>
                 </p>
                 <p>
                   Next Run:{" "}
-                  <span className="font-normal">Aug 30, 2025 10:00 AM</span>
+                  <span className="font-normal">August 6, 2025 at 6:30PM</span>
                 </p>
                 <p>
                   Status:{" "}

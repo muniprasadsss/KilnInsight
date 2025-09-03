@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { User, Settings, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "../../../../public/logo.svg";
+import logo from "../../../public/logo.svg";
 import logo_shot from "../../../../public/logo-shot.png";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 interface HeaderProps {

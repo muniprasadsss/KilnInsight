@@ -9,7 +9,7 @@ import { AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import historical_image from '../../../../public/historical_tab_image.jpg'
+import historical_image from '../../../public/historical_tab_image.jpg'
 
 const metricOptions = [
     { label: "Feed Rate (Tph)", key: "feed_rate_tph", color: "#17e217", timeToFailure: "33 mins" },
@@ -680,9 +680,10 @@ const Anomalydetection = () => {
 
                         </CardHeader>
                         <CardContent>
-                            <div className="mx-auto" style={{ maxWidth: 830, height: 410 }}>
+                            <div className="flex flex-row">
+                            <div className="basis-[70%] flex-1" style={{ maxWidth: 830, height: 330 }}>
                                 <ChartContainer config={chartConfig}>
-                                    <ResponsiveContainer width="100%" height={300}>
+                                    <ResponsiveContainer  height={300} >
                                         <LineChart data={dataWithMaskedMetric} margin={{ top: 20, right: 20, left: 10, bottom: 20 }}>
                                             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                                             <XAxis
@@ -745,12 +746,7 @@ const Anomalydetection = () => {
                                     </ResponsiveContainer>
                                 </ChartContainer>
                             </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* --- Info Panel - Bottom --- */}
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                             <div className="basis-[30%] flex flex-col gap-4 mb-8">
                         {/* Anomaly Detected */}
                         <div className="bg-[#fff5f5] p-3 sm:p-4 rounded-lg border border-[#f8d7da]">
                             <h4 className="font-semibold text-[#842029] mb-2 text-sm sm:text-base">
@@ -780,7 +776,13 @@ const Anomalydetection = () => {
                                 Stabilize O₂ Control, Inspect and restore raw meal feed and Adjust combustion air.
                             </small>
                         </div>
-                    </div>
+                            </div>
+                            </div>
+                          
+                        </CardContent>
+                    </Card>
+
+                   
 
                 </TabsContent>
 

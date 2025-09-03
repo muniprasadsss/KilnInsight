@@ -383,7 +383,7 @@ const sensorData = [
         priority: "Critical",
     },
     {
-        name: "O2 (Pct)",
+        name: "O2 (%)",
         max: 3.9,
         min: 3.1,
         current: 3.92,

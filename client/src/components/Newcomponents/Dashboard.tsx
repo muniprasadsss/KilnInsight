@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { PolarAngleAxis, RadialBar, RadialBarChart, TooltipProps } from "recharts";
+import { Legend, PolarAngleAxis, RadialBar, RadialBarChart, TooltipProps } from "recharts";
 import {
   LineChart,
   Line,
@@ -31,30 +31,43 @@ const pieData2 = [
   { name: "Unplanned", value: 2 },
 ];
 
-const COLORS = ["#2198cfff", "#e75787ff"];
+const COLORS = ["#ee4426ff", "#d1ac32ff"];
+const COLORS1 = ["#09a817ff", "#ddb42cff"];
 
 const barData = [
-  { name: "Daily", value: 701.23 },
-  { name: "Weekly", value: 699.65 },
-  { name: "Monthly", value: 697.12 },
+  { name: "Daily", value: 720.5 },
+
 
 ];
 
 const factors = [
-  { name: "fuel flow kgph", value: 45 },
-  { name: "feed rate tph", value: 35 },
-  { name: "primary fan speed rpm", value: 15 },
+  { name: "Fuel GCV", value: 35 },
+  { name: "Fuel Flow", value: 30 },
+  { name: "Feed Rate", value: 20 },
+  { name: "Primary Fan Speed", value: 10 },
 ];
 
 export default function Dashboard() {
+  // Custom tooltip for Top Contributing Factors
+  function FactorsTooltip({ active, payload }: TooltipProps<number, string>) {
+    if (active && payload && payload.length && payload[0].value !== undefined) {
+      return (
+        <div className="bg-white p-2 rounded shadow text-xs border border-gray-200">
+          {/* <div><span className="font-semibold">{payload[0].name}</span></div> */}
+          <div>Value: <span className="font-bold">{payload[0].value}%</span></div>
+        </div>
+      );
+    }
+    return null;
+  }
   // Custom tooltip for trend charts
   function makeTooltip(cardName: string) {
     return function CustomTooltip({ active, payload }: TooltipProps<number, string>) {
       if (active && payload && payload.length && payload[0].value !== undefined) {
         return (
           <div className="bg-white p-2 rounded shadow text-xs border border-gray-200">
-            <div><span className="font-semibold">{cardName}</span></div>
-            <div>Value: <span className="font-bold">{payload[0].value}</span></div>
+            <div><span className="font-semibold">{payload[0].name}</span></div>
+            <div><span className="font-bold">{payload[0].value}</span></div>
           </div>
         );
       }
@@ -95,7 +108,7 @@ export default function Dashboard() {
         {/* Production Trend */}
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-xs text-gray-600 font-medium">Production (tph)</h5>
+            <h5 className="text-sm text-gray-600 font-medium ">Clinker Production (t/hr)</h5>
             <Circle className="h-4 w-4 text-blue-600" />
           </div>
           <div className="text-xl font-bold text-blue-600">108.19</div>
@@ -117,7 +130,7 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span>
+            <span className="text-gray-500 text-xs mr-1" >Daily Average:</span>
             <p className= "text-xs"> 108.09</p>
           </div>
 
@@ -125,7 +138,7 @@ export default function Dashboard() {
         {/* Fuel Flow Trend */}
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-xs text-gray-600 font-medium">Fuel Flow (kgph)</h5>
+            <h5 className="text-sm text-gray-600 font-medium">Fuel Consumption (kg/hr)</h5>
              <CheckCircle className="h-4 w-4 text-green-600" />
           </div>
           <div className="text-xl font-bold text-green-600">{fuelFlowTrend[fuelFlowTrend.length - 1]?.value}</div>
@@ -146,14 +159,14 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span>
+            <span className="text-gray-500 text-xs mr-1" >Daily Average:</span>
             <p className= "text-xs">7024.14</p>
           </div>
         </Card>
         {/* Specific Energy Trend */}
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-xs text-gray-600 font-medium">Specific Energy (kcal/kg)</h5>
+            <h5 className="text-sm text-gray-600 font-medium">Specific Energy (kcal/kg clinker)</h5>
            <AlertTriangle className="h-4 w-4 text-yellow-600" />
           </div>
           <div className="text-xl font-bold text-yellow-500">{energyTrend[energyTrend.length - 1]?.value}</div>
@@ -174,17 +187,17 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span>
+            <span className="text-gray-500 text-xs mr-1" >Daily Average:</span>
             <p className= "text-xs"> 698.69</p>
           </div>
         </Card>
         {/* Availability Trend */}
         <Card className="bg-white shadow-lg rounded-xl p-3 w-full" style={{height:"9rem"}}>
           <div className="flex items-center justify-between mb-2">
-            <h5 className="text-xs text-gray-600 font-medium">Availability (%)</h5>
+            <h5 className="text-sm text-gray-600 font-medium">CO2 Emission (kg CO2/GJ)</h5>
              <XCircle className="h-4 w-4 text-red-600" />
           </div>
-          <div className="text-xl font-bold text-orange-600">{availabilityTrend[availabilityTrend.length - 1]?.value}</div>
+          <div className="text-xl font-bold text-orange-600">97</div>
           <CardContent className="p-0 mt-2 h-8">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={availabilityTrend}>
@@ -202,8 +215,8 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
           <div className="average flex items-center" >
-            <span className="text-gray-500 text-xs mr-1" >Average:</span>
-            <p className= "text-xs">90.67</p>
+            <span className="text-gray-500 text-xs mr-1" >Daily Average:</span>
+            <p className= "text-xs">97.5</p>
           </div>
         </Card>
       </div>
@@ -220,7 +233,7 @@ export default function Dashboard() {
                 <TableHeader>
                   <TableRow className="bg-[#088fd1] text-white font-semibold text-sm">
                     <TableHead className="text-white">DateTime</TableHead>
-                    <TableHead className="text-white">Region</TableHead>
+                    <TableHead className="text-white">Equipment</TableHead>
                     <TableHead className="text-white">Sensor Name</TableHead>
                     <TableHead className="text-white">Sensor ID</TableHead>
                     <TableHead className="text-white">Status</TableHead>
@@ -232,7 +245,7 @@ export default function Dashboard() {
                   <TableRow className="text-sm">
                     <TableCell className="font-medium text-gray-800">8/8/2025 17:35</TableCell>
                     <TableCell className="text-gray-700">Rotary Klin</TableCell>
-                    <TableCell className="text-gray-700">feed rate tph</TableCell>
+                    <TableCell className="text-gray-700">Feed Rate (t/hr)</TableCell>
                     <TableCell className="text-gray-700">FR-005</TableCell>
                     <TableCell className="font-semibold text-red-600">Critical</TableCell>
                   </TableRow>
@@ -240,7 +253,7 @@ export default function Dashboard() {
                   <TableRow className="text-sm">
                     <TableCell className="font-medium text-gray-800">8/8/2025 17:32</TableCell>
                     <TableCell className="text-gray-700">Rotary Klin</TableCell>
-                    <TableCell className="text-gray-700">production tph</TableCell>
+                    <TableCell className="text-gray-700">Production (t/hr)</TableCell>
                     <TableCell className="text-gray-700">PH-112</TableCell>
                     <TableCell className="font-semibold text-red-600">Critical</TableCell>
                   </TableRow>
@@ -248,7 +261,7 @@ export default function Dashboard() {
                   <TableRow className="text-sm">
                     <TableCell className="font-medium text-gray-800">8/8/2025 16:00</TableCell>
                     <TableCell className="text-gray-700">Rotary Klin</TableCell>
-                    <TableCell className="text-gray-700">O2 pct</TableCell>
+                    <TableCell className="text-gray-700">O2 (%)</TableCell>
                     <TableCell className="text-gray-700">OP-605</TableCell>
                     <TableCell className="font-semibold text-yellow-600">Warning</TableCell>
                   </TableRow>
@@ -262,47 +275,56 @@ export default function Dashboard() {
       {/* Row 2: Pie Charts + Efficiency + Alerts */}
 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
   {/* Anomalies */}
-  <Card className="shadow-md bg-white " style={{height:"10rem"}}>
-    <CardHeader className="p-1">
-      <CardTitle className="text-xs md:text-sm">Anomalies</CardTitle>
-    </CardHeader>
-    <CardContent className="h-[108px] flex items-center justify-center p-1">
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-         <Pie
-  data={pieData1}
-  dataKey="value"
-  outerRadius={50}
-  label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, value }) => {
-    const RADIAN = Math.PI / 180;
-    const radius = innerRadius + (outerRadius - innerRadius) / 2;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+<Card className="shadow-md bg-white" style={{ height: "10rem" }}>
+  <CardHeader className="p-1">
+    <CardTitle className="text-xs md:text-sm">Anomalies</CardTitle>
+  </CardHeader>
+  <CardContent className="h-[108px] flex items-center justify-center p-1">
+    <ResponsiveContainer width="100%" height="100%">
+      <PieChart>
+        <Pie
+          data={pieData1}
+          dataKey="value"
+          outerRadius={50}
+          label={({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+            const RADIAN = Math.PI / 180;
+            const radius = innerRadius + (outerRadius - innerRadius) / 2;
+            const x = cx + radius * Math.cos(-midAngle * RADIAN);
+            const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="black"
-        textAnchor="middle"
-        dominantBaseline="central"
-        className="text-[10px] font-semibold"
-      >
-        {value}
-      </text>
-    );
-  }}
->
-  {pieData1.map((_, i) => (
-    <Cell key={i} fill={COLORS[i % COLORS.length]} />
-  ))}
-</Pie>
+            return (
+              <text
+                x={x}
+                y={y}
+                fill="black"
+                textAnchor="middle"
+                dominantBaseline="central"
+                className="text-[10px] font-semibold"
+              >
+                {value}
+              </text>
+            );
+          }}
+        >
+          {pieData1.map((entry, i) => (
+            <Cell key={i} fill={COLORS[i % COLORS.length]} />
+          ))}
+        </Pie>
+        {/* ✅ Add legend outside */}
+        <Legend
+          layout="vertical"
+          align="right"
+          verticalAlign="middle"
+          formatter={(value, entry) => (
+            <span className="text-[10px] text-gray-600">{value}</span>
+          )}
+        />
+        <Tooltip />
+      </PieChart>
+    </ResponsiveContainer>
+  </CardContent>
+</Card>
 
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
-    </CardContent>
-  </Card>
 
   {/* Downtime */}
   <Card className="shadow-md bg-white" style={{height:"10rem"}}>
@@ -337,9 +359,18 @@ export default function Dashboard() {
   }}
 >
   {pieData2.map((_, i) => (
-    <Cell key={i} fill={COLORS[i % COLORS.length]} />
+    <Cell key={i} fill={COLORS1[i % COLORS1.length]} />
   ))}
 </Pie>
+ {/* ✅ Add legend outside */}
+        <Legend
+          layout="vertical"
+          align="right"
+          verticalAlign="middle"
+          formatter={(value, entry) => (
+            <span className="text-[10px] text-gray-600">{value}</span>
+          )}
+        />
 
           <Tooltip />
         </PieChart>
@@ -362,9 +393,9 @@ export default function Dashboard() {
   <CardContent className="h-[120px] flex items-center justify-between px-3 pb-3">
     {/* Radial Chart */}
     <div className="flex-1 flex items-center justify-center">
-      <ResponsiveContainer width={120} height={120}>
+      <ResponsiveContainer width={140} height={140}>
         <RadialBarChart
-          innerRadius="70%"
+          innerRadius="90%"
           outerRadius="100%"
           data={[{ name: "Efficiency", value: 76, fill: "#10b981" }]}
           startAngle={180}
@@ -376,16 +407,26 @@ export default function Dashboard() {
             angleAxisId={0}
             tick={false}
           />
-          <RadialBar background dataKey="value" cornerRadius={5} />
+          <RadialBar background dataKey="value" cornerRadius={8} />
           {/* Center Label */}
           <text
             x="50%"
-            y="60%"
+            y="40%"
             textAnchor="middle"
             dominantBaseline="middle"
             className="text-sm font-bold fill-gray-700"
           >
             76%
+          </text>
+            {/* Arrow Pointer */}
+          <text
+            x="50%"
+            y="28%"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="text-lg font-bold fill-green-600"
+          >
+            ↑
           </text>
         </RadialBarChart>
       </ResponsiveContainer>
@@ -398,7 +439,7 @@ export default function Dashboard() {
           <span className="text-[12px]">⏱</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Avail.</p>
+          <p className="text-[10px] text-gray-500">Availablity</p>
           <p className="text-xs font-semibold">92%</p>
         </div>
       </div>
@@ -408,7 +449,7 @@ export default function Dashboard() {
           <span className="text-[12px]">📈</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Perf.</p>
+          <p className="text-[10px] text-gray-500">Performance</p>
           <p className="text-xs font-semibold">88%</p>
         </div>
       </div>
@@ -418,7 +459,7 @@ export default function Dashboard() {
           <span className="text-[12px]">⭐</span>
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Qual.</p>
+          <p className="text-[10px] text-gray-500">Quality</p>
           <p className="text-xs font-semibold">95%</p>
         </div>
       </div>
@@ -447,9 +488,9 @@ export default function Dashboard() {
                 <BarChart data={barData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
-                  <YAxis domain={[695, 705]} />
+                  <YAxis domain={[650, 900]} label={{ value: "Kcal/Kg Clinker", angle: -90, position: "insideLeft" ,style: { textAnchor: "middle" }}}  />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#4eafdbff" radius={[3, 2, 0, 0]} barSize={14} />
+                  <Bar dataKey="value" fill="#4eafdbff" radius={[3, 2, 0, 0]} barSize={80} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -477,7 +518,7 @@ export default function Dashboard() {
                     width={100}
                   />
                   <XAxis type="number" hide />
-                  <Tooltip />
+                  <Tooltip content={FactorsTooltip} />
                   <Bar
                     dataKey="value"
                     fill="#088fd1"
@@ -496,7 +537,7 @@ export default function Dashboard() {
     <Card className="bg-white w-full shadow-md flex-1 flex flex-col items-center justify-center min-h-[56px] md:min-h-[64px] xl:min-h-[72px]">
       
       <div className="flex items-center flex-col justify-between mb-2">
-            <h5 className="text-xs text-gray-600 font-medium">Optimization achieved</h5>
+            <h5 className="text-xs text-gray-600 font-medium">Energy Optimized</h5>
             
           </div>
           <div className="text-xl font-bold text-blue-600"> 2.43%</div>
@@ -525,7 +566,7 @@ export default function Dashboard() {
       </CardContent>
     </Card>
   </div>
-</div>
+      </div>
 
       </div>
 

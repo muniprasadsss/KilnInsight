@@ -519,9 +519,9 @@ const Anomalydetection = () => {
         return {
             ...d,
             // Actual metric up to and including anomaly
-            [selectedMetric.key]: ts <= anomalyTime ? d[selectedMetric.key] : null,
+            [selectedMetric.key]: ts <= anomalyTime ? d[selectedMetric.key as keyof typeof d] : null,
             // Forecasted from anomaly onwards (including anomaly itself)
-            forecasted: ts >= anomalyTime ? d[selectedMetric.key] : null,
+            forecasted: ts >= anomalyTime ? d[selectedMetric.key as keyof typeof d] : null,
         };
     });
 

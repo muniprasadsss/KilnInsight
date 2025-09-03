@@ -17,7 +17,7 @@ import {
   Area,
 } from "recharts";
 import { CheckCircle, AlertTriangle, XCircle, Clock, Circle } from "lucide-react";
-import trendsData from "../../../../public/dashboardTrends.json"
+import trendsData from "../../../public/dashboardTrends.json"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 

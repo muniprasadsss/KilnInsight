@@ -172,7 +172,7 @@ export default function DataManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Data Sources</p>
-                <p className="text-2xl font-bold text-white">{dataSources.length}</p>
+                <p className="text-2xl font-bold text-gray-700">{dataSources.length}</p>
                 <p className="text-xs text-status-normal">
                   {dataSources.filter(d => d.status === 'connected').length} Active
                 </p>
@@ -187,7 +187,7 @@ export default function DataManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Data Quality</p>
-                <p className="text-2xl font-bold text-white">94.3%</p>
+                <p className="text-2xl font-bold text-gray-700">94.3%</p>
                 <p className="text-xs text-status-normal">↑ 2.1% improvement</p>
               </div>
               <CheckCircle className="text-3xl text-status-normal" />
@@ -200,7 +200,7 @@ export default function DataManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Total Records</p>
-                <p className="text-2xl font-bold text-white">29.8K</p>
+                <p className="text-2xl font-bold text-gray-700">29.8K</p>
                 <p className="text-xs text-black-200">Last 24 hours</p>
               </div>
               <Database className="text-3xl text-black-200" />
@@ -213,7 +213,7 @@ export default function DataManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Storage Used</p>
-                <p className="text-2xl font-bold text-white">2.4GB</p>
+                <p className="text-2xl font-bold text-gray-700">2.4GB</p>
                 <p className="text-xs text-black-200">of 10GB allocated</p>
               </div>
               <Database className="text-3xl text-black-200" />
@@ -258,7 +258,7 @@ export default function DataManagement() {
                 <TableBody>
                   {dataSources.map((source) => (
                     <TableRow key={source.id} className="border-gray-800 hover:bg-gray-800">
-                      <TableCell className="text-white">
+                      <TableCell className="text-gray-700">
                         <div className="flex items-center space-x-2">
                           {getStatusIcon(source.status)}
                           <span className="font-medium">{source.name}</span>
@@ -339,10 +339,10 @@ export default function DataManagement() {
                   <TableBody>
                     {defaultTagMappings.map((mapping) => (
                       <TableRow key={mapping.id} className="border-gray-800 hover:bg-gray-800">
-                        <TableCell className="text-white font-mono">
+                        <TableCell className="text-gray-700 font-mono">
                           {mapping.sourceTag}
                         </TableCell>
-                        <TableCell className="text-white">
+                        <TableCell className="text-gray-700">
                           {mapping.displayName}
                         </TableCell>
                         <TableCell className="text-gray-300">

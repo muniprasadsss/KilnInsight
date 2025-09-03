@@ -177,7 +177,7 @@ export default function UserReporting() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Total Reports</p>
-                <p className="text-2xl font-bold text-white">247</p>
+                <p className="text-2xl font-bold text-gray-700">247</p>
               </div>
               <FileText className="text-3xl text-industrial-accent" />
             </div>
@@ -189,7 +189,7 @@ export default function UserReporting() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">This Month</p>
-                <p className="text-2xl font-bold text-white">23</p>
+                <p className="text-2xl font-bold text-gray-700">23</p>
                 <p className="text-xs text-status-normal">↑ 12% from last month</p>
               </div>
               <Calendar className="text-3xl text-status-normal" />
@@ -202,7 +202,7 @@ export default function UserReporting() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Templates</p>
-                <p className="text-2xl font-bold text-white">12</p>
+                <p className="text-2xl font-bold text-gray-700">12</p>
               </div>
               <FileText className="text-3xl text-black-200" />
             </div>
@@ -214,7 +214,7 @@ export default function UserReporting() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Dashboards</p>
-                <p className="text-2xl font-bold text-white">6</p>
+                <p className="text-2xl font-bold text-gray-700">6</p>
               </div>
               <Eye className="text-3xl text-black-200" />
             </div>
@@ -271,7 +271,7 @@ export default function UserReporting() {
                 <TableBody>
                   {recentReports.map((report) => (
                     <TableRow key={report.id} className="border-gray-800 hover:bg-gray-800">
-                      <TableCell className="text-white">
+                      <TableCell className="text-gray-700">
                         <div className="flex items-center space-x-2">
                           {getStatusIcon(report.status)}
                           <span>{report.name}</span>

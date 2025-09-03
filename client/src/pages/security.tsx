@@ -349,7 +349,7 @@ export default function Security() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Total Users</p>
-                <p className="text-2xl font-bold text-white">{systemUsers.length}</p>
+                <p className="text-2xl font-bold text-gray-700">{systemUsers.length}</p>
                 <p className="text-xs text-status-normal">
                   {systemUsers.filter(u => u.status === 'active').length} Active
                 </p>
@@ -364,7 +364,7 @@ export default function Security() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">MFA Enabled</p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-gray-700">
                   {systemUsers.filter(u => u.mfaEnabled).length}
                 </p>
                 <p className="text-xs text-black-200">
@@ -381,7 +381,7 @@ export default function Security() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Failed Logins</p>
-                <p className="text-2xl font-bold text-white">23</p>
+                <p className="text-2xl font-bold text-gray-700">23</p>
                 <p className="text-xs text-status-warning">Last 24 hours</p>
               </div>
               <AlertTriangle className="text-3xl text-status-warning" />
@@ -394,7 +394,7 @@ export default function Security() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-black-200 text-sm">Active Sessions</p>
-                <p className="text-2xl font-bold text-white">12</p>
+                <p className="text-2xl font-bold text-gray-700">12</p>
               </div>
               <Key className="text-3xl text-black-200" />
             </div>
@@ -508,7 +508,7 @@ export default function Security() {
                 <TableBody>
                   {systemUsers.map((user) => (
                     <TableRow key={user.id} className="border-gray-800 hover:bg-gray-800">
-                      <TableCell className="text-white">
+                      <TableCell className="text-gray-700">
                         <div className="flex items-center space-x-3">
                           {getStatusIcon(user.status)}
                           <div>
@@ -585,7 +585,7 @@ export default function Security() {
                         <div className="flex items-center justify-between mb-4">
                           <div>
                             <div className="flex items-center space-x-2">
-                              <h3 className="font-semibold text-white">{role.name}</h3>
+                              <h3 className="font-semibold text-gray-700">{role.name}</h3>
                               {role.system && (
                                 <Badge variant="outline" className="text-xs">
                                   System Role
@@ -654,7 +654,7 @@ export default function Security() {
                     }, {} as Record<string, Permission[]>)
                   ).map(([category, perms]) => (
                     <div key={category}>
-                      <h4 className="font-medium text-white mb-2">{category}</h4>
+                      <h4 className="font-medium text-gray-700 mb-2">{category}</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {perms.map((permission) => (
                           <div 
@@ -663,7 +663,7 @@ export default function Security() {
                           >
                             <div>
                               <div className="flex items-center space-x-2">
-                                <span className="font-mono text-sm text-white">{permission.name}</span>
+                                <span className="font-mono text-sm text-gray-700">{permission.name}</span>
                                 {permission.critical && (
                                   <AlertTriangle className="w-4 h-4 text-status-critical" />
                                 )}
@@ -721,10 +721,10 @@ export default function Security() {
                 <TableBody>
                   {auditLogs.map((log) => (
                     <TableRow key={log.id} className="border-gray-800 hover:bg-gray-800">
-                      <TableCell className="text-white font-mono text-sm">
+                      <TableCell className="text-gray-700 font-mono text-sm">
                         {log.timestamp.toLocaleString()}
                       </TableCell>
-                      <TableCell className="text-white">
+                      <TableCell className="text-gray-700">
                         {log.username}
                       </TableCell>
                       <TableCell className="text-gray-300">
@@ -772,7 +772,7 @@ export default function Security() {
                             onCheckedChange={(checked) => handleTogglePolicy(policy.id, checked)}
                           />
                           <div>
-                            <h3 className="font-semibold text-white">{policy.name}</h3>
+                            <h3 className="font-semibold text-gray-700">{policy.name}</h3>
                             <p className="text-sm text-black-200">{policy.description}</p>
                           </div>
                         </div>
@@ -790,7 +790,7 @@ export default function Security() {
                         {Object.entries(policy.settings).map(([key, value]) => (
                           <div key={key} className="flex justify-between">
                             <span className="text-black-200">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}:</span>
-                            <span className="font-mono text-white">
+                            <span className="font-mono text-gray-700">
                               {Array.isArray(value) ? value.join(', ') : String(value)}
                             </span>
                           </div>

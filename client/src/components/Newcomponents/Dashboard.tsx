@@ -262,27 +262,60 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">Feed Rate (t/hr)</TableCell>
                   <TableCell className="text-gray-700">FR-005</TableCell>
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
-                  <TableCell className="p-2">
+
+                  {/* BookText with tooltip */}
+                  <TableCell className="p-2 relative group">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
-                    hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
-                    transition-colors duration-200"
+                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
+                     transition-colors duration-200"
                       onClick={() => setIsNoteOpen(true)}
                     />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-0 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Notes
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
-                    <AlertTriangle onClick={() => setLocation("/anomaly")}
+
+                  {/* AlertTriangle with tooltip */}
+                  <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                    transition-colors duration-200" />
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-0 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
+
+                  {/* Bell with tooltip */}
+                  <TableCell className="p-2 relative group">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-red-600 hover:bg-red-600/10
-                    transition-colors duration-200"
+                     hover:border hover:border-red-600 hover:bg-red-600/10
+                     transition-colors duration-200"
                       onClick={() => setIsBellOpen(true)}
-                    /></TableCell>
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-0 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Alerts
+                    </span>
+                  </TableCell>
                 </TableRow>
 
                 <TableRow className="text-sm">
@@ -291,27 +324,57 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">Production (t/hr)</TableCell>
                   <TableCell className="text-gray-700">PH-112</TableCell>
                   <TableCell className="font-semibold text-red-600">Critical</TableCell>
-                  <TableCell className="p-2">
+
+                  <TableCell className="p-2 relative group">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
-                    hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
-                    transition-colors duration-200"
+                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
+                     transition-colors duration-200"
                       onClick={() => setIsNoteOpen(true)}
                     />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Notes
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
-                    <AlertTriangle onClick={() => setLocation("/anomaly")}
+
+                  <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                    transition-colors duration-200" />
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
+
+                  <TableCell className="p-2 relative group">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-red-600 hover:bg-red-600/10
-                    transition-colors duration-200"
+                     hover:border hover:border-red-600 hover:bg-red-600/10
+                     transition-colors duration-200"
                       onClick={() => setIsBellOpen(true)}
-                    /></TableCell>
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Alerts
+                    </span>
+                  </TableCell>
                 </TableRow>
 
                 <TableRow className="text-sm">
@@ -320,30 +383,61 @@ export default function Dashboard() {
                   <TableCell className="text-gray-700">O2 (%)</TableCell>
                   <TableCell className="text-gray-700">OP-605</TableCell>
                   <TableCell className="font-semibold text-yellow-600">Warning</TableCell>
-                  <TableCell className="p-2">
+
+                  <TableCell className="p-2 relative group">
                     <BookText
                       className="text-[#088fd1] cursor-pointer rounded-md p-1 
-                    hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
-                    transition-colors duration-200"
+                     hover:border hover:border-[#088fd1] hover:bg-[#088fd1]/10 
+                     transition-colors duration-200"
                       onClick={() => setIsNoteOpen(true)}
                     />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Notes
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
-                    <AlertTriangle onClick={() => setLocation("/anomaly")}
+
+                  <TableCell className="p-2 relative group">
+                    <AlertTriangle
+                      onClick={() => setLocation("/anomaly")}
                       className="text-yellow-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-yellow-600 hover:bg-yellow-600/10
-                    transition-colors duration-200" />
+                     hover:border hover:border-yellow-600 hover:bg-yellow-600/10
+                     transition-colors duration-200"
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Anomaly
+                    </span>
                   </TableCell>
-                  <TableCell className="p-2">
+
+                  <TableCell className="p-2 relative group">
                     <Bell
                       className="text-red-600 cursor-pointer rounded-md p-1
-                    hover:border hover:border-red-600 hover:bg-red-600/10
-                    transition-colors duration-200"
+                     hover:border hover:border-red-600 hover:bg-red-600/10
+                     transition-colors duration-200"
                       onClick={() => setIsBellOpen(true)}
-                    /></TableCell>
+                    />
+                    <span
+                      className="absolute left-1/2 -translate-x-[70%] bottom-full mb-1 
+                     hidden group-hover:block
+                     bg-gray-900 text-white text-xs rounded-md px-2 py-1
+                     whitespace-nowrap shadow-lg"
+                    >
+                      Alerts
+                    </span>
+                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
+
           </CardContent>
         </Card>
       </div>
@@ -591,7 +685,7 @@ export default function Dashboard() {
           <Card className="shadow-md w-full bg-white">
             <CardHeader className="p-2 font-medium">
               {/* <CardTitle></CardTitle> */}
-              Top Contributing Factors
+              Top Contributing Factors of Anomaly
             </CardHeader>
             <CardContent className="h-[220px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -653,7 +747,7 @@ export default function Dashboard() {
                   <span className="text-green-600 font-semibold">Running</span>
                 </p>
                 <button className="w-full bg-[#088fd1] text-white px-6 py-2 text-sm hover:bg-[#0678a8] hover:shadow-lg" onClick={() => setLocation("/optimization")}>
-                 Optimizer
+                  Optimizer
                 </button>
               </CardContent>
             </Card>

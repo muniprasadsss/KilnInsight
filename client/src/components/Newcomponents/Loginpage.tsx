@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { axiosInstance } from "../axiosinstance";
 import { useLocation } from "wouter";  // ✅ use wouter for navigation
-import logo from '../../../../public/logo-shot.png';
+import logo from '../../../public/logo-shot.png';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");

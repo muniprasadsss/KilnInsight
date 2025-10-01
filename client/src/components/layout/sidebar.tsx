@@ -16,27 +16,18 @@ import {
   Activity,
   Menu,
   Home,
-  SlidersHorizontal
+  SlidersHorizontal,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
+import React from "react";
+
 interface NavigationItem {
   path: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   badge?: number;
 }
-
-// const navigationItems: NavigationItem[] = [
-//   { path: "/", label: "Anomaly Dashboard", icon: AlertTriangle, badge: 3 },
-//   { path: "/sensors", label: "Sensor Dashboard", icon: Activity },
-//   { path: "/root-cause", label: "Root Cause Analysis", icon: Search },
-//   { path: "/alerts", label: "Alerts Center", icon: Bell, badge: 12 },
-//   { path: "/operations", label: "Operations Dashboard", icon: Gauge },
-//   { path: "/analytics", label: "Advanced Analytics", icon: BarChart3 },
-//   { path: "/reporting", label: "User Reporting", icon: FileText },
-//   { path: "/data-management", label: "Data Management", icon: Database },
-//   { path: "/notifications", label: "Notifications", icon: Mail },
-//   { path: "/security", label: "Security", icon: Shield },
-// ];
 
 const navigationItems: NavigationItem[] = [
   { path: "/dashboard", label: "Dashboard", icon: Home },
@@ -55,6 +46,7 @@ interface SidebarProps {
 
 export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) {
   const [location] = useLocation();
+  const [dashboardOpen, setDashboardOpen] = React.useState(false);
 
   return (
     <nav
@@ -82,6 +74,65 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
               const isActive = location === item.path;
               const Icon = item.icon;
 
+              // Special handling for Dashboard with submenus
+              if (item.path === "/dashboard") {
+                return (
+                  <li key={item.path}>
+                    <div
+                      className={cn(
+                        "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white justify-between",
+                        isActive ? "shadow-md" : "hover:text-white"
+                      )}
+                      style={isActive
+                        ? { backgroundColor: 'rgba(26, 79, 104, 1)', color: '#fff !important' }
+                        : {}
+                      }
+                    >
+                      <div
+                        className="flex items-center space-x-3"
+                        onClick={() => {
+                          window.location.href = item.path; // navigate to /dashboard
+                        }}
+                      >
+                        <Icon className="w-5 h-5 flex-shrink-0" />
+                        {!isCollapsed && <span className="truncate">{item.label}</span>}
+                      </div>
+
+                      {!isCollapsed && (
+                        <button
+                          className="ml-auto"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setDashboardOpen(!dashboardOpen);
+                          }}
+                        >
+                          {dashboardOpen ? <ChevronUp /> : <ChevronDown />}
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Submenus */}
+                    {dashboardOpen && !isCollapsed && (
+                      <ul className="ml-8 mt-1 space-y-1">
+                        <li
+                          className="p-2 text-sm text-white rounded hover:bg-white/20 cursor-pointer"
+                          onClick={() => window.open("https://powergen.visionaizesignalminer.com/dashboard/pulveriser-mills", "_blank")}
+                        >
+                          Pulveriser Mill
+                        </li>
+                        <li
+                          className="p-2 text-sm text-white rounded hover:bg-white/20 cursor-pointer"
+                          onClick={() => window.open("https://powergen.visionaizesignalminer.com/dashboard/fan", "_blank")}
+                        >
+                          Fan
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                );
+              }
+
+              // Regular menu items
               return (
                 <li key={item.path}>
                   <Link href={item.path}>
@@ -89,53 +140,12 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
                       className={cn(
                         "flex items-center p-3 rounded-lg transition-colors relative group cursor-pointer text-white",
                         isCollapsed ? "justify-center" : "space-x-3",
-                        isActive
-                          ? "shadow-md"
-                          : "hover:text-white"
+                        isActive ? "shadow-md" : "hover:text-white"
                       )}
-                      style={isActive
-                        ? { backgroundColor: 'rgba(26, 79, 104, 1)', color: '#fff !important' }
-                        : {}
-                      }
-                      onMouseEnter={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.backgroundColor = 'rgba(26, 79, 104, 1)';
-                          e.currentTarget.style.color = 'white !important';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.backgroundColor = '';
-                        }
-                      }}
-                      data-testid={`link-${item.path.replace('/', '') || 'home'}`}
+                      style={isActive ? { backgroundColor: 'rgba(26, 79, 104, 1)' } : {}}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
-                      {!isCollapsed && (
-                        <>
-                          <span className="truncate">{item.label}</span>
-                          {item.badge && (
-                            <Badge
-                              variant={item.badge > 10 ? "destructive" : "secondary"}
-                              className="ml-auto"
-                            >
-                              {item.badge}
-                            </Badge>
-                          )}
-                        </>
-                      )}
-
-                      {/* Tooltip for collapsed state */}
-                      {isCollapsed && (
-                        <div className="absolute left-full ml-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                          {item.label}
-                          {item.badge && (
-                            <span className="ml-2 notification-badge">
-                              {item.badge}
-                            </span>
-                          )}
-                        </div>
-                      )}
+                      {!isCollapsed && <span className="truncate">{item.label}</span>}
                     </div>
                   </Link>
                 </li>
@@ -143,7 +153,6 @@ export function Sidebar({ isCollapsed = false, onToggleSidebar }: SidebarProps) 
             })}
           </ul>
         </div>
-
       </div>
     </nav>
   );

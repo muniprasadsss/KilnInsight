@@ -403,12 +403,12 @@ export default function Security() {
       </div>
 
       {/* Main Security Management */}
-      <Tabs defaultValue="users" className="space-y-6">
-        <TabsList className="bg-industrial-card border border-gray-700">
-          <TabsTrigger value="users">User Management</TabsTrigger>
-          <TabsTrigger value="roles">Roles & Permissions</TabsTrigger>
-          <TabsTrigger value="audit">Audit Logs</TabsTrigger>
-          <TabsTrigger value="policies">Security Policies</TabsTrigger>
+      <Tabs defaultValue="users" className="space-y-6 w-full">
+        <TabsList className="w-full bg-industrial-card border border-gray-700 flex">
+          <TabsTrigger value="users" className="flex-1">User Management</TabsTrigger>
+          <TabsTrigger value="roles" className="flex-1">Roles & Permissions</TabsTrigger>
+          <TabsTrigger value="audit" className="flex-1">Audit Logs</TabsTrigger>
+          <TabsTrigger value="policies" className="flex-1">Security Policies</TabsTrigger>
         </TabsList>
 
         <TabsContent value="users">

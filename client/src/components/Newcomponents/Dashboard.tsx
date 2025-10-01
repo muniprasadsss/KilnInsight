@@ -690,7 +690,7 @@ export default function Dashboard() {
           <Card className="shadow-md w-full bg-white">
             <CardHeader className="p-2 font-medium">
               {/* <CardTitle></CardTitle> */}
-              Top Contributing Factors of Anomaly
+              Top Contributing Factors for Optimization
             </CardHeader>
             <CardContent className="h-[220px]">
               <ResponsiveContainer width="100%" height="100%">
